@@ -13,7 +13,7 @@
 <div class="panel panel-default">
 	<div class="panel-body">
 		<form class="form-horizontal" id="form1" method="post"
-			enctype="multipart/form-data" action="CustomerServlet">
+			enctype="multipart/form-data" action="customer.add">
 					<ul class="nav nav-tabs">
 						<li><button type="submit" class="btn btn-success"
 								form="form1" name="customerForm">Submit</button>&nbsp;&nbsp;&nbsp;</li>

@@ -14,4 +14,15 @@
     <servlet-name>NavigationController</servlet-name>
     <url-pattern>*.click</url-pattern>
   </servlet-mapping>
+  
+   <servlet>
+    <description></description>
+    <display-name>AddController</display-name>
+    <servlet-name>AddController</servlet-name>
+    <servlet-class>com.sahakari.controller.AddController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddController</servlet-name>
+    <url-pattern>*.add</url-pattern>
+  </servlet-mapping>
 </web-app>
