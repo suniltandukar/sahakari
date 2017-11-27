@@ -26,7 +26,9 @@
   <style type="text/css">
   	a {
     cursor: pointer;
-}
+}.hiddenscroll{overflow-y:hidden;}.bgcolor{
+background-color:#F5F5F5;}.panel-margin{
+width: 95%;margin:auto;}
   </style>
  <script src="assets/js/jquery.min.js"></script>
  <!-- jQuery 3 -->

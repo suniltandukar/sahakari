@@ -6,7 +6,7 @@
 <head>
 </head>
 <body>
-	<div class="panel panel-default">
+	<div class="panel panel-default panel-margin">
 		<div class="panel-body">
 			<form class="form-horizontal" id="form1" method="post"
 				enctype="multipart/form-data" action="customer.update">
