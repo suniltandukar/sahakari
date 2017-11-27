@@ -14,8 +14,7 @@
     <servlet-name>NavigationController</servlet-name>
     <url-pattern>*.click</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>AddController</display-name>
     <servlet-name>AddController</servlet-name>
@@ -24,5 +23,27 @@
   <servlet-mapping>
     <servlet-name>AddController</servlet-name>
     <url-pattern>*.add</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <description></description>
+    <display-name>UpdateController</display-name>
+    <servlet-name>UpdateController</servlet-name>
+    <servlet-class>com.sahakari.controller.UpdateController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateController</servlet-name>
+    <url-pattern>*.update</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <description></description>
+    <display-name>DeleteController</display-name>
+    <servlet-name>DeleteController</servlet-name>
+    <servlet-class>com.sahakari.controller.DeleteController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteController</servlet-name>
+    <url-pattern>*.del</url-pattern>
   </servlet-mapping>
 </web-app>

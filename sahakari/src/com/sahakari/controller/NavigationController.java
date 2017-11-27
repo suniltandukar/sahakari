@@ -38,5 +38,19 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_Form.jsp");
 			rd.forward(request, response);
 		}
+		else if(uri.endsWith("viewcustomer.click")){
+			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_View.jsp");
+			rd.forward(request, response);
+		}
+		else if(uri.endsWith("editcustomer.click")){
+			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_edit.jsp");
+			rd.forward(request, response);
+		}
+		else if(uri.endsWith("customereditdisplayform.click")){
+			String id=request.getParameter("id");
+			System.out.println(id);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_edit_displayform.jsp");
+			rd.forward(request, response);
+		}
 	}
 }

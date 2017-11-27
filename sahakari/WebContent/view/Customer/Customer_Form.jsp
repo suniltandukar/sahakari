@@ -1,12 +1,15 @@
-<link rel="import" href="include.jsp">
+<html>
+	<head><link rel="import" href="include.jsp">
+	</head>
+	<body>
+	
 <div class="breadcrumb-line">
 	<nav aria-label="breadcrumb" role="navigation">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><i class="fa fa-home"
 				aria-hidden="true"></i>&nbsp;<a href="#">Home</a></li>
 			<li class="breadcrumb-item active" aria-current="page">Customer</li>
-			<li class="breadcrumb-item active" aria-current="page">Add
-				Customer</li>
+			<li class="breadcrumb-item active" aria-current="page">Add Customer</li>
 		</ol>
 	</nav>
 </div>
@@ -551,3 +554,6 @@
 	$('#myModal').modal('show');
 <%}%>
 </script>
+</body>
+</html>
+

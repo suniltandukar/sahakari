@@ -164,7 +164,8 @@
                             <ul class="treeview-menu">
 
                                 <li><a href="customerinsert.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-                                <li><a href="CustomerServlet2?customerView" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>                                
+                                <li><a href="viewcustomer.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
+                                <li><a href="editcustomer.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
                             </ul>
                         </li>
                         
@@ -349,7 +350,7 @@
             </aside>
 
 
-            <div class="content-wrapper view" >
+            <div class="content-wrapper" >
                 <iframe height="1300px" width="100%" src="" id="Iframe" name="iframe_a">
                 </iframe>
             </div>
