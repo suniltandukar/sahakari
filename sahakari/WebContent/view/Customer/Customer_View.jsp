@@ -1,4 +1,4 @@
-<link rel="import" href="include.jsp">
+<jsp:include page="/includefile"></jsp:include>
 <html>
 <head>
 

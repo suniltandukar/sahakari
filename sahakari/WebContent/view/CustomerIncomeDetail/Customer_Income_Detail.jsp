@@ -1,13 +1,8 @@
-<%-- 
-    Document   : Customer_Income_Detail
-    Created on : Nov 2, 2017, 8:51:20 PM
-    Author     : Khatiwada
---%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:include page="/includefile"></jsp:include>
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="import" href="include.jsp"/>       
+       
     </head>
     <body>
         <div class="breadcrumb-line">

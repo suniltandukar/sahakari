@@ -1,5 +1,6 @@
+<jsp:include page="/includefile"></jsp:include>
 <html>
-	<head><link rel="import" href="include.jsp">
+	<head> 
 	</head>
 	<body>
 	

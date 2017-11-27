@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<link rel="import" href="include.jsp">
+<jsp:include page="/includefile"></jsp:include>
 <html>
 <head>
 </head>

@@ -1,10 +1,4 @@
-<%-- 
-    Document   : Customer_relation_office_detail
-    Created on : Nov 2, 2017, 9:21:54 PM
-    Author     : Khatiwada
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:include page="/includefile"></jsp:include>
 <!DOCTYPE html>
 <html>
     <head>

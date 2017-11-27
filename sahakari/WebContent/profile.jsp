@@ -1,9 +1,6 @@
-
-<!DOCTYPE html>
+<jsp:include page="/includefile"></jsp:include>
 <html lang="en-US" ng-app="myApp">
     <head>
-        <link rel="import" href="include.jsp">
-
     </head>
     <body   class="hold-transition skin-blue sidebar-mini" >
 
