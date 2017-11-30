@@ -6,10 +6,10 @@
 		<div class="panel-body">
 
 			<form class="form-horizontal" id="form1" method="post"
-				 action="customer.add">
+				 action="customerupdate.add">
 				<ul class="nav nav-tabs">
 					<li><button type="submit" class="btn btn-success" form="form1"
-							name="customerForm">Save</button>&nbsp;&nbsp;&nbsp;</li>
+							name="customerForm">Update</button>&nbsp;&nbsp;&nbsp;</li>
 					<li class="active"><a data-toggle="tab" data-target="#1">General
 							Information</a></li>
 					<li><a data-toggle="tab" data-target="#2">Additional
@@ -23,6 +23,7 @@
 							<tbody>
 								<tr>
 									<td>
+										<input type="text" value="${cdetail.pid }" name="pid">
 										<h5>Member Id</h5> <input type="text" class="form-control"
 										name="memberid" value="${cdetail.memberid}">
 									</td>
@@ -196,4 +197,5 @@
 			</form>
 		</div>
 	</div>
+	<script type="text/javascript" src="assets/js/dynamicselector.js"></script>
 	</c:if>

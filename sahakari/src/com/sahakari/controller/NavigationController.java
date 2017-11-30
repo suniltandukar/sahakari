@@ -71,6 +71,13 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 		}
 		else if(uri.endsWith("customereditdisplayform.click")){
+			GetFormOptions g=new GetFormOptions();
+			List<CustomerModel> statuslist=g.getStatus();
+			List<CustomerModel> typelist=g.getType();
+			List<CustomerModel> districtlist=g.getDistrict();
+			request.setAttribute("statuslist", statuslist);
+			request.setAttribute("typelist", typelist);
+			request.setAttribute("districtlist", districtlist);
 			String id=request.getParameter("id");
 			ViewDao v=new ViewDaoImpl();
 			CustomerModel c=v.viewSpecificCustomerDetail(id);

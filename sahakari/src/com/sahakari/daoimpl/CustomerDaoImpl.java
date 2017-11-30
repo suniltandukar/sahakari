@@ -247,4 +247,48 @@ public class CustomerDaoImpl implements CustomerDao {
 		
 		return false;
 	}
+	public boolean updateCustomer(String pid, CustomerModel cm, String clientdb){
+		String query="update customertbl set memberid=?, registrationDate=?, name=?, gender=?, pdistid=?, pvdcmunid=?, pwardno=?, pcity=?, ptole=?, tdistid=?, tvdcmunid=?, twardno=?, tcity=?,ttole=?,citizenshipNo=?,citizenshipIssuedFrom=?,telno=?, mobno=?,fatherName=?,spouseName=?,dob=?,typeid=?,statusid=?,inputter=?,authorizer=?,insertStatus=?, updateStatus=?, delStatus=? where pid='"+pid+"'";
+		try{
+			int i=0;
+			con=DBConnection.getConnectionNext(clientdb);
+			ps=con.prepareStatement(query);
+			ps.setString(1, cm.getMemberid());
+			ps.setString(2, cm.getRegistrationDate());
+			ps.setString(3, cm.getName());
+			ps.setString(4, cm.getGender());
+			ps.setString(5, cm.getPdistid());
+			ps.setString(6, cm.getPvdcmunid());
+			ps.setString(7, cm.getPwardno());
+			ps.setString(8, cm.getPcity());
+			ps.setString(9, cm.getPtole());
+			ps.setString(10, cm.getTdistid());
+			ps.setString(11, cm.getTvdcmunid());
+			ps.setString(12, cm.getTwardno());
+			ps.setString(13, cm.getTcity());
+			ps.setString(14, cm.getTtole());
+			ps.setString(15, cm.getCitizenshipNo());
+			ps.setString(16, cm.getCitizenshipIssuedFrom());
+			ps.setString(17, cm.getTelno());
+			ps.setString(18, cm.getMobno());
+			ps.setString(19, cm.getFatherName());
+			ps.setString(20, cm.getSpouseName());
+			ps.setString(21, cm.getDob());
+			ps.setString(22, cm.getTypeid());
+			ps.setString(23, cm.getStatusid());
+			ps.setString(24, cm.getInputter());
+			ps.setString(25, cm.getAuthorizer());
+			ps.setString(26, cm.getInsertStatus());
+			ps.setString(27, cm.getUpdateStatus());
+			ps.setString(28, cm.getDelStatus());
+			i=ps.executeUpdate();
+			if(i>0){
+				return true;
+			}
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+		
+	}
 }

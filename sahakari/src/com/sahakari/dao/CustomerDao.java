@@ -11,4 +11,6 @@ public interface CustomerDao {
 	public boolean insertCustomer(CustomerModel cm);
 
 	public boolean deleteCustomerDao(String pid);
+
+	public boolean updateCustomer(String pid,CustomerModel cm, String clientdb);
 }

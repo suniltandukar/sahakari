@@ -63,6 +63,7 @@ public class ViewDaoImpl implements ViewDao{
 			if(rs.next())
 			{
 				cust=new CustomerModel();
+				cust.setPid(rs.getString("pid"));
 				cust.setMemberid(rs.getString("memberid"));
 				cust.setRegistrationDate(rs.getString("registrationDate"));
 				cust.setName(rs.getString("Name"));
