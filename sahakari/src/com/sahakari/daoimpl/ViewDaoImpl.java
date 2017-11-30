@@ -32,14 +32,66 @@ public class ViewDaoImpl implements ViewDao{
 				cust=new CustomerModel();
 				cust.setMemberid(rs.getString("memberid"));
 				cust.setRegistrationDate(rs.getString("registrationDate"));
-				cust.setName(rs.getString("Name"));
-				cust.setGender(rs.getString("Gender"));
-				cust.setDob(rs.getString("Dob"));
-				cust.setTypeName(rs.getString("TypeName"));
-				cust.setStatusName(rs.getString("StatusName"));
+				cust.setName(rs.getString("name"));
+				cust.setGender(rs.getString("gender"));
+				cust.setDob(rs.getString("dob"));
+				cust.setTypeName(rs.getString("typeName"));
+				cust.setStatusName(rs.getString("statusName"));
 				list.add(cust);
 				
 				return list;
+			}
+		} catch (SQLException e) {
+			System.out.println("viewCustomerDetail");
+			e.printStackTrace();
+		}
+		
+		
+		return null;
+	}
+	public CustomerModel viewSpecificCustomerDetail(String id)
+	{
+		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl join typetbl on typetbl.typeid=customertbl.typeid join statustbl on statustbl.statusid=customertbl.statusid where customertbl.pid='"+id+"' ";
+		
+		try {
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			if(rs.next())
+			{
+				cust=new CustomerModel();
+				cust.setMemberid(rs.getString("memberid"));
+				cust.setRegistrationDate(rs.getString("registrationDate"));
+				cust.setName(rs.getString("Name"));
+				cust.setGender(rs.getString("Gender"));
+				cust.setPdistid(rs.getString("pdistid"));
+				cust.setPvdcmunid(rs.getString("pvdcmunid"));
+				cust.setPwardno(rs.getString("pwardno"));
+				cust.setPcity(rs.getString("pcity"));
+				cust.setPtole(rs.getString("ptole"));
+				cust.setTdistid(rs.getString("tdistid"));
+				cust.setTvdcmunid(rs.getString("tvdcmunid"));
+				cust.setTwardno(rs.getString("twardno"));
+				cust.setTcity(rs.getString("tcity"));
+				cust.setTtole(rs.getString("ttole"));
+				cust.setCitizenshipNo(rs.getString("citizenshipNo"));
+				cust.setCitizenshipIssuedFrom(rs.getString("citizenshipIssuedFrom"));
+				cust.setTelno(rs.getString("telno"));
+				cust.setMobno(rs.getString("mobno"));
+				cust.setFatherName(rs.getString("fatherName"));
+				cust.setSpouseName(rs.getString("spouseName"));
+				cust.setDob(rs.getString("dob"));
+				cust.setTypeid(rs.getString("typeid"));
+				cust.setTypeName(rs.getString("typeName"));
+				cust.setStatusid(rs.getString("statusid"));
+				cust.setStatusName(rs.getString("statusName"));
+				cust.setInputter(rs.getString("inputter"));
+				cust.setAuthorizer(rs.getString("authorizer"));
+				cust.setInsertStatus(rs.getString("insertStatus"));
+				cust.setUpdateStatus(rs.getString("updateStatus"));
+				cust.setDelStatus(rs.getString("delStatus"));
+				
+				return cust;
 			}
 		} catch (SQLException e) {
 			System.out.println("viewCustomerDetail");
