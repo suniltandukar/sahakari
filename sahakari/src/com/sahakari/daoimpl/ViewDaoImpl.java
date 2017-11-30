@@ -37,6 +37,7 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setDob(rs.getString("Dob"));
 				cust.setTypeName(rs.getString("TypeName"));
 				cust.setStatusName(rs.getString("StatusName"));
+				cust.setPid(rs.getString("pid"));
 				list.add(cust);
 				
 				return list;

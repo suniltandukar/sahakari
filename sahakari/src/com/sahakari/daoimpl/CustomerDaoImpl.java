@@ -226,4 +226,25 @@ public class CustomerDaoImpl implements CustomerDao {
 		}
 		return false;
 	}
+	public boolean deleteCustomerDao(String pid)
+	{
+		String clientdb="sahakarisystemdb";
+		int rs=0;
+		  con=DBConnection.getConnectionNext(clientdb);
+		String query="delete from customertbl where pid=?";
+		try {
+			ps=con.prepareStatement(query);
+			ps.setString(1, pid);
+			rs=ps.executeUpdate();
+			if(rs>0)
+			{
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("deleteCustomerDao");
+		}
+		
+		return false;
+	}
 }

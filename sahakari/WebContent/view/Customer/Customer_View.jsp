@@ -52,7 +52,7 @@
 						<td>${list.dob }</td>
 						<td>${list.typeName }</td>
 						<td>${list.statusName }</td>
-						<div class="dropdown">
+						<td><div class="dropdown">
 								<button class="btn btn-default dropdown-toggle" type="button"
 									data-toggle="dropdown">
 									Action <span class="caret"></span>
@@ -60,11 +60,12 @@
 								<ul class="dropdown-menu">
 									<li><a href="editcustomer.click" style="color: blue;"><i
 											class="fa fa-eye" aria-hidden="true"></i> Show Detail</a></li>
-									<li><a class="clickbtn" href="customer.del"
+									<li><a class="clickbtn" href="customer.del?id=${list.pid }"
 										style="color: red;"><i class="fa fa-trash-o"
 											aria-hidden="true"></i> Delete</a></li>
 								</ul>
-							</div></td>
+							</div>
+							</td>
 					</tr>
 					</c:forEach>
 				</tbody>
