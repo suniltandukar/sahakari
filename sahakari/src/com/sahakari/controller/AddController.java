@@ -64,10 +64,7 @@ public class AddController extends HttpServlet {
 		}
 		if(uri.endsWith("customerupdate.add")){
 			
-			ViewDao view=new ViewDaoImpl();
-			List<CustomerModel> list=view.viewCustomerDetail();
 			
-			request.setAttribute("list", list);
 			CustomerAction c=new CustomerAction();
 			c.updateCustomer(request,response);
 		}

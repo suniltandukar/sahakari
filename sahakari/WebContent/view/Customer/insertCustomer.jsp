@@ -226,6 +226,9 @@ h5 {
 	<%if(request.getAttribute("msg")!=null){%>
 	   $('#myModal').modal('show');
 	   <%}%>
+	   $('form').submit(function(){
+		  return confirm("CONFIRM?"); 
+	   });
 	
 	</script>
 </body>

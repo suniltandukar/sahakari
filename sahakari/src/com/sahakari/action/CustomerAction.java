@@ -1,6 +1,7 @@
 package com.sahakari.action;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sahakari.dao.CustomerDao;
+import com.sahakari.dao.ViewDao;
 import com.sahakari.daoimpl.CustomerDaoImpl;
+import com.sahakari.daoimpl.ViewDaoImpl;
 import com.sahakari.model.CustomerModel;
 
 public class CustomerAction {
@@ -183,6 +186,10 @@ public class CustomerAction {
 		else{
 			request.setAttribute("msg", "Update Failed!");
 		}
+		ViewDao view=new ViewDaoImpl();
+		List<CustomerModel> list=view.viewCustomerDetail();
+		
+		request.setAttribute("list", list);
 		RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_View.jsp");
 		try {
 			rd.forward(request, response);

@@ -198,4 +198,9 @@
 		</div>
 	</div>
 	<script type="text/javascript" src="assets/js/dynamicselector.js"></script>
+	<script>
+	 $('form').submit(function(){
+		  return confirm("CONFIRM?"); 
+	   });
+	</script>
 	</c:if>
