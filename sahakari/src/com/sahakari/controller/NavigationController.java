@@ -65,13 +65,17 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 		}
 		else if(uri.endsWith("editcustomer.click")){
+			String memberid=request.getParameter("memberid");
+			request.setAttribute("memberid", memberid);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_edit.jsp");
 			rd.forward(request, response);
 		}
 		else if(uri.endsWith("customereditdisplayform.click")){
 			String id=request.getParameter("id");
-			System.out.println(id);
-			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_edit_displayform.jsp");
+			ViewDao v=new ViewDaoImpl();
+			CustomerModel c=v.viewSpecificCustomerDetail(id);
+			request.setAttribute("cdetail", c);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/customerUpdateDisplayForm.jsp");
 			rd.forward(request, response);
 		}
 		else if(uri.endsWith("viewmuncipality.click")){

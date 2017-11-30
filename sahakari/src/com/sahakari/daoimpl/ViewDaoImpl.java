@@ -21,7 +21,8 @@ public class ViewDaoImpl implements ViewDao{
 	public List<CustomerModel> viewCustomerDetail()
 	{
 		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl join typetbl on typetbl.typeid=customertbl.typeid join statustbl on statustbl.statusid=customertbl.statusid ";
-		list=new ArrayList<CustomerModel>();
+		List<CustomerModel> list=new ArrayList<CustomerModel>();
+		CustomerModel cust=null;
 		try {
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
@@ -53,7 +54,7 @@ public class ViewDaoImpl implements ViewDao{
 	}
 	public CustomerModel viewSpecificCustomerDetail(String id)
 	{
-		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl join typetbl on typetbl.typeid=customertbl.typeid join statustbl on statustbl.statusid=customertbl.statusid where customertbl.pid='"+id+"' ";
+		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl join typetbl on typetbl.typeid=customertbl.typeid join statustbl on statustbl.statusid=customertbl.statusid where customertbl.memberid='"+id+"' ";
 		
 		try {
 			con=DBConnection.getConnection();

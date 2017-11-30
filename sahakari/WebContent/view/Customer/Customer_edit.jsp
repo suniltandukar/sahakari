@@ -17,13 +17,9 @@
 			<h6>
 				<strong>Insert Customer ID</strong>
 			</h6>
-			<%String itemcode= request.getParameter("id");%>
-			<%if(itemcode!=null){ %>
-			<input type="text" class="form-control itemcode" style="width: 20%;"
-				value="<%=itemcode%>">
-			<%}else{ %>
-			<input type="text" class="form-control itemcode" style="width: 20%;">
-			<%} %>
+			
+			<input type="text" class="form-control itemcode" value="${memberid}" style="width: 20%;">
+			
 			<br> <input type="submit" class="btn btn-info searchbtn"
 				value="SEARCH">
 		</div>

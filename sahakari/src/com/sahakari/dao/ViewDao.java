@@ -7,5 +7,6 @@ import com.sahakari.model.CustomerModel;
 public interface ViewDao {
 
 	public List<CustomerModel> viewCustomerDetail();
+	public CustomerModel viewSpecificCustomerDetail(String id);
 
 }

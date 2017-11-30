@@ -58,7 +58,7 @@
 									Action <span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="editcustomer.click" style="color: blue;"><i
+									<li><a href="editcustomer.click?memberid=${list.memberid}" style="color: blue;"><i
 											class="fa fa-eye" aria-hidden="true"></i> Show Detail</a></li>
 									<li><a class="clickbtn" href="customer.del?id=${list.pid }"
 										style="color: red;"><i class="fa fa-trash-o"

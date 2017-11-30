@@ -1,32 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
-<%@page import="java.sql.*"%>
-<jsp:include page="/includefile"></jsp:include>
-
-<html>
-<head>
-<style>
-h5 {
-	font-size: 80%;
-	font-weight: bold;
-}
-</style>
-</head>
-<body class="hiddenscroll bgcolor">
-
-	<div class="breadcrumb-line">
-		<nav aria-label="breadcrumb" role="navigation">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><i class="fa fa-home"
-					aria-hidden="true"></i>&nbsp;<a href="#">Home</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Customer</li>
-				<li class="breadcrumb-item active" aria-current="page">Add
-					Customer</li>
-			</ol>
-		</nav>
-	</div>
-	<div class="panel panel-default panel-margin">
+<c:if test="${cdetail!=null}">
+<div class="panel panel-default panel-margin">
 		<div class="panel-body">
 
 			<form class="form-horizontal" id="form1" method="post"
@@ -48,28 +24,28 @@ h5 {
 								<tr>
 									<td>
 										<h5>Member Id</h5> <input type="text" class="form-control"
-										name="memberid">
+										name="memberid" value="${cdetail.memberid}">
 									</td>
 									<td>
 										<h5>Registration Date</h5> <input type="text"
-										class="form-control" name="registrationDate">
+										class="form-control" name="registrationDate" value="${cdetail.registrationDate}">
 									</td>
 									<td>
 										<h5>Name</h5> <input type="text" class="form-control"
-										name="name">
+										name="name" value="${cdetail.name }">
 									</td>
 								</tr>
 								<tr>
 									<td>
 										<h5>Gender</h5> <select class="form-control" name="gender">
-											<option value="m">Male</option>
-											<option value="f">Female</option>
-											<option value="o">Other</option>
+											<option value="m"  >Male</option>
+											<option value="f" >Female</option>
+											<option value="o" >Other</option>
 									</select>
 									</td>
 									<td>
 										<h5>Citizenship No</h5> <input type="text"
-										class="form-control" name="citizenshipNo">
+										class="form-control" name="citizenshipNo" value="${cdetail.citizenshipNo }">
 									</td>
 									<td>
 										<h5>Citizenship Issued From</h5> <select class="form-control"
@@ -84,25 +60,25 @@ h5 {
 								<tr>
 									<td>
 										<h5>Telephone No</h5> <input type="text"
-										class="form-control" name="telno" maxlength="10">
+										class="form-control" name="telno" maxlength="10" value="${cdetail.telno }">
 									</td>
 									<td>
 										<h5>Mobile No</h5> <input type="text" class="form-control"
-										name="mobno" maxlength="10">
+										name="mobno" maxlength="10" value="${cdetail.mobno }">
 									</td>
 									<td>
 										<h5>Father's Name</h5> <input type="text" class="form-control"
-										name="fatherName" >
+										name="fatherName" value="${cdetail.fatherName }">
 									</td>
 								</tr>
 								<tr>
 									<td>
 										<h5>Spouse Name</h5> <input type="text"
-										class="form-control" name="spouseName" >
+										class="form-control" name="spouseName" value="${cdetail.spouseName }" >
 									</td>
 									<td>
 										<h5>Date of birth (DOB)</h5> <input type="text" class="form-control"
-										name="dob" >
+										name="dob" value="${cdetail.dob }" >
 									</td>
 								</tr>
 								<tr>
@@ -135,7 +111,7 @@ h5 {
 									<td>
 										<h5>District</h5> <select class="form-control pdistrict"
 										name="pdistid">
-											<option value="">Select District</option>
+											<option value="0">Select District</option>
 											<c:forEach items="${districtlist}" var="district">
 												<option value="${district.districtCode }">${district.districtName }</option>
 											</c:forEach>
@@ -144,24 +120,24 @@ h5 {
 									<td>
 										<h5>VDC/Muncipality</h5> <select type="text" class="form-control pvdcmun"
 										name="pvdcmunid">
-											<option value="">Select VDC/Muncipality</option>
+											<option value="0">Select VDC/Muncipality</option>
 										</select>
 									</td>
 									<td>
 										<h5>Ward No.</h5> <select type="text" class="form-control pwardno"
 										name="pwardno">
-											<option value="">Select Ward No</option>
+											<option value="0">Select Ward No</option>
 										</select>
 									</td>
 								</tr>
 								<tr>
 									<td>
 										<h5>City</h5> <input type="text" class="form-control"
-										name="pcity">
+										name="pcity" value="${cdetail.pcity }">
 									</td>
 									<td>
 										<h5>Tole</h5> <input type="text" class="form-control"
-										name="ptole">
+										name="ptole" value="${cdetail.ptole }">
 									</td>
 								</tr>
 							</tbody>
@@ -173,7 +149,7 @@ h5 {
 									<td>
 										<h5>District</h5> <select class="form-control tdistrict"
 										name="tdistid">
-											<option value="">Select District</option>
+											<option value="0">Select District</option>
 											<c:forEach items="${districtlist}" var="district">
 												<option value="${district.districtCode }">${district.districtName }</option>
 											</c:forEach>
@@ -182,24 +158,24 @@ h5 {
 									<td>
 										<h5>VDC/Muncipality</h5> <select type="text" class="form-control tvdcmun"
 										name="tvdcmunid">
-											<option value="">Select VDC/Muncipality</option>
+											<option value="0">Select VDC/Muncipality</option>
 										</select>
 									</td>
 									<td>
 										<h5>Ward No.</h5> <select type="text" class="form-control twardno"
 										name="twardno">
-											<option value="">Select Ward No</option>
+											<option value="0">Select Ward No</option>
 										</select>
 									</td>
 								</tr>
 								<tr>
 									<td>
 										<h5>City</h5> <input type="text" class="form-control"
-										name="tcity">
+										name="tcity" value="${cdetail.tcity }">
 									</td>
 									<td>
 										<h5>Tole</h5> <input type="text" class="form-control"
-										name="ttole">
+										name="ttole" value="${cdetail.ttole }">
 									</td>
 								</tr>
 							</tbody>
@@ -220,13 +196,4 @@ h5 {
 			</form>
 		</div>
 	</div>
-	<jsp:include page="/msgmodal"></jsp:include>
-	<script type="text/javascript" src="assets/js/dynamicselector.js"></script>
-	<script>
-	<%if(request.getAttribute("msg")!=null){%>
-	   $('#myModal').modal('show');
-	   <%}%>
-	
-	</script>
-</body>
-</html>
+	</c:if>
