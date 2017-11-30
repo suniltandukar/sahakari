@@ -9,4 +9,6 @@ public interface CustomerDao {
 	public int customerForm(CustomerModal modal1) throws SQLException;
 
 	public boolean insertCustomer(CustomerModel cm);
+
+	public boolean deleteCustomerDao(String pid);
 }

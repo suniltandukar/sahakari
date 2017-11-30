@@ -32,11 +32,13 @@ public class ViewDaoImpl implements ViewDao{
 				cust=new CustomerModel();
 				cust.setMemberid(rs.getString("memberid"));
 				cust.setRegistrationDate(rs.getString("registrationDate"));
-				cust.setName(rs.getString("name"));
-				cust.setGender(rs.getString("gender"));
-				cust.setDob(rs.getString("dob"));
-				cust.setTypeName(rs.getString("typeName"));
-				cust.setStatusName(rs.getString("statusName"));
+
+				cust.setName(rs.getString("Name"));
+				cust.setGender(rs.getString("Gender"));
+				cust.setDob(rs.getString("Dob"));
+				cust.setTypeName(rs.getString("TypeName"));
+				cust.setStatusName(rs.getString("StatusName"));
+				cust.setPid(rs.getString("pid"));
 				list.add(cust);
 				
 				return list;

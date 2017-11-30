@@ -90,6 +90,27 @@ public class CustomerAction {
 			e.printStackTrace();
 		}
 	}
+
+	public void deleteCustomer(HttpServletRequest request,
+			HttpServletResponse response) {
+		String pid=request.getParameter("id");
+		
+		CustomerDao dao=new CustomerDaoImpl();
+		boolean status=dao.deleteCustomerDao(pid);
+		if(status){
+			request.setAttribute("msg", "Customer Deletion Successful!");
+		}
+		else{
+			request.setAttribute("msg", "Customer Deletion Failed!");
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_View.jsp");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 
 }
