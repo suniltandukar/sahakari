@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <jsp:include page="/includefile"></jsp:include>
 <html>
 <head>
@@ -26,25 +29,30 @@
 				cellspacing="0" width="100%">
 				<thead>
 					<tr>
-						<th>Header</th>
-						<th>Header</th>
-						<th>Header</th>
-						<th>Header</th>
-						<th>Header</th>
-						<th>Header</th>
+						<th>Member Id</th>
+						<th>Name</th>
+						<th>Registration Date</th>
+						<th>Gender</th>
+						<th>Date of Birth</th>
+						<th>Type Name</th>
+						<th>Status Name</th>
 						<th><i class="fa fa-cog" aria-hidden="true"></i></th>
 					</tr>
 				</thead>
 				<tbody>
 
+				<c:forEach items="${list}" var="list">
+											
 					<tr>
-						<td><a href=""></a></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td><div class="dropdown">
+						
+						<td>${list.memberid }</td>
+						<td>${list.name }</td>
+						<td>${list.registrationDate }</td>
+						<td>${list.gender }</td>
+						<td>${list.dob }</td>
+						<td>${list.typeName }</td>
+						<td>${list.statusName }</td>
+						<div class="dropdown">
 								<button class="btn btn-default dropdown-toggle" type="button"
 									data-toggle="dropdown">
 									Action <span class="caret"></span>
@@ -58,6 +66,7 @@
 								</ul>
 							</div></td>
 					</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>

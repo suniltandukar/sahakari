@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.tomcat.jdbc.pool.DataSource;
 
 import com.sahakari.action.GetFormOptions;
+import com.sahakari.dao.ViewDao;
+import com.sahakari.daoimpl.ViewDaoImpl;
 import com.sahakari.model.CustomerModel;
 /**
  * Servlet implementation class NavigationController
@@ -54,6 +56,11 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 		}
 		else if(uri.endsWith("viewcustomer.click")){
+			
+			ViewDao view=new ViewDaoImpl();
+			List<CustomerModel> list=view.viewCustomerDetail();
+			
+			request.setAttribute("list", list);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_View.jsp");
 			rd.forward(request, response);
 		}
@@ -77,5 +84,6 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 			
 		}
+	
 	}
 }
