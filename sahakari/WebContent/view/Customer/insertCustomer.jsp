@@ -73,8 +73,13 @@ h5 {
 										class="form-control" name="citizenshipNo">
 									</td>
 									<td>
-										<h5>Citizenship Issued From</h5> <input type="text" class="form-control"
+										<h5>Citizenship Issued From</h5> <select class="form-control"
 										name="citizenshipIssuedFrom">
+										<option value="">Select District</option>
+											<c:forEach items="${districtlist}" var="district">
+												<option value="${district.districtCode }">${district.districtName }</option>
+											</c:forEach>
+										</select>
 									</td>
 								</tr>
 								<tr>
@@ -216,6 +221,13 @@ h5 {
 			</form>
 		</div>
 	</div>
+	<jsp:include page="/msgmodal"></jsp:include>
 	<script type="text/javascript" src="assets/js/dynamicselector.js"></script>
+	<script>
+	<%if(request.getAttribute("msg")!=null){%>
+	   $('#myModal').modal('show');
+	   <%}%>
+	
+	</script>
 </body>
 </html>

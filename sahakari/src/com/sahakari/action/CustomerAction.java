@@ -1,5 +1,9 @@
 package com.sahakari.action;
 
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -42,7 +46,49 @@ public class CustomerAction {
 		insertStatus="abc";
 		updateStatus="abc";
 		delStatus="abc";
+		cm.setMemberid(memberid);
+		cm.setRegistrationDate(registrationDate);
+		cm.setName(name);
+		cm.setGender(gender);
+		cm.setPdistid(pdistid);
+		cm.setPvdcmunid(pvdcmunid);
+		cm.setPwardno(pwardno);
+		cm.setPcity(pcity);
+		cm.setPtole(ptole);
+		cm.setTdistid(tdistid);
+		cm.setTvdcmunid(tvdcmunid);
+		cm.setTwardno(twardno);
+		cm.setTcity(tcity);
+		cm.setTtole(ttole);
+		cm.setCitizenshipNo(citizenshipNo);
+		cm.setCitizenshipIssuedFrom(citizenshipIssuedFrom);
+		cm.setTelno(telno);
+		cm.setMobno(mobno);
+		cm.setFatherName(fatherName);
+		cm.setSpouseName(spouseName);
+		cm.setDob(dob);
+		cm.setTypeid(typeid);
+		cm.setStatusid(statusid);
+		cm.setInputter(inputter);
+		cm.setAuthorizer(authorizer);
+		cm.setInsertStatus(insertStatus);
+		cm.setUpdateStatus(updateStatus);
+		cm.setDelStatus(delStatus);
+		
+		
 		boolean status=c.insertCustomer(cm);
+		if(status){
+			request.setAttribute("msg", "Customer Insert Successful!");
+		}
+		else{
+			request.setAttribute("msg", "Customer Insert Failed!");
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("view/Customer/insertCustomer.jsp");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 

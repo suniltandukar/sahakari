@@ -13,6 +13,14 @@
     <url-pattern>/includefile</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>msgmodal</servlet-name>
+    <jsp-file>/modal.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>msgmodal</servlet-name>
+    <url-pattern>/msgmodal</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <description></description>
     <display-name>NavigationController</display-name>
     <servlet-name>NavigationController</servlet-name>
