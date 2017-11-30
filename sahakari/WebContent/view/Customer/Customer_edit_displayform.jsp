@@ -4,6 +4,10 @@
 <jsp:include page="/includefile"></jsp:include>
 <html>
 <head>
+	<style>
+		label{
+		font-size:80%;}
+	</style>
 </head>
 <body>
 	<div class="panel panel-default panel-margin">
@@ -123,26 +127,13 @@
 							</tr>
 							<tr>
 								<td><label for="usrname">MARITAL STATUS</label>
-									<div class="radio">
-										<label> <input type="radio" name="maritalStatus"
-											id="married" value="married" /> MARRIED
-										</label>
-									</div>
-									<div class="radio">
-										<label> <input type="radio" name="maritalStatus"
-											id="unmarried" value="unmarried" /> UNMARRIED
-										</label>
-									</div>
-									<div class="radio">
-										<label> <input type="radio" name="maritalStatus"
-											id="divorced" value="divorced" /> DIVORCED
-										</label>
-									</div>
-									<div class="radio">
-										<label> <input type="radio" name="maritalStatus"
-											id="widowed" value="widowed" /> WIDOWED
-										</label>
-									</div></td>
+									<select name="maritalStatus" class="form-control">
+										<option value="married">MARRIED</option>
+										<option value="unmarried">UNMARRIED</option>
+										<option value="divorced">DIVORCED</option>
+										<option value="widowed">WIDOWED</option>
+									</select>
+									</td>
 								<td><label for="usrname">NUMBER OF DEPENDENTS</label> <input
 									class="form-control" type="text" name="numberOfDependents" />
 								</td>
@@ -188,16 +179,11 @@
 								<td><label for="usrname">NET MONTHLY OUT</label> <input
 									class="form-control" type="text" name="netMonthlyOut" /></td>
 								<td><label for="usrname">RESIDENCE STATUS</label>
-									<div class="radio">
-										<label> <input type="radio" name="residenceStatus"
-											id="permanent" value="permanent" /> PERMANENT
-										</label>
-									</div>
-									<div class="radio">
-										<label> <input type="radio" name="residenceStatus"
-											id="temporary" value="temporary" /> TEMPORARY
-										</label>
-									</div></td>
+									<select name="residenceStatus" class="form-control">
+										<option value="permanent">PERMANENT</option>
+										<option value="temporary">TEMPORARY</option>
+									</select>
+									</td>
 							</tr>
 							<tr>
 								<td><label for="usrname">RESIDENCE SINCE</label> <input
@@ -264,16 +250,11 @@
 								<td><label for="familyName">FAMILY NAME</label> <input
 									class="form-control" type="text" name="familyName" /></td>
 								<td><label for="gender">GENDER</label>
-									<div class="radio">
-										<label> <input type="radio" name="gender" id="male"
-											value="male" /> MALE
-										</label>
-									</div>
-									<div class="radio">
-										<label> <input type="radio" name="gender" id="female"
-											value="female" /> FEMALE
-										</label>
-									</div></td>
+								<select name="gender" class="form-control">
+									<option value="male">MALE</option>
+									<option value="female">FEMALE</option>
+									<option value="other">OTHER</option>
+								</select>
 								<td><label for="commType">COMM TYPE</label> <input
 									class="form-control" type="text" name="commType" /></td>
 							</tr>
@@ -408,31 +389,21 @@
 								<td><label for="kycComplete">KYC COMPLETE</label> <input
 									class="form-control" type="text" name="kycComplete" /></td>
 								<td><label for="interestBankingService">INTEREST
-										BANKING SERVICE</label>
-									<div class="radio">
-										<label> <input type="radio"
-											name="interestBankingService" id="yes" value="yes" /> YES
-										</label>
-									</div>
-									<div class="radio">
-										<label> <input type="radio"
-											name="interestBankingService" id="no" value="no" /> NO
-										</label>
-									</div></td>
+										BANKING SERVICE</label> 
+										<select class="form-control" name="interestBankingService">
+											<option value="yes">YES</option>
+											<option value="no">NO</option>
+										</select>
+									</td>
 							</tr>
 							<tr>
 								<td><label for="mobileBankingService">MOBILE
 										BANKING SERVICE</label>
-									<div class="radio">
-										<label> <input type="radio"
-											name="mobileBankingService" id="yesm" value="yesm" /> YES
-										</label>
-									</div>
-									<div class="radio">
-										<label> <input type="radio"
-											name="mobileBankingService" id="nom" value="nom" /> NO
-										</label>
-									</div></td>
+										<select class="form-control" name="mobileBankingService">
+											<option value="yes">YES</option>
+											<option value="no">NO</option>
+										</select>
+									</td>
 								<td><label for="usrname">Image</label> <input
 									class="form-control" type="file" name="image" /><br></td>
 							</tr>
