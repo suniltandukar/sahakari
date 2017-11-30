@@ -74,7 +74,7 @@ h5 {
 									<td>
 										<h5>Citizenship Issued From</h5> <select class="form-control"
 										name="citizenshipIssuedFrom">
-										<option value="">Select District</option>
+										<option value="0">Select District</option>
 											<c:forEach items="${districtlist}" var="district">
 												<option value="${district.districtCode }">${district.districtName }</option>
 											</c:forEach>
@@ -109,7 +109,7 @@ h5 {
 									<td>
 										<h5>Type</h5> <select class="form-control"
 										name="typeid" >
-											<option value="">Select Type</option>
+											<option value="0">Select Type</option>
 											<c:forEach items="${typelist}" var="type">
 												<option value="${type.typeid}">${type.typeName}</option>
 											</c:forEach>
@@ -119,7 +119,7 @@ h5 {
 									<td>
 										<h5>Status</h5> <select class="form-control"
 										name="statusid">
-										<option value="">Select Status</option>
+										<option value="0">Select Status</option>
 											<c:forEach items="${statuslist}" var="status">
 												<option value="${status.statusid}">${status.statusName}</option>
 											</c:forEach>
@@ -135,7 +135,7 @@ h5 {
 									<td>
 										<h5>District</h5> <select class="form-control pdistrict"
 										name="pdistid">
-											<option value="">Select District</option>
+											<option value="0">Select District</option>
 											<c:forEach items="${districtlist}" var="district">
 												<option value="${district.districtCode }">${district.districtName }</option>
 											</c:forEach>
@@ -144,13 +144,13 @@ h5 {
 									<td>
 										<h5>VDC/Muncipality</h5> <select type="text" class="form-control pvdcmun"
 										name="pvdcmunid">
-											<option value="">Select VDC/Muncipality</option>
+											<option value="0">Select VDC/Muncipality</option>
 										</select>
 									</td>
 									<td>
 										<h5>Ward No.</h5> <select type="text" class="form-control pwardno"
 										name="pwardno">
-											<option value="">Select Ward No</option>
+											<option value="0">Select Ward No</option>
 										</select>
 									</td>
 								</tr>
@@ -173,7 +173,7 @@ h5 {
 									<td>
 										<h5>District</h5> <select class="form-control tdistrict"
 										name="tdistid">
-											<option value="">Select District</option>
+											<option value="0">Select District</option>
 											<c:forEach items="${districtlist}" var="district">
 												<option value="${district.districtCode }">${district.districtName }</option>
 											</c:forEach>
@@ -182,13 +182,13 @@ h5 {
 									<td>
 										<h5>VDC/Muncipality</h5> <select type="text" class="form-control tvdcmun"
 										name="tvdcmunid">
-											<option value="">Select VDC/Muncipality</option>
+											<option value="0">Select VDC/Muncipality</option>
 										</select>
 									</td>
 									<td>
 										<h5>Ward No.</h5> <select type="text" class="form-control twardno"
 										name="twardno">
-											<option value="">Select Ward No</option>
+											<option value="0">Select Ward No</option>
 										</select>
 									</td>
 								</tr>

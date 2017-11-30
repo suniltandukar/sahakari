@@ -23,7 +23,7 @@
 							<tbody>
 								<tr>
 									<td>
-										<input type="text" value="${cdetail.pid }" name="pid">
+										<input type="hidden" value="${cdetail.pid }" name="pid">
 										<h5>Member Id</h5> <input type="text" class="form-control"
 										name="memberid" value="${cdetail.memberid}">
 									</td>
@@ -51,7 +51,7 @@
 									<td>
 										<h5>Citizenship Issued From</h5> <select class="form-control"
 										name="citizenshipIssuedFrom">
-										<option value="">Select District</option>
+										<option value="0">Select District</option>
 											<c:forEach items="${districtlist}" var="district">
 												<option value="${district.districtCode }">${district.districtName }</option>
 											</c:forEach>
@@ -86,7 +86,7 @@
 									<td>
 										<h5>Type</h5> <select class="form-control"
 										name="typeid" >
-											<option value="">Select Type</option>
+											<option value="0">Select Type</option>
 											<c:forEach items="${typelist}" var="type">
 												<option value="${type.typeid}">${type.typeName}</option>
 											</c:forEach>
@@ -96,7 +96,7 @@
 									<td>
 										<h5>Status</h5> <select class="form-control"
 										name="statusid">
-										<option value="">Select Status</option>
+										<option value="0">Select Status</option>
 											<c:forEach items="${statuslist}" var="status">
 												<option value="${status.statusid}">${status.statusName}</option>
 											</c:forEach>
