@@ -27,7 +27,7 @@ public class ViewDaoImpl implements ViewDao{
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
-			if(rs.next())
+			while(rs.next())
 			{
 				
 				cust=new CustomerModel();
@@ -41,7 +41,11 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setStatusName(rs.getString("StatusName"));
 				cust.setPid(rs.getString("pid"));
 				list.add(cust);
-				
+			}
+			if(list.size()>0){
+				con.close();
+				rs=null;
+				ps=null;
 				return list;
 			}
 		} catch (SQLException e) {
