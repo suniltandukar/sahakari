@@ -1,5 +1,8 @@
 package com.sahakari.controller;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.util.List;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -7,6 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.tomcat.jdbc.pool.DataSource;
+
+import com.sahakari.action.GetFormOptions;
+import com.sahakari.model.CustomerModel;
 /**
  * Servlet implementation class NavigationController
  */
@@ -35,7 +43,14 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 		}
 		else if(uri.endsWith("customerinsert.click")){
-			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_Form.jsp");
+			GetFormOptions g=new GetFormOptions();
+			List<CustomerModel> statuslist=g.getStatus();
+			List<CustomerModel> typelist=g.getType();
+			List<CustomerModel> districtlist=g.getDistrict();
+			request.setAttribute("statuslist", statuslist);
+			request.setAttribute("typelist", typelist);
+			request.setAttribute("districtlist", districtlist);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/insertCustomer.jsp");
 			rd.forward(request, response);
 		}
 		else if(uri.endsWith("viewcustomer.click")){
@@ -51,6 +66,16 @@ public class NavigationController extends HttpServlet {
 			System.out.println(id);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_edit_displayform.jsp");
 			rd.forward(request, response);
+		}
+		else if(uri.endsWith("viewmuncipality.click")){
+			RequestDispatcher rd=request.getRequestDispatcher("view/onselectpages/viewMuncipality.jsp");
+			rd.forward(request, response);
+			
+		}
+		else if(uri.endsWith("viewwardno.click")){
+			RequestDispatcher rd=request.getRequestDispatcher("view/onselectpages/viewWardNo.jsp");
+			rd.forward(request, response);
+			
 		}
 	}
 }

@@ -4,9 +4,10 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.mysql.jdbc.Connection;
-import com.sahakari.connection.DbConnection;
 import com.sahakari.dao.CustomerDao;
+import com.sahakari.dbconnection.DBConnection;
 import com.sahakari.model.CustomerModal;
+import com.sahakari.model.CustomerModel;
 
 public class CustomerDaoImpl implements CustomerDao {
 	PreparedStatement ps=null;
@@ -16,7 +17,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	public int customerForm(CustomerModal modal1) throws SQLException  {
         int success = 0;
         System.out.print("insert vitra daoma");
-        con=DbConnection.getConnection();
+        con=DBConnection.getConnection();
 
         String query = "insert into customertable1 values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement pst = con.prepareStatement(query);
@@ -180,4 +181,15 @@ public class CustomerDaoImpl implements CustomerDao {
         return success;
 
     }
+	public boolean insertCustomer(CustomerModel cm){
+		String query="insert into customertbl ";
+		try{
+			ps=con.prepareStatement(query);
+			ps.executeQuery();
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
 }

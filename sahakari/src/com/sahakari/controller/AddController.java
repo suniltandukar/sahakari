@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sahakari.action.CustomerAction;
-
 /**
  * Servlet implementation class AddController
  */
@@ -27,7 +26,7 @@ public class AddController extends HttpServlet {
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri=request.getRequestURI();
-		if(uri.endsWith("customer.add")){
+		/*if(uri.endsWith("customer.add")){
 			CustomerAction c=new CustomerAction();
 			int status=0;
 			String msg="";
@@ -46,6 +45,10 @@ public class AddController extends HttpServlet {
 			request.setAttribute("msg", msg);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_Form.jsp");
 			rd.forward(request, response);
+		}*/
+		if(uri.endsWith("customer.add")){
+			CustomerAction c=new CustomerAction();
+			c.addCustomer(request,response);
 		}
 	}
 

@@ -1,35 +1,69 @@
-$(document).ready(function()
+	$(document).ready(function()
 			{
-		$(".district").change(function()
+		$(".pdistrict").change(function()
 		{
 		var id=$(this).val();
 		var dataString = 'id='+ id;
 		$.ajax
 		({
 		type: "POST",
-		url: "view/onselectpages/viewMuncipality.jsp",
+		url: "viewmuncipality.click",
 		data: dataString,
 		cache: false,
 		success: function(html)
 		{
-		$(".vdcmun").html(html);
+		$(".pvdcmun").html(html);
 		} 
 		});
-		});
-		$(".vdcmun").change(function()
+});
+		$(".pvdcmun").change(function()
 				{
 				var id=$(this).val();
 				var dataString = 'id='+ id;
 				$.ajax
 				({
 				type: "POST",
-				url: "view/onselectpages/viewWardNo.jsp",
+				url: "viewwardno.click",
 				data: dataString,
 				cache: false,
 				success: function(html)
 				{
-				$(".wardno").html(html);
+				$(".pwardno").html(html);
+				} 
+				});
+				});
+		
+		$(".tdistrict").change(function()
+		{
+		var id=$(this).val();
+		var dataString = 'id='+ id;
+		$.ajax
+		({
+		type: "POST",
+		url: "viewmuncipality.click",
+		data: dataString,
+		cache: false,
+		success: function(html)
+		{
+		$(".tvdcmun").html(html);
+		} 
+		});
+});
+		$(".tvdcmun").change(function()
+				{
+				var id=$(this).val();
+				var dataString = 'id='+ id;
+				$.ajax
+				({
+				type: "POST",
+				url: "viewwardno.click",
+				data: dataString,
+				cache: false,
+				success: function(html)
+				{
+				$(".twardno").html(html);
 				} 
 				});
 				});
 		});
+	

@@ -1,13 +1,45 @@
 package com.sahakari.model;
 
 public class CustomerModel {
-	String pid, memberid, registrationDate, name,
+	String districtCode, districtName, pid, memberid, registrationDate, name,
 	gender, pdistid,
 	pvdcmunid, pwardno, pcity, ptole, tdistid,
 	tvdcmunid, twardno, tcity,
 	ttole, citizenshipNo, citizenshipIssuedFrom,
-	telno, mobno, fatherName, spouseName, dob, typeid, statusid, inputter, authorizer,
+	telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer,
 	insertStatus, updateStatus, delStatus;
+
+	public String getDistrictCode() {
+		return districtCode;
+	}
+
+	public void setDistrictCode(String districtCode) {
+		this.districtCode = districtCode;
+	}
+
+	public String getDistrictName() {
+		return districtName;
+	}
+
+	public void setDistrictName(String districtName) {
+		this.districtName = districtName;
+	}
+
+	public String getTypeName() {
+		return typeName;
+	}
+
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
+	}
+
+	public String getStatusName() {
+		return statusName;
+	}
+
+	public void setStatusName(String statusName) {
+		this.statusName = statusName;
+	}
 
 	public String getPid() {
 		return pid;
@@ -240,6 +272,8 @@ public class CustomerModel {
 	public void setDelStatus(String delStatus) {
 		this.delStatus = delStatus;
 	}
+
+	
 
 	
 }
