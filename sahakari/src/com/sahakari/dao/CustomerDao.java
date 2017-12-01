@@ -13,4 +13,11 @@ public interface CustomerDao {
 	public boolean deleteCustomerDao(String pid);
 
 	public boolean updateCustomer(String pid,CustomerModel cm, String clientdb);
+
+	public boolean insertCustomerJob(CustomerModel cm);
+
+	public boolean insertCustomerFamily(CustomerModel cm);
+
+	public boolean insertCustomerBank(CustomerModel cm);
+
 }

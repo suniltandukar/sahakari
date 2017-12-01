@@ -2,6 +2,7 @@ package com.sahakari.daoimpl;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import com.mysql.jdbc.Connection;
 import com.sahakari.dao.CustomerDao;
@@ -12,7 +13,7 @@ import com.sahakari.model.CustomerModel;
 public class CustomerDaoImpl implements CustomerDao {
 	PreparedStatement ps=null;
 	Connection con=null;
-	
+	Statement stmt=null;
 	
 	public int customerForm(CustomerModal modal1) throws SQLException  {
         int success = 0;
@@ -202,7 +203,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(12, cm.getTwardno());
 			ps.setString(13, cm.getTcity());
 			ps.setString(14, cm.getTtole());
-			ps.setString(15, cm.getCitizenshipNo());
+			ps.setString(15, cm.getCusCitizenshipNo());
 			ps.setString(16, cm.getCitizenshipIssuedFrom());
 			ps.setString(17, cm.getTelno());
 			ps.setString(18, cm.getMobno());
@@ -226,17 +227,100 @@ public class CustomerDaoImpl implements CustomerDao {
 		}
 		return false;
 	}
+	public boolean insertCustomerJob(CustomerModel cm){
+		String clientdb="sahakarisystemdb";
+		int i;
+		String maxpid="(SELECT max(pid) from customertbl)";
+		String query="insert into jobdetail(pid,cusJob,cusCnstituion,cusPost,incomePeryear,remarks, inputter,authorizer) values("+maxpid+",?,?,?,?,?,?,?)";
+		try{
+			con=DBConnection.getConnectionNext(clientdb);
+			ps=con.prepareStatement(query);
+			ps.setString(1, cm.getCusJob());
+			ps.setString(2, cm.getCusCnstituion());
+			ps.setString(3, cm.getCusPost());
+			ps.setString(4, cm.getIncomePeryear());
+			ps.setString(5, cm.getJremarks());
+			ps.setString(6, cm.getInputter());
+			ps.setString(7, cm.getAuthorizer());
+			i=ps.executeUpdate();
+			if(i>0){
+				return true;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
+	public boolean insertCustomerFamily(CustomerModel cm){
+		String clientdb="sahakarisystemdb";
+		int i;
+		String maxpid="(SELECT max(pid) from customertbl)";
+		String query="insert into familydetail(pid, cusRelation, cusRelName, dateOfBirth, citizenshipNo, remarks, inputter, authorizer) values("+maxpid+",?,?,?,?,?,?,?)";
+		
+		try{
+			con=DBConnection.getConnectionNext(clientdb);
+			ps=con.prepareStatement(query);
+			ps.setString(1, cm.getCusRelation());
+			ps.setString(2, cm.getCusRelName());
+			ps.setString(3, cm.getDateOfBirth());
+			ps.setString(4, cm.getFcitizenshipNo());
+			ps.setString(5,cm.getFremarks());
+			ps.setString(6, cm.getInputter());
+			ps.setString(7, cm.getAuthorizer());
+			i=ps.executeUpdate();
+			if(i>0){
+				return true;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
+	public boolean insertCustomerBank(CustomerModel cm){
+		String clientdb="sahakarisystemdb";
+		int i;
+		String maxpid="(SELECT max(pid) from customertbl)";
+		String query="insert into bankaccountdetail(pid, bankName, accountNumber, accountType, remarks, inputter, authorizer) values("+maxpid+",?,?,?,?,?,?)";
+		
+		try{
+			con=DBConnection.getConnectionNext(clientdb);
+			ps=con.prepareStatement(query);
+			ps.setString(1, cm.getBankName());
+			ps.setString(2, cm.getAccountNumber());
+			ps.setString(3, cm.getAccountType());
+			ps.setString(4, cm.getBremarks());
+			ps.setString(5, cm.getInputter());
+			ps.setString(6, cm.getAuthorizer());
+			i=ps.executeUpdate();
+			if(i>0){
+				return true;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
 	public boolean deleteCustomerDao(String pid)
 	{
 		String clientdb="sahakarisystemdb";
-		int rs=0;
-		  con=DBConnection.getConnectionNext(clientdb);
-		String query="delete from customertbl where pid=?";
+		int rs[];
+		String query="delete from customertbl where pid='"+pid+"'";
+		String query1="delete from familydetail where pid='"+pid+"'";
+		String query2="delete from jobdetail where pid='"+pid+"'";
+		String query3="delete from bankaccountdetail where pid='"+pid+"'";
+		
 		try {
-			ps=con.prepareStatement(query);
-			ps.setString(1, pid);
-			rs=ps.executeUpdate();
-			if(rs>0)
+			con=DBConnection.getConnectionNext(clientdb);
+			stmt=con.createStatement();
+			stmt.addBatch(query);
+			stmt.addBatch(query1);
+			stmt.addBatch(query2);
+			stmt.addBatch(query3);
+			rs=stmt.executeBatch();
+			if(rs.length==4)
 			{
 				return true;
 			}
@@ -267,7 +351,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(12, cm.getTwardno());
 			ps.setString(13, cm.getTcity());
 			ps.setString(14, cm.getTtole());
-			ps.setString(15, cm.getCitizenshipNo());
+			ps.setString(15, cm.getCusCitizenshipNo());
 			ps.setString(16, cm.getCitizenshipIssuedFrom());
 			ps.setString(17, cm.getTelno());
 			ps.setString(18, cm.getMobno());

@@ -56,17 +56,17 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 		}
 		else if(uri.endsWith("viewcustomer.click")){
-			
 			ViewDao view=new ViewDaoImpl();
 			List<CustomerModel> list=view.viewCustomerDetail();
-			
 			request.setAttribute("list", list);
+			
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_View.jsp");
 			rd.forward(request, response);
 		}
 		else if(uri.endsWith("editcustomer.click")){
 			String memberid=request.getParameter("memberid");
 			request.setAttribute("memberid", memberid);
+			
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_edit.jsp");
 			rd.forward(request, response);
 		}
@@ -78,10 +78,13 @@ public class NavigationController extends HttpServlet {
 			request.setAttribute("statuslist", statuslist);
 			request.setAttribute("typelist", typelist);
 			request.setAttribute("districtlist", districtlist);
+			
 			String id=request.getParameter("id");
+			
 			ViewDao v=new ViewDaoImpl();
 			CustomerModel c=v.viewSpecificCustomerDetail(id);
 			request.setAttribute("cdetail", c);
+			
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/customerUpdateDisplayForm.jsp");
 			rd.forward(request, response);
 		}

@@ -52,21 +52,8 @@ public class AddController extends HttpServlet {
 			rd.forward(request, response);
 		}*/
 		if(uri.endsWith("customer.add")){
-			GetFormOptions g=new GetFormOptions();
-			List<CustomerModel> statuslist=g.getStatus();
-			List<CustomerModel> typelist=g.getType();
-			List<CustomerModel> districtlist=g.getDistrict();
-			request.setAttribute("statuslist", statuslist);
-			request.setAttribute("typelist", typelist);
-			request.setAttribute("districtlist", districtlist);
 			CustomerAction c=new CustomerAction();
 			c.addCustomer(request,response);
-		}
-		if(uri.endsWith("customerupdate.add")){
-			
-			
-			CustomerAction c=new CustomerAction();
-			c.updateCustomer(request,response);
 		}
 	}
 

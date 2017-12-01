@@ -2,12 +2,143 @@ package com.sahakari.model;
 
 public class CustomerModel {
 	String districtCode, districtName, pid, memberid, registrationDate, name,
-	gender, pdistid,
+	gender, pdistid, pdistName,
 	pvdcmunid, pwardno, pcity, ptole, tdistid,
 	tvdcmunid, twardno, tcity,
-	ttole, citizenshipNo, citizenshipIssuedFrom,
+	ttole, cusCitizenshipNo, citizenshipIssuedFrom,
 	telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer,
 	insertStatus, updateStatus, delStatus;
+	public String getCusRelation() {
+		return cusRelation;
+	}
+
+	public void setCusRelation(String cusRelation) {
+		this.cusRelation = cusRelation;
+	}
+
+	public String getCusRelName() {
+		return cusRelName;
+	}
+
+	public void setCusRelName(String cusRelName) {
+		this.cusRelName = cusRelName;
+	}
+
+	public String getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public String getFcitizenshipNo() {
+		return fcitizenshipNo;
+	}
+
+	public void setFcitizenshipNo(String fcitizenshipNo) {
+		this.fcitizenshipNo = fcitizenshipNo;
+	}
+
+	public String getFremarks() {
+		return fremarks;
+	}
+
+	public void setFremarks(String fremarks) {
+		this.fremarks = fremarks;
+	}
+
+	public String getCusJob() {
+		return cusJob;
+	}
+
+	public void setCusJob(String cusJob) {
+		this.cusJob = cusJob;
+	}
+
+	public String getCusCnstituion() {
+		return cusCnstituion;
+	}
+
+	public void setCusCnstituion(String cusCnstituion) {
+		this.cusCnstituion = cusCnstituion;
+	}
+
+	public String getCusPost() {
+		return cusPost;
+	}
+
+	public void setCusPost(String cusPost) {
+		this.cusPost = cusPost;
+	}
+
+	public String getIncomePeryear() {
+		return incomePeryear;
+	}
+
+	public void setIncomePeryear(String incomePeryear) {
+		this.incomePeryear = incomePeryear;
+	}
+
+	public String getJremarks() {
+		return jremarks;
+	}
+
+	public void setJremarks(String jremarks) {
+		this.jremarks = jremarks;
+	}
+
+	public String getBankName() {
+		return bankName;
+	}
+
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
+	}
+
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+
+	public String getAccountType() {
+		return accountType;
+	}
+
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
+	}
+
+	public String getBremarks() {
+		return bremarks;
+	}
+
+	public void setBremarks(String bremarks) {
+		this.bremarks = bremarks;
+	}
+
+	String cusRelation,cusRelName,dateOfBirth,fcitizenshipNo,fremarks;
+	String cusJob, cusCnstituion, cusPost, incomePeryear, jremarks;
+	String bankName, accountNumber, accountType, bremarks;
+
+	public String getCusCitizenshipNo() {
+		return cusCitizenshipNo;
+	}
+
+	public void setCusCitizenshipNo(String cusCitizenshipNo) {
+		this.cusCitizenshipNo = cusCitizenshipNo;
+	}
+
+	public String getPdistName() {
+		return pdistName;
+	}
+
+	public void setPdistName(String pdistName) {
+		this.pdistName = pdistName;
+	}
 
 	public String getDistrictCode() {
 		return districtCode;
@@ -161,14 +292,7 @@ public class CustomerModel {
 		this.ttole = ttole;
 	}
 
-	public String getCitizenshipNo() {
-		return citizenshipNo;
-	}
-
-	public void setCitizenshipNo(String citizenshipNo) {
-		this.citizenshipNo = citizenshipNo;
-	}
-
+	
 	public String getCitizenshipIssuedFrom() {
 		return citizenshipIssuedFrom;
 	}

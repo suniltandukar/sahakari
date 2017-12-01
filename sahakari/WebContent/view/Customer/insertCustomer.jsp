@@ -36,7 +36,11 @@ h5 {
 							name="customerForm">Save</button>&nbsp;&nbsp;&nbsp;</li>
 					<li class="active"><a data-toggle="tab" data-target="#1">General
 							Information</a></li>
-					<li><a data-toggle="tab" data-target="#2">Additional
+					<li><a data-toggle="tab" data-target="#2">Family
+							Information</a></li>
+					<li><a data-toggle="tab" data-target="#3">Job
+							Information</a></li>
+					<li><a data-toggle="tab" data-target="#4">Bank Account
 							Information</a></li>
 
 				</ul>
@@ -47,7 +51,7 @@ h5 {
 							<tbody>
 								<tr>
 									<td>
-										<h5>Member Id</h5> <input type="text" class="form-control"
+										<h5>Member Id</h5> <input type="text" class="form-control memberid"
 										name="memberid">
 									</td>
 									<td>
@@ -69,7 +73,7 @@ h5 {
 									</td>
 									<td>
 										<h5>Citizenship No</h5> <input type="text"
-										class="form-control" name="citizenshipNo">
+										class="form-control" name="cusCitizenshipNo">
 									</td>
 									<td>
 										<h5>Citizenship Issued From</h5> <select class="form-control"
@@ -206,15 +210,95 @@ h5 {
 						</table>
 					</div>
 					<div id="2" class="tab-pane fade in">
-						<table>
+					<input type="button" name="button"  value="+ Add Relation" class="btn btn-primary addrealtionbtn">
+						<table class="table" id="relationtable">
 							<tbody>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
+								<tr class="tr_clone">
+									<td>
+										<h5>Relation</h5> <select class="form-control"
+										name="cusRelation">
+											<option value="son">Son</option>
+										</select>
+									</td>
+									<td>
+										<h5>Relation Name</h5> <input type="text" class="form-control"
+										name="cusRelName">
+									</td>
+									<td>
+										<h5>DOB</h5> <input type="text" class="form-control"
+										name="dateOfBirth">	
+									</td>
+									<td>
+										<h5>citizenshipNo</h5> <input type="text" class="form-control"
+										name="fcitizenshipNo">	
+									</td>
+									<td>
+										<h5>Remarks</h5> <input type="text" class="form-control"
+										name="fremarks">	
+									</td>
+									<td><a><i class='fa fa-times' aria-hidden='true' style='color:red;'></i></a></td>
 								</tr>
 							</tbody>
 						</table>
+						
+					</div>
+					<div id="3" class="tab-pane fade in">
+						<table class="table" >
+							<tbody>
+								<tr>
+									<td>
+										<h5>Job</h5> <input type="text" class="form-control"
+										name="cusJob">
+									</td>
+									<td>
+										<h5>Cnstituion</h5> <input type="text" class="form-control"
+										name="cusCnstituion">
+									</td>
+									<td>
+										<h5>Post</h5> <input type="text" class="form-control"
+										name="cusPost">	
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>Income per year</h5> <input type="text" class="form-control"
+										name="incomePeryear">	
+									</td>
+									<td>
+										<h5>Remarks</h5> <input type="text" class="form-control"
+										name="jremarks">	
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="4" class="tab-pane fade in">
+					<input type="button" name="button"  value="+ Add Bank" class="btn btn-primary addbankbtn">
+						<table class="table" id="bankdetailtable">
+							<tbody>
+								<tr>
+									<td>
+										<h5>Bank Name</h5> <input type="text" class="form-control"
+										name="bankName">
+											
+									</td>
+									<td>
+										<h5>Account Number</h5> <input type="text" class="form-control"
+										name="accountNumber">
+									</td>
+									<td>
+										<h5>Account Type</h5> <input type="text" class="form-control"
+										name="accountType">	
+									</td>
+									<td>
+										<h5>Remarks</h5> <input type="text" class="form-control"
+										name="bremarks">	
+									</td>
+									<td><a><i class='fa fa-times' aria-hidden='true' style='color:red;'></i></a></td>
+								</tr>
+							</tbody>
+						</table>
+						
 					</div>
 				</div>
 			</form>
@@ -226,9 +310,27 @@ h5 {
 	<%if(request.getAttribute("msg")!=null){%>
 	   $('#myModal').modal('show');
 	   <%}%>
+	  
+	   $('.addrealtionbtn').click(function () {
+			
+		    $('#relationtable tbody').append($('#relationtable tbody tr:last').clone());
+		    
+	   });
+	   $('.addbankbtn').click(function () {
+
+		    $('#bankdetailtable tbody').append($('#bankdetailtable tbody tr:last').clone());
+		    
+	   });
+		$('table').on('click','tr a',function(e){
+		    e.preventDefault();
+		   $(this).parents('tr').remove();
+		 });
+		
 	   $('form').submit(function(){
 		  return confirm("CONFIRM?"); 
 	   });
+	   
+	  
 	
 	</script>
 </body>

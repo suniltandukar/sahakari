@@ -20,7 +20,35 @@ public class CustomerAction {
 			HttpServletResponse response) {
 		CustomerDao c=new CustomerDaoImpl();
 		CustomerModel cm=new CustomerModel();
-		String districtCode, districtName, pid, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, citizenshipNo, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus;
+		String cusCitizenshipNo, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, citizenshipNo, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus;
+		String[] cusRelation,cusRelName,dateOfBirth,fcitizenshipNo,fremarks;
+		String cusJob, cusCnstituion, cusPost, incomePeryear, jremarks;
+		String[] bankName, accountNumber, accountType, bremarks;
+		
+		 cusRelation=request.getParameterValues("cusRelation");
+		cusRelName=request.getParameterValues("cusRelName");
+		dateOfBirth=request.getParameterValues("dateOfBirth");
+		fcitizenshipNo=request.getParameterValues("fcitizenshipNo");
+		fremarks=request.getParameterValues("fremarks");
+		System.out.println("relatin length"+cusRelation.length);
+		
+		cusJob=request.getParameter("cusJob");
+		cusCnstituion=request.getParameter("cusCnstituion");
+		cusPost=request.getParameter("cusPost");
+		incomePeryear=request.getParameter("incomePeryear");
+		jremarks=request.getParameter("jremarks");
+		
+		cm.setCusJob(cusJob);
+		cm.setCusCnstituion(cusCnstituion);
+		cm.setCusPost(cusPost);
+		cm.setIncomePeryear(incomePeryear);
+		cm.setJremarks(jremarks);
+		
+		bankName=request.getParameterValues("bankName");
+		accountNumber=request.getParameterValues("accountNumber");
+		accountType=request.getParameterValues("accountType");
+		bremarks=request.getParameterValues("bremarks");
+		
 		memberid=request.getParameter("memberid");
 		registrationDate=request.getParameter("registrationDate");
 		name=request.getParameter("name");
@@ -35,7 +63,7 @@ public class CustomerAction {
 		twardno=request.getParameter("twardno");
 		tcity=request.getParameter("tcity");
 		ttole=request.getParameter("ttole");
-		citizenshipNo=request.getParameter("citizenshipNo");
+		cusCitizenshipNo=request.getParameter("cusCitizenshipNo");
 		citizenshipIssuedFrom=request.getParameter("citizenshipIssuedFrom");
 		telno=request.getParameter("telno");
 		mobno=request.getParameter("mobno");
@@ -49,6 +77,7 @@ public class CustomerAction {
 		insertStatus="abc";
 		updateStatus="abc";
 		delStatus="abc";
+		
 		cm.setMemberid(memberid);
 		cm.setRegistrationDate(registrationDate);
 		cm.setName(name);
@@ -63,7 +92,7 @@ public class CustomerAction {
 		cm.setTwardno(twardno);
 		cm.setTcity(tcity);
 		cm.setTtole(ttole);
-		cm.setCitizenshipNo(citizenshipNo);
+		cm.setCusCitizenshipNo(cusCitizenshipNo);
 		cm.setCitizenshipIssuedFrom(citizenshipIssuedFrom);
 		cm.setTelno(telno);
 		cm.setMobno(mobno);
@@ -72,6 +101,7 @@ public class CustomerAction {
 		cm.setDob(dob);
 		cm.setTypeid(typeid);
 		cm.setStatusid(statusid);
+		
 		cm.setInputter(inputter);
 		cm.setAuthorizer(authorizer);
 		cm.setInsertStatus(insertStatus);
@@ -79,13 +109,41 @@ public class CustomerAction {
 		cm.setDelStatus(delStatus);
 		
 		
-		boolean status=c.insertCustomer(cm);
-		if(status){
+		boolean customerstatus=c.insertCustomer(cm);
+		boolean finalstatus=false;
+		if(customerstatus){
+			for(int i = 0;i<cusRelation.length;i++){
+				cm.setCusRelation(cusRelation[i]);
+				cm.setCusRelName(cusRelName[i]);
+				cm.setDateOfBirth(dateOfBirth[i]);
+				cm.setFcitizenshipNo(fcitizenshipNo[i]);
+				cm.setFremarks(fremarks[i]);
+				c.insertCustomerFamily(cm);
+			}
+			for(int j=0;j<accountNumber.length;j++){
+				cm.setBankName(bankName[j]);
+				cm.setAccountNumber(accountNumber[j]);
+				cm.setAccountType(accountType[j]);
+				cm.setBremarks(bremarks[j]);
+				c.insertCustomerBank(cm);
+			}
+			 c.insertCustomerJob(cm);
+			 finalstatus=true;
+		}
+		if(finalstatus){
 			request.setAttribute("msg", "Customer Insert Successful!");
 		}
 		else{
 			request.setAttribute("msg", "Customer Insert Failed!");
 		}
+		
+		GetFormOptions g=new GetFormOptions();
+		List<CustomerModel> statuslist=g.getStatus();
+		List<CustomerModel> typelist=g.getType();
+		List<CustomerModel> districtlist=g.getDistrict();
+		request.setAttribute("statuslist", statuslist);
+		request.setAttribute("typelist", typelist);
+		request.setAttribute("districtlist", districtlist);
 		RequestDispatcher rd=request.getRequestDispatcher("view/Customer/insertCustomer.jsp");
 		try {
 			rd.forward(request, response);
@@ -106,6 +164,9 @@ public class CustomerAction {
 		else{
 			request.setAttribute("msg", "Customer Deletion Failed!");
 		}
+		ViewDao view=new ViewDaoImpl();
+		List<CustomerModel> list=view.viewCustomerDetail();
+		request.setAttribute("list", list);
 		RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_View.jsp");
 		try {
 			rd.forward(request, response);
@@ -118,7 +179,7 @@ public class CustomerAction {
 	public void updateCustomer(HttpServletRequest request,
 			HttpServletResponse response) {
 		CustomerModel cm=new CustomerModel();
-		String districtCode, districtName, pid, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, citizenshipNo, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus;
+		String districtCode, districtName, pid, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, cusCitizenshipNo, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus;
 		memberid=request.getParameter("memberid");
 		registrationDate=request.getParameter("registrationDate");
 		name=request.getParameter("name");
@@ -133,7 +194,7 @@ public class CustomerAction {
 		twardno=request.getParameter("twardno");
 		tcity=request.getParameter("tcity");
 		ttole=request.getParameter("ttole");
-		citizenshipNo=request.getParameter("citizenshipNo");
+		cusCitizenshipNo=request.getParameter("cusCitizenshipNo");
 		citizenshipIssuedFrom=request.getParameter("citizenshipIssuedFrom");
 		telno=request.getParameter("telno");
 		mobno=request.getParameter("mobno");
@@ -161,7 +222,7 @@ public class CustomerAction {
 		cm.setTwardno(twardno);
 		cm.setTcity(tcity);
 		cm.setTtole(ttole);
-		cm.setCitizenshipNo(citizenshipNo);
+		cm.setCusCitizenshipNo(cusCitizenshipNo);
 		cm.setCitizenshipIssuedFrom(citizenshipIssuedFrom);
 		cm.setTelno(telno);
 		cm.setMobno(mobno);

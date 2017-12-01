@@ -6,7 +6,7 @@
 		<div class="panel-body">
 
 			<form class="form-horizontal" id="form1" method="post"
-				 action="customerupdate.add">
+				 action="customer.update">
 				<ul class="nav nav-tabs">
 					<li><button type="submit" class="btn btn-success" form="form1"
 							name="customerForm">Update</button>&nbsp;&nbsp;&nbsp;</li>
@@ -46,7 +46,7 @@
 									</td>
 									<td>
 										<h5>Citizenship No</h5> <input type="text"
-										class="form-control" name="citizenshipNo" value="${cdetail.citizenshipNo }">
+										class="form-control" name="cusCitizenshipNo" value="${cdetail.cusCitizenshipNo }">
 									</td>
 									<td>
 										<h5>Citizenship Issued From</h5> <select class="form-control"
@@ -85,18 +85,17 @@
 								<tr>
 									<td>
 										<h5>Type</h5> <select class="form-control"
-										name="typeid" >
-											<option value="0">Select Type</option>
+										name="typeid">
+										<option value="${cdetail.typeid }">${cdetail.typeName }</option>
 											<c:forEach items="${typelist}" var="type">
 												<option value="${type.typeid}">${type.typeName}</option>
 											</c:forEach>
-										</select>
 										</select>
 									</td>
 									<td>
 										<h5>Status</h5> <select class="form-control"
 										name="statusid">
-										<option value="0">Select Status</option>
+										<option value="${cdetail.statusid }">${cdetail.statusName}</option>
 											<c:forEach items="${statuslist}" var="status">
 												<option value="${status.statusid}">${status.statusName}</option>
 											</c:forEach>

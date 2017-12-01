@@ -20,7 +20,7 @@ public class ViewDaoImpl implements ViewDao{
 
 	public List<CustomerModel> viewCustomerDetail()
 	{
-		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl join typetbl on typetbl.typeid=customertbl.typeid join statustbl on statustbl.statusid=customertbl.statusid ";
+		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl left join typetbl on typetbl.typeid=customertbl.typeid left join statustbl on statustbl.statusid=customertbl.statusid ";
 		List<CustomerModel> list=new ArrayList<CustomerModel>();
 		CustomerModel cust=null;
 		try {
@@ -58,8 +58,7 @@ public class ViewDaoImpl implements ViewDao{
 	}
 	public CustomerModel viewSpecificCustomerDetail(String id)
 	{
-		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl join typetbl on typetbl.typeid=customertbl.typeid join statustbl on statustbl.statusid=customertbl.statusid where customertbl.memberid='"+id+"' ";
-		
+		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl left join typetbl on typetbl.typeid=customertbl.typeid left join statustbl on statustbl.statusid=customertbl.statusid where customertbl.memberid='"+id+"' ";
 		try {
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
@@ -82,7 +81,7 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setTwardno(rs.getString("twardno"));
 				cust.setTcity(rs.getString("tcity"));
 				cust.setTtole(rs.getString("ttole"));
-				cust.setCitizenshipNo(rs.getString("citizenshipNo"));
+				cust.setCusCitizenshipNo(rs.getString("citizenshipNo"));
 				cust.setCitizenshipIssuedFrom(rs.getString("citizenshipIssuedFrom"));
 				cust.setTelno(rs.getString("telno"));
 				cust.setMobno(rs.getString("mobno"));

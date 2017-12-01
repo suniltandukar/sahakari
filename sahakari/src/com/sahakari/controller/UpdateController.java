@@ -9,6 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.sahakari.action.CustomerAction;
 @WebServlet("/UpdateController")
 public class UpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -22,8 +24,8 @@ public class UpdateController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri=request.getRequestURI();
 		if(uri.endsWith("customer.update")){
-			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_View.jsp");
-			rd.forward(request, response);
+			CustomerAction c=new CustomerAction();
+			c.updateCustomer(request,response);
 		}
 	}
 
