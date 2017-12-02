@@ -17,7 +17,7 @@ public class ViewDaoImpl implements ViewDao{
 	ResultSet rs=null;
 	List<CustomerModel> list=null;
 	CustomerModel cust=null;
-
+	
 	public List<CustomerModel> viewCustomerDetail()
 	{
 		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl left join typetbl on typetbl.typeid=customertbl.typeid left join statustbl on statustbl.statusid=customertbl.statusid ";
@@ -58,7 +58,7 @@ public class ViewDaoImpl implements ViewDao{
 	}
 	public CustomerModel viewSpecificCustomerDetail(String id)
 	{
-		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl left join typetbl on typetbl.typeid=customertbl.typeid left join statustbl on statustbl.statusid=customertbl.statusid where customertbl.memberid='"+id+"' ";
+		String query="SELECT a.*, b.typeName, c.statusName, d.cusJob, d.cusInstitution, d.cusPost, d.incomePeryear, d.remarks FROM customertbl a left join typetbl b on a.typeid=b.typeid left JOIN statustbl c on a.statusid=c.statusid left JOIN jobdetail d on a.pid=d.pid where a.memberid='"+id+"' ";
 		try {
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
@@ -98,6 +98,11 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setUpdateStatus(rs.getString("updateStatus"));
 				cust.setDelStatus(rs.getString("delStatus"));
 				
+				cust.setCusJob(rs.getString("cusJob"));
+				cust.setCusInstitution(rs.getString("cusInstitution"));
+				cust.setCusPost(rs.getString("cusPost"));
+				cust.setIncomePeryear(rs.getString("incomePeryear"));
+				cust.setJremarks(rs.getString("remarks"));
 				return cust;
 			}
 		} catch (SQLException e) {
@@ -106,6 +111,65 @@ public class ViewDaoImpl implements ViewDao{
 		}
 		
 		
+		return null;
+	}
+	public List<CustomerModel> viewCustomerFamilyDetail(String id){
+		List<CustomerModel> list=new ArrayList<CustomerModel>();
+		CustomerModel cust=null;
+		String query="select familydetail.* from familydetail join customertbl on customertbl.pid=familydetail.pid where customertbl.memberid='"+id+"' ";
+		try {
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			while(rs.next())
+			{
+				cust=new CustomerModel();
+				cust.setCusRelation(rs.getString("cusRelation"));
+				cust.setCusRelName(rs.getString("cusRelName"));
+				cust.setDateOfBirth(rs.getString("dateOfBirth"));
+				cust.setFcitizenshipNo(rs.getString("citizenshipNo"));
+				cust.setFremarks(rs.getString("remarks"));
+				list.add(cust);
+			}
+			if(list.size()>0){
+				con.close();
+				rs=null;
+				ps=null;
+				return list;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return null;
+	}
+	public List<CustomerModel> viewCustomerBankDetail(String id){
+		List<CustomerModel> list=new ArrayList<CustomerModel>();
+		CustomerModel cust=null;
+		String query="select bankaccountdetail.* from bankaccountdetail join customertbl on customertbl.pid=bankaccountdetail.pid where customertbl.memberid='"+id+"' ";
+		try {
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			while(rs.next())
+			{
+				cust=new CustomerModel();
+				cust.setBankName(rs.getString("bankName"));
+				cust.setAccountNumber(rs.getString("accountNumber"));
+				cust.setAccountType(rs.getString("accountType"));
+				cust.setBremarks(rs.getString("remarks"));
+				list.add(cust);
+			}
+			if(list.size()>0){
+				con.close();
+				rs=null;
+				ps=null;
+				return list;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
 		return null;
 	}
 

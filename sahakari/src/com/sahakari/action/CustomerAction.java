@@ -20,9 +20,10 @@ public class CustomerAction {
 			HttpServletResponse response) {
 		CustomerDao c=new CustomerDaoImpl();
 		CustomerModel cm=new CustomerModel();
-		String cusCitizenshipNo, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, citizenshipNo, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus;
+		String cusCitizenshipNo, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, 
+No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus;
 		String[] cusRelation,cusRelName,dateOfBirth,fcitizenshipNo,fremarks;
-		String cusJob, cusCnstituion, cusPost, incomePeryear, jremarks;
+		String cusJob, cusInstitution, cusPost, incomePeryear, jremarks;
 		String[] bankName, accountNumber, accountType, bremarks;
 		
 		 cusRelation=request.getParameterValues("cusRelation");
@@ -30,16 +31,15 @@ public class CustomerAction {
 		dateOfBirth=request.getParameterValues("dateOfBirth");
 		fcitizenshipNo=request.getParameterValues("fcitizenshipNo");
 		fremarks=request.getParameterValues("fremarks");
-		System.out.println("relatin length"+cusRelation.length);
 		
 		cusJob=request.getParameter("cusJob");
-		cusCnstituion=request.getParameter("cusCnstituion");
+		cusInstitution=request.getParameter("cusInstitution");
 		cusPost=request.getParameter("cusPost");
 		incomePeryear=request.getParameter("incomePeryear");
 		jremarks=request.getParameter("jremarks");
 		
 		cm.setCusJob(cusJob);
-		cm.setCusCnstituion(cusCnstituion);
+		cm.setCusInstitution(cusInstitution);
 		cm.setCusPost(cusPost);
 		cm.setIncomePeryear(incomePeryear);
 		cm.setJremarks(jremarks);
@@ -180,6 +180,33 @@ public class CustomerAction {
 			HttpServletResponse response) {
 		CustomerModel cm=new CustomerModel();
 		String districtCode, districtName, pid, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, cusCitizenshipNo, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus;
+		String cusJob, cusInstitution, cusPost, incomePeryear, jremarks;
+		String[] cusRelation,cusRelName,dateOfBirth,fcitizenshipNo,fremarks;
+		String[] bankName, accountNumber, accountType, bremarks;
+		
+		cusRelation=request.getParameterValues("cusRelation");
+		cusRelName=request.getParameterValues("cusRelName");
+		dateOfBirth=request.getParameterValues("dateOfBirth");
+		fcitizenshipNo=request.getParameterValues("fcitizenshipNo");
+		fremarks=request.getParameterValues("fremarks");
+		
+		bankName=request.getParameterValues("bankName");
+		accountNumber=request.getParameterValues("accountNumber");
+		accountType=request.getParameterValues("accountType");
+		bremarks=request.getParameterValues("bremarks");
+		
+		cusJob=request.getParameter("cusJob");
+		cusInstitution=request.getParameter("cusInstitution");
+		cusPost=request.getParameter("cusPost");
+		incomePeryear=request.getParameter("incomePeryear");
+		jremarks=request.getParameter("jremarks");
+		
+		cm.setCusJob(cusJob);
+		cm.setCusInstitution(cusInstitution);
+		cm.setCusPost(cusPost);
+		cm.setIncomePeryear(incomePeryear);
+		cm.setJremarks(jremarks);
+		
 		memberid=request.getParameter("memberid");
 		registrationDate=request.getParameter("registrationDate");
 		name=request.getParameter("name");
@@ -203,11 +230,13 @@ public class CustomerAction {
 		dob=request.getParameter("dob");
 		typeid=request.getParameter("typeid");
 		statusid=request.getParameter("statusid");
+		
 		inputter="shishir";
 		authorizer="abc";
 		insertStatus="abc";
 		updateStatus="abc";
 		delStatus="abc";
+		
 		cm.setMemberid(memberid);
 		cm.setRegistrationDate(registrationDate);
 		cm.setName(name);
@@ -239,10 +268,35 @@ public class CustomerAction {
 		
 		String clientdb="sahakarisystemdb";
 		pid=request.getParameter("pid");
+		
 		CustomerDao dao=new CustomerDaoImpl();
-		boolean status=dao.updateCustomer(pid,cm,clientdb);
-		if(status){
+		boolean customerStatus=dao.updateCustomer(pid,cm,clientdb);
+		boolean customerJobStatus=false;
+		
+		if(customerStatus){
+			customerJobStatus=dao.updateCustomerJob(pid,cm,clientdb);
+			dao.deleteCustomerRelationBankDetail(pid,clientdb);
+			for(int i = 0;i<cusRelation.length;i++){
+				cm.setCusRelation(cusRelation[i]);
+				cm.setCusRelName(cusRelName[i]);
+				cm.setDateOfBirth(dateOfBirth[i]);
+				cm.setFcitizenshipNo(fcitizenshipNo[i]);
+				cm.setFremarks(fremarks[i]);
+				dao.insertCustomerFamily(cm);
+			}
+			for(int j=0;j<accountNumber.length;j++){
+				cm.setBankName(bankName[j]);
+				cm.setAccountNumber(accountNumber[j]);
+				cm.setAccountType(accountType[j]);
+				cm.setBremarks(bremarks[j]);
+				dao.insertCustomerBank(cm);
+			}
+			if(customerJobStatus){
 			request.setAttribute("msg", "Update Successful!");
+			}
+			else{
+				request.setAttribute("msg", "Update Failed for Customer Job Information!");
+			}
 		}
 		else{
 			request.setAttribute("msg", "Update Failed!");

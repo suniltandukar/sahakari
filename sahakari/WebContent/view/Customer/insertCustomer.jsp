@@ -247,12 +247,12 @@ h5 {
 							<tbody>
 								<tr>
 									<td>
-										<h5>Job</h5> <input type="text" class="form-control"
+										<h5>Job Name</h5> <input type="text" class="form-control"
 										name="cusJob">
 									</td>
 									<td>
-										<h5>Cnstituion</h5> <input type="text" class="form-control"
-										name="cusCnstituion">
+										<h5>Instituion</h5> <input type="text" class="form-control"
+										name="cusInstitution">
 									</td>
 									<td>
 										<h5>Post</h5> <input type="text" class="form-control"

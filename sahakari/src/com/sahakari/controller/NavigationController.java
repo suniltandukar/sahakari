@@ -85,6 +85,13 @@ public class NavigationController extends HttpServlet {
 			CustomerModel c=v.viewSpecificCustomerDetail(id);
 			request.setAttribute("cdetail", c);
 			
+			List<CustomerModel> customerFamilylist=v.viewCustomerFamilyDetail(id);
+			request.setAttribute("cusFamilyDetail", customerFamilylist);
+			
+			List<CustomerModel> customerBankDetailList=v.viewCustomerBankDetail(id);
+			request.setAttribute("customerBankDetail", customerBankDetailList);
+			
+			
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/customerUpdateDisplayForm.jsp");
 			rd.forward(request, response);
 		}

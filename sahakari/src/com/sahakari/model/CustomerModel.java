@@ -56,12 +56,12 @@ public class CustomerModel {
 		this.cusJob = cusJob;
 	}
 
-	public String getCusCnstituion() {
-		return cusCnstituion;
+	public String getCusInstitution() {
+		return cusInstitution;
 	}
 
-	public void setCusCnstituion(String cusCnstituion) {
-		this.cusCnstituion = cusCnstituion;
+	public void setCusInstitution(String cusInstitution) {
+		this.cusInstitution = cusInstitution;
 	}
 
 	public String getCusPost() {
@@ -121,7 +121,7 @@ public class CustomerModel {
 	}
 
 	String cusRelation,cusRelName,dateOfBirth,fcitizenshipNo,fremarks;
-	String cusJob, cusCnstituion, cusPost, incomePeryear, jremarks;
+	String cusJob, cusInstitution, cusPost, incomePeryear, jremarks;
 	String bankName, accountNumber, accountType, bremarks;
 
 	public String getCusCitizenshipNo() {

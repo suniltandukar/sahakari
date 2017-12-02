@@ -231,12 +231,12 @@ public class CustomerDaoImpl implements CustomerDao {
 		String clientdb="sahakarisystemdb";
 		int i;
 		String maxpid="(SELECT max(pid) from customertbl)";
-		String query="insert into jobdetail(pid,cusJob,cusCnstituion,cusPost,incomePeryear,remarks, inputter,authorizer) values("+maxpid+",?,?,?,?,?,?,?)";
+		String query="insert into jobdetail(pid,cusJob,cusInstitution,cusPost,incomePeryear,remarks, inputter,authorizer) values("+maxpid+",?,?,?,?,?,?,?)";
 		try{
 			con=DBConnection.getConnectionNext(clientdb);
 			ps=con.prepareStatement(query);
 			ps.setString(1, cm.getCusJob());
-			ps.setString(2, cm.getCusCnstituion());
+			ps.setString(2, cm.getCusInstitution());
 			ps.setString(3, cm.getCusPost());
 			ps.setString(4, cm.getIncomePeryear());
 			ps.setString(5, cm.getJremarks());
@@ -374,5 +374,75 @@ public class CustomerDaoImpl implements CustomerDao {
 		}
 		return false;
 		
+	}
+	public boolean updateCustomerJob(String pid, CustomerModel cm, String clientdb){
+		int i;
+		String query="update jobdetail set cusJob=?,cusInstitution=?,cusPost=?,incomePeryear=?,remarks=? where pid='"+pid+"'";
+		try{
+			con=DBConnection.getConnectionNext(clientdb);
+			ps=con.prepareStatement(query);
+			ps.setString(1, cm.getCusJob());
+			ps.setString(2, cm.getCusInstitution());
+			ps.setString(3, cm.getCusPost());
+			ps.setString(4, cm.getIncomePeryear());
+			ps.setString(5, cm.getJremarks());
+			i=ps.executeUpdate();
+			if(i>0){
+				return true;
+			}
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		
+		return false;
+	}
+	public boolean deleteCustomerRelationBankDetail(String pid, String clientdb){
+		int[] i;
+		String query="delete from familydetail where pid='"+pid+"'";
+		String query1="delete from bankaccountdetail where pid='"+pid+"'";
+		try{
+			con=DBConnection.getConnectionNext(clientdb);
+			stmt=con.createStatement();
+			stmt.addBatch(query);
+			stmt.addBatch(query1);
+			i=stmt.executeBatch();
+			if(i.length==2){
+				System.out.println("relation and bank deleted");
+				con.close();
+				stmt=null;
+				return true;
+			}
+			
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
+	public boolean updateCustomerRelatives(String pid, CustomerModel cm,
+			String clientdb){
+		int i;
+		String query="update familydetail set cusRelation=?,cusRelName=?,dateOfBirth=?,citizenshipNo=?,remarks=? where pid='"+pid+"'";
+		try{
+			con=DBConnection.getConnectionNext(clientdb);
+			ps=con.prepareStatement(query);
+			ps.setString(1, cm.getCusRelation());
+			ps.setString(2, cm.getCusRelName());
+			ps.setString(3, cm.getDateOfBirth());
+			ps.setString(4, cm.getFcitizenshipNo());
+			ps.setString(5, cm.getFremarks());
+			i=ps.executeUpdate();
+			if(i>0){
+				con.close();
+				ps=null;
+				return true;
+			}
+			
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		
+		return false;
 	}
 }

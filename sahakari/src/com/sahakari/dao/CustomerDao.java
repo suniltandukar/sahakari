@@ -20,4 +20,12 @@ public interface CustomerDao {
 
 	public boolean insertCustomerBank(CustomerModel cm);
 
+	public boolean updateCustomerJob(String pid, CustomerModel cm, String clientdb);
+
+	public boolean updateCustomerRelatives(String pid, CustomerModel cm,
+			String clientdb);
+
+	public boolean deleteCustomerRelationBankDetail(String pid, String clientdb);
+	
+	
 }
