@@ -26,6 +26,6 @@ public interface CustomerDao {
 			String clientdb);
 
 	public boolean deleteCustomerRelationBankDetail(String pid, String clientdb);
-	
+	public boolean checkMemberId(String id);
 	
 }

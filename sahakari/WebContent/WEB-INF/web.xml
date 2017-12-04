@@ -22,6 +22,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>LoginController</display-name>
+    <servlet-name>LoginController</servlet-name>
+    <servlet-class>com.sahakari.controller.LoginController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginController</servlet-name>
+    <url-pattern>*.log</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>NavigationController</display-name>
     <servlet-name>NavigationController</servlet-name>
     <servlet-class>com.sahakari.controller.NavigationController</servlet-class>
@@ -40,8 +50,7 @@
     <servlet-name>AddController</servlet-name>
     <url-pattern>*.add</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>UpdateController</display-name>
     <servlet-name>UpdateController</servlet-name>
@@ -51,8 +60,7 @@
     <servlet-name>UpdateController</servlet-name>
     <url-pattern>*.update</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>DeleteController</display-name>
     <servlet-name>DeleteController</servlet-name>

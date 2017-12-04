@@ -22,13 +22,5 @@ public class DBConnection {
         }
         return con;
     }
-    public static Connection getConnectionNext(String clientdb){
-        try{
-            con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/"+clientdb+"","root","");//javproject name of database
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        return con;
-    }
+    
 }

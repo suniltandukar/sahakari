@@ -32,7 +32,7 @@ h5 {
 			<form class="form-horizontal" id="form1" method="post"
 				 action="customer.add">
 				<ul class="nav nav-tabs">
-					<li><button type="submit" class="btn btn-success" form="form1"
+					<li><button type="submit" class="btn btn-success formsubmitbutton" form="form1"
 							name="customerForm">Save</button>&nbsp;&nbsp;&nbsp;</li>
 					<li class="active"><a data-toggle="tab" data-target="#1">General
 							Information</a></li>
@@ -304,34 +304,27 @@ h5 {
 			</form>
 		</div>
 	</div>
+	<div class="modal fade" id="memberidmsgmodal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p id="modalmsg"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+	<input type="text" class="memberidstatus" value="">
+	
 	<jsp:include page="/msgmodal"></jsp:include>
 	<script type="text/javascript" src="assets/js/dynamicselector.js"></script>
+	<script type="text/javascript" src="assets/js/insertCustomer.js"></script>
 	<script>
 	<%if(request.getAttribute("msg")!=null){%>
 	   $('#myModal').modal('show');
 	   <%}%>
-	  
-	   $('.addrealtionbtn').click(function () {
-			
-		    $('#relationtable tbody').append($('#relationtable tbody tr:last').clone());
-		    
-	   });
-	   $('.addbankbtn').click(function () {
-
-		    $('#bankdetailtable tbody').append($('#bankdetailtable tbody tr:last').clone());
-		    
-	   });
-		$('table').on('click','tr a',function(e){
-		    e.preventDefault();
-		   $(this).parents('tr').remove();
-		 });
-		
-	   $('form').submit(function(){
-		  return confirm("CONFIRM?"); 
-	   });
-	   
-	  
-	
-	</script>
+</script>
 </body>
 </html>

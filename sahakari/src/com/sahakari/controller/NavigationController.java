@@ -1,5 +1,6 @@
 package com.sahakari.controller;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.util.List;
 
@@ -14,7 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.tomcat.jdbc.pool.DataSource;
 
 import com.sahakari.action.GetFormOptions;
+import com.sahakari.dao.CustomerDao;
 import com.sahakari.dao.ViewDao;
+import com.sahakari.daoimpl.CustomerDaoImpl;
 import com.sahakari.daoimpl.ViewDaoImpl;
 import com.sahakari.model.CustomerModel;
 /**
@@ -31,6 +34,7 @@ public class NavigationController extends HttpServlet {
 	public void destroy() {
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter out=response.getWriter();
 		String uri=request.getRequestURI();
 		if(uri.endsWith("collateralrightinsert.click")){
 			RequestDispatcher rd=request.getRequestDispatcher("view/CollateralRight/Collateral_Right_Form.jsp");
@@ -103,6 +107,23 @@ public class NavigationController extends HttpServlet {
 		else if(uri.endsWith("viewwardno.click")){
 			RequestDispatcher rd=request.getRequestDispatcher("view/onselectpages/viewWardNo.jsp");
 			rd.forward(request, response);
+			
+		}
+	
+		else if(uri.endsWith("checkmemberid.click")){
+			String id=request.getParameter("id");
+			CustomerDao c=new CustomerDaoImpl();
+			boolean status=c.checkMemberId(id);
+			System.out.println(status);
+			if(status){
+				
+				out.println("1");
+			}
+			else{
+				out.println("0");
+			}
+			/*RequestDispatcher rd=request.getRequestDispatcher("view/onformsubmit/checkMemberId.jsp");
+			rd.forward(request, response);*/
 			
 		}
 	

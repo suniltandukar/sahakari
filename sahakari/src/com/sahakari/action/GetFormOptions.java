@@ -21,7 +21,7 @@ public class GetFormOptions {
 		CustomerModel c=null;
 		String query="select * from districtcodes";
 		try{
-			con=DBConnection.getConnectionNext(clientdb);
+			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
 			while(rs.next()){
@@ -42,7 +42,7 @@ public class GetFormOptions {
 		CustomerModel c=null;
 		String query="select * from typetbl";
 		try{
-			con=DBConnection.getConnectionNext(clientdb);
+			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
 			while(rs.next()){
@@ -62,7 +62,7 @@ public class GetFormOptions {
 		CustomerModel c=null;
 		String query="select * from statustbl";
 		try{
-			con=DBConnection.getConnectionNext(clientdb);
+			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
 			while(rs.next()){

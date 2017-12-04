@@ -1,6 +1,7 @@
 package com.sahakari.daoimpl;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -14,7 +15,27 @@ public class CustomerDaoImpl implements CustomerDao {
 	PreparedStatement ps=null;
 	Connection con=null;
 	Statement stmt=null;
-	
+	ResultSet rs=null;
+	public boolean checkMemberId(String id){
+		int i;
+		String query="select memberid from customertbl where memberid=?";
+		try{
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			ps.setString(1, id);
+			rs=ps.executeQuery();
+			if(rs.next()){
+				con.close();
+				ps=null;
+				rs=null;
+				return true;
+			}
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
 	public int customerForm(CustomerModal modal1) throws SQLException  {
         int success = 0;
         System.out.print("insert vitra daoma");
@@ -183,11 +204,10 @@ public class CustomerDaoImpl implements CustomerDao {
 
     }
 	public boolean insertCustomer(CustomerModel cm){
-		String clientdb="sahakarisystemdb";
 		String query="insert into customertbl(memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity,ttole,citizenshipNo,citizenshipIssuedFrom,telno, mobno,fatherName,spouseName,dob,typeid,statusid,inputter,authorizer,insertStatus, updateStatus, delStatus) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
 		try{
 			int i=0;
-			con=DBConnection.getConnectionNext(clientdb);
+			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			ps.setString(1, cm.getMemberid());
 			ps.setString(2, cm.getRegistrationDate());
@@ -228,12 +248,11 @@ public class CustomerDaoImpl implements CustomerDao {
 		return false;
 	}
 	public boolean insertCustomerJob(CustomerModel cm){
-		String clientdb="sahakarisystemdb";
 		int i;
 		String maxpid="(SELECT max(pid) from customertbl)";
 		String query="insert into jobdetail(pid,cusJob,cusInstitution,cusPost,incomePeryear,remarks, inputter,authorizer) values("+maxpid+",?,?,?,?,?,?,?)";
 		try{
-			con=DBConnection.getConnectionNext(clientdb);
+			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			ps.setString(1, cm.getCusJob());
 			ps.setString(2, cm.getCusInstitution());
@@ -253,13 +272,12 @@ public class CustomerDaoImpl implements CustomerDao {
 		return false;
 	}
 	public boolean insertCustomerFamily(CustomerModel cm){
-		String clientdb="sahakarisystemdb";
 		int i;
 		String maxpid="(SELECT max(pid) from customertbl)";
 		String query="insert into familydetail(pid, cusRelation, cusRelName, dateOfBirth, citizenshipNo, remarks, inputter, authorizer) values("+maxpid+",?,?,?,?,?,?,?)";
 		
 		try{
-			con=DBConnection.getConnectionNext(clientdb);
+			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			ps.setString(1, cm.getCusRelation());
 			ps.setString(2, cm.getCusRelName());
@@ -279,13 +297,12 @@ public class CustomerDaoImpl implements CustomerDao {
 		return false;
 	}
 	public boolean insertCustomerBank(CustomerModel cm){
-		String clientdb="sahakarisystemdb";
 		int i;
 		String maxpid="(SELECT max(pid) from customertbl)";
 		String query="insert into bankaccountdetail(pid, bankName, accountNumber, accountType, remarks, inputter, authorizer) values("+maxpid+",?,?,?,?,?,?)";
 		
 		try{
-			con=DBConnection.getConnectionNext(clientdb);
+			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			ps.setString(1, cm.getBankName());
 			ps.setString(2, cm.getAccountNumber());
@@ -305,7 +322,6 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 	public boolean deleteCustomerDao(String pid)
 	{
-		String clientdb="sahakarisystemdb";
 		int rs[];
 		String query="delete from customertbl where pid='"+pid+"'";
 		String query1="delete from familydetail where pid='"+pid+"'";
@@ -313,7 +329,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		String query3="delete from bankaccountdetail where pid='"+pid+"'";
 		
 		try {
-			con=DBConnection.getConnectionNext(clientdb);
+			con=DBConnection.getConnection();
 			stmt=con.createStatement();
 			stmt.addBatch(query);
 			stmt.addBatch(query1);
@@ -335,7 +351,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		String query="update customertbl set memberid=?, registrationDate=?, name=?, gender=?, pdistid=?, pvdcmunid=?, pwardno=?, pcity=?, ptole=?, tdistid=?, tvdcmunid=?, twardno=?, tcity=?,ttole=?,citizenshipNo=?,citizenshipIssuedFrom=?,telno=?, mobno=?,fatherName=?,spouseName=?,dob=?,typeid=?,statusid=?,inputter=?,authorizer=?,insertStatus=?, updateStatus=?, delStatus=? where pid='"+pid+"'";
 		try{
 			int i=0;
-			con=DBConnection.getConnectionNext(clientdb);
+			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			ps.setString(1, cm.getMemberid());
 			ps.setString(2, cm.getRegistrationDate());
@@ -379,7 +395,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		int i;
 		String query="update jobdetail set cusJob=?,cusInstitution=?,cusPost=?,incomePeryear=?,remarks=? where pid='"+pid+"'";
 		try{
-			con=DBConnection.getConnectionNext(clientdb);
+			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			ps.setString(1, cm.getCusJob());
 			ps.setString(2, cm.getCusInstitution());
@@ -401,7 +417,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		String query="delete from familydetail where pid='"+pid+"'";
 		String query1="delete from bankaccountdetail where pid='"+pid+"'";
 		try{
-			con=DBConnection.getConnectionNext(clientdb);
+			con=DBConnection.getConnection();
 			stmt=con.createStatement();
 			stmt.addBatch(query);
 			stmt.addBatch(query1);
@@ -424,7 +440,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		int i;
 		String query="update familydetail set cusRelation=?,cusRelName=?,dateOfBirth=?,citizenshipNo=?,remarks=? where pid='"+pid+"'";
 		try{
-			con=DBConnection.getConnectionNext(clientdb);
+			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			ps.setString(1, cm.getCusRelation());
 			ps.setString(2, cm.getCusRelName());

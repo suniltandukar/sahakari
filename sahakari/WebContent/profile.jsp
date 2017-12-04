@@ -1,3 +1,4 @@
+<%if(session.getAttribute("userDetail")!=null){ %>
 <jsp:include page="/includefile"></jsp:include>
 <html lang="en-US" ng-app="myApp">
     <head>
@@ -99,7 +100,7 @@
                                             <a  class="btn btn-default btn-flat">Profile</a>
                                         </div>
                                         <div class="pull-right">
-                                            <a href="logout.adbl" class="btn btn-default btn-flat">Sign out</a>
+                                            <a href="logout.log" class="btn btn-default btn-flat">Sign out</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -354,3 +355,7 @@
         </div>
     </body>
 </html>
+<%
+}else{
+	out.println("No Session Found! Please Login Again! ");
+}%>
