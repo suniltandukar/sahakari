@@ -294,9 +294,7 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 			if(customerJobStatus){
 			request.setAttribute("msg", "Update Successful!");
 			}
-			else{
-				request.setAttribute("msg", "Update Failed for Customer Job Information!");
-			}
+			
 		}
 		else{
 			request.setAttribute("msg", "Update Failed!");
