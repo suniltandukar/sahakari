@@ -31,6 +31,10 @@ public class DeleteController extends HttpServlet {
 			CustomerAction action=new CustomerAction();
 			action.deleteCustomer(request,response);
 		}
+		if(uri.endsWith("sharecertificate.del")){
+			CustomerAction action=new CustomerAction();
+			action.deleteShareCertificate(request,response);
+		}
 	}
 
 }

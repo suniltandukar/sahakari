@@ -27,6 +27,10 @@ public class UpdateController extends HttpServlet {
 			CustomerAction c=new CustomerAction();
 			c.updateCustomer(request,response);
 		}
+		if(uri.endsWith("sharecertificate.update")){
+			CustomerAction c=new CustomerAction();
+			c.updateShareCertificate(request,response);
+		}
 	}
 
 }

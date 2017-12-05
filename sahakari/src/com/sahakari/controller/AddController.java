@@ -55,6 +55,10 @@ public class AddController extends HttpServlet {
 			CustomerAction c=new CustomerAction();
 			c.addCustomer(request,response);
 		}
+		if(uri.endsWith("shareCertificate.add")){
+			CustomerAction c=new CustomerAction();
+			c.addShareCertificate(request,response);
+		}
 	}
 
 }

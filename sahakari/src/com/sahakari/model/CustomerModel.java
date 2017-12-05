@@ -8,6 +8,72 @@ public class CustomerModel {
 	ttole, cusCitizenshipNo, citizenshipIssuedFrom,
 	telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer,
 	insertStatus, updateStatus, delStatus;
+	
+	String shareCertNo, shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate, shareCertificateId;
+	public String getShareCertificateId() {
+		return shareCertificateId;
+	}
+
+	public void setShareCertificateId(String shareCertificateId) {
+		this.shareCertificateId = shareCertificateId;
+	}
+
+	public String getShareCertNo() {
+		return shareCertNo;
+	}
+
+	public void setShareCertNo(String shareCertNo) {
+		this.shareCertNo = shareCertNo;
+	}
+
+	public String getShareFrom() {
+		return shareFrom;
+	}
+
+	public void setShareFrom(String shareFrom) {
+		this.shareFrom = shareFrom;
+	}
+
+	public String getShareTo() {
+		return shareTo;
+	}
+
+	public void setShareTo(String shareTo) {
+		this.shareTo = shareTo;
+	}
+
+	public String getTotalShareNos() {
+		return totalShareNos;
+	}
+
+	public void setTotalShareNos(String totalShareNos) {
+		this.totalShareNos = totalShareNos;
+	}
+
+	public String getShareRate() {
+		return shareRate;
+	}
+
+	public void setShareRate(String shareRate) {
+		this.shareRate = shareRate;
+	}
+
+	public String getShareAmount() {
+		return shareAmount;
+	}
+
+	public void setShareAmount(String shareAmount) {
+		this.shareAmount = shareAmount;
+	}
+
+	public String getShareDate() {
+		return shareDate;
+	}
+
+	public void setShareDate(String shareDate) {
+		this.shareDate = shareDate;
+	}
+
 	public String getCusRelation() {
 		return cusRelation;
 	}

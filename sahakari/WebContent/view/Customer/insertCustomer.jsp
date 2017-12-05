@@ -325,6 +325,7 @@ h5 {
 	<%if(request.getAttribute("msg")!=null){%>
 	   $('#myModal').modal('show');
 	   <%}%>
+	   
 </script>
 </body>
 </html>

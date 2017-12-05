@@ -27,5 +27,14 @@ public interface CustomerDao {
 
 	public boolean deleteCustomerRelationBankDetail(String pid, String clientdb);
 	public boolean checkMemberId(String id);
+
+	public boolean addShareCertificate(CustomerModel cm);
+
+	public String selectPid(String memberid);
+
+	public boolean deleteShareCertificate(String id);
+
+	public boolean updateShareCertificate(CustomerModel cm);
+	
 	
 }

@@ -461,4 +461,98 @@ public class CustomerDaoImpl implements CustomerDao {
 		
 		return false;
 	}
+	public String selectPid(String memberid){
+		String pid="";
+		String query="select pid from customertbl where memberid=?";
+		try{
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			ps.setString(1, memberid);
+			rs=ps.executeQuery();
+			if(rs.next()){
+				pid=rs.getString("pid");
+				con.close();
+				ps=null;
+				rs=null;
+				return pid;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		
+		return null;
+	}
+	public boolean addShareCertificate(CustomerModel cm){
+		int i=0;
+		String query="insert into shareCertificate (pid,shareCertNo,shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate,inputter)values(?,?,?,?,?,?,?,?,?)";
+		try{
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			ps.setString(1, cm.getPid());
+			ps.setString(2, cm.getShareCertNo());
+			ps.setString(3, cm.getShareFrom());
+			ps.setString(4, cm.getShareTo());
+			ps.setString(5, cm.getTotalShareNos());
+			ps.setString(6, cm.getShareRate());
+			ps.setString(7, cm.getShareAmount());
+			ps.setString(8, cm.getShareDate());
+			ps.setString(9, cm.getInputter());
+			i=ps.executeUpdate();
+			if(i>0){
+				con.close();
+				ps=null;
+				return true;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
+	public boolean deleteShareCertificate(String id){
+		String query="delete from shareCertificate where id=?";
+		int i;
+		try{
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			ps.setString(1, id);
+			i=ps.executeUpdate();
+			if(i>0){
+				con.close();
+				ps=null;
+				return true;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
+	public boolean updateShareCertificate(CustomerModel cm){
+		String query="update sharecertificate set shareCertNo=?,shareFrom=?,shareTo=?,totalShareNos=?,shareRate=?,shareAmount=?,shareDate=? where id=? ";
+		int i;
+		try{
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			ps.setString(1, cm.getShareCertNo());
+			ps.setString(2, cm.getShareFrom());
+			ps.setString(3, cm.getShareTo());
+			ps.setString(4, cm.getTotalShareNos());
+			ps.setString(5, cm.getShareRate());
+			ps.setString(6, cm.getShareAmount());
+			ps.setString(7, cm.getShareDate());
+			ps.setString(8, cm.getShareCertificateId());
+			i=ps.executeUpdate();
+			if(i>0){
+				con.close();
+				ps=null;
+				return true;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
 }

@@ -166,6 +166,21 @@
                                 <li><a href="editcustomer.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
                             </ul>
                         </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-child"></i>
+                                <span>Share Certificate</span>
+
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+
+                                <li><a href="sharecertificateinsert.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
+                                <li><a href="viewsharecertificate.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
+                            </ul>
+                        </li>
                         
                         <li class="treeview">
                             <a href="#">

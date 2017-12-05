@@ -24,7 +24,7 @@ public class LoginDaoImpl implements LoginDao {
 			ps.setString(1, u.getUsername());
 			ps.setString(2, u.getPassword());
 			rs=ps.executeQuery();
-			while(rs.next()){
+		while(rs.next()){
 				if(rs.getString("status").equals("1")){
 				con.close();
 				ps.close();

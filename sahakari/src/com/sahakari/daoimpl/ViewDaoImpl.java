@@ -172,5 +172,75 @@ public class ViewDaoImpl implements ViewDao{
 		}
 		return null;
 	}
+	public List<CustomerModel> viewShareCertificate()
+	{
+		String query="SELECT sharecertificate.*, customertbl.memberid from sharecertificate left JOIN customertbl on sharecertificate.pid=customertbl.pid";
+		List<CustomerModel> list=new ArrayList<CustomerModel>();
+		CustomerModel cust=null;
+		try {
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			while(rs.next())
+			{
+				cust=new CustomerModel();
+				cust.setMemberid(rs.getString("memberid"));
+				cust.setPid(rs.getString("pid"));
+				cust.setShareCertificateId(rs.getString("id"));
+				cust.setShareCertNo(rs.getString("shareCertNo"));
+				cust.setShareFrom(rs.getString("shareFrom"));
+				cust.setShareTo(rs.getString("shareTo"));
+				cust.setTotalShareNos(rs.getString("totalShareNos"));
+				cust.setShareRate(rs.getString("shareRate"));
+				cust.setShareAmount(rs.getString("shareAmount"));
+				cust.setShareDate(rs.getString("shareDate"));
+				cust.setInputter(rs.getString("inputter"));
+				list.add(cust);
+			}
+			if(list.size()>0){
+				con.close();
+				ps=null;
+				rs=null;
+				return list;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return null;
+	}
+	public CustomerModel viewSpecificShareCertificate(String id){
+		String query="SELECT sharecertificate.*, customertbl.memberid from sharecertificate left JOIN customertbl on sharecertificate.pid=customertbl.pid where sharecertificate.id=?";
+		CustomerModel cust=null;
+		try {
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			ps.setString(1, id);
+			rs=ps.executeQuery();
+			while(rs.next())
+			{
+				cust=new CustomerModel();
+				cust.setMemberid(rs.getString("memberid"));
+				cust.setPid(rs.getString("pid"));
+				cust.setShareCertificateId(rs.getString("id"));
+				cust.setShareCertNo(rs.getString("shareCertNo"));
+				cust.setShareFrom(rs.getString("shareFrom"));
+				cust.setShareTo(rs.getString("shareTo"));
+				cust.setTotalShareNos(rs.getString("totalShareNos"));
+				cust.setShareRate(rs.getString("shareRate"));
+				cust.setShareAmount(rs.getString("shareAmount"));
+				cust.setShareDate(rs.getString("shareDate"));
+				cust.setInputter(rs.getString("inputter"));
+				con.close();
+				ps=null;
+				rs=null;
+				return cust;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return null;
+	}
 
 }

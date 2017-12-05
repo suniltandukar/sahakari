@@ -7,12 +7,14 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sahakari.dao.CustomerDao;
 import com.sahakari.dao.ViewDao;
 import com.sahakari.daoimpl.CustomerDaoImpl;
 import com.sahakari.daoimpl.ViewDaoImpl;
 import com.sahakari.model.CustomerModel;
+import com.sahakari.model.UserModel;
 
 public class CustomerAction {
 
@@ -304,6 +306,118 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		
 		request.setAttribute("list", list);
 		RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_View.jsp");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void addShareCertificate(HttpServletRequest request,
+			HttpServletResponse response) {
+		HttpSession session=request.getSession();
+		List<UserModel> userDetail=(List)session.getAttribute("userDetail");
+		String inputter="username";
+		
+		CustomerModel cm=new CustomerModel();
+		String shareCertNo, shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate, memberid;
+		shareCertNo=request.getParameter("shareCertNo");
+		shareFrom=request.getParameter("shareFrom");
+		shareTo=request.getParameter("shareTo");
+		totalShareNos=request.getParameter("totalShareNos");
+		shareRate=request.getParameter("shareRate");
+		shareAmount=request.getParameter("shareAmount");
+		shareDate=request.getParameter("shareDate");
+		memberid=request.getParameter("memberid");
+		
+		cm.setShareCertNo(shareCertNo);
+		cm.setShareFrom(shareFrom);
+		cm.setShareTo(shareTo);
+		cm.setTotalShareNos(totalShareNos);
+		cm.setShareRate(shareRate);
+		cm.setShareAmount(shareAmount);
+		cm.setShareDate(shareDate);
+		cm.setInputter(inputter);
+		
+		CustomerDao c=new CustomerDaoImpl();
+		
+		String pid=c.selectPid(memberid);
+		cm.setPid(pid);
+		
+		boolean status=c.addShareCertificate(cm);
+		if(status){
+			request.setAttribute("msg", "Successful !");
+		}
+		else{
+			request.setAttribute("msg", "Failed !");
+		}
+		
+		
+		RequestDispatcher rd=request.getRequestDispatcher("view/ShareCertificate/insertShareCertificate.jsp");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void deleteShareCertificate(HttpServletRequest request,
+			HttpServletResponse response) {
+		String id=request.getParameter("id");
+		CustomerDao c=new CustomerDaoImpl();
+		boolean status=c.deleteShareCertificate(id);
+		if(status){
+			request.setAttribute("msg", "Delete Successful!");
+		}
+		else{
+			request.setAttribute("msg", "Delete Failed!");
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("viewsharecertificate.click");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void updateShareCertificate(HttpServletRequest request,
+			HttpServletResponse response) {
+String inputter="username";
+		
+		CustomerModel cm=new CustomerModel();
+		String shareCertificateId,shareCertNo, shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate, memberid;
+		shareCertificateId=request.getParameter("shareCertificateId");
+		shareCertNo=request.getParameter("shareCertNo");
+		shareFrom=request.getParameter("shareFrom");
+		shareTo=request.getParameter("shareTo");
+		totalShareNos=request.getParameter("totalShareNos");
+		shareRate=request.getParameter("shareRate");
+		shareAmount=request.getParameter("shareAmount");
+		shareDate=request.getParameter("shareDate");
+		memberid=request.getParameter("memberid");
+		
+		cm.setShareCertificateId(shareCertificateId);
+		cm.setShareCertNo(shareCertNo);
+		cm.setShareFrom(shareFrom);
+		cm.setShareTo(shareTo);
+		cm.setTotalShareNos(totalShareNos);
+		cm.setShareRate(shareRate);
+		cm.setShareAmount(shareAmount);
+		cm.setShareDate(shareDate);
+		cm.setInputter(inputter);
+		
+		CustomerDao c=new CustomerDaoImpl();
+		
+		String pid=c.selectPid(memberid);
+		boolean status=c.updateShareCertificate(cm);
+		if(status){
+			request.setAttribute("msg", "Update Successful!");
+		}
+		else{
+			request.setAttribute("msg", "Update Successful!");
+		}
+		
+		RequestDispatcher rd=request.getRequestDispatcher("viewsharecertificate.click");
 		try {
 			rd.forward(request, response);
 		} catch (ServletException | IOException e) {

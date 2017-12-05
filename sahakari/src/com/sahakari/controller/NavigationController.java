@@ -99,6 +99,32 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/customerUpdateDisplayForm.jsp");
 			rd.forward(request, response);
 		}
+		else if(uri.endsWith("sharecertificateinsert.click")){
+			RequestDispatcher rd=request.getRequestDispatcher("view/ShareCertificate/insertShareCertificate.jsp");
+			rd.forward(request, response);
+			
+		}
+		else if(uri.endsWith("viewsharecertificate.click")){
+			ViewDao v=new ViewDaoImpl();
+			 List<CustomerModel> list=v.viewShareCertificate();
+			 
+			 request.setAttribute("shareCert", list);
+			 
+			RequestDispatcher rd=request.getRequestDispatcher("view/ShareCertificate/viewShareCertificate.jsp");
+			rd.forward(request, response);
+			
+		}
+		else if(uri.endsWith("editsharecertificate.click")){
+			ViewDao v=new ViewDaoImpl();
+			String id=request.getParameter("id");
+			CustomerModel list=v.viewSpecificShareCertificate(id);
+			
+			request.setAttribute("shareCert", list);
+			
+			RequestDispatcher rd=request.getRequestDispatcher("view/ShareCertificate/updateShareCertificate.jsp");
+			rd.forward(request, response);
+			
+		}
 		else if(uri.endsWith("viewmuncipality.click")){
 			RequestDispatcher rd=request.getRequestDispatcher("view/onselectpages/viewMuncipality.jsp");
 			rd.forward(request, response);
@@ -122,9 +148,6 @@ public class NavigationController extends HttpServlet {
 			else{
 				out.println("0");
 			}
-			/*RequestDispatcher rd=request.getRequestDispatcher("view/onformsubmit/checkMemberId.jsp");
-			rd.forward(request, response);*/
-			
 		}
 	
 	}
