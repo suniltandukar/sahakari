@@ -52,15 +52,15 @@ h5 {
 								<tr>
 									<td>
 										<h5>Member Id</h5> <input type="text" class="form-control memberid"
-										name="memberid">
+										name="memberid" value="">
 									</td>
 									<td>
 										<h5>Registration Date</h5> <input type="text"
-										class="form-control" name="registrationDate">
+										class="form-control" name="registrationDate" value="">
 									</td>
 									<td>
 										<h5>Name</h5> <input type="text" class="form-control"
-										name="name">
+										name="name" value="">
 									</td>
 								</tr>
 								<tr>
@@ -73,11 +73,11 @@ h5 {
 									</td>
 									<td>
 										<h5>Citizenship No</h5> <input type="text"
-										class="form-control" name="cusCitizenshipNo">
+										class="form-control" name="cusCitizenshipNo" value="">
 									</td>
 									<td>
 										<h5>Citizenship Issued From</h5> <select class="form-control"
-										name="citizenshipIssuedFrom">
+										name="citizenshipIssuedFrom" >
 										<option value="0">Select District</option>
 											<c:forEach items="${districtlist}" var="district">
 												<option value="${district.districtCode }">${district.districtName }</option>
@@ -88,11 +88,11 @@ h5 {
 								<tr>
 									<td>
 										<h5>Telephone No</h5> <input type="text"
-										class="form-control" name="telno" maxlength="10">
+										class="form-control" name="telno" maxlength="10" value="">
 									</td>
 									<td>
 										<h5>Mobile No</h5> <input type="text" class="form-control"
-										name="mobno" maxlength="10">
+										name="mobno" maxlength="10" value="">
 									</td>
 									<td>
 										<h5>Father's Name</h5> <input type="text" class="form-control"
@@ -102,11 +102,11 @@ h5 {
 								<tr>
 									<td>
 										<h5>Spouse Name</h5> <input type="text"
-										class="form-control" name="spouseName" >
+										class="form-control" name="spouseName" value="">
 									</td>
 									<td>
 										<h5>Date of birth (DOB)</h5> <input type="text" class="form-control"
-										name="dob" >
+										name="dob" value="">
 									</td>
 								</tr>
 								<tr>
@@ -161,11 +161,11 @@ h5 {
 								<tr>
 									<td>
 										<h5>City</h5> <input type="text" class="form-control"
-										name="pcity">
+										name="pcity" value="">
 									</td>
 									<td>
 										<h5>Tole</h5> <input type="text" class="form-control"
-										name="ptole">
+										name="ptole" value="">
 									</td>
 								</tr>
 							</tbody>
@@ -199,11 +199,11 @@ h5 {
 								<tr>
 									<td>
 										<h5>City</h5> <input type="text" class="form-control"
-										name="tcity">
+										name="tcity" value="">
 									</td>
 									<td>
 										<h5>Tole</h5> <input type="text" class="form-control"
-										name="ttole">
+										name="ttole" value="">
 									</td>
 								</tr>
 							</tbody>
@@ -222,19 +222,19 @@ h5 {
 									</td>
 									<td>
 										<h5>Relation Name</h5> <input type="text" class="form-control"
-										name="cusRelName">
+										name="cusRelName" value="">
 									</td>
 									<td>
 										<h5>DOB</h5> <input type="text" class="form-control"
-										name="dateOfBirth">	
+										name="dateOfBirth" value="">	
 									</td>
 									<td>
 										<h5>citizenshipNo</h5> <input type="text" class="form-control"
-										name="fcitizenshipNo">	
+										name="fcitizenshipNo" value="">	
 									</td>
 									<td>
 										<h5>Remarks</h5> <input type="text" class="form-control"
-										name="fremarks">	
+										name="fremarks" value="">	
 									</td>
 									<td><a><i class='fa fa-times' aria-hidden='true' style='color:red;'></i></a></td>
 								</tr>
@@ -248,25 +248,25 @@ h5 {
 								<tr>
 									<td>
 										<h5>Job Name</h5> <input type="text" class="form-control"
-										name="cusJob">
+										name="cusJob" value="">
 									</td>
 									<td>
 										<h5>Instituion</h5> <input type="text" class="form-control"
-										name="cusInstitution">
+										name="cusInstitution" value="">
 									</td>
 									<td>
 										<h5>Post</h5> <input type="text" class="form-control"
-										name="cusPost">	
+										name="cusPost" value="">	
 									</td>
 								</tr>
 								<tr>
 									<td>
 										<h5>Income per year</h5> <input type="text" class="form-control"
-										name="incomePeryear">	
+										name="incomePeryear" value="">	
 									</td>
 									<td>
 										<h5>Remarks</h5> <input type="text" class="form-control"
-										name="jremarks">	
+										name="jremarks" value="">	
 									</td>
 								</tr>
 							</tbody>
@@ -279,20 +279,20 @@ h5 {
 								<tr>
 									<td>
 										<h5>Bank Name</h5> <input type="text" class="form-control"
-										name="bankName">
+										name="bankName" value="">
 											
 									</td>
 									<td>
 										<h5>Account Number</h5> <input type="text" class="form-control"
-										name="accountNumber">
+										name="accountNumber" value="">
 									</td>
 									<td>
 										<h5>Account Type</h5> <input type="text" class="form-control"
-										name="accountType">	
+										name="accountType" value="">	
 									</td>
 									<td>
 										<h5>Remarks</h5> <input type="text" class="form-control"
-										name="bremarks">	
+										name="bremarks" value="">	
 									</td>
 									<td><a><i class='fa fa-times' aria-hidden='true' style='color:red;'></i></a></td>
 								</tr>
@@ -316,7 +316,7 @@ h5 {
       </div>
     </div>
 </div>
-	<input type="text" class="memberidstatus" value="">
+	<input type="hidden" class="memberidstatus" value="">
 	
 	<jsp:include page="/msgmodal"></jsp:include>
 	<script type="text/javascript" src="assets/js/dynamicselector.js"></script>
