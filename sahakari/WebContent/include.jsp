@@ -7,6 +7,7 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="assets/css/ionicons.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.dataTables.min.css">
   <link rel="stylesheet" type="text/css" href="assets/nepaliDatePicker/nepali.datepicker.v2.2.min.css" />
   <!-- Theme style -->
   <link rel="stylesheet" href="assets/css/AdminLTE.min.css">
@@ -36,6 +37,8 @@ width: 95%;margin:auto;}
 <script src="assets/js/dateConverter.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/buttons/1.4.2/js/buttons.print.min.js"></script>
 <script type="text/javascript" src="assets/nepaliDatePicker/nepali.datepicker.v2.2.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="assets/js/jquery-ui.min.js"></script>
@@ -43,4 +46,5 @@ width: 95%;margin:auto;}
 <!-- Bootstrap 3.3.7 -->
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/adminlte.min.js"></script>
+
 </div>

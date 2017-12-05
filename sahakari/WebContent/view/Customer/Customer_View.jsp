@@ -25,10 +25,11 @@
 			</h6>
 		</div>
 		<div class="panel-body">
-			<table id="example" class="table table-striped table-bordered"
+			<table id="example" class="display table table-striped table-bordered"
 				cellspacing="0" width="100%">
 				<thead>
 					<tr>
+						<th>S. No.</th>
 						<th>Member Id</th>
 						<th>Name</th>
 						<th>Registration Date</th>
@@ -40,11 +41,11 @@
 					</tr>
 				</thead>
 				<tbody>
-
+	<%int sno=1; %>
 				<c:forEach items="${list}" var="list">
 											
 					<tr>
-						
+						<td><%=sno %></td>
 						<td>${list.memberid }</td>
 						<td>${list.name }</td>
 						<td>${list.registrationDate }</td>
@@ -67,6 +68,7 @@
 							</div>
 							</td>
 					</tr>
+					<%sno++; %>
 					</c:forEach>
 				</tbody>
 			</table>
@@ -87,7 +89,12 @@
 	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#example').DataTable();
+			 $('#example').DataTable( {
+			        dom: 'Bfrtip',
+			        buttons: [
+			            'print'
+			        ]
+			    } );
 	<%if (request.getAttribute("msg") != null) {%>
 		$('#myModal').modal('show');
 	<%}%>
