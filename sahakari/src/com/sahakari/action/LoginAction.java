@@ -43,7 +43,7 @@ public class LoginAction extends HttpServlet {
 		LoginDao l=new LoginDaoImpl();
 		boolean status=l.checkuser(u);
 		if(status){
-			List<UserModel> userDetail=l.getUserDetail(u);
+			UserModel userDetail=l.getUserDetail(u);
 			HttpSession session=request.getSession(true);
 			session.setAttribute("userDetail", userDetail);
 			RequestDispatcher rd=request.getRequestDispatcher("profile.jsp");

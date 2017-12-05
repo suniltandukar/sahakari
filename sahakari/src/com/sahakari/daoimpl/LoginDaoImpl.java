@@ -37,8 +37,7 @@ public class LoginDaoImpl implements LoginDao {
 		return false;
 		
 	}
-	public List<UserModel> getUserDetail(UserModel u){
-		List<UserModel> list=new ArrayList<UserModel>();
+	public UserModel getUserDetail(UserModel u){
 		UserModel um=null;
 		String query="Select * from usertbl where username=? and password=?";
 		try{
@@ -52,10 +51,9 @@ public class LoginDaoImpl implements LoginDao {
 				um.setUsername(rs.getString("username"));
 				um.setPassword(rs.getString("password"));
 				um.setStatus(rs.getString("status"));
-				list.add(um);
 				con.close();
 				ps.close();
-				return list;
+				return um;
 			}
 		}catch(Exception e){
 			System.out.println(e);

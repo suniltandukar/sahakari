@@ -29,7 +29,7 @@ h5 {
 	<div class="panel panel-default panel-margin">
 		<div class="panel-body">
 
-			<form class="form-horizontal" id="form1" method="post"
+			<form class="form-horizontal customerForm" id="form1" method="post"
 				 action="customer.add">
 				<ul class="nav nav-tabs">
 					<li><button type="submit" class="btn btn-success formsubmitbutton" form="form1"
@@ -320,12 +320,12 @@ h5 {
 	
 	<jsp:include page="/msgmodal"></jsp:include>
 	<script type="text/javascript" src="assets/js/dynamicselector.js"></script>
-	<script type="text/javascript" src="assets/js/insertCustomer.js"></script>
+	<script type="text/javascript" src="assets/js/formCases.js"></script>
 	<script>
 	<%if(request.getAttribute("msg")!=null){%>
 	   $('#myModal').modal('show');
 	   <%}%>
-	   
+	  
 </script>
 </body>
 </html>

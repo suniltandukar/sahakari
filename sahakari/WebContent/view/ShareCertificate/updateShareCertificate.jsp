@@ -7,6 +7,7 @@ font-weight:bold;}
 <div class="panel panel-default panel-margin">
 		<div class="panel-heading">
 			<h4>Customer Share Certificate</h4>
+			<h5><b>Member Id:</b> ${shareCert.memberid }</h5>
 		</div>
 		<div class="panel-body">
 
@@ -18,14 +19,11 @@ font-weight:bold;}
 								<tr>
 									<td>
 										<input type="submit" class="btn btn-success" value="Update">
+										<input type="hidden" value="${shareCert.shareCertificateId }" name="shareCertificateId" >
 									</td>
 								</tr>
 								<tr>
-									<td>
-										<input type="hidden" value="${shareCert.shareCertificateId }" name="shareCertificateId" >
-										<h5>Member ID</h5> <input type="text" class="form-control memberid"
-										name="memberid" value="${shareCert.memberid }">
-									</td>
+									
 									<td>
 										<h5>Share Certificate No</h5> <input type="text"
 										class="form-control" name="shareCertNo" value="${shareCert.shareCertNo }">

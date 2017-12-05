@@ -142,11 +142,22 @@ public class NavigationController extends HttpServlet {
 			boolean status=c.checkMemberId(id);
 			System.out.println(status);
 			if(status){
-				
 				out.println("1");
 			}
 			else{
 				out.println("0");
+			}
+		}
+		else if(uri.endsWith("sharecertcheckmemberid.click")){
+			String id=request.getParameter("id");
+			CustomerDao c=new CustomerDaoImpl();
+			boolean status=c.checkMemberId(id);
+			System.out.println(status);
+			if(status){
+				out.println("0");
+			}
+			else{
+				out.println("1");
 			}
 		}
 	

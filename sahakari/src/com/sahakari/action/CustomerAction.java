@@ -74,7 +74,11 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		dob=request.getParameter("dob");
 		typeid=request.getParameter("typeid");
 		statusid=request.getParameter("statusid");
-		inputter="shishir";
+		
+		HttpSession session=request.getSession();
+		UserModel userDetail=(UserModel)session.getAttribute("userDetail");
+		
+		inputter=userDetail.getUsername();
 		authorizer="abc";
 		insertStatus="abc";
 		updateStatus="abc";
@@ -139,14 +143,7 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 			request.setAttribute("msg", "Customer Insert Failed!");
 		}
 		
-		GetFormOptions g=new GetFormOptions();
-		List<CustomerModel> statuslist=g.getStatus();
-		List<CustomerModel> typelist=g.getType();
-		List<CustomerModel> districtlist=g.getDistrict();
-		request.setAttribute("statuslist", statuslist);
-		request.setAttribute("typelist", typelist);
-		request.setAttribute("districtlist", districtlist);
-		RequestDispatcher rd=request.getRequestDispatcher("view/Customer/insertCustomer.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("customerinsert.click");
 		try {
 			rd.forward(request, response);
 		} catch (ServletException | IOException e) {
@@ -166,10 +163,7 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		else{
 			request.setAttribute("msg", "Customer Deletion Failed!");
 		}
-		ViewDao view=new ViewDaoImpl();
-		List<CustomerModel> list=view.viewCustomerDetail();
-		request.setAttribute("list", list);
-		RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_View.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("viewcustomer.click");
 		try {
 			rd.forward(request, response);
 		} catch (ServletException | IOException e) {
@@ -301,11 +295,8 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		else{
 			request.setAttribute("msg", "Update Failed!");
 		}
-		ViewDao view=new ViewDaoImpl();
-		List<CustomerModel> list=view.viewCustomerDetail();
 		
-		request.setAttribute("list", list);
-		RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_View.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("viewcustomer.click");
 		try {
 			rd.forward(request, response);
 		} catch (ServletException | IOException e) {
@@ -316,8 +307,8 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 	public void addShareCertificate(HttpServletRequest request,
 			HttpServletResponse response) {
 		HttpSession session=request.getSession();
-		List<UserModel> userDetail=(List)session.getAttribute("userDetail");
-		String inputter="username";
+		UserModel userDetail=(UserModel)session.getAttribute("userDetail");
+		String inputter=userDetail.getUsername();
 		
 		CustomerModel cm=new CustomerModel();
 		String shareCertNo, shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate, memberid;
@@ -353,7 +344,7 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		}
 		
 		
-		RequestDispatcher rd=request.getRequestDispatcher("view/ShareCertificate/insertShareCertificate.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("sharecertificateinsert.click");
 		try {
 			rd.forward(request, response);
 		} catch (ServletException | IOException e) {

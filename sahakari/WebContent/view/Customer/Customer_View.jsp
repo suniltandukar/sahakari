@@ -88,20 +88,15 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		$(document).ready(function() {
-			 $('#example').DataTable( {
-			        dom: 'Bfrtip',
-			        buttons: [
-			            'print'
-			        ]
-			    } );
+	$('.clickbtn').click(function() {
+		return confirm('CONFIRM?');
+	});
 	<%if (request.getAttribute("msg") != null) {%>
-		$('#myModal').modal('show');
-	<%}%>
-		});
-		$('.clickbtn').click(function() {
-			return confirm('CONFIRM?');
-		});
+	$('#myModal').modal('show');
+<%}%>
+	 $('#example').DataTable();
+		
+		
 	</script>
 </body>
 </html>

@@ -31,7 +31,7 @@ h5 {
 		</div>
 		<div class="panel-body">
 
-			<form class="form-horizontal" id="form1" method="post"
+			<form class="form-horizontal shareCertForm" id="form1" method="post"
 				 action="shareCertificate.add">
 				
 						<table class="table">
@@ -43,7 +43,7 @@ h5 {
 								</tr>
 								<tr>
 									<td>
-										<h5>Member ID</h5> <input type="text" class="form-control memberid"
+										<h5>Member ID</h5> <input type="text" class="form-control sharecertmemberid"
 										name="memberid" value="">
 									</td>
 									<td>
@@ -62,15 +62,15 @@ h5 {
 								<tr>
 									<td>
 										<h5>Total Share No</h5> <input type="text" class="form-control"
-										name="totalShareNos" value="">
+										name="totalShareNos" value="0">
 									</td>
 									<td>
 										<h5>Share Rate</h5> <input type="text" class="form-control"
-										name="shareRate" value="">
+										name="shareRate" value="0">
 									</td>
 									<td>
 										<h5>Share Amount</h5> <input type="text" class="form-control"
-										name="shareAmount" value="">
+										name="shareAmount" value="0">
 									</td>
 									<td>
 										<h5>Share Date</h5> <input type="text" class="form-control"
@@ -84,14 +84,24 @@ h5 {
 		</div>
 	</div>
 	<jsp:include page="/msgmodal"></jsp:include>
+	<div class="modal fade" id="memberidmsgmodal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p id="modalmsg"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+	<input type="hidden" class="memberidstatus" value="">
+	<script type="text/javascript" src="assets/js/formCases.js"></script>
 	<script type="text/javascript">
 	<%if(request.getAttribute("msg")!=null){%>
 	   $('#myModal').modal('show');
 	   <%}%>
-	   $('form').submit(function(){
-			  return confirm("CONFIRM?"); 
-		   });
-	   
 	</script>
 </body>
 </html>
