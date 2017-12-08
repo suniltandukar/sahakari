@@ -42,8 +42,10 @@
 								<tr>
 									<td>
 										<h5>Gender</h5> <select class="form-control" name="gender">
-											<option value="m"  >Male</option>
-											<option value="f" >Female</option>
+											
+											<option value="${cdetail.gender }">${cdetail.gender }</option>
+											<option value="m" >Male</option>
+											<option value="f"  >Female</option>
 											<option value="o" >Other</option>
 									</select>
 									</td>
@@ -54,7 +56,8 @@
 									<td>
 										<h5>Citizenship Issued From</h5> <select class="form-control"
 										name="citizenshipIssuedFrom">
-										<option value="0">Select District</option>
+										<option value="${cdetail.citizenshipIssuedFrom }">${cdetail.citidistName }</option>
+										
 											<c:forEach items="${districtlist}" var="district">
 												<option value="${district.districtCode }">${district.districtName }</option>
 											</c:forEach>
@@ -114,7 +117,7 @@
 									<td>
 										<h5>District</h5> <select class="form-control pdistrict"
 										name="pdistid">
-											<option value="0">Select District</option>
+											<option value="${cdetail.pdistid }">${cdetail.pdistName }</option>
 											<c:forEach items="${districtlist}" var="district">
 												<option value="${district.districtCode }">${district.districtName }</option>
 											</c:forEach>
@@ -123,13 +126,13 @@
 									<td>
 										<h5>VDC/Muncipality</h5> <select type="text" class="form-control pvdcmun"
 										name="pvdcmunid">
-											<option value="0">Select VDC/Muncipality</option>
+											<option value="${cdetail.pvdcmunid }">${cdetail.pvdcName }</option>
 										</select>
 									</td>
 									<td>
 										<h5>Ward No.</h5> <select type="text" class="form-control pwardno"
 										name="pwardno">
-											<option value="0">Select Ward No</option>
+											<option value="${cdetail.pwardno }">${cdetail.pwardno }</option>
 										</select>
 									</td>
 								</tr>
@@ -152,7 +155,7 @@
 									<td>
 										<h5>District</h5> <select class="form-control tdistrict"
 										name="tdistid">
-											<option value="0">Select District</option>
+											<option value="${cdetail.tdistid }">${cdetail.tdistName }</option>
 											<c:forEach items="${districtlist}" var="district">
 												<option value="${district.districtCode }">${district.districtName }</option>
 											</c:forEach>
@@ -161,13 +164,13 @@
 									<td>
 										<h5>VDC/Muncipality</h5> <select type="text" class="form-control tvdcmun"
 										name="tvdcmunid">
-											<option value="0">Select VDC/Muncipality</option>
+											<option value="${cdetail.tvdcmunid }">${cdetail.tvdcName }</option>
 										</select>
 									</td>
 									<td>
 										<h5>Ward No.</h5> <select type="text" class="form-control twardno"
 										name="twardno">
-											<option value="0">Select Ward No</option>
+											<option value="${cdetail.twardno }">${cdetail.twardno }</option>
 										</select>
 									</td>
 								</tr>
@@ -188,6 +191,33 @@
 					<input type="button" name="button"  value="+ Add Relation" class="btn btn-primary addrealtionbtn">
 						<table class="table" id="relationtable">
 							<tbody>
+								<%-- <c:if test="${cusFamilyDetail==null }">
+									<tr class="tr_clone">
+									<td>
+										<h5>Relation</h5> <select class="form-control"
+										name="cusRelation">
+											<option value="son">Son</option>
+										</select>
+									</td>
+									<td>
+										<h5>Relation Name</h5> <input type="text" class="form-control"
+										name="cusRelName" value="">
+									</td>
+									<td>
+										<h5>DOB</h5> <input type="text" class="form-control"
+										name="dateOfBirth" value="">	
+									</td>
+									<td>
+										<h5>citizenshipNo</h5> <input type="text" class="form-control"
+										name="fcitizenshipNo" value="">	
+									</td>
+									<td>
+										<h5>Remarks</h5> <input type="text" class="form-control"
+										name="fremarks" value="">	
+									</td>
+									<td><a><i class='fa fa-times' aria-hidden='true' style='color:red;'></i></a></td>
+								</tr>
+								</c:if> --%>
 								<c:forEach items="${cusFamilyDetail}" var="cfd">
 								<tr class="tr_clone">
 									<td>
@@ -226,25 +256,25 @@
 								<tr>
 									<td>
 										<h5>Job Name</h5> <input type="text" class="form-control"
-										name="cusJob" value="${cdetail.cusJob }">
+										name="cusJob" value="">
 									</td>
 									<td>
 										<h5>Instituion</h5> <input type="text" class="form-control"
-										name="cusInstitution" value="${cdetail.cusInstitution }">
+										name="cusInstitution" value="">
 									</td>
 									<td>
 										<h5>Post</h5> <input type="text" class="form-control"
-										name="cusPost" value="${cdetail.cusPost }">	
+										name="cusPost" value="">	
 									</td>
 								</tr>
 								<tr>
 									<td>
 										<h5>Income per year</h5> <input type="text" class="form-control"
-										name="incomePeryear" value="${cdetail.incomePeryear }">	
+										name="incomePeryear" value="">	
 									</td>
 									<td>
 										<h5>Remarks</h5> <input type="text" class="form-control"
-										name="jremarks" value="${cdetail.jremarks }">	
+										name="jremarks" value="">	
 									</td>
 								</tr>
 							</tbody>

@@ -1,5 +1,22 @@
-	$(document).ready(function()
+	
+$(document).ready(function()
 			{
+	$(".categoryid").change(function()
+			{
+			var id=$(this).val();
+			var dataString = 'id='+ id;
+			$.ajax
+			({
+			type: "POST",
+			url: "showaccounttype.click",
+			data: dataString,
+			cache: false,
+			success: function(html)
+			{
+			$(".accounttype").html(html);
+			} 
+			});
+	});
 		$(".pdistrict").change(function()
 		{
 		var id=$(this).val();
@@ -16,6 +33,7 @@
 		} 
 		});
 });
+		
 		$(".pvdcmun").change(function()
 				{
 				var id=$(this).val();

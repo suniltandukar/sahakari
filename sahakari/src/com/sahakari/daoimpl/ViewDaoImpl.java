@@ -58,10 +58,11 @@ public class ViewDaoImpl implements ViewDao{
 	}
 	public CustomerModel viewSpecificCustomerDetail(String id)
 	{
-		String query="SELECT a.*, b.typeName, c.statusName, d.cusJob, d.cusInstitution, d.cusPost, d.incomePeryear, d.remarks FROM customertbl a left join typetbl b on a.typeid=b.typeid left JOIN statustbl c on a.statusid=c.statusid left JOIN jobdetail d on a.pid=d.pid where a.memberid='"+id+"' ";
+		String query="select * from customerdetail where memberid=? ";
 		try {
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
+			ps.setString(1, id);
 			rs=ps.executeQuery();
 			if(rs.next())
 			{
@@ -72,17 +73,25 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setName(rs.getString("Name"));
 				cust.setGender(rs.getString("Gender"));
 				cust.setPdistid(rs.getString("pdistid"));
+				cust.setPdistName(rs.getString("pdistname"));
+				
 				cust.setPvdcmunid(rs.getString("pvdcmunid"));
+				cust.setPvdcName(rs.getString("pvdcname"));
 				cust.setPwardno(rs.getString("pwardno"));
 				cust.setPcity(rs.getString("pcity"));
 				cust.setPtole(rs.getString("ptole"));
 				cust.setTdistid(rs.getString("tdistid"));
+				cust.setTdistName(rs.getString("tdistname"));
+				
 				cust.setTvdcmunid(rs.getString("tvdcmunid"));
+				cust.setTvdcName(rs.getString("tvdcname"));
 				cust.setTwardno(rs.getString("twardno"));
 				cust.setTcity(rs.getString("tcity"));
 				cust.setTtole(rs.getString("ttole"));
 				cust.setCusCitizenshipNo(rs.getString("citizenshipNo"));
 				cust.setCitizenshipIssuedFrom(rs.getString("citizenshipIssuedFrom"));
+				cust.setCitidistName(rs.getString("citdistname"));
+				
 				cust.setTelno(rs.getString("telno"));
 				cust.setMobno(rs.getString("mobno"));
 				cust.setFatherName(rs.getString("fatherName"));
@@ -98,11 +107,11 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setUpdateStatus(rs.getString("updateStatus"));
 				cust.setDelStatus(rs.getString("delStatus"));
 				
-				cust.setCusJob(rs.getString("cusJob"));
+				/*cust.setCusJob(rs.getString("cusJob"));
 				cust.setCusInstitution(rs.getString("cusInstitution"));
 				cust.setCusPost(rs.getString("cusPost"));
 				cust.setIncomePeryear(rs.getString("incomePeryear"));
-				cust.setJremarks(rs.getString("remarks"));
+				cust.setJremarks(rs.getString("remarks"));*/
 				return cust;
 			}
 		} catch (SQLException e) {

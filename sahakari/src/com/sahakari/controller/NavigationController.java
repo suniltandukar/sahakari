@@ -14,11 +14,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
 
+import com.sahakari.account.dao.AccountDao;
+import com.sahakari.account.daoImpl.AccountDaoImpl;
 import com.sahakari.action.GetFormOptions;
 import com.sahakari.dao.CustomerDao;
 import com.sahakari.dao.ViewDao;
 import com.sahakari.daoimpl.CustomerDaoImpl;
 import com.sahakari.daoimpl.ViewDaoImpl;
+import com.sahakari.model.AccountModel;
 import com.sahakari.model.CustomerModel;
 /**
  * Servlet implementation class NavigationController
@@ -159,6 +162,34 @@ public class NavigationController extends HttpServlet {
 			else{
 				out.println("1");
 			}
+		}
+		else if(uri.endsWith("insertaccount.click")){
+			AccountDao a=new AccountDaoImpl();
+			List<AccountModel> categorylist=a.getCategories();
+			request.setAttribute("categorylist", categorylist);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Account/insertAccount.jsp");
+			rd.forward(request, response);
+			
+		}
+		else if(uri.endsWith("viewaccount.click")){
+			RequestDispatcher rd=request.getRequestDispatcher("view/Account/viewWardNo.jsp");
+			rd.forward(request, response);
+			
+		}
+		else if(uri.endsWith("editaccount.click")){
+			RequestDispatcher rd=request.getRequestDispatcher("view/Account/viewWardNo.jsp");
+			rd.forward(request, response);
+			
+		}
+		else if(uri.endsWith("showaccounttype.click")){
+			AccountDao a=new AccountDaoImpl();
+			String categoryId=request.getParameter("id");
+			String accountType=a.selectAccountTypeFromCategory(categoryId);
+			AccountModel am=a.getAccountTypes(accountType);
+			request.setAttribute("accounttype", am);
+			RequestDispatcher rd=request.getRequestDispatcher("view/onselectpages/accountType.jsp");
+			rd.forward(request, response);
+			
 		}
 	
 	}

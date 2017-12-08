@@ -3,12 +3,44 @@ package com.sahakari.model;
 public class CustomerModel {
 	String districtCode, districtName, pid, memberid, registrationDate, name,
 	gender, pdistid, pdistName,
-	pvdcmunid, pwardno, pcity, ptole, tdistid,
-	tvdcmunid, twardno, tcity,
-	ttole, cusCitizenshipNo, citizenshipIssuedFrom,
+	pvdcmunid, pvdcName, pwardno, pcity, ptole, tdistid, tdistName,
+	tvdcmunid, tvdcName, twardno, tcity,
+	ttole, cusCitizenshipNo, citizenshipIssuedFrom, citidistName,
 	telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer,
 	insertStatus, updateStatus, delStatus;
 	
+	public String getPvdcName() {
+		return pvdcName;
+	}
+
+	public void setPvdcName(String pvdcName) {
+		this.pvdcName = pvdcName;
+	}
+
+	public String getTdistName() {
+		return tdistName;
+	}
+
+	public void setTdistName(String tdistName) {
+		this.tdistName = tdistName;
+	}
+
+	public String getTvdcName() {
+		return tvdcName;
+	}
+
+	public void setTvdcName(String tvdcName) {
+		this.tvdcName = tvdcName;
+	}
+
+	public String getCitidistName() {
+		return citidistName;
+	}
+
+	public void setCitidistName(String citidistName) {
+		this.citidistName = citidistName;
+	}
+
 	String shareCertNo, shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate, shareCertificateId;
 	public String getShareCertificateId() {
 		return shareCertificateId;

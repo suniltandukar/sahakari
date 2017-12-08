@@ -181,7 +181,22 @@
                                 <li><a href="viewsharecertificate.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
                             </ul>
                         </li>
-                        
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-child"></i>
+                                <span>Account</span>
+
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+
+                                <li><a href="insertaccount.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
+                                <li><a href="viewaccount.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
+                                <li><a href="editaccount.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
+                            </ul>
+                        </li>
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-lastfm"></i>

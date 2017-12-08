@@ -60,16 +60,12 @@
 			});	
 	   $(".shareCertForm").submit(function(){
 			var memberidstatus=$('.memberidstatus').val();
-			if(memberidstatus==1){
+			if(memberidstatus==0){
 				
 				$("#modalmsg").text("Member ID doesn't Exists! Enter Valid Member ID.");
 				 $('#memberidmsgmodal').modal('show');
 				return false;
 				}
-			else{
-				alert(memberidstatus);
-				return true;
-			}
 		});	
 	   
 		

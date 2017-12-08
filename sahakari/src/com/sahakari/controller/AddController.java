@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sahakari.action.AccountAction;
 import com.sahakari.action.CustomerAction;
 import com.sahakari.action.GetFormOptions;
 import com.sahakari.dao.ViewDao;
@@ -58,6 +59,10 @@ public class AddController extends HttpServlet {
 		if(uri.endsWith("shareCertificate.add")){
 			CustomerAction c=new CustomerAction();
 			c.addShareCertificate(request,response);
+		}
+		if(uri.endsWith("account.add")){
+			AccountAction a=new AccountAction();
+			a.addAccount(request,response);
 		}
 	}
 

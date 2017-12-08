@@ -97,7 +97,7 @@ h5 {
     </div>
 </div>
 	<input type="hidden" class="memberidstatus" value="">
-	<script type="text/javascript" src="assets/js/formCases.js"></script>
+	<script type="text/javascript" src="assets/js/form.js"></script>
 	<script type="text/javascript">
 	<%if(request.getAttribute("msg")!=null){%>
 	   $('#myModal').modal('show');
