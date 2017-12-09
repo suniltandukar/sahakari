@@ -172,12 +172,15 @@ public class NavigationController extends HttpServlet {
 			
 		}
 		else if(uri.endsWith("viewaccount.click")){
-			RequestDispatcher rd=request.getRequestDispatcher("view/Account/viewWardNo.jsp");
+			AccountDao a=new AccountDaoImpl();
+			List<AccountModel> list=a.viewAccount();
+			request.setAttribute("accountlist", list);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Account/viewAccount.jsp");
 			rd.forward(request, response);
 			
 		}
 		else if(uri.endsWith("editaccount.click")){
-			RequestDispatcher rd=request.getRequestDispatcher("view/Account/viewWardNo.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("view/Account/editAccount.jsp");
 			rd.forward(request, response);
 			
 		}

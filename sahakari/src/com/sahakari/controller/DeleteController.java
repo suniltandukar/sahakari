@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sahakari.action.AccountAction;
 import com.sahakari.action.CustomerAction;
 import com.sahakari.dao.ViewDao;
 import com.sahakari.daoimpl.ViewDaoImpl;
@@ -34,6 +35,10 @@ public class DeleteController extends HttpServlet {
 		if(uri.endsWith("sharecertificate.del")){
 			CustomerAction action=new CustomerAction();
 			action.deleteShareCertificate(request,response);
+		}
+		if(uri.endsWith("account.del")){
+			AccountAction action=new AccountAction();
+			action.deleteAccount(request,response);
 		}
 	}
 

@@ -101,7 +101,7 @@ public class AccountDaoImpl implements AccountDao{
 	}
 	public boolean insertAccount(AccountModel am){
 		try{
-		String query="insert into accountsTbl (accountNumber, pid, memberid, alternativeAccounId, categoryId, accountType, accountName, limitRef, inputter) values (?,?,?,?,?,?,?,?,?)";
+		String query="insert into accountsTbl (accountNumber, pid, memberid, alternativeAccountId, categoryId, accountType, accountName, limitRef, inputter) values (?,?,?,?,?,?,?,?,?)";
 		con=DBConnection.getConnection();
 		ps=con.prepareStatement(query);
 		ps.setString(1, am.getAccountNumber());
@@ -124,5 +124,50 @@ public class AccountDaoImpl implements AccountDao{
 		{
 			System.out.println(e);
 		}		return false;
+	}
+	public List<AccountModel> viewAccount(){
+		String query="select * from accountstbl";
+		List<AccountModel> list=new ArrayList<AccountModel>();
+		AccountModel am=null;
+		try{
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			while(rs.next()){
+				am=new AccountModel();
+				am.setAccountNumber(rs.getString("accountNumber"));
+				am.setMemberid(rs.getString("memberid"));
+				am.setPid(rs.getString("pid"));
+				am.setAlternativeAccounId(rs.getString("alternativeAccountId"));
+				am.setAccountType(rs.getString("accountType"));
+				am.setLimitRef(rs.getString("limitRef"));
+				list.add(am);
+			}
+			if(list.size()>0){
+				con.close();
+				ps=null;
+				rs=null;
+				return list;
+			}
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return null;
+	}
+	public boolean deleteAccount(String accountNumber){
+		try{
+			int i;
+			String query="delete from accountstbl where accountNumber=?";
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			ps.setString(1, accountNumber);
+			i=ps.executeUpdate();
+			if(i>0){
+				con.close();
+				ps=null;
+				return true;
+			}
+		}catch(Exception e){System.out.println(e);}
+		return false;
 	}
 }

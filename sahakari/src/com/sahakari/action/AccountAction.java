@@ -59,4 +59,23 @@ public class AccountAction {
 		}
 	}
 
+	public void deleteAccount(HttpServletRequest request,
+			HttpServletResponse response) {
+		String accountNumber=request.getParameter("id");
+		AccountDao a=new AccountDaoImpl();
+		boolean status=a.deleteAccount(accountNumber);
+		if(status){
+			request.setAttribute("msg", "Delete Successful !");
+		}
+		else{
+			request.setAttribute("msg", "Delete Failed !");
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("viewaccount.click");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

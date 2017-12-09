@@ -12,6 +12,10 @@ public interface AccountDao {
 	public List<AccountModel> getCategories();
 	public String selectAccountTypeFromCategory(String categoryId);
 	public AccountModel getAccountTypes(String accountType);
+
+	public List<AccountModel> viewAccount();
+
+	public boolean deleteAccount(String pid);
 	
 
 }
