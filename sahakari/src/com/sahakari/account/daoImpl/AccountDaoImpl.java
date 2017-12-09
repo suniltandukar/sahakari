@@ -140,6 +140,7 @@ public class AccountDaoImpl implements AccountDao{
 				am.setPid(rs.getString("pid"));
 				am.setAlternativeAccounId(rs.getString("alternativeAccountId"));
 				am.setAccountType(rs.getString("accountType"));
+				am.setAccountName(rs.getString("accountName"));
 				am.setLimitRef(rs.getString("limitRef"));
 				list.add(am);
 			}
@@ -165,6 +166,55 @@ public class AccountDaoImpl implements AccountDao{
 			if(i>0){
 				con.close();
 				ps=null;
+				return true;
+			}
+		}catch(Exception e){System.out.println(e);}
+		return false;
+	}
+	public AccountModel getAccountDetail(String accountNumber){
+		String query="select * from accountstbl where accountNumber=?";
+		AccountModel am=null;
+		try{
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			ps.setString(1, accountNumber);
+			rs=ps.executeQuery();
+			if(rs.next()){
+				am=new AccountModel();
+				am.setAccountNumber(rs.getString("accountNumber"));
+				am.setMemberid(rs.getString("memberid"));
+				am.setAlternativeAccounId(rs.getString("alternativeAccountId"));
+				am.setCategoryId(rs.getString("categoryId"));
+				am.setAccountType(rs.getString("accountType"));
+				am.setAccountName(rs.getString("accountName"));
+				am.setLimitRef(rs.getString("limitRef"));
+				return am;
+			}
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return null;
+	}
+	public boolean updateAccount(AccountModel am){
+		try{
+			String query="update accountstbl set accountNumber=?,pid=?,memberid=?,alternativeAccountId=?,categoryId=?,accountType=?,accountName=?,limitRef=? where accountNumber=?";
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			ps.setString(1, am.getAccountNumber());
+			ps.setString(2, am.getPid());
+			ps.setString(3, am.getMemberid());
+			ps.setString(4, am.getAlternativeAccounId());
+			ps.setString(5, am.getCategoryId());
+			ps.setString(6, am.getAccountType());
+			ps.setString(7, am.getAccountName());
+			ps.setString(8, am.getLimitRef());
+			ps.setString(9, am.getPreviousAccountNumber());
+			i=ps.executeUpdate();
+			if(i>0){
+				con.close();
+				ps=null;
+				i=0;
 				return true;
 			}
 		}catch(Exception e){System.out.println(e);}

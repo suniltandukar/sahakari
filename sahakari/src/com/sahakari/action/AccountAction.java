@@ -78,4 +78,45 @@ public class AccountAction {
 		}
 	}
 
+	public void updateAccount(HttpServletRequest request,
+			HttpServletResponse response) {
+		
+		String previousAccountNumber, pid, memberid,accountNumber, alternativeAccounId, categoryId, accountType, accountName, limitRef;
+		previousAccountNumber=request.getParameter("previousAccountNumber");
+		memberid=request.getParameter("memberid");
+		accountNumber=request.getParameter("accountNumber");
+		alternativeAccounId=request.getParameter("alternativeAccounId");
+		categoryId=request.getParameter("categoryId");
+		accountType=request.getParameter("accountType");
+		accountName=request.getParameter("accountName");
+		limitRef=request.getParameter("limitRef");
+		AccountModel am=new AccountModel();
+		am.setPreviousAccountNumber(previousAccountNumber);
+		am.setMemberid(memberid);
+		am.setAccountNumber(accountNumber);
+		am.setAlternativeAccounId(alternativeAccounId);
+		am.setCategoryId(categoryId);
+		am.setAccountType(accountType);
+		am.setAccountName(accountName);
+		am.setLimitRef(limitRef);
+		
+		AccountDao a=new AccountDaoImpl();
+		pid=a.selectpid(am);
+		am.setPid(pid);
+		
+		boolean status=a.updateAccount(am);
+		if(status){
+			request.setAttribute("msg", "Update Successful !");
+		}
+		else{
+			request.setAttribute("msg", "Update Failed !");
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("viewaccount.click");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

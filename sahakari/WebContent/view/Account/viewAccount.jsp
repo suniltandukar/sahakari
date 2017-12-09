@@ -52,7 +52,7 @@
 									Action <span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="editaccount.click" style="color: blue;"><i
+									<li><a href="editaccount.click?accountNumber=${list.accountNumber }" style="color: blue;"><i
 											class="fa fa-eye" aria-hidden="true"></i> Show Detail</a></li>
 									<li><a class="clickbtn" href="account.del?id=${list.accountNumber }"
 										style="color: red;"><i class="fa fa-trash-o"

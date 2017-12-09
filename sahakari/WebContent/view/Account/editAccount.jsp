@@ -1,12 +1,51 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<jsp:include page="/includefile"></jsp:include>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-
+<head></head>
+<body class="hiddenscroll bgcolor">
+	<div class="breadcrumb-line">
+		<nav aria-label="breadcrumb" role="navigation">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><i class="fa fa-home"
+					aria-hidden="true"></i>&nbsp;<a href="#">Home</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Customer</li>
+				<li class="breadcrumb-item active" aria-current="page">Edit</li>
+			</ol>
+		</nav>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h6>
+				<strong>Insert Account No</strong>
+			</h6>
+			
+			<input type="text" class="form-control input" value="${accountNumber}" style="width: 20%;">
+			
+			<br> <input type="submit" class="btn btn-info searchbtn"
+				value="SEARCH">
+		</div>
+	</div>
+	<div class="displayform"></div>
+	<script>
+$(document).ready(function()
+        {
+	 $(".searchbtn").click(function()
+		        {
+		 var id=$(".input").val();
+		 var dataString = 'id='+ id;
+		 $.ajax
+	        ({
+	        type: "POST",
+	        url: "accounteditdisplayform.click",
+	        data: dataString,
+	        cache: false,
+	        success: function(html)
+	        {
+	        $(".displayform").html(html);
+	        } 
+	        });
+		 
+	});
+});
+</script>
 </body>
 </html>

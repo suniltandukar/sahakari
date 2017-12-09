@@ -180,7 +180,22 @@ public class NavigationController extends HttpServlet {
 			
 		}
 		else if(uri.endsWith("editaccount.click")){
+			String accountNumber=request.getParameter("accountNumber");
+			request.setAttribute("accountNumber", accountNumber);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Account/editAccount.jsp");
+			rd.forward(request, response);
+			
+		}
+		else if(uri.endsWith("accounteditdisplayform.click")){
+			String accountNumber=request.getParameter("id");
+			AccountDao a=new AccountDaoImpl();
+			
+			List<AccountModel> categorylist=a.getCategories();
+			request.setAttribute("categorylist", categorylist);
+			
+			AccountModel list=a.getAccountDetail(accountNumber);
+			request.setAttribute("accountdetail", list);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Account/editAccountDisplayForm.jsp");
 			rd.forward(request, response);
 			
 		}

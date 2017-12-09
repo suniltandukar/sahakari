@@ -4,6 +4,15 @@ public class AccountModel {
 	String pid, memberid, accountNumber,alternativeAccounId, accountName, limitRef, inputter;
 	String categoryId, categoryHead;
 	String accountType, accountTypeHead;
+	String previousAccountNumber;
+
+	public String getPreviousAccountNumber() {
+		return previousAccountNumber;
+	}
+
+	public void setPreviousAccountNumber(String previousAccountNumber) {
+		this.previousAccountNumber = previousAccountNumber;
+	}
 
 	public String getAccountTypeHead() {
 		return accountTypeHead;

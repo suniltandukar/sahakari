@@ -16,6 +16,10 @@ public interface AccountDao {
 	public List<AccountModel> viewAccount();
 
 	public boolean deleteAccount(String pid);
+
+	public AccountModel getAccountDetail(String accountNumber);
+
+	public boolean updateAccount(AccountModel am);
 	
 
 }

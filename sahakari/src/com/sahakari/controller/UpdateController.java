@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sahakari.action.AccountAction;
 import com.sahakari.action.CustomerAction;
 @WebServlet("/UpdateController")
 public class UpdateController extends HttpServlet {
@@ -30,6 +31,10 @@ public class UpdateController extends HttpServlet {
 		if(uri.endsWith("sharecertificate.update")){
 			CustomerAction c=new CustomerAction();
 			c.updateShareCertificate(request,response);
+		}
+		if(uri.endsWith("account.update")){
+			AccountAction action=new AccountAction();
+			action.updateAccount(request,response);
 		}
 	}
 
