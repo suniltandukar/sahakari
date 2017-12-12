@@ -209,6 +209,10 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 			
 		}
+		else if(uri.endsWith("inserttransaction.click")){
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/insertTransaction.jsp");
+			rd.forward(request, response);
+		}
 	
 	}
 }

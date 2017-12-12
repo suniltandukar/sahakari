@@ -199,146 +199,21 @@
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-lastfm"></i>
-                                <span>Limit</span>
-
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-
-                                <li><a href="Limit.jsp" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-                                <li><a href="Limit_Servlet?viewLimtData" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>                                
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-industry"></i>
-                                <span>Customer Income Detail</span>
-
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                    
-                            <ul class="treeview-menu">
-                                <li><a href="customerincomedetailinsert.click" target="iframe_a"><i class="fa fa-circle-o"></i> Insert</a></li> 
-                                <li><a href="CustIncDetail_Servlet?viewCustIncDetail" target="iframe_a"><i class="fa fa-circle-o"></i> View</a></li> 
-                            </ul>
-                        </li>
-                        
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-male"></i>
-                                <span>Customer Relation Officer</span>
-
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-
-                                <li><a href="customerrelationofficerinsert.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-                                <li><a href="CustRelOffDetail_Servlet?View_relOfficerDetail" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>                                
-                            </ul>
-                        </li>
-                        
-                          <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-shield"></i>
-                                <span>Guarantor</span>
-
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-
-                                <li><a href="Guarantor.jsp" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-                                <li><a href="Guarantor_Servlet?viewGuarantor" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>                                
-                            </ul>
-                        </li>
-                        
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-share-alt"></i>
-                                <span>Fund Transfer</span>
-
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-
-                                <li><a href="Fund_Transfer.jsp" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-                                <li><a href="FundTransfer_Servlet?viewFundTransfer" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>                                
-                            </ul>
-                        </li>
-                        
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-file"></i>
-                                <span>KYC</span>
-
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-
-                                <li><a href="KYC.jsp" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-                                <li><a href="KYC_Servlet2?viewKYC" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>                                
-                            </ul>
-                        </li>
-                        
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-male"></i>
-                                <span>Collateral Right</span>
-
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            
-                            <ul class="treeview-menu">
-                                <li><a href="collateralrightinsert.click" target="iframe_a"><i class="fa fa-circle-o"></i> Insert</a></li> 
-                                <li><a href="CollateralRight_Servlet?viewCollateralRightDetail" target="iframe_a"><i class="fa fa-circle-o"></i> View</a></li> 
-                            </ul>
-                        </li>
-                        
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-adn"></i>
-                                <span>Account</span>
-
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            
-                            <ul class="treeview-menu">
-                                <li><a href="accountform.jsp" target="iframe_a"><i class="fa fa-circle-o"></i> Insert</a></li> 
-                                <li><a href="accountServlet?viewListAccount" target="iframe_a"><i class="fa fa-circle-o"></i> View</a></li> 
-                            </ul>
-                        </li>
-                        
-                        <li class="treeview">
-                            <a href="#">
                                 <i class="fa fa-child"></i>
-                                <span>Collateral</span>
+                                <span>Transaction</span>
 
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
-                            
                             <ul class="treeview-menu">
-                                <li><a href="collateralform.jsp" target="iframe_a"><i class="fa fa-circle-o"></i> Insert</a></li> 
-                                <li><a href="collateralServlet?viewListCollateral" target="iframe_a"><i class="fa fa-circle-o"></i> View</a></li> 
+
+                                <li><a href="inserttransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
+                                <li><a href="viewtransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
+                                <li><a href="edittransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
                             </ul>
                         </li>
+                        
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-share"></i> <span>Multilevel</span>
