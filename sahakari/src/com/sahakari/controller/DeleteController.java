@@ -13,9 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sahakari.action.AccountAction;
 import com.sahakari.action.CustomerAction;
+import com.sahakari.action.TransactionAction;
 import com.sahakari.dao.ViewDao;
 import com.sahakari.daoimpl.ViewDaoImpl;
 import com.sahakari.model.CustomerModel;
+import com.sahakari.transaction.dao.TransactionDao;
+import com.sahakari.transaction.daoImpl.TransactionDaoImpl;
 @WebServlet("/DeleteController")
 public class DeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -39,6 +42,11 @@ public class DeleteController extends HttpServlet {
 		if(uri.endsWith("account.del")){
 			AccountAction action=new AccountAction();
 			action.deleteAccount(request,response);
+		}
+		if(uri.endsWith("transaction.del")){
+			TransactionAction ta=new TransactionAction();
+			
+			ta.deTransactionAccount(request,response);
 		}
 	}
 

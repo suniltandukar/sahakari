@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sahakari.action.AccountAction;
 import com.sahakari.action.CustomerAction;
 import com.sahakari.action.GetFormOptions;
+import com.sahakari.action.TransactionAction;
 import com.sahakari.dao.ViewDao;
 import com.sahakari.daoimpl.ViewDaoImpl;
 import com.sahakari.model.CustomerModel;
@@ -63,6 +64,10 @@ public class AddController extends HttpServlet {
 		if(uri.endsWith("account.add")){
 			AccountAction a=new AccountAction();
 			a.addAccount(request,response);
+		}
+		if(uri.endsWith("transaction.add")){
+			TransactionAction ta=new TransactionAction();
+			ta.addTransaction(request,response);
 		}
 	}
 

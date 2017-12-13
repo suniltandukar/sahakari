@@ -31,7 +31,7 @@ h5 {
 		</div>
 		<div class="panel-body">
 
-			<form class="form-horizontal shareCertForm" id="form1" method="post"
+			<form class="form-horizontal" id="form1" method="post"
 				action="account.add">
 				<div id="1" class="tab-pane fade in active">
 					<table class="table">

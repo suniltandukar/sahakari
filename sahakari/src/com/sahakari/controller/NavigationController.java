@@ -23,6 +23,9 @@ import com.sahakari.daoimpl.CustomerDaoImpl;
 import com.sahakari.daoimpl.ViewDaoImpl;
 import com.sahakari.model.AccountModel;
 import com.sahakari.model.CustomerModel;
+import com.sahakari.model.TransactionModel;
+import com.sahakari.transaction.dao.TransactionDao;
+import com.sahakari.transaction.daoImpl.TransactionDaoImpl;
 /**
  * Servlet implementation class NavigationController
  */
@@ -209,8 +212,16 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 			
 		}
+		//Transaction
 		else if(uri.endsWith("inserttransaction.click")){
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/insertTransaction.jsp");
+			rd.forward(request, response);
+		}
+		else if(uri.endsWith("viewtransaction.click")){
+			TransactionDao td=new TransactionDaoImpl();
+			List<TransactionModel> list=td.gettransactions();
+			request.setAttribute("transactionlist", list);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/viewTransaction.jsp");
 			rd.forward(request, response);
 		}
 	
