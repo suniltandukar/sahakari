@@ -51,6 +51,7 @@ public class LoginDaoImpl implements LoginDao {
 				um.setUsername(rs.getString("username"));
 				um.setPassword(rs.getString("password"));
 				um.setStatus(rs.getString("status"));
+				um.setGivenrole(rs.getString("givenrole"));
 				con.close();
 				ps.close();
 				return um;
