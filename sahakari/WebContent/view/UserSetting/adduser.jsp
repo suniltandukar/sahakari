@@ -78,7 +78,6 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 								</table>
 								<table id="table1">
 									<caption>Check User Roles</caption>
-									<tr>
 										<c:set var="givenrole" value="${givenrole }" />
 										<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  id="view"
 												name="role" value="#nav1"
