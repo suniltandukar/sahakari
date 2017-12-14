@@ -1,0 +1,58 @@
+package com.sahakari.user.controller;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.sahakari.model.UserModel;
+import com.sahakari.user.action.UserAction;
+import com.sahakari.user.dao.UserDao;
+import com.sahakari.user.daoImpl.UserDaoImpl;
+
+/**
+ * Servlet implementation class UserController
+ */
+@WebServlet("/UserController")
+public class UserController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+   
+    public UserController() {
+        super();
+    }
+
+
+	public void init(ServletConfig config) throws ServletException {
+	}
+
+	public void destroy() {
+	}
+
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String uri=request.getRequestURI();
+		if(uri.endsWith("adduser.user"))
+		{
+			UserDao userdao=new UserDaoImpl();
+			List<UserModel> userInfo=userdao.getexistingusers();
+			request.setAttribute("userInfo",userInfo);
+			RequestDispatcher rd=request.getRequestDispatcher("view/UserSetting/adduser.jsp");
+			rd.forward(request, response);
+		}
+		if(uri.endsWith("adduseraction.user"))
+		{
+			UserAction user=new UserAction();
+			user.adduseraction(request,response);
+			
+			
+			
+		}
+	}
+
+}

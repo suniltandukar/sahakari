@@ -1,5 +1,6 @@
 <%if(session.getAttribute("userDetail")!=null){ %>
 <jsp:include page="/includefile"></jsp:include>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en-US" ng-app="myApp">
     <head>
     </head>
@@ -245,6 +246,18 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-share"></i> <span>User Settings</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                            	<li><a href="adduser.user" target="iframe_a"><i class="fa fa-circle-o"></i> Add Users</a></li>
+                                
+                            </ul>
+                        </li>
 
 
                     </ul>
@@ -258,6 +271,7 @@
                 </iframe>
             </div>
         </div>
+       
     </body>
 </html>
 <%

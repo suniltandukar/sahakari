@@ -23,16 +23,12 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  <style type="text/css">
-  	a {
-    cursor: pointer;
-}.hiddenscroll{overflow-y:hidden;}.bgcolor{
-background-color:#F5F5F5;}.panel-margin{
-width: 95%;margin:auto;}
-  </style>
+  
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
  <script src="assets/js/jquery.min.js"></script>
  <!-- jQuery 3 -->
-<script src="assets/js/jquery.min.js"></script>
+ <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 <script src="assets/js/dateConverter.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
