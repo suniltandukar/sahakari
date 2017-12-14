@@ -24,7 +24,7 @@ public class UserAction {
 			
 			
 			try {
-				RequestDispatcher rd=request.getRequestDispatcher("view/UserSetting/adduser.jsp");
+				RequestDispatcher rd=request.getRequestDispatcher("adduser.user");
 				rd.forward(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
