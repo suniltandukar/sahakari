@@ -50,8 +50,31 @@ public class UserController extends HttpServlet {
 			UserAction user=new UserAction();
 			user.adduseraction(request,response);
 			
+		
+		}
+		if(uri.endsWith("deleteusernav.user"))
+		{
+			UserDao userdao=new UserDaoImpl();
+			List<UserModel> userInfo=userdao.getexistingusers();
+			request.setAttribute("userInfo",userInfo);
+			RequestDispatcher rd=request.getRequestDispatcher("view/UserSetting/adduser.jsp");
+			rd.forward(request, response);
+		}
+		if(uri.endsWith("deleteuser.user"))
+		{
+			UserAction user=new UserAction();
+			user.deleteuseraction(request,response);
+		}
+		if(uri.endsWith("edituser.user"))
+		{
+			UserAction user=new UserAction();
+			user.edituseraction(request,response);
 			
-			
+		}
+		if(uri.endsWith("updateuser.user"))
+		{
+			UserAction user=new UserAction();
+			user.updateuseraction(request,response);
 		}
 	}
 

@@ -42,3 +42,15 @@
 <script src="assets/js/adminlte.min.js"></script>
 
 </div>
+	<style>
+	#nav1,#nav2,#nav3,#nav4,#nav5,#nav6,#nav7,#nav8,#nav9,#nav10,#nav11,#nav12,#nav13,#nav14,#nav15,#nav16,#nav17,#change,#remove,#share{
+	display:none;
+	}
+
+	${userrole}
+	{
+display:block;
+ }
+
+
+</style>

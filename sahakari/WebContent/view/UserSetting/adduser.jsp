@@ -64,8 +64,9 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 										<tr>
 
 											<td>
-												<h5>Username</h5> <span class="usercheck"></span> <input
-												type="hidden" form="form" value="" name="useridforupdate">
+												<h5>Username</h5> <span class="usercheck"></span>
+										
+										<input type="hidden" form="form" value="${userid}" name="useridforupdate">
 												<input type="text" name="username"
 												class="form-control datepicker username" form="form"
 												value="${username }">
@@ -82,30 +83,30 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 										<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  id="view"
 												name="role" value="#nav1"
 												<c:if test="${fn:contains(givenrole,'#nav1')}"> checked="checked"</c:if>>
-												View Inventory &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+												Insert Customer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 										<td><label><input type="checkbox" id="add" data-toggle="toggle" data-size="small" 
 												name="role" value="#nav2"
 												<c:if test="${fn:contains(givenrole,'#nav2')}"> checked="checked"</c:if>>
-												Add Inventory&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+												Add Customer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 
 									</tr>
 									<tr>
 										<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  id="add"
-												name="role" value="#nav2"
+												name="role" value="#nav3"
 												<c:if test="${fn:contains(givenrole,'#nav3')}"> checked="checked"</c:if>>
-												Edit Inventory</label></td>
+												View Customer</label></td>
 										<td><label><input type="checkbox"
 												data-toggle="toggle" data-size="small"  id="staff" name="role"
-												value="#nav1,#nav2,#nav3,#nav4,#nav5,#nav6,#nav7,#nav8,#nav9,#nav10">
+												value="#share">
 
-												Staff(all)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+												Share Certificate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 									</tr>
 									<tr>
 
 										<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  id="admin"
 												name="role"
-												value="#nav1, #nav2, #nav3, #nav4, #nav5, #nav6, #nav7, #nav8, #nav9, #nav10, #nav11, #nav12, #nav13, #nav14, #change, #remove"
-												<c:if test="${givenrole eq '#nav1, #nav2, #nav3, #nav4, #nav5, #nav6, #nav7, #nav8, #nav9, #nav10, #nav11, #nav12, #nav13, #nav14, #change, #remove'}"> checked="checked"</c:if>>Admin(all)</label></td>
+												value="#nav1, #nav2, #nav3, #nav4, #nav5, #nav6, #nav7, #nav8, #nav9, #nav10, #nav11, #nav12, #nav13, #nav14, #nav15, #nav16, #nav17, #change, #remove,#share"
+												<c:if test="${givenrole eq '#nav1, #nav2, #nav3, #nav4, #nav5, #nav6, #nav7, #nav8, #nav9, #nav10, #nav11, #nav12, #nav13, #nav14, #nav15, #nav16, #nav17, #change, #remove, #share'}"> checked="checked"</c:if>>Admin(all)</label></td>
 										<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  id="transfer"
 												name="role" value="#nav4"> Transfer Items</label></td>
 										
@@ -114,18 +115,19 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 									<tr>
 									<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  id="update"
 												name="role" value="#nav6"
-												<c:if test="${fn:contains(givenrole,'#nav2')}"> checked="checked"</c:if>>Update&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-										<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  name="role"
+												<c:if test="${fn:contains(givenrole,'#nav6')}"> checked="checked"</c:if>>Update&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+										<td>
+										<label><input type="checkbox" data-toggle="toggle" data-size="small"  name="role"
 												value="#remove"
 												<c:if test="${fn:contains(givenrole,'#remove')}"> checked="checked"</c:if>>Delete</label></td>
 										
 									</tr>
 									<tr>
 										<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  id="createuser"
-												name="role" value="#nav10"
-												<c:if test="${fn:contains(givenrole,'#nav10')}"> checked="checked"</c:if>>Create
+												name="role" value="#nav17"
+												<c:if test="${fn:contains(givenrole,'#nav17')}"> checked="checked"</c:if>>Create
 												User&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-										<td><label><input type="checkbox" data-toggle="toggle" data-size="small" data-offstyle="warning" id="deluser"
+										<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  id="deluser"
 												name="role" value="#remove">Delete User</label></td>
 									</tr>
 								</table>
@@ -152,9 +154,8 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 									<tr>
 										<th>S No.</th>
 										<th>User Name</th>
-										<th id="remove">Actions</th>
-										<!-- 
-									<th><i class="fa fa-cog" aria-hidden="true"></i></th> -->
+										<th id="change">Actions</th>
+										
 									</tr>
 								</thead>
 								<tbody>
@@ -162,7 +163,11 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 									<tr>
 										<td></td>
 										<td>${user.username }</td>
-										<td></td>
+										<td id="change">
+										<a href="edituser.user?userid=${user.userid })"  ><i class="fa fa-pencil-square-o"></i></a>
+										<a class="confirmbtn" href="deleteuser.user?userid=${user.userid }"   ><i  class="fa fa-trash" id="deletebtn" aria-hidden="true" style="color:red"></i></a>
+										</td>
+							
 										
 									</tr>
 									</c:forEach>
@@ -183,7 +188,9 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 					<p>
 						<b>${msg}</b>
 					</p>
-					<br> Username:${username }<br> 
+					<c:if test="$username!=null">
+					<br> Username:${username }<br>
+					</c:if> 
 
 				
 				</div>
@@ -202,15 +209,15 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 				$('input[type="text"]').val('');
 			});
 			var $others = $('input[name="role"]').not('#admin')
-			$('#admin').change(function() {
-				if (this.checked) {
-					$others.prop('checked', false)
-				}
+			$('#admin').change(function () {
+			    if (this.checked) {
+			    	$others.bootstrapToggle('off')
+			    }
 			});
-			$others.change(function() {
-				if (this.checked) {
-					$('#admin').prop('checked', false)
-				}
+			$others.change(function () {
+			    if (this.checked) {
+			    	$('#admin').bootstrapToggle('off') 
+			    }
 			})
 
 			var t=$('#table').DataTable({

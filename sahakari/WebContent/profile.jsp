@@ -4,6 +4,7 @@
 <html lang="en-US">
     <head>
     </head>
+
     <body   class="hold-transition skin-blue sidebar-mini" >
 
         <div class="wrapper"  >
@@ -22,7 +23,8 @@
                     <a  class="sidebar-toggle" data-toggle="push-menu" role="button">
                         <span class="sr-only">Toggle navigation</span>
                     </a>
-                    <span class="navbar-text bg-info"><strong>ARTHIK BARSA (2073-2074)</strong></span>
+                    <span class="navbar-text bg-info"><strong>ARTHIK BARSA (2073-2074)
+                    <input type="text" value="${userrole}"></strong></span>
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <!-- Messages: style can be found in dropdown.less-->
@@ -162,12 +164,12 @@
                             </a>
                             <ul class="treeview-menu">
 
-                                <li><a href="customerinsert.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-                                <li><a href="viewcustomer.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
-                                <li><a href="editcustomer.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
+                                <li id="nav1"><a href="customerinsert.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
+                                <li id="nav2"><a href="viewcustomer.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
+                                <li id="nav3"><a href="editcustomer.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
                             </ul>
                         </li>
-                        <li class="treeview">
+                        <li id="share" class="treeview">
                             <a href="#">
                                 <i class="fa fa-child"></i>
                                 <span>Share Certificate</span>
@@ -178,8 +180,8 @@
                             </a>
                             <ul class="treeview-menu">
 
-                                <li><a href="sharecertificateinsert.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-                                <li><a href="viewsharecertificate.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
+                                <li id="nav4"><a href="sharecertificateinsert.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
+                                <li id="nav5"><a href="viewsharecertificate.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -193,9 +195,9 @@
                             </a>
                             <ul class="treeview-menu">
 
-                                <li><a href="insertaccount.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-                                <li><a href="viewaccount.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
-                                <li><a href="editaccount.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
+                                <li id="nav6" ><a href="insertaccount.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
+                                <li id="nav7"><a href="viewaccount.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
+                                <li id="nav8"><a href="editaccount.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
                             </ul>
                         </li>
                         <li class="treeview">
@@ -209,9 +211,9 @@
                             </a>
                             <ul class="treeview-menu">
 
-                                <li><a href="inserttransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-                                <li><a href="viewtransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
-                                <li><a href="edittransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
+                                <li id="nav9"><a href="inserttransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
+                                <li id="nav10"><a href="viewtransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
+                                <li id="nav11"><a href="edittransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
                             </ul>
                         </li>
                         
@@ -230,16 +232,16 @@
                                         </span>
                                     </a>
                                     <ul class="treeview-menu">
-                                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                                        <li class="treeview">
+                                        <li id="nav12"><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
+                                        <li id="nav13" class="treeview">
                                             <a href="#"><i class="fa fa-circle-o"></i> Level Two
                                                 <span class="pull-right-container">
                                                     <i class="fa fa-angle-left pull-right"></i>
                                                 </span>
                                             </a>
                                             <ul class="treeview-menu">
-                                                <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                                                <li><a class="click"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                                                <li id="nav14"><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                                                <li id="nav15"><a class="click"><i class="fa fa-circle-o"></i> Level Three</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -254,7 +256,7 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                            	<li><a href="adduser.user" target="iframe_a"><i class="fa fa-circle-o"></i> Add Users</a></li>
+                            	<li id="nav17"><a href="adduser.user" target="iframe_a"><i class="fa fa-circle-o"></i> Add Users</a></li>
                                 
                             </ul>
                         </li>

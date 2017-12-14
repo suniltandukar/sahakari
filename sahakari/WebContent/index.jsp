@@ -33,7 +33,6 @@
 				
 		</form>
 	</div>
-	</div>
 	<script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
 
 	<script src="assets/js/index.js"></script>

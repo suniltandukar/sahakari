@@ -46,6 +46,7 @@ public class LoginAction extends HttpServlet {
 			UserModel userDetail=l.getUserDetail(u);
 			HttpSession session=request.getSession(true);
 			session.setAttribute("userDetail", userDetail);
+			request.setAttribute("userrole", userDetail.getGivenrole());
 			RequestDispatcher rd=request.getRequestDispatcher("profile.jsp");
 			try {
 				rd.forward(request, response);
