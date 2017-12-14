@@ -154,7 +154,7 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 									<tr>
 										<th>S No.</th>
 										<th>User Name</th>
-										<th id="change">Actions</th>
+										<th>Actions</th>
 										
 									</tr>
 								</thead>
@@ -163,7 +163,7 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 									<tr>
 										<td></td>
 										<td>${user.username }</td>
-										<td id="change">
+										<td>
 										<a href="edituser.user?userid=${user.userid })"  ><i class="fa fa-pencil-square-o"></i></a>
 										<a class="confirmbtn" href="deleteuser.user?userid=${user.userid }"   ><i  class="fa fa-trash" id="deletebtn" aria-hidden="true" style="color:red"></i></a>
 										</td>
