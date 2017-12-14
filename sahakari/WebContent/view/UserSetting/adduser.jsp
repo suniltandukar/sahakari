@@ -131,7 +131,7 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 										<td>
 										<label><input type="checkbox" data-toggle="toggle" data-size="small"  name="role"
 												value="#nav8"
-												<c:if test="${fn:contains(givenrole,'#nav8')}"> checked="checked"</c:if>>Insert Account</label></td>
+												<c:if test="${fn:contains(givenrole,'#nav8')}"> checked="checked"</c:if>>Edit Account</label></td>
 										
 									</tr>
 										<tr>
@@ -145,13 +145,15 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 										
 									</tr>
 										<tr>
-									<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  id="update"
-												name="role" value="#nav11"
-												<c:if test="${fn:contains(givenrole,'#nav11')}"> checked="checked"</c:if>>View Certificate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+											<td>
+										<label><input type="checkbox" data-toggle="toggle" data-size="small"  name="role"
+												value="#nav11"
+												<c:if test="${fn:contains(givenrole,'#nav11')}"> checked="checked"</c:if>>Edit Transaction</label></td>
+										
 										<td>
 										<label><input type="checkbox" data-toggle="toggle" data-size="small"  name="role"
 												value="#nav12"
-												<c:if test="${fn:contains(givenrole,'#nav12')}"> checked="checked"</c:if>>Edit Transaction</label></td>
+												<c:if test="${fn:contains(givenrole,'#nav12')}"> checked="checked"</c:if>>Multi Level</label></td>
 										
 									</tr>
 									<tr>
