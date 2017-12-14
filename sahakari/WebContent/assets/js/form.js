@@ -35,6 +35,7 @@
 			});	
 	   $(".customerForm").submit(function(){
 			var memberidstatus=$('.memberidstatus').val();
+			alert(memberidstatus);
 			if(memberidstatus==1){
 				$("#modalmsg").text("Member ID already Exists! Cannot Insert Customer!");
 				 $('#memberidmsgmodal').modal('show');

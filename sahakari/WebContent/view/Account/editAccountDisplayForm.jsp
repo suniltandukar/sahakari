@@ -1,18 +1,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <div class="panel panel-default panel-margin">
 		<div class="panel-heading">
 			<h4>Add Account</h4>
 		</div>
 		<div class="panel-body">
 
-			<form class="form-horizontal shareCertForm" id="form1" method="post"
+			<form class="form-horizontal" id="form1" method="post"
 				action="account.update">
 				<div id="1" class="tab-pane fade in active">
 					<table class="table">
 						<tbody>
 							<tr>
 								<td><input type="submit" class="btn btn-success"
-									value="Save"></td>
+									value="Update"></td>
 							</tr>
 							<tr>
 								<td>
@@ -78,4 +79,3 @@
     </div>
 </div>
 <input type="hidden" class="memberidstatus" value="">
-	<script type="text/javascript" src="assets/js/form.js"></script>

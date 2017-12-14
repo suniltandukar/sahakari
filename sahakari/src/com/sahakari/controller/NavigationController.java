@@ -224,6 +224,20 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/viewTransaction.jsp");
 			rd.forward(request, response);
 		}
+		else if(uri.endsWith("edittransaction.click")){
+			String id=request.getParameter("id");
+			request.setAttribute("id", id);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/editTransaction.jsp");
+			rd.forward(request, response);
+		}
+		else if(uri.endsWith("transactioneditdisplayform.click")){
+			String id=request.getParameter("id");
+			TransactionDao td=new TransactionDaoImpl();
+			TransactionModel list=td.getTransactionDetail(id);
+			request.setAttribute("tdetail",list);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/editTransactionDisplayForm.jsp");
+			rd.forward(request, response);
+		}
 	
 	}
 }

@@ -321,7 +321,7 @@ h5 {
 
 	<jsp:include page="/msgmodal"></jsp:include>
 	<script type="text/javascript" src="assets/js/dynamicselector.js"></script>
-	<script type="text/javascript" src="assets/js/formCases.js"></script>
+	<script type="text/javascript" src="assets/js/form.js"></script>
 	<script>
 	<%if(request.getAttribute("msg")!=null){%>
 	   $('#myModal').modal('show');

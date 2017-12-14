@@ -15,6 +15,10 @@ public interface TransactionDao {
 
 	public boolean addTransaction(String id);
 
+	public TransactionModel getTransactionDetail(String id);
+
+	public boolean updateTransaction(TransactionModel tm,String id);
+
 	
 
 }

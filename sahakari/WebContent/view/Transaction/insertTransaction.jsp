@@ -47,7 +47,7 @@ h5 {
 								</td>
 								<td>
 										<h5>Reference No</h5> <input type="text"
-									class="form-control" name="refNo" value="" required>
+									class="form-control" name="refNo" value="" >
 									</td>
 								<td>
 									<h5>Transaction Type</h5> <input type="text"
