@@ -23,8 +23,9 @@
                     <a  class="sidebar-toggle" data-toggle="push-menu" role="button">
                         <span class="sr-only">Toggle navigation</span>
                     </a>
-                    <span class="navbar-text bg-info"><strong>ARTHIK BARSA (2073-2074)
-                    <input type="text" value="${userrole}"></strong></span>
+                    <span class="navbar-text bg-info">
+                    <strong>ARTHIK BARSA (2073-2074) </strong>
+                    </span>
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <!-- Messages: style can be found in dropdown.less-->

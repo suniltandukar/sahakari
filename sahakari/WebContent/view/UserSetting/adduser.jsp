@@ -88,14 +88,14 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 										<td><label><input type="checkbox" id="add" data-toggle="toggle" data-size="small" 
 												name="role" value="#nav2"
 												<c:if test="${fn:contains(givenrole,'#nav2')}"> checked="checked"</c:if>>
-												Add Customer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+												View Customer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 
 									</tr>
 									<tr>
 										<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  id="add"
 												name="role" value="#nav3"
 												<c:if test="${fn:contains(givenrole,'#nav3')}"> checked="checked"</c:if>>
-												View Customer</label></td>
+												Edit Customer</label></td>
 										<td><label><input type="checkbox"
 												data-toggle="toggle" data-size="small"  id="staff" name="role"
 												value="#share">
@@ -106,21 +106,53 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 
 										<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  id="admin"
 												name="role"
-												value="#nav1, #nav2, #nav3, #nav4, #nav5, #nav6, #nav7, #nav8, #nav9, #nav10, #nav11, #nav12, #nav13, #nav14, #nav15, #nav16, #nav17, #change, #remove,#share"
-												<c:if test="${givenrole eq '#nav1, #nav2, #nav3, #nav4, #nav5, #nav6, #nav7, #nav8, #nav9, #nav10, #nav11, #nav12, #nav13, #nav14, #nav15, #nav16, #nav17, #change, #remove, #share'}"> checked="checked"</c:if>>Admin(all)</label></td>
+												value="#nav1, #nav2, #nav3, #nav4, #nav5, #nav6, #nav7, #nav8, #nav9, #nav10, #nav11, #nav12, #nav13, #nav14, #nav15, #nav16, #nav17, #change, #remove, #share"
+												<c:if test="${givenrole eq '#nav1, #nav2, #nav3, #nav4, #nav5, #nav6, #nav7, #nav8, #nav9, #nav10, #nav11, #nav12, #nav13, #nav14, #nav15, #nav16, #nav17, #change, #remove, #share
+'}"> checked="checked"</c:if>>Admin(all)</label></td>
 										<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  id="transfer"
-												name="role" value="#nav4"> Transfer Items</label></td>
+												name="role" value="#nav4" 
+												<c:if test="${fn:contains(givenrole,'#nav4')}"> checked="checked"</c:if>> Insert Certificate</label></td>
 										
 
 									</tr>
 									<tr>
 									<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  id="update"
-												name="role" value="#nav6"
-												<c:if test="${fn:contains(givenrole,'#nav6')}"> checked="checked"</c:if>>Update&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+												name="role" value="#nav5"
+												<c:if test="${fn:contains(givenrole,'#nav5')}"> checked="checked"</c:if>>View Certificate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 										<td>
 										<label><input type="checkbox" data-toggle="toggle" data-size="small"  name="role"
-												value="#remove"
-												<c:if test="${fn:contains(givenrole,'#remove')}"> checked="checked"</c:if>>Delete</label></td>
+												value="#nav6"
+												<c:if test="${fn:contains(givenrole,'#nav6')}"> checked="checked"</c:if>>Insert Account</label></td>
+										
+									</tr>
+										<tr>
+									<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  id="update"
+												name="role" value="#nav7"
+												<c:if test="${fn:contains(givenrole,'#nav7')}"> checked="checked"</c:if>>View Account&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+										<td>
+										<label><input type="checkbox" data-toggle="toggle" data-size="small"  name="role"
+												value="#nav8"
+												<c:if test="${fn:contains(givenrole,'#nav8')}"> checked="checked"</c:if>>Insert Account</label></td>
+										
+									</tr>
+										<tr>
+									<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  id="update"
+												name="role" value="#nav9"
+												<c:if test="${fn:contains(givenrole,'#nav9')}"> checked="checked"</c:if>>Insert Transaction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+										<td>
+										<label><input type="checkbox" data-toggle="toggle" data-size="small"  name="role"
+												value="#nav10"
+												<c:if test="${fn:contains(givenrole,'#nav10')}"> checked="checked"</c:if>>View Transaction</label></td>
+										
+									</tr>
+										<tr>
+									<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  id="update"
+												name="role" value="#nav11"
+												<c:if test="${fn:contains(givenrole,'#nav11')}"> checked="checked"</c:if>>View Certificate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+										<td>
+										<label><input type="checkbox" data-toggle="toggle" data-size="small"  name="role"
+												value="#nav12"
+												<c:if test="${fn:contains(givenrole,'#nav12')}"> checked="checked"</c:if>>Edit Transaction</label></td>
 										
 									</tr>
 									<tr>
@@ -128,8 +160,10 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 												name="role" value="#nav17"
 												<c:if test="${fn:contains(givenrole,'#nav17')}"> checked="checked"</c:if>>Create
 												User&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+										
 										<td><label><input type="checkbox" data-toggle="toggle" data-size="small"  id="deluser"
-												name="role" value="#remove">Delete User</label></td>
+												name="role" value="#delete" 
+												<c:if test="${fn:contains(givenrole,'#delete')}"> checked="checked"</c:if>>Delete User</label></td>
 									</tr>
 								</table>
 								<br> <input type="submit" name="button" value="submit"
@@ -155,7 +189,7 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 									<tr>
 										<th>S No.</th>
 										<th>User Name</th>
-										<th id="change">Actions</th>
+										<th>Actions</th>
 										
 									</tr>
 								</thead>
@@ -164,7 +198,7 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 									<tr>
 										<td></td>
 										<td>${user.username }</td>
-										<td id="change">
+										<td >
 										<a href="edituser.user?userid=${user.userid })"  ><i class="fa fa-pencil-square-o"></i></a>
 										<a class="confirmbtn" href="deleteuser.user?userid=${user.userid }"   ><i  class="fa fa-trash" id="deletebtn" aria-hidden="true" style="color:red"></i></a>
 										</td>
