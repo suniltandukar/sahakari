@@ -28,7 +28,7 @@
 									<td>
 										<input type="hidden" value="${cdetail.pid }" name="pid">
 										<h5>Member Id</h5> <input type="text" class="form-control"
-										name="memberid" value="${cdetail.memberid}">
+										name="memberid" value="${cdetail.memberid}" readonly>
 									</td>
 									<td>
 										<h5>Registration Date</h5> <input type="text"

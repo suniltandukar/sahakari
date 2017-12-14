@@ -7,7 +7,7 @@
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><i class="fa fa-home"
 					aria-hidden="true"></i>&nbsp;<a href="#">Home</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Account</li>
+				<li class="breadcrumb-item active" aria-current="page">Transaction</li>
 				<li class="breadcrumb-item active" aria-current="page">Edit</li>
 			</ol>
 		</nav>
@@ -15,10 +15,10 @@
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h6>
-				<strong>Insert Account No</strong>
+				<strong>Insert Transaction No</strong>
 			</h6>
 			
-			<input type="text" class="form-control input" value="${accountNumber}" style="width: 20%;">
+			<input type="text" class="form-control input" value="${id}" style="width: 20%;">
 			
 			<br> <input type="submit" class="btn btn-info searchbtn"
 				value="SEARCH">
@@ -35,7 +35,7 @@ $(document).ready(function()
 		 $.ajax
 	        ({
 	        type: "POST",
-	        url: "accounteditdisplayform.click",
+	        url: "transactioneditdisplayform.click",
 	        data: dataString,
 	        cache: false,
 	        success: function(html)

@@ -32,7 +32,7 @@ h5 {
 		<div class="panel-body">
 
 			<form class="form-horizontal shareCertForm" id="form1" method="post"
-				action="account.add">
+				action="transaction.add">
 				<div id="1" class="tab-pane fade in active">
 					<table class="table">
 						<tbody>
@@ -47,7 +47,7 @@ h5 {
 								</td>
 								<td>
 										<h5>Reference No</h5> <input type="text"
-									class="form-control" name="refNo" value="" required>
+									class="form-control" name="refNo" value="" >
 									</td>
 								<td>
 									<h5>Transaction Type</h5> <input type="text"
@@ -143,7 +143,7 @@ h5 {
 		</div>
 	</div>
 	<jsp:include page="/msgmodal"></jsp:include>
-	
+	<script type="text/javascript" src="assets/js/form.js"></script>
 	<script>
 	<%if(request.getAttribute("msg")!=null){%>
 	   $('#myModal').modal('show');

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sahakari.action.AccountAction;
 import com.sahakari.action.CustomerAction;
+import com.sahakari.action.TransactionAction;
 @WebServlet("/UpdateController")
 public class UpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -35,6 +36,10 @@ public class UpdateController extends HttpServlet {
 		if(uri.endsWith("account.update")){
 			AccountAction action=new AccountAction();
 			action.updateAccount(request,response);
+		}
+		if(uri.endsWith("transaction.update")){
+			TransactionAction ta=new TransactionAction();
+			ta.updateTransaction(request,response);
 		}
 	}
 

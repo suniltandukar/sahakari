@@ -20,8 +20,9 @@
 		<div id="triangle"></div>
 
 		<h1>Log in</h1>
-		<h1 style="color: red;">${msg }</h1>
+		
 		<form method="post" action="login.log">
+		<h5 style="color: red;">${msg }</h5>
 			<input type="password" name="username" placeholder="Username"
 				required /> <input type="password" name="password"
 				placeholder="Password" required /> <input type="submit"
