@@ -30,7 +30,18 @@
     <servlet-name>LoginController</servlet-name>
     <url-pattern>*.log</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>DeleteController</display-name>
+    <servlet-name>DeleteController</servlet-name>
+    <servlet-class>com.sahakari.controller.DeleteController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteController</servlet-name>
+    <url-pattern>*.del</url-pattern>
+  </servlet-mapping>
   <servlet>
+  
     <description></description>
     <display-name>NavigationController</display-name>
     <servlet-name>NavigationController</servlet-name>

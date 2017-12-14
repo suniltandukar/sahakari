@@ -1,10 +1,10 @@
 <%if(session.getAttribute("userDetail")!=null){ %>
 <jsp:include page="/includefile"></jsp:include>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html lang="en-US" ng-app="myApp">
-   <head>
+<html lang="en-US">
+    <head>
+    </head>
 
-</head>
     <body   class="hold-transition skin-blue sidebar-mini" >
 
         <div class="wrapper"  >
@@ -270,8 +270,10 @@
 
 
             <div class="content-wrapper " >
-                <iframe height="1300px" width="100%" src="" id="Iframe" name="iframe_a" >
+            	
+                <iframe height="1300px" width="100%" src="" id="Iframe" name="iframe_a" style=" margin:auto ">
                 </iframe>
+                	
             </div>
         </div>
        
