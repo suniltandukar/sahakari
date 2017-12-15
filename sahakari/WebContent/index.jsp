@@ -9,10 +9,14 @@
 
 <link rel="stylesheet" href="assets/css/style.css" media="screen"
 	type="text/css" />
+	<link rel="stylesheet" href="assets/css/preloader.css" media="screen"
+	type="text/css" />
+	
 
 </head>
 
 <body>
+<div class="loader"></div>
 	<span href="#" class="button" id="toggle-login"><h3>Digi
 			Nepal</h3></span>
 
@@ -33,9 +37,10 @@
 				
 		</form>
 	</div>
-	<script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 	<script src="assets/js/index.js"></script>
+	
+<script type="text/javascript" src="assets/js/preloader.js"></script>
 <script type="text/javascript">
 function myFunction() {
     var x = document.getElementById("password");

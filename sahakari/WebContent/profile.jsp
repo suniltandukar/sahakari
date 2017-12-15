@@ -3,10 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en-US">
     <head>
+    	
     </head>
 
     <body   class="hold-transition skin-blue sidebar-mini" >
-
+	<div class="se-pre-con"></div>
         <div class="wrapper"  >
 
             <header class="main-header">
@@ -276,7 +277,7 @@
                 	
             </div>
         </div>
-       
+      
     </body>
 </html>
 <%
