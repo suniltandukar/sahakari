@@ -18,7 +18,7 @@
 		</nav>
 	</div>
 
-	<div class="panel panel-default panel-margin">
+	<div class="panel panel-default" style="width: 95%; margin: auto;">
 		<div class="panel-heading">
 			<h6>
 				<strong>Customer Details</strong>

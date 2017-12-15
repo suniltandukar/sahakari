@@ -26,7 +26,7 @@ h5 {
 			</ol>
 		</nav>
 	</div>
-	<div class="panel panel-default panel-margin">
+	<div class="panel panel-default" style="width: 95%; margin: auto;">
 		<div class="panel-body">
 
 			<form class="form-horizontal customerForm" id="form1" method="post"

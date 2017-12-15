@@ -4,7 +4,7 @@ font-size:80%;
 font-weight:bold;}
 </style>
 <jsp:include page="/includefile"></jsp:include>
-<div class="panel panel-default panel-margin">
+<div class="panel panel-default" style="width: 95%; margin: auto;">
 		<div class="panel-heading">
 			<h4>Customer Share Certificate</h4>
 			<h5><b>Member Id:</b> ${shareCert.memberid }</h5>

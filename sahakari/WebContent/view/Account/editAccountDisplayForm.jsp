@@ -1,9 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<div class="panel panel-default panel-margin">
-		<div class="panel-heading">
-			<h4>Add Account</h4>
-		</div>
+<div class="panel panel-default " style="width: 95%; margin: auto;">
+		
 		<div class="panel-body">
 
 			<form class="form-horizontal" id="form1" method="post"

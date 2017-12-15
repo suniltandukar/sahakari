@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<div class="panel panel-default panel-margin">
+<div class="panel panel-default" style="width: 95%; margin: auto;">
 <div class="panel-body ">
 		
 <form class="form-horizontal shareCertForm" id="form1" method="post"
@@ -12,8 +12,8 @@
 							</tr>
 							<tr>
 								<td>
-									<input type="text"
-									class="form-control sharecertmemberid" name="previousid" value="${tdetail.id }">
+									<input type="hidden"
+									class="form-control sharecertmemberid" name="previousid" value="${tdetail.id }" >
 									<h5>Transaction Id</h5> <input type="text"
 									class="form-control sharecertmemberid" name="Id" value="${tdetail.id }">
 								</td>

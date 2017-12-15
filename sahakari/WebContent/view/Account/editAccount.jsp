@@ -12,7 +12,7 @@
 			</ol>
 		</nav>
 	</div>
-	<div class="panel panel-default">
+	<div class="panel panel-default" style="width: 95%; margin: auto;">
 		<div class="panel-heading">
 			<h6>
 				<strong>Insert Account No</strong>
