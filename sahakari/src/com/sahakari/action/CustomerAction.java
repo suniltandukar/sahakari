@@ -25,7 +25,7 @@ public class CustomerAction {
 		String cusCitizenshipNo, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, 
 No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus;
 		String[] cusRelation,cusRelName,dateOfBirth,fcitizenshipNo,fremarks;
-		String cusJob, cusInstitution, cusPost, incomePeryear, jremarks;
+		String[] cusJob, cusInstitution, cusPost, incomePeryear, jremarks;
 		String[] bankName, accountNumber, accountType, bremarks;
 		
 		 cusRelation=request.getParameterValues("cusRelation");
@@ -34,17 +34,11 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		fcitizenshipNo=request.getParameterValues("fcitizenshipNo");
 		fremarks=request.getParameterValues("fremarks");
 		
-		cusJob=request.getParameter("cusJob");
-		cusInstitution=request.getParameter("cusInstitution");
-		cusPost=request.getParameter("cusPost");
-		incomePeryear=request.getParameter("incomePeryear");
-		jremarks=request.getParameter("jremarks");
-		
-		cm.setCusJob(cusJob);
-		cm.setCusInstitution(cusInstitution);
-		cm.setCusPost(cusPost);
-		cm.setIncomePeryear(incomePeryear);
-		cm.setJremarks(jremarks);
+		cusJob=request.getParameterValues("cusJob");
+		cusInstitution=request.getParameterValues("cusInstitution");
+		cusPost=request.getParameterValues("cusPost");
+		incomePeryear=request.getParameterValues("incomePeryear");
+		jremarks=request.getParameterValues("jremarks");
 		
 		bankName=request.getParameterValues("bankName");
 		accountNumber=request.getParameterValues("accountNumber");
@@ -133,7 +127,14 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 				cm.setBremarks(bremarks[j]);
 				c.insertCustomerBank(cm);
 			}
-			 c.insertCustomerJob(cm);
+			for(int k=0;k<cusJob.length;k++){
+				cm.setCusJob(cusJob[k]);
+				cm.setCusInstitution(cusInstitution[k]);
+				cm.setCusPost(cusPost[k]);
+				cm.setIncomePeryear(incomePeryear[k]);
+				cm.setJremarks(jremarks[k]);
+				 c.insertCustomerJob(cm);
+			}
 			 finalstatus=true;
 		}
 		if(finalstatus){
@@ -175,10 +176,16 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 	public void updateCustomer(HttpServletRequest request,
 			HttpServletResponse response) {
 		CustomerModel cm=new CustomerModel();
-		String districtCode, districtName, pid, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, cusCitizenshipNo, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus;
-		String cusJob, cusInstitution, cusPost, incomePeryear, jremarks;
+		String pid, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, cusCitizenshipNo, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus;
+		String[] cusJob, cusInstitution, cusPost, incomePeryear, jremarks;
 		String[] cusRelation,cusRelName,dateOfBirth,fcitizenshipNo,fremarks;
 		String[] bankName, accountNumber, accountType, bremarks;
+		
+		cusJob=request.getParameterValues("cusJob");
+		cusInstitution=request.getParameterValues("cusInstitution");
+		cusPost=request.getParameterValues("cusPost");
+		incomePeryear=request.getParameterValues("incomePeryear");
+		jremarks=request.getParameterValues("jremarks");
 		
 		cusRelation=request.getParameterValues("cusRelation");
 		cusRelName=request.getParameterValues("cusRelName");
@@ -191,18 +198,9 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		accountType=request.getParameterValues("accountType");
 		bremarks=request.getParameterValues("bremarks");
 		
-		cusJob=request.getParameter("cusJob");
-		cusInstitution=request.getParameter("cusInstitution");
-		cusPost=request.getParameter("cusPost");
-		incomePeryear=request.getParameter("incomePeryear");
-		jremarks=request.getParameter("jremarks");
 		
-		cm.setCusJob(cusJob);
-		cm.setCusInstitution(cusInstitution);
-		cm.setCusPost(cusPost);
-		cm.setIncomePeryear(incomePeryear);
-		cm.setJremarks(jremarks);
 		
+	
 		memberid=request.getParameter("memberid");
 		registrationDate=request.getParameter("registrationDate");
 		name=request.getParameter("name");
@@ -227,11 +225,13 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		typeid=request.getParameter("typeid");
 		statusid=request.getParameter("statusid");
 		
-		inputter="shishir";
-		authorizer="abc";
-		insertStatus="abc";
-		updateStatus="abc";
-		delStatus="abc";
+		HttpSession session=request.getSession();
+		UserModel userDetail=(UserModel)session.getAttribute("userDetail");
+		inputter=userDetail.getUsername();
+		authorizer="0";
+		insertStatus="0";
+		updateStatus="0";
+		delStatus="0";
 		
 		cm.setMemberid(memberid);
 		cm.setRegistrationDate(registrationDate);
@@ -262,32 +262,43 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		cm.setUpdateStatus(updateStatus);
 		cm.setDelStatus(delStatus);
 		
-		String clientdb="sahakarisystemdb";
 		pid=request.getParameter("pid");
+		cm.setPid(pid);
 		
 		CustomerDao dao=new CustomerDaoImpl();
-		boolean customerStatus=dao.updateCustomer(pid,cm,clientdb);
-		boolean customerJobStatus=false;
+		boolean customerStatus=dao.updateCustomer(pid,cm);
+		boolean customerUpdateStatus=false;
+		boolean deletestatus=false;
 		
 		if(customerStatus){
-			customerJobStatus=dao.updateCustomerJob(pid,cm,clientdb);
-			dao.deleteCustomerRelationBankDetail(pid,clientdb);
+			deletestatus=dao.deleteCustomerRelationBankDetail(pid);
+			if(deletestatus){
 			for(int i = 0;i<cusRelation.length;i++){
 				cm.setCusRelation(cusRelation[i]);
 				cm.setCusRelName(cusRelName[i]);
 				cm.setDateOfBirth(dateOfBirth[i]);
 				cm.setFcitizenshipNo(fcitizenshipNo[i]);
 				cm.setFremarks(fremarks[i]);
-				dao.insertCustomerFamily(cm);
+				dao.updateCustomerFamily(cm);
 			}
 			for(int j=0;j<accountNumber.length;j++){
 				cm.setBankName(bankName[j]);
 				cm.setAccountNumber(accountNumber[j]);
 				cm.setAccountType(accountType[j]);
 				cm.setBremarks(bremarks[j]);
-				dao.insertCustomerBank(cm);
+				dao.updateCustomerBank(cm);
 			}
-			if(customerJobStatus){
+			for(int k=0;k<cusJob.length;k++){
+				cm.setCusJob(cusJob[k]);
+				cm.setCusInstitution(cusInstitution[k]);
+				cm.setCusPost(cusPost[k]);
+				cm.setIncomePeryear(incomePeryear[k]);
+				cm.setJremarks(jremarks[k]);
+			dao.updateCustomerJob(cm);
+			}
+			customerUpdateStatus=true;
+			}
+			if(customerUpdateStatus){
 			request.setAttribute("msg", "Update Successful!");
 			}
 			
@@ -373,7 +384,10 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 
 	public void updateShareCertificate(HttpServletRequest request,
 			HttpServletResponse response) {
-String inputter="username";
+		HttpSession session=request.getSession();
+		UserModel userDetail=(UserModel)session.getAttribute("userDetail");
+		
+		String inputter=userDetail.getUsername();
 		
 		CustomerModel cm=new CustomerModel();
 		String shareCertificateId,shareCertNo, shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate, memberid;

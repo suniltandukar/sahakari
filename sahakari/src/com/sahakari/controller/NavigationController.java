@@ -23,6 +23,7 @@ import com.sahakari.daoimpl.CustomerDaoImpl;
 import com.sahakari.daoimpl.ViewDaoImpl;
 import com.sahakari.model.AccountModel;
 import com.sahakari.model.CustomerModel;
+import com.sahakari.model.FamilyRelationModel;
 import com.sahakari.model.TransactionModel;
 import com.sahakari.transaction.dao.TransactionDao;
 import com.sahakari.transaction.daoImpl.TransactionDaoImpl;
@@ -59,9 +60,12 @@ public class NavigationController extends HttpServlet {
 			List<CustomerModel> statuslist=g.getStatus();
 			List<CustomerModel> typelist=g.getType();
 			List<CustomerModel> districtlist=g.getDistrict();
+			List<FamilyRelationModel> familyrelationlist=g.getfamilyRelationNames();
+			
 			request.setAttribute("statuslist", statuslist);
 			request.setAttribute("typelist", typelist);
 			request.setAttribute("districtlist", districtlist);
+			request.setAttribute("familyrelationlist", familyrelationlist);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/insertCustomer.jsp");
 			rd.forward(request, response);
 		}
@@ -91,12 +95,18 @@ public class NavigationController extends HttpServlet {
 			
 			String id=request.getParameter("id");
 			
+			List<FamilyRelationModel> familyrelationlist=g.getfamilyRelationNames();
+			request.setAttribute("familyrelationlist", familyrelationlist);
+			
 			ViewDao v=new ViewDaoImpl();
 			CustomerModel c=v.viewSpecificCustomerDetail(id);
 			request.setAttribute("cdetail", c);
 			
 			List<CustomerModel> customerFamilylist=v.viewCustomerFamilyDetail(id);
 			request.setAttribute("cusFamilyDetail", customerFamilylist);
+			
+			List<CustomerModel> customerJoblist=v.viewCustomerJobDetail(id);
+			request.setAttribute("cusJobDetail", customerJoblist);
 			
 			List<CustomerModel> customerBankDetailList=v.viewCustomerBankDetail(id);
 			request.setAttribute("customerBankDetail", customerBankDetailList);

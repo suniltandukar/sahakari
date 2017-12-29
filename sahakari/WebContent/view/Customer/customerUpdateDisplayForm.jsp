@@ -224,7 +224,9 @@
 										<h5>Relation</h5> <select class="form-control"
 										name="cusRelation">
 											<option value="${cfd.cusRelation }">${cfd.cusRelation }</option>
-											<option value="son">Son</option>
+											<c:forEach items="${familyrelationlist}" var="relation">
+												<option value="${relation.relationName}">${relation.relationName}</option>
+											</c:forEach>
 										</select>
 									</td>
 									<td>
@@ -251,32 +253,37 @@
 						
 					</div>
 					<div id="3" class="tab-pane fade in">
-						<table class="table" >
+						<input type="button" name="button" value="+ Add Job"
+							class="btn btn-primary addjobbtn">
+						<table class="table" id="jobtable">
 							<tbody>
+									<c:forEach items="${cusJobDetail }" var="cjd">
 								<tr>
 									<td>
 										<h5>Job Name</h5> <input type="text" class="form-control"
-										name="cusJob" value="">
+										name="cusJob" value="${cjd.cusJob }">
 									</td>
 									<td>
 										<h5>Instituion</h5> <input type="text" class="form-control"
-										name="cusInstitution" value="">
+										name="cusInstitution" value="${cjd.cusInstitution }">
 									</td>
 									<td>
 										<h5>Post</h5> <input type="text" class="form-control"
-										name="cusPost" value="">	
+										name="cusPost" value="${cjd.cusPost }">
 									</td>
-								</tr>
-								<tr>
 									<td>
-										<h5>Income per year</h5> <input type="text" class="form-control"
-										name="incomePeryear" value="">	
+										<h5>Income per year</h5> <input type="text"
+										class="form-control" name="incomePeryear" value="${cjd.incomePeryear }">
 									</td>
 									<td>
 										<h5>Remarks</h5> <input type="text" class="form-control"
-										name="jremarks" value="">	
+										name="jremarks" value="${cjd.jremarks }">
 									</td>
+									<td><a><i class='fa fa-times' aria-hidden='true'
+											style='color: red;'></i></a></td>
 								</tr>
+								</c:forEach>
+								
 							</tbody>
 						</table>
 					</div>
@@ -324,6 +331,11 @@
 	   $('.addbankbtn').click(function () {
 
 		    $('#bankdetailtable tbody').append($('#bankdetailtable tbody tr:last').clone());
+		    
+	   });
+	   $('.addjobbtn').click(function () {
+
+		    $('#jobtable tbody').append($('#jobtable tbody tr:last').clone());
 		    
 	   });
 		$('table').on('click','tr a',function(e){

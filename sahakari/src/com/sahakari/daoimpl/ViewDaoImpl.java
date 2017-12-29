@@ -10,6 +10,7 @@ import com.mysql.jdbc.Connection;
 import com.sahakari.dao.ViewDao;
 import com.sahakari.dbconnection.DBConnection;
 import com.sahakari.model.CustomerModel;
+import com.sahakari.model.FamilyRelationModel;
 
 public class ViewDaoImpl implements ViewDao{
 	PreparedStatement ps=null;
@@ -107,11 +108,6 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setUpdateStatus(rs.getString("updateStatus"));
 				cust.setDelStatus(rs.getString("delStatus"));
 				
-				/*cust.setCusJob(rs.getString("cusJob"));
-				cust.setCusInstitution(rs.getString("cusInstitution"));
-				cust.setCusPost(rs.getString("cusPost"));
-				cust.setIncomePeryear(rs.getString("incomePeryear"));
-				cust.setJremarks(rs.getString("remarks"));*/
 				return cust;
 			}
 		} catch (SQLException e) {
@@ -138,6 +134,37 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setDateOfBirth(rs.getString("dateOfBirth"));
 				cust.setFcitizenshipNo(rs.getString("citizenshipNo"));
 				cust.setFremarks(rs.getString("remarks"));
+				list.add(cust);
+			}
+			if(list.size()>0){
+				con.close();
+				rs=null;
+				ps=null;
+				return list;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return null;
+	}
+	public List<CustomerModel> viewCustomerJobDetail(String id){
+		List<CustomerModel> list=new ArrayList<CustomerModel>();
+		CustomerModel cust=null;
+		String query="select jobdetail.* from jobdetail join customertbl on customertbl.pid=jobdetail.pid where customertbl.memberid='"+id+"' ";
+		try {
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			while(rs.next())
+			{
+				cust=new CustomerModel();
+				cust.setCusJob(rs.getString("cusJob"));
+				cust.setCusInstitution(rs.getString("cusInstitution"));
+				cust.setCusPost(rs.getString("cusPost"));
+				cust.setIncomePeryear(rs.getString("incomePeryear"));
+				cust.setJremarks(rs.getString("remarks"));
+				
 				list.add(cust);
 			}
 			if(list.size()>0){
@@ -251,5 +278,6 @@ public class ViewDaoImpl implements ViewDao{
 		}
 		return null;
 	}
+	
 
 }

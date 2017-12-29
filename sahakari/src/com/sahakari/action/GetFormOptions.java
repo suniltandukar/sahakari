@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.sahakari.dbconnection.DBConnection;
 import com.sahakari.model.CustomerModel;
+import com.sahakari.model.FamilyRelationModel;
 
 
 
@@ -80,6 +81,30 @@ public class GetFormOptions {
 		}
 		return null;
 	}
-	
+	public List<FamilyRelationModel> getfamilyRelationNames(){
+		List<FamilyRelationModel> list=new ArrayList<FamilyRelationModel>();
+		String query="SELECT * from familyRelationtbl;";
+		FamilyRelationModel fr=null;
+		try {
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			while(rs.next())
+			{
+				fr=new FamilyRelationModel();
+				fr.setRelationId(rs.getString("relationId"));
+				fr.setRelationName(rs.getString("relationName"));
+				list.add(fr);
+			}
+			if(list.size()>0){
+				return list;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+			
+		return null;
+	}
 
 }
