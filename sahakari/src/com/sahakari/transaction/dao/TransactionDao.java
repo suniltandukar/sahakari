@@ -22,6 +22,8 @@ public interface TransactionDao {
 
 	public boolean insertTellerTransaction(TellerTransactionModel tm);
 
+	public List<TellerTransactionModel> gettellertransactions();
+
 	
 
 }

@@ -203,5 +203,8 @@ public class TransactionDaoImpl implements TransactionDao{
 		}
 		return false;
 	}
+	public List<TellerTransactionModel> gettellertransactions(){
+		return null;
+	}
 	
 }

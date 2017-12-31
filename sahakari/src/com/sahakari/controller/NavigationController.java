@@ -24,6 +24,7 @@ import com.sahakari.daoimpl.ViewDaoImpl;
 import com.sahakari.model.AccountModel;
 import com.sahakari.model.CustomerModel;
 import com.sahakari.model.FamilyRelationModel;
+import com.sahakari.model.TellerTransactionModel;
 import com.sahakari.model.TransactionModel;
 import com.sahakari.transaction.dao.TransactionDao;
 import com.sahakari.transaction.daoImpl.TransactionDaoImpl;
@@ -251,6 +252,13 @@ public class NavigationController extends HttpServlet {
 		//Teller Transaction
 		else if(uri.endsWith("insertTeller.click")){
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/insertTeller.jsp");
+			rd.forward(request, response);
+		}
+		else if(uri.endsWith("viewteller.click")){
+			TransactionDao td=new TransactionDaoImpl();
+			List<TellerTransactionModel> list=td.gettellertransactions();
+			request.setAttribute("transactionlist", list);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/viewTellerTransaction.jsp");
 			rd.forward(request, response);
 		}
 	
