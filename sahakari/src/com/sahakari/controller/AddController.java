@@ -69,12 +69,19 @@ public class AddController extends HttpServlet {
 			TransactionAction ta=new TransactionAction();
 			ta.addTransaction(request,response);
 		}
+<<<<<<< HEAD
 		if(uri.endsWith("multitransaction.add"))
 		{
 			TransactionAction action=new TransactionAction();
 			action.addmultiTransaction(request,response);
 		}
 			
+=======
+		if(uri.endsWith("teller.add")){
+			TransactionAction ta=new TransactionAction();
+			ta.addTellerTransaction(request,response);
+		}
+>>>>>>> branch 'master' of https://github.com/hackersdelima/sahakari.git
 	}
 
 }

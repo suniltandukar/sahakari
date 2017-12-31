@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.mysql.jdbc.Connection;
 import com.sahakari.dbconnection.DBConnection;
+import com.sahakari.model.TellerTransactionModel;
 import com.sahakari.model.TransactionModel;
 import com.sahakari.transaction.dao.TransactionDao;
 
@@ -14,6 +15,22 @@ public class TransactionDaoImpl implements TransactionDao{
 	Connection con=null;
 	PreparedStatement ps=null;
 	ResultSet rs=null;
+	public boolean addTransaction(String id){
+		String query="delete from transactiontbl where Id='"+id+"'";
+		try{
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			int i=ps.executeUpdate();
+			if(i>0){
+				con.close();
+				ps=null;
+				return true;
+			}
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
 	public boolean addTransaction(TransactionModel tm){
 		try{
 			con=DBConnection.getConnection();
@@ -97,22 +114,7 @@ public class TransactionDaoImpl implements TransactionDao{
 		}
 		return null;
 	}
-	public boolean addTransaction(String id){
-		String query="delete from transactiontbl where Id='"+id+"'";
-		try{
-			con=DBConnection.getConnection();
-			ps=con.prepareStatement(query);
-			int i=ps.executeUpdate();
-			if(i>0){
-				con.close();
-				ps=null;
-				return true;
-			}
-		}catch(Exception e){
-			System.out.println(e);
-		}
-		return false;
-	}
+	
 	public TransactionModel getTransactionDetail(String id){
 		TransactionModel tm=null;
 		try{
@@ -152,6 +154,18 @@ public class TransactionDaoImpl implements TransactionDao{
 		return null;
 		
 	}
+	public boolean insertTellerTransaction(TellerTransactionModel tm){
+		try{
+			con=DBConnection.getConnection();
+			String query="";
+			ps=con.prepareStatement(query);
+			ps.executeUpdate();
+			}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
 	public boolean updateTransaction(TransactionModel tm,String id){
 		try{
 			con=DBConnection.getConnection();
@@ -189,4 +203,5 @@ public class TransactionDaoImpl implements TransactionDao{
 		}
 		return false;
 	}
+	
 }
