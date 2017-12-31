@@ -43,6 +43,7 @@ public class NavigationController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out=response.getWriter();
 		String uri=request.getRequestURI();
+		
 		if(uri.endsWith("collateralrightinsert.click")){
 			RequestDispatcher rd=request.getRequestDispatcher("view/CollateralRight/Collateral_Right_Form.jsp");
 			rd.forward(request, response);
@@ -248,10 +249,20 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/editTransactionDisplayForm.jsp");
 			rd.forward(request, response);
 		}
+		
 		//Teller Transaction
 		else if(uri.endsWith("insertTeller.click")){
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/insertTeller.jsp");
 			rd.forward(request, response);
+		}
+		
+		
+		//multi transactions
+		if(uri.endsWith("insertMultiTxn.click"))
+		{
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/MultiTransactions/insertMultiTransaction.jsp");
+			rd.forward(request, response);
+			
 		}
 	
 	}

@@ -69,6 +69,12 @@ public class AddController extends HttpServlet {
 			TransactionAction ta=new TransactionAction();
 			ta.addTransaction(request,response);
 		}
+		if(uri.endsWith("multitransaction.add"))
+		{
+			TransactionAction action=new TransactionAction();
+			action.addmultiTransaction(request,response);
+		}
+			
 	}
 
 }

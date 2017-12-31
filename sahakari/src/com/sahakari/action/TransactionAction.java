@@ -173,4 +173,8 @@ public class TransactionAction {
 		}
 	}
 
+	public void addmultiTransaction(HttpServletRequest request, HttpServletResponse response) {
+		
+	}
+
 }
