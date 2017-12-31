@@ -52,11 +52,15 @@ h5 {
 								<td><h5>Process Date</h5> <input type="text"
 									class="form-control" name="processdate" value="">
 								</td>
-								<td><h5>Debit Account Number</h5> <input type="text"
-									class="form-control" name="debitaccountnumber" value="">
+								<td><h5>Account Number</h5> <input type="text"
+									class="form-control" name="accountnumber" value="">
 								</td>
-								<td><h5>Credit Account Number</h5> <input type="text"
-									class="form-control" name="creditaccountnumber" value="">
+								<td><h5>Dr/Cr</h5> <select class="form-control" name="drcr">
+								
+								<option value="">Dr</option>
+								<option value="">Cr</option>
+								
+								</select>
 								</td>
 							</tr>
 							<tr>
