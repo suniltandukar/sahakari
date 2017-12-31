@@ -94,7 +94,7 @@ h5 {
 								</td>
 									<td>
 									<h5>Amount</h5> <input type="text"
-									class="form-control" name="amount" value="">
+									class="form-control" name="amount" value="0">
 								</td>
 							</tr>
 							<tr>
@@ -108,7 +108,7 @@ h5 {
 								</td>
 								<td>
 									<h5>Commission Amount</h5> <input type="text"
-									class="form-control" name="commissionAmount" value="">
+									class="form-control" name="commissionAmount" value="0">
 								</td>
 							</tr>
 							<tr>
