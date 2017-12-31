@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sahakari.model.TellerTransactionModel;
 import com.sahakari.model.TransactionModel;
 import com.sahakari.model.UserModel;
 import com.sahakari.transaction.dao.TransactionDao;
@@ -171,6 +172,56 @@ public class TransactionAction {
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void addTellerTransaction(HttpServletRequest request,
+			HttpServletResponse response) {
+		String 
+		transactionid=request.getParameter("transactionid"),
+		bookingdate=request.getParameter("bookingdate"),
+		valuedate=request.getParameter("valuedate"),
+		processdate=request.getParameter("processdate"),
+		debitaccoutnumber=request.getParameter("debitaccountnumber"),
+		creditaccountnumber=request.getParameter("creditaccountnumber"),
+		narrative=request.getParameter("narrative"),
+		chequenumber=request.getParameter("chequenumber"),
+		amount=request.getParameter("amount"),
+		transactioncode=request.getParameter("transactioncode"),
+		authorizer="0";
+		
+		HttpSession session =request.getSession();
+		UserModel userdetail=(UserModel)session.getAttribute("userDetail");
+		String inputter=userdetail.getUsername();
+		
+		TellerTransactionModel tm=new TellerTransactionModel();
+		tm.setTransactionid(transactionid);
+		tm.setBookingdate(bookingdate);
+		tm.setValuedate(valuedate);
+		tm.setProcessdate(processdate);
+		tm.setDebitaccoutnumber(debitaccoutnumber);
+		tm.setCreditaccountnumber(creditaccountnumber);
+		tm.setNarrative(narrative);
+		tm.setAmount(amount);
+		tm.setTransactioncode(transactioncode);
+		tm.setInputter(inputter);
+		tm.setAuthorizer(authorizer);
+		
+		TransactionDao td=new TransactionDaoImpl();
+		boolean status=td.insertTellerTransaction(tm);
+		if(status){
+			request.setAttribute("msg", "Transaction Update Successful!");
+		}
+		else{
+			request.setAttribute("msg", "Transaction Update Failed!");
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("insertTeller.click");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 }

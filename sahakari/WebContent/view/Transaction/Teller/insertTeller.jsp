@@ -32,10 +32,14 @@ h5 {
 		<div class="panel-body">
 
 			<form class="form-horizontal shareCertForm" id="form1" method="post"
-				action="transaction.add">
+				action="teller.add">
 				<div id="1" class="tab-pane fade in active">
 					<table class="table">
 						<tbody>
+						<tr>
+								<td><input type="submit" class="btn btn-success"
+									value="Save"></td>
+							</tr>
 							<tr>
 								<td><h5>Transaction Id</h5> <input type="text"
 									class="form-control" name="transactionid" value="">

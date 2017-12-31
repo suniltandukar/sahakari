@@ -69,6 +69,10 @@ public class AddController extends HttpServlet {
 			TransactionAction ta=new TransactionAction();
 			ta.addTransaction(request,response);
 		}
+		if(uri.endsWith("teller.add")){
+			TransactionAction ta=new TransactionAction();
+			ta.addTellerTransaction(request,response);
+		}
 	}
 
 }
