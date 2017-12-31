@@ -215,7 +215,10 @@ h5 {
 									<td>
 										<h5>Relation</h5> <select class="form-control"
 										name="cusRelation">
-											<option value="son">Son</option>
+											<option value="">Select Relation</option>
+											<c:forEach items="${familyrelationlist}" var="relation">
+												<option value="${relation.relationName}">${relation.relationName}</option>
+											</c:forEach>
 									</select>
 									</td>
 									<td>
@@ -242,7 +245,9 @@ h5 {
 
 					</div>
 					<div id="3" class="tab-pane fade in">
-						<table class="table">
+						<input type="button" name="button" value="+ Add Job"
+							class="btn btn-primary addjobbtn">
+						<table class="table" id="jobtable">
 							<tbody>
 								<tr>
 									<td>
@@ -257,8 +262,6 @@ h5 {
 										<h5>Post</h5> <input type="text" class="form-control"
 										name="cusPost" value="">
 									</td>
-								</tr>
-								<tr>
 									<td>
 										<h5>Income per year</h5> <input type="text"
 										class="form-control" name="incomePeryear" value="">
@@ -267,7 +270,10 @@ h5 {
 										<h5>Remarks</h5> <input type="text" class="form-control"
 										name="jremarks" value="">
 									</td>
+									<td><a><i class='fa fa-times' aria-hidden='true'
+											style='color: red;'></i></a></td>
 								</tr>
+								
 							</tbody>
 						</table>
 					</div>
@@ -326,7 +332,7 @@ h5 {
 	<%if(request.getAttribute("msg")!=null){%>
 	   $('#myModal').modal('show');
 	   <%}%>
-	  
 </script>
+
 </body>
 </html>

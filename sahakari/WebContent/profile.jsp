@@ -223,14 +223,52 @@
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
-                            <ul class="treeview-menu">
-
-                                <li id="nav9"><a href="inserttransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-                                <li id="nav10"><a href="viewtransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
-                                <li id="nav11"><a href="edittransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
-                            </ul>
-                        </li>
-                        
+                            
+                             <ul class="treeview-menu">
+                             	 <li class="treeview">
+                             	 	<a href="#"><i class="fa fa-circle-o"></i> Fund Transfer
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                     <ul class="treeview-menu">
+	                             	  	 <li id="nav9"><a href="inserttransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
+	                                	<li id="nav10"><a href="viewtransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
+	                               		 <li id="nav11"><a href="edittransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
+                                	</ul>
+                             	 </li>
+                             	  <li class="treeview">
+                             	 	<a href="#" ><i class="fa fa-circle-o" ></i> Teller
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                     <ul class="treeview-menu">
+	                             	  	 <li id=""><a href="insertTeller.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
+	                                	<li id=""><a href="" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
+	                               		 <li id=""><a href="" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
+                                	</ul>
+                             	 </li>
+                             	  <li class="treeview">
+                             	 	<a href="#"><i class="fa fa-circle-o"></i> Multiple Transaction
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                     <ul class="treeview-menu">
+	                             	  	 <li id=""><a href="" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
+	                                	<li id=""><a href="" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
+	                               		 <li id=""><a href="" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
+                                	</ul>
+                             	 </li>
+                             	 
+                             </ul>
+                             
+								
+						</li>
+								 	 
+                                 
+                               
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-share"></i> <span>Multilevel</span>

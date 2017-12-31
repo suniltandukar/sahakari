@@ -1,4 +1,9 @@
- $('.addrealtionbtn').click(function () {
+ $('.addjobbtn').click(function () {
+			
+		    $('#jobtable tbody').append($('#jobtable tbody tr:last').clone());
+		    
+	   }); 
+$('.addrealtionbtn').click(function () {
 			
 		    $('#relationtable tbody').append($('#relationtable tbody tr:last').clone());
 		    

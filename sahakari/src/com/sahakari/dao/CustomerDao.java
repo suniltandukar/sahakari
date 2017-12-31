@@ -12,7 +12,8 @@ public interface CustomerDao {
 
 	public boolean deleteCustomerDao(String pid);
 
-	public boolean updateCustomer(String pid,CustomerModel cm, String clientdb);
+	public boolean updateCustomer(String pid,CustomerModel cm);
+	
 
 	public boolean insertCustomerJob(CustomerModel cm);
 
@@ -20,12 +21,7 @@ public interface CustomerDao {
 
 	public boolean insertCustomerBank(CustomerModel cm);
 
-	public boolean updateCustomerJob(String pid, CustomerModel cm, String clientdb);
-
-	public boolean updateCustomerRelatives(String pid, CustomerModel cm,
-			String clientdb);
-
-	public boolean deleteCustomerRelationBankDetail(String pid, String clientdb);
+	public boolean deleteCustomerRelationBankDetail(String pid);
 	public boolean checkMemberId(String id);
 
 	public boolean addShareCertificate(CustomerModel cm);
@@ -35,6 +31,12 @@ public interface CustomerDao {
 	public boolean deleteShareCertificate(String id);
 
 	public boolean updateShareCertificate(CustomerModel cm);
+
+	public void updateCustomerFamily(CustomerModel cm);
+
+	public void updateCustomerBank(CustomerModel cm);
+
+	public void updateCustomerJob(CustomerModel cm);
 	
 	
 }

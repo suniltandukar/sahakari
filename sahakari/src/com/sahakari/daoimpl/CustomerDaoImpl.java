@@ -347,7 +347,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		
 		return false;
 	}
-	public boolean updateCustomer(String pid, CustomerModel cm, String clientdb){
+	public boolean updateCustomer(String pid, CustomerModel cm){
 		String query="update customertbl set memberid=?, registrationDate=?, name=?, gender=?, pdistid=?, pvdcmunid=?, pwardno=?, pcity=?, ptole=?, tdistid=?, tvdcmunid=?, twardno=?, tcity=?,ttole=?,citizenshipNo=?,citizenshipIssuedFrom=?,telno=?, mobno=?,fatherName=?,spouseName=?,dob=?,typeid=?,statusid=?,inputter=?,authorizer=?,insertStatus=?, updateStatus=?, delStatus=? where pid='"+pid+"'";
 		try{
 			int i=0;
@@ -391,9 +391,9 @@ public class CustomerDaoImpl implements CustomerDao {
 		return false;
 		
 	}
-	public boolean updateCustomerJob(String pid, CustomerModel cm, String clientdb){
+	public boolean insertCustomerJob(String pid, CustomerModel cm, String clientdb){
 		int i;
-		String query="update jobdetail set cusJob=?,cusInstitution=?,cusPost=?,incomePeryear=?,remarks=? where pid='"+pid+"'";
+		String query="insert into jobdetail (cusJob,cusInstitution,cusPost,incomePeryear,remarks where pid='"+pid+"'";
 		try{
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
@@ -412,18 +412,20 @@ public class CustomerDaoImpl implements CustomerDao {
 		
 		return false;
 	}
-	public boolean deleteCustomerRelationBankDetail(String pid, String clientdb){
+	public boolean deleteCustomerRelationBankDetail(String pid){
 		int[] i;
 		String query="delete from familydetail where pid='"+pid+"'";
 		String query1="delete from bankaccountdetail where pid='"+pid+"'";
+		String query2="delete from jobdetail where pid='"+pid+"'";
 		try{
 			con=DBConnection.getConnection();
 			stmt=con.createStatement();
 			stmt.addBatch(query);
 			stmt.addBatch(query1);
+			stmt.addBatch(query2);
 			i=stmt.executeBatch();
-			if(i.length==2){
-				System.out.println("relation and bank deleted");
+			if(i.length==3){
+				System.out.println("relation and bank and job deleted");
 				con.close();
 				stmt=null;
 				return true;
@@ -435,31 +437,78 @@ public class CustomerDaoImpl implements CustomerDao {
 		}
 		return false;
 	}
-	public boolean updateCustomerRelatives(String pid, CustomerModel cm,
-			String clientdb){
-		int i;
-		String query="update familydetail set cusRelation=?,cusRelName=?,dateOfBirth=?,citizenshipNo=?,remarks=? where pid='"+pid+"'";
+	public void updateCustomerFamily(CustomerModel cm){
+		String query="insert into familydetail(pid, cusRelation, cusRelName, dateOfBirth, citizenshipNo, remarks, inputter, authorizer) values(?,?,?,?,?,?,?,?)";
+		
 		try{
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
-			ps.setString(1, cm.getCusRelation());
-			ps.setString(2, cm.getCusRelName());
-			ps.setString(3, cm.getDateOfBirth());
-			ps.setString(4, cm.getFcitizenshipNo());
-			ps.setString(5, cm.getFremarks());
-			i=ps.executeUpdate();
+			ps.setString(1, cm.getPid());
+			ps.setString(2, cm.getCusRelation());
+			ps.setString(3, cm.getCusRelName());
+			ps.setString(4, cm.getDateOfBirth());
+			ps.setString(5, cm.getFcitizenshipNo());
+			ps.setString(6,cm.getFremarks());
+			ps.setString(7, cm.getInputter());
+			ps.setString(8, cm.getAuthorizer());
+			int i=ps.executeUpdate();
 			if(i>0){
-				con.close();
-				ps=null;
-				return true;
+				System.out.println("family update successful");
 			}
-			
 		}
 		catch(Exception e){
-			System.out.println(e);
+			System.out.println("update family error "+e);
 		}
+		System.out.println("family update unsuccessful");
 		
-		return false;
+	}
+	public void updateCustomerBank(CustomerModel cm){
+		int i;
+	String query="insert into bankaccountdetail(pid, bankName, accountNumber, accountType, remarks,inputter,authorizer) values(?,?,?,?,?,?,?)";
+		
+		try{
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			ps.setString(1, cm.getPid());
+			ps.setString(2, cm.getBankName());
+			ps.setString(3, cm.getAccountNumber());
+			ps.setString(4, cm.getAccountType());
+			ps.setString(5, cm.getBremarks());
+			ps.setString(6, cm.getInputter());
+			ps.setString(7, cm.getAuthorizer());
+		
+			i=ps.executeUpdate();
+			if(i>0){
+				System.out.println("bank update successful");
+			}
+		}
+		catch(Exception e){
+			System.out.println("update bank error "+e);
+		}
+		System.out.println("bank update unsuccessful");
+	}
+	public void updateCustomerJob(CustomerModel cm){
+		String query="insert into jobdetail(pid,cusJob,cusInstitution,cusPost,incomePeryear,remarks,inputter,authorizer) values(?,?,?,?,?,?,?,?)";
+		try{
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			ps.setString(1, cm.getPid());
+			ps.setString(2, cm.getCusJob());
+			ps.setString(3, cm.getCusInstitution());
+			ps.setString(4, cm.getCusPost());
+			ps.setString(5, cm.getIncomePeryear());
+			ps.setString(6, cm.getJremarks());
+			ps.setString(7, cm.getInputter());
+			ps.setString(8, cm.getAuthorizer());
+			int i=ps.executeUpdate();
+			if(i>0){
+				System.out.println("job update successful");
+			}
+		}
+		catch(Exception e){
+			System.out.println("update job error "+e);
+		}
+		System.out.println("job update unsuccessful");
 	}
 	public String selectPid(String memberid){
 		String pid="";

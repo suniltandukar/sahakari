@@ -38,7 +38,6 @@ public class TransactionAction {
 		commissionType=request.getParameter("commissionType");
 		commissionAmount=request.getParameter("commissionAmount");
 		chequeNumber=request.getParameter("chequeNumber");
-		processingDate=request.getParameter("processingDate");
 		Override=request.getParameter("Override");
 		recordStatus=request.getParameter("recordStatus");
 		branchCode=request.getParameter("branchCode");
@@ -65,7 +64,6 @@ public class TransactionAction {
 		tm.setId(Id);
 		tm.setInputter(inputter);
 		tm.setOverride(Override);
-		tm.setProcessingDate(processingDate);
 		tm.setRecordStatus(recordStatus);
 		tm.setRefNo(refNo);
 		tm.setTransactionType(transactionType);
@@ -162,10 +160,10 @@ public class TransactionAction {
 		TransactionDao td=new TransactionDaoImpl();
 		boolean status=td.updateTransaction(tm,previousid);
 		if(status){
-			request.setAttribute("msg", "Transaction Add Successful!");
+			request.setAttribute("msg", "Transaction Update Successful!");
 		}
 		else{
-			request.setAttribute("msg", "Transaction Add Failed!");
+			request.setAttribute("msg", "Transaction Update Failed!");
 		}
 		RequestDispatcher rd=request.getRequestDispatcher("inserttransaction.click");
 		try {

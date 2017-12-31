@@ -19,7 +19,7 @@ public class TransactionDaoImpl implements TransactionDao{
 			con=DBConnection.getConnection();
 			String query="insert into transactiontbl (Id, refNo, transactionType, valueDate,bookingDate,debitAccountNumber,debitCurrency,debitNarrative,creditAccountNumber,"
 					+ "creditCurrency,creditNarative,amount,commissionCode,commissionType,commissionAmount,chequeNumber,processingDate,Override,recordStatus,branchCode,inputter)"
-					+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now(),?,?,?,?)";
 			ps=con.prepareStatement(query);
 			ps.setString(1,tm.getId() );
 			ps.setString(2,tm.getRefNo() );
@@ -37,11 +37,10 @@ public class TransactionDaoImpl implements TransactionDao{
 			ps.setString(14, tm.getCommissionType());
 			ps.setString(15, tm.getCommissionAmount());
 			ps.setString(16, tm.getChequeNumber());
-			ps.setString(17, tm.getProcessingDate());
-			ps.setString(18, tm.getOverride());
-			ps.setString(19, tm.getRecordStatus());
-			ps.setString(20, tm.getBranchCode());
-			ps.setString(21, tm.getInputter());
+			ps.setString(17, tm.getOverride());
+			ps.setString(18, tm.getRecordStatus());
+			ps.setString(19, tm.getBranchCode());
+			ps.setString(20, tm.getInputter());
 			int i=ps.executeUpdate();
 			if(i>0){
 				con.close();
@@ -156,8 +155,8 @@ public class TransactionDaoImpl implements TransactionDao{
 	public boolean updateTransaction(TransactionModel tm,String id){
 		try{
 			con=DBConnection.getConnection();
-			String query="update transactiontbl set (Id=?, refNo=?, transactionType=?, valueDate=?,bookingDate=?,debitAccountNumber=?,debitCurrency=?,debitNarrative=?,creditAccountNumber=?,"
-					+ "creditCurrency=?,creditNarative=?,amount=?,commissionCode=?,commissionType=?,commissionAmount=?,chequeNumber=?,processingDate=?,Override=?,recordStatus=?,branchCode=?)";
+			String query="update transactiontbl set Id=?, refNo=?, transactionType=?, valueDate=?,bookingDate=?,debitAccountNumber=?,debitCurrency=?,debitNarrative=?,creditAccountNumber=?,"
+					+ "creditCurrency=?,creditNarative=?,amount=?,commissionCode=?,commissionType=?,commissionAmount=?,chequeNumber=?,processingDate=?,Override=?,recordStatus=?,branchCode=? where Id='"+id+"' ";
 			ps=con.prepareStatement(query);
 			ps.setString(1,tm.getId() );
 			ps.setString(2,tm.getRefNo() );
