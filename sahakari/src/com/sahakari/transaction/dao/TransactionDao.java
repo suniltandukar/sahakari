@@ -22,6 +22,14 @@ public interface TransactionDao {
 
 	public boolean insertTellerTransaction(TellerTransactionModel tm);
 
+	public boolean insertMultiTransaction(TellerTransactionModel tm);
+
+	public List<TransactionModel> getMultiTransaction();
+
+	public TellerTransactionModel getMultiTransactionDetail(String id);
+
+	public boolean updateMultiTransaction(TellerTransactionModel tm, String previousid);
+
 	
 
 }

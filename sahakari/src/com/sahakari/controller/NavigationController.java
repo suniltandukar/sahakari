@@ -24,6 +24,7 @@ import com.sahakari.daoimpl.ViewDaoImpl;
 import com.sahakari.model.AccountModel;
 import com.sahakari.model.CustomerModel;
 import com.sahakari.model.FamilyRelationModel;
+import com.sahakari.model.TellerTransactionModel;
 import com.sahakari.model.TransactionModel;
 import com.sahakari.transaction.dao.TransactionDao;
 import com.sahakari.transaction.daoImpl.TransactionDaoImpl;
@@ -264,6 +265,30 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 			
 		}
+		if(uri.endsWith("viewMultiTxn.click"))
+		{
+			TransactionDao dao=new TransactionDaoImpl();
+			List<TransactionModel> list=dao.getMultiTransaction();
+			
+			request.setAttribute("multitransactionlist", list);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/MultiTransactions/viewMultiTransaction.jsp");
+			rd.forward(request, response);
+		}
+		else if(uri.endsWith("editmultitransaction.click")){
+			String id=request.getParameter("id");
+			request.setAttribute("id", id);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/editMultiTransaction.jsp");
+			rd.forward(request, response);
+		}
+		else if(uri.endsWith("multitransactioneditdisplayform.click")){
+			String id=request.getParameter("id");
+			TransactionDao td=new TransactionDaoImpl();
+			TellerTransactionModel list=td.getMultiTransactionDetail(id);
+			request.setAttribute("multitxn",list);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/editMultiTransactionDisplayForm.jsp");
+			rd.forward(request, response);
+		}
+		
 	
 	}
 }

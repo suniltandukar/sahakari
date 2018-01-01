@@ -166,6 +166,73 @@ public class TransactionDaoImpl implements TransactionDao{
 		}
 		return false;
 	}
+	public boolean insertMultiTransaction(TellerTransactionModel tm)
+	{
+		
+		try{
+			con=DBConnection.getConnection();
+			String query="";
+			ps=con.prepareStatement(query);
+			ps.executeUpdate();
+			}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
+	public List<TransactionModel> getMultiTransaction()
+	{
+		List<TellerTransactionModel> list=null;
+		TellerTransactionModel model=null;
+		try{
+			con=DBConnection.getConnection();
+			String query="select * from ";
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			
+			if(rs.next())
+			{
+				
+			}
+			}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return null;
+	}
+	
+	public TellerTransactionModel getMultiTransactionDetail(String id)
+	{
+		TellerTransactionModel tm=null;
+		try{
+			String query="select * from transactiontbl where Id='"+id+"'";
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			while(rs.next()){
+				tm=new TellerTransactionModel();
+				tm.setTransactionid(rs.getString("transactionid"));
+				tm.setTransactionno(rs.getString("transactionno"));
+				tm.setBookingdate(rs.getString("bookingdate"));
+				tm.setValuedate(rs.getString("valuedate"));
+				tm.setProcessdate(rs.getString("processdate"));
+				tm.setAccountnumber(rs.getString("accountnumber"));
+				tm.setDrcr(rs.getString("drcr"));
+				tm.setNarrative(rs.getString("narrative"));
+				tm.setAmount(rs.getString("amount"));
+				tm.setTransactioncode(rs.getString("transactioncode"));
+				tm.setInputter(rs.getString("inputter"));
+				tm.setAuthorizer(rs.getString("authorizer"));
+				tm.setChequenumber(rs.getString("chequenumber"));
+				
+				return tm;
+			}
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return null;
+		
+	}
 	public boolean updateTransaction(TransactionModel tm,String id){
 		try{
 			con=DBConnection.getConnection();
@@ -192,6 +259,7 @@ public class TransactionDaoImpl implements TransactionDao{
 			ps.setString(18, tm.getOverride());
 			ps.setString(19, tm.getRecordStatus());
 			ps.setString(20, tm.getBranchCode());
+		
 			int i=ps.executeUpdate();
 			if(i>0){
 				con.close();
@@ -204,4 +272,25 @@ public class TransactionDaoImpl implements TransactionDao{
 		return false;
 	}
 	
+	public boolean updateMultiTransaction(TellerTransactionModel tm, String id)
+	{
+		try{
+		con=DBConnection.getConnection();
+		String query="update transactiontbl set  where Id='"+id+"' ";
+		ps=con.prepareStatement(query);
+		ps.setString(1,tm.getTransactionid());
+		
+	
+		int i=ps.executeUpdate();
+		if(i>0){
+			con.close();
+			ps=null;
+			return true;
+		}
+	}catch(Exception e){
+		System.out.println(e);
+	}
+	return false;
+	}
+
 }
