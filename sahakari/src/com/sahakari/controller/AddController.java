@@ -53,28 +53,28 @@ public class AddController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_Form.jsp");
 			rd.forward(request, response);
 		}*/
-		if(uri.endsWith("customer.add")){
-			CustomerAction c=new CustomerAction();
-			c.addCustomer(request,response);
-		}
-		if(uri.endsWith("shareCertificate.add")){
-			CustomerAction c=new CustomerAction();
-			c.addShareCertificate(request,response);
-		}
 		if(uri.endsWith("account.add")){
 			AccountAction a=new AccountAction();
 			a.addAccount(request,response);
 		}
-		if(uri.endsWith("transaction.add")){
-			TransactionAction ta=new TransactionAction();
-			ta.addTransaction(request,response);
+		if(uri.endsWith("customer.add")){
+			CustomerAction c=new CustomerAction();
+			c.addCustomer(request,response);
 		}
 		if(uri.endsWith("multitransaction.add"))
 		{
 			TransactionAction action=new TransactionAction();
 			action.addmultiTransaction(request,response);
 		}
-			
+		if(uri.endsWith("shareCertificate.add")){
+			CustomerAction c=new CustomerAction();
+			c.addShareCertificate(request,response);
+		}
+	
+		if(uri.endsWith("transaction.add")){
+			TransactionAction ta=new TransactionAction();
+			ta.addTransaction(request,response);
+		}
 		if(uri.endsWith("teller.add")){
 			TransactionAction ta=new TransactionAction();
 			ta.addTellerTransaction(request,response);

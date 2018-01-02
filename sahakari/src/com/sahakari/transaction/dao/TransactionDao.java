@@ -13,6 +13,8 @@ public interface TransactionDao {
 	public boolean addTransaction(TransactionModel tm);
 	public boolean addTransaction(String id);
 	
+	public boolean deleteTellerTransaction(String id);
+	
 	public List<TransactionModel> getMultiTransaction();
 	public TellerTransactionModel getMultiTransactionDetail(String id);
 	public List<TransactionModel> gettransactions();
@@ -25,6 +27,7 @@ public interface TransactionDao {
 	
 	public boolean updateTransaction(TransactionModel tm,String id);
 	public boolean updateMultiTransaction(TellerTransactionModel tm, String previousid);
+	
 
 	
 

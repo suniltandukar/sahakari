@@ -31,6 +31,10 @@ public class DeleteController extends HttpServlet {
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri=request.getRequestURI();
+		if(uri.endsWith("account.del")){
+			AccountAction action=new AccountAction();
+			action.deleteAccount(request,response);
+		}
 		if(uri.endsWith("customer.del")){
 			CustomerAction action=new CustomerAction();
 			action.deleteCustomer(request,response);
@@ -39,9 +43,9 @@ public class DeleteController extends HttpServlet {
 			CustomerAction action=new CustomerAction();
 			action.deleteShareCertificate(request,response);
 		}
-		if(uri.endsWith("account.del")){
-			AccountAction action=new AccountAction();
-			action.deleteAccount(request,response);
+		if(uri.endsWith("tellertransaction.del")){
+			TransactionAction action=new TransactionAction();
+			action.deleteTellerTransaction(request,response);
 		}
 		if(uri.endsWith("transaction.del")){
 			TransactionAction ta=new TransactionAction();

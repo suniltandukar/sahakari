@@ -55,7 +55,7 @@
 								<ul class="dropdown-menu">
 									<li><a href="edittransaction.click?id=${list.transactionid}" style="color: blue;"><i
 											class="fa fa-eye" aria-hidden="true"></i> Show Detail</a></li>
-									<li><a class="clickbtn" href="transaction.del?id=${list.transactionid }"
+									<li><a class="clickbtn" href="tellertransaction.del?id=${list.transactionid }"
 										style="color: red;"><i class="fa fa-trash-o"
 											aria-hidden="true"></i> Delete</a></li>
 								</ul>

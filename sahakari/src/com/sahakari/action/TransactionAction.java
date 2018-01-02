@@ -211,10 +211,10 @@ public class TransactionAction {
 		TransactionDao td=new TransactionDaoImpl();
 		boolean status=td.insertTellerTransaction(tm);
 		if(status){
-			request.setAttribute("msg", "Transaction Update Successful!");
+			request.setAttribute("msg", "Add Successful!");
 		}
 		else{
-			request.setAttribute("msg", "Transaction Update Failed!");
+			request.setAttribute("msg", "Add Failed!");
 		}
 		RequestDispatcher rd=request.getRequestDispatcher("insertTeller.click");
 		try {
@@ -331,6 +331,25 @@ public class TransactionAction {
 			e.printStackTrace();
 		}
 		
+	}
+
+	public void deleteTellerTransaction(HttpServletRequest request,
+			HttpServletResponse response) {
+		String id=request.getParameter("id");
+		TransactionDao td=new TransactionDaoImpl();
+		boolean status=td.deleteTellerTransaction(id);
+		if(status){
+			request.setAttribute("msg", "Delete Successful!");
+		}
+		else{
+			request.setAttribute("msg", "Delete  Failed!");
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("viewteller.click");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

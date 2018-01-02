@@ -68,6 +68,24 @@ public class TransactionDaoImpl implements TransactionDao{
 		}
 		return false;
 	}
+	public boolean deleteTellerTransaction(String id){
+		try{
+			String query="delete from tellertransactiontbl where transactionId=?";
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			ps.setString(1,id);
+			int i=ps.executeUpdate();
+			if(i>0){
+				con.close();
+				ps=null;
+				return true;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
 	public List<TransactionModel> gettransactions(){
 		List<TransactionModel> list=new ArrayList<TransactionModel>();
 		TransactionModel tm=null;
