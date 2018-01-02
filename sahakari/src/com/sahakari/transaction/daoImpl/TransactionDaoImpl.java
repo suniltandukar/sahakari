@@ -467,7 +467,7 @@ public class TransactionDaoImpl implements TransactionDao{
 			con=DBConnection.getConnection();
 			String query="update tellertransactiontbl set bookingDate=?,valueDate=?,processingDate=?,debitAccountNumber=?,creditAccountNumber=?,narrative=?,cheqNumber=?,amount=?,transactionCode=?, branchId=? where transactionId=?  ";
 			ps=con.prepareStatement(query);
-			ps.setString(1, tm.getBookingdate());
+			ps.setString(1, tm.getBookingDate());
 			ps.setString(2, tm.getValuedate());
 			ps.setString(3, tm.getProcessdate());
 			ps.setString(4, tm.getDebitaccountnumber());
