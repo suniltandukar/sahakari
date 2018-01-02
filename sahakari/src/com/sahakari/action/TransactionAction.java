@@ -327,7 +327,7 @@ public class TransactionAction {
 		else{
 			request.setAttribute("msg", "Transaction  Failed!");
 		}
-		RequestDispatcher rd=request.getRequestDispatcher("insertMultiTxn.click");
+		RequestDispatcher rd=request.getRequestDispatcher("viewMultiTxn.click");
 		try {
 			rd.forward(request, response);
 		} catch (ServletException | IOException e) {

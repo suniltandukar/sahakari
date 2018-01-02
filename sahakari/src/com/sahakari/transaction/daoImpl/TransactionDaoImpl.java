@@ -455,9 +455,23 @@ public class TransactionDaoImpl implements TransactionDao{
 	{
 		try{
 		con=DBConnection.getConnection();
-		String query="update transactiontbl set  where Id='"+id+"' ";
+		String query="update multipletransactiontbl set bookingDate=?,valueDate=?,processingDate=?,accountNumber=?,drcr=?,narrative=?,cheqNumber=?,amount=?,transactionCode=?, branchId=?,transactionNo=? where transactionId=?";
 		ps=con.prepareStatement(query);
-		ps.setString(1,tm.getTransactionid());
+		ps.setString(1, tm.getBookingdate());
+		ps.setString(2, tm.getValuedate());
+		ps.setString(3, tm.getProcessdate());
+		ps.setString(4, tm.getAccountnumber());
+		ps.setString(5, tm.getDrcr());
+		ps.setString(6, tm.getNarrative());
+		ps.setString(7, tm.getChequenumber());
+		ps.setString(8, tm.getAmount());
+		ps.setString(9, tm.getTransactioncode());
+		ps.setString(10,tm.getBranchid());
+		ps.setString(11, tm.getTransactionno());
+		ps.setString(12, tm.getTransactionid());
+
+	
+		
 		
 	
 		int i=ps.executeUpdate();

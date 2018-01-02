@@ -25,13 +25,17 @@ h5 {
 				<div id="1" class="tab-pane fade in active">
 					<table class="table">
 						<tbody>
+						<tr>
+								<td><input type="submit" class="btn btn-success"
+									value="Update"></td>
+							</tr>
 							<tr>
 									
 								<td><h5>Transaction Id</h5>
 								<input type="hidden"
 									class="form-control sharecertmemberid" name="previousid" value="${multitxn.transactionid }" > 
 								<input type="text"
-									class="form-control" name="transactionid" value="${multitxn.transactionid }">
+									class="form-control" name="transactionid" value="${multitxn.transactionid }" readonly>
 								</td>
 								<td><h5>Transaction Number</h5> <input type="text"
 									class="form-control" name="transactionno" value="${multitxn.transactionno }">
