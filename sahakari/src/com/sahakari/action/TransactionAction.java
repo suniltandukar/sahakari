@@ -232,7 +232,7 @@ public class TransactionAction {
 		String 
 		transactionid=request.getParameter("transactionid"),
 		transactionno=request.getParameter("transactionno"),
-		bookingdate=request.getParameter("bookingDate"),
+		bookingdate=request.getParameter("bookingdate"),
 		valuedate=request.getParameter("valuedate"),
 		processdate=request.getParameter("processdate"),
 		accountnumber=request.getParameter("accountnumber"),
