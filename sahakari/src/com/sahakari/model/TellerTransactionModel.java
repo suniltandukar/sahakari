@@ -1,7 +1,15 @@
 package com.sahakari.model;
 
 public class TellerTransactionModel {
-	String transactionid,bookingdate,valuedate,processdate,debitaccountnumber,creditaccountnumber,narrative,chequenumber,amount,transactioncode,inputter,authorizer;
+	String transactionid,bookingdate,valuedate,processdate,debitaccountnumber,creditaccountnumber,narrative,chequenumber,amount,transactioncode,branchid,inputter,authorizer;
+	public String getBranchid() {
+		return branchid;
+	}
+
+	public void setBranchid(String branchid) {
+		this.branchid = branchid;
+	}
+
 	String transactionno,drcr,accountnumber;//for multi txn
 	
 	public String getTransactionno() {

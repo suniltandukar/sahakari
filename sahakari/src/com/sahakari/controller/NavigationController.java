@@ -258,7 +258,7 @@ public class NavigationController extends HttpServlet {
 			TransactionDao td=new TransactionDaoImpl();
 			List<TellerTransactionModel> list=td.gettellertransactions();
 			request.setAttribute("transactionlist", list);
-			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/viewTellerTransaction.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/viewTeller.jsp");
 			rd.forward(request, response);
 		}	
 		//multi transactions

@@ -10,7 +10,6 @@ import com.sahakari.dbconnection.DBConnection;
 import com.sahakari.model.TellerTransactionModel;
 import com.sahakari.model.TransactionModel;
 import com.sahakari.transaction.dao.TransactionDao;
-
 public class TransactionDaoImpl implements TransactionDao{
 	Connection con=null;
 	PreparedStatement ps=null;
@@ -157,9 +156,28 @@ public class TransactionDaoImpl implements TransactionDao{
 	public boolean insertTellerTransaction(TellerTransactionModel tm){
 		try{
 			con=DBConnection.getConnection();
-			String query="";
+			String query="insert into tellertransactiontbl values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			ps=con.prepareStatement(query);
-			ps.executeUpdate();
+			ps.setString(1, tm.getTransactionid());
+			ps.setString(2, tm.getBookingdate());
+			ps.setString(3, tm.getValuedate());
+			ps.setString(4, tm.getProcessdate());
+			ps.setString(5, tm.getDebitaccountnumber());
+			ps.setString(6, tm.getCreditaccountnumber());
+			ps.setString(7, tm.getNarrative());
+			ps.setString(8, tm.getChequenumber());
+			ps.setString(9, tm.getAmount());
+			ps.setString(10, tm.getTransactioncode());
+			ps.setString(11,tm.getBranchid());
+			ps.setString(12, tm.getInputter());
+			ps.setString(13, tm.getAuthorizer());
+			
+			int i =ps.executeUpdate();
+			if(i>0){
+				con.close();
+				ps=null;
+				return true;
+			}
 			}
 		catch(Exception e){
 			System.out.println(e);
@@ -272,9 +290,74 @@ public class TransactionDaoImpl implements TransactionDao{
 		return false;
 	}
 	public List<TellerTransactionModel> gettellertransactions(){
+		TellerTransactionModel tm=null;
+		List<TellerTransactionModel> list=new ArrayList<TellerTransactionModel>();
+		try{
+			String query="select * from tellertransactiontbl";
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			while(rs.next()){
+				tm=new TellerTransactionModel();
+				tm.setTransactionid(rs.getString("transactionId"));
+				tm.setBookingdate(rs.getString("bookingDate"));
+				tm.setValuedate(rs.getString("valueDate"));
+				tm.setProcessdate(rs.getString("processingDate"));
+				tm.setDebitaccountnumber(rs.getString("debitAccountNumber"));
+				tm.setCreditaccountnumber(rs.getString("creditAccountNumber"));
+				tm.setNarrative(rs.getString("narrative"));
+				tm.setChequenumber(rs.getString("cheqNumber"));
+				tm.setAmount(rs.getString("amount"));
+				tm.setTransactioncode(rs.getString("transactionCode"));
+				tm.setBranchid(rs.getString("branchId"));
+				tm.setInputter(rs.getString("inputter"));
+				tm.setInputter(rs.getString("inputter"));
+				tm.setAuthorizer(rs.getString("authorizer"));
+				list.add(tm);
+				
+			}
+			if(list.size()>0){
+				con.close();
+				ps=null;
+				rs=null;
+				return list;
+			}
+		}catch(Exception e){
+			System.out.println(e);
+		}
 		return null;
 	}
-	
+	public TellerTransactionModel getspecifictellertransaction(String id){
+		TellerTransactionModel tm=null;
+		try{
+			String query="select * from tellertransactiontbl where transactionId='"+id+"'";
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			if(rs.next()){
+				tm=new TellerTransactionModel();
+				tm.setTransactionid(rs.getString("transactionId"));
+				tm.setBookingdate(rs.getString("bookingDate"));
+				tm.setValuedate(rs.getString("valueDate"));
+				tm.setProcessdate(rs.getString("processingDate"));
+				tm.setDebitaccountnumber(rs.getString("debitAccountNumber"));
+				tm.setCreditaccountnumber(rs.getString("creditAccountNumber"));
+				tm.setNarrative(rs.getString("narrative"));
+				tm.setChequenumber(rs.getString("cheqNumber"));
+				tm.setAmount(rs.getString("amount"));
+				tm.setTransactioncode(rs.getString("transactionCode"));
+				tm.setBranchid(rs.getString("branchId"));
+				tm.setInputter(rs.getString("inputter"));
+				tm.setInputter(rs.getString("inputter"));
+				tm.setAuthorizer(rs.getString("authorizer"));
+				return tm;
+				
+			}
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return null;
+	}
 	public boolean updateMultiTransaction(TellerTransactionModel tm, String id)
 	{
 		try{
