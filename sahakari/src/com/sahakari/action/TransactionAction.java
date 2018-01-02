@@ -232,7 +232,7 @@ public class TransactionAction {
 		String 
 		transactionid=request.getParameter("transactionid"),
 		transactionno=request.getParameter("transactionno"),
-		bookingDate=request.getParameter("bookingDate"),
+		bookingdate=request.getParameter("bookingDate"),
 		valuedate=request.getParameter("valuedate"),
 		processdate=request.getParameter("processdate"),
 		accountnumber=request.getParameter("accountnumber"),
@@ -251,7 +251,7 @@ public class TransactionAction {
 		TellerTransactionModel tm=new TellerTransactionModel();
 		tm.setTransactionid(transactionid);
 		tm.setTransactionno(transactionno);
-		tm.setBookingdate(bookingDate);
+		tm.setBookingdate(bookingdate);
 		tm.setValuedate(valuedate);
 		tm.setProcessdate(processdate);
 		tm.setAccountnumber(accountnumber);

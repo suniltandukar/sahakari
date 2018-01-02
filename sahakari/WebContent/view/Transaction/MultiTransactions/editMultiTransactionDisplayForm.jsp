@@ -61,8 +61,8 @@ h5 {
 								</td>
 								<td><h5>Dr/Cr</h5> <select class="form-control" name="drcr" value="${multitxn.drcr }">
 								
-								<option value="">Dr</option>
-								<option value="">Cr</option>
+								<option value="D">Dr</option>
+								<option value="C">Cr</option>
 								
 								</select>
 								</td>

@@ -306,6 +306,7 @@ public class TransactionDaoImpl implements TransactionDao{
 		TellerTransactionModel tm=null;
 		try{
 			String query="select * from multipletransactiontbl where id='"+id+"'";
+			System.out.println(query);
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
