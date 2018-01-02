@@ -311,19 +311,19 @@ public class TransactionDaoImpl implements TransactionDao{
 			rs=ps.executeQuery();
 			while(rs.next()){
 				tm=new TellerTransactionModel();
-				tm.setTransactionid(rs.getString("transactionid"));
-				tm.setTransactionno(rs.getString("transactionno"));
-				tm.setBookingdate(rs.getString("bookingdate"));
-				tm.setValuedate(rs.getString("valuedate"));
-				tm.setProcessdate(rs.getString("processdate"));
-				tm.setAccountnumber(rs.getString("accountnumber"));
+				tm.setTransactionid(rs.getString("transactionId"));
+				tm.setTransactionno(rs.getString("transactionNo"));
+				tm.setBookingdate(rs.getString("bookingDate"));
+				tm.setValuedate(rs.getString("valueDate"));
+				tm.setProcessdate(rs.getString("processingDate"));
+				tm.setAccountnumber(rs.getString("accountNumber"));
 				tm.setDrcr(rs.getString("drcr"));
 				tm.setNarrative(rs.getString("narrative"));
 				tm.setAmount(rs.getString("amount"));
-				tm.setTransactioncode(rs.getString("transactioncode"));
+				tm.setTransactioncode(rs.getString("transactionCode"));
 				tm.setInputter(rs.getString("inputter"));
 				tm.setAuthorizer(rs.getString("authorizer"));
-				tm.setChequenumber(rs.getString("chequenumber"));
+				tm.setChequenumber(rs.getString("cheqnumber"));
 				
 				return tm;
 			}

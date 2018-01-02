@@ -302,7 +302,7 @@ public class NavigationController extends HttpServlet {
 			TransactionDao td=new TransactionDaoImpl();
 			TellerTransactionModel list=td.getMultiTransactionDetail(id);
 			request.setAttribute("multitxn",list);
-			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/editMultiTransactionDisplayForm.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/MultiTransactions/editMultiTransactionDisplayForm.jsp");
 			rd.forward(request, response);
 		}
 		else if(uri.endsWith("editmultitxn.click"))
