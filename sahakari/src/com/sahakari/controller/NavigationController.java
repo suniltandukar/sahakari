@@ -292,8 +292,9 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 		}
 		
-		else if(uri.endsWith("multitransactioneditdisplayform.click")){
+		else if(uri.endsWith("multitxneditdisplayform.click")){
 			String id=request.getParameter("id");
+			
 			TransactionDao td=new TransactionDaoImpl();
 			TellerTransactionModel list=td.getMultiTransactionDetail(id);
 			request.setAttribute("multitxn",list);

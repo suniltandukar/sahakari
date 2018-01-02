@@ -305,19 +305,27 @@ public class TransactionDaoImpl implements TransactionDao{
 	{
 		TellerTransactionModel tm=null;
 		try{
-			String query="select * from multipletransactiontbl where id='"+id+"'";
-			System.out.println(query);
+
+			String query="select * from multipletransactiontbl where transactionId='"+id+"'";
+
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
-			while(rs.next()){
+			if(rs.next()){
 				tm=new TellerTransactionModel();
+
 				tm.setTransactionid(rs.getString("transactionId"));
 				tm.setTransactionno(rs.getString("transactionNo"));
 				tm.setBookingdate(rs.getString("bookingDate"));
 				tm.setValuedate(rs.getString("valueDate"));
 				tm.setProcessdate(rs.getString("processingDate"));
 				tm.setAccountnumber(rs.getString("accountNumber"));
+				tm.setTransactionid(rs.getString("transactionid"));
+				tm.setTransactionno(rs.getString("transactionno"));
+				tm.setBookingdate(rs.getString("bookingdate"));
+				tm.setValuedate(rs.getString("valuedate"));
+				tm.setProcessdate(rs.getString("processingdate"));
+				tm.setAccountnumber(rs.getString("accountnumber"));
 				tm.setDrcr(rs.getString("drcr"));
 				tm.setNarrative(rs.getString("narrative"));
 				tm.setAmount(rs.getString("amount"));
