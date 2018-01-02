@@ -51,7 +51,7 @@
 									Action <span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="editmultitransaction.click?id=${list.transactionid}" style="color: blue;"><i
+									<li><a href="editmultitxn.click?id=${list.transactionid}" style="color: blue;"><i
 											class="fa fa-eye" aria-hidden="true"></i> Show Detail</a></li>
 									<li><a class="clickbtn" href="multitransaction.del?id=${list.transactionid }"
 										style="color: red;"><i class="fa fa-trash-o"
