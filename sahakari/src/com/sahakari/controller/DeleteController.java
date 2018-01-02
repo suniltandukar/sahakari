@@ -47,6 +47,10 @@ public class DeleteController extends HttpServlet {
 			TransactionAction action=new TransactionAction();
 			action.deleteTellerTransaction(request,response);
 		}
+		if(uri.endsWith("multitransaction.del")){
+			TransactionAction action=new TransactionAction();
+			action.deleteMultiTransaction(request,response);
+		}
 		if(uri.endsWith("transaction.del")){
 			TransactionAction ta=new TransactionAction();
 			

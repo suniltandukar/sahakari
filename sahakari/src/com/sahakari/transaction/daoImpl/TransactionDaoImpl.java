@@ -86,6 +86,26 @@ public class TransactionDaoImpl implements TransactionDao{
 		}
 		return false;
 	}
+	public boolean deleteMultiTransaction(String id)
+	{
+		try{
+			String query="delete from multipletransactiontbl where transactionId=?";
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			ps.setString(1,id);
+			int i=ps.executeUpdate();
+			if(i>0){
+				con.close();
+				ps=null;
+				return true;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+		
+	}
 	public List<TransactionModel> gettransactions(){
 		List<TransactionModel> list=new ArrayList<TransactionModel>();
 		TransactionModel tm=null;
@@ -177,7 +197,7 @@ public class TransactionDaoImpl implements TransactionDao{
 			String query="insert into tellertransactiontbl values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			ps=con.prepareStatement(query);
 			ps.setString(1, tm.getTransactionid());
-			ps.setString(2, tm.getBookingdate());
+			ps.setString(2, tm.getBookingDate());
 			ps.setString(3, tm.getValuedate());
 			ps.setString(4, tm.getProcessdate());
 			ps.setString(5, tm.getDebitaccountnumber());
@@ -211,7 +231,7 @@ public class TransactionDaoImpl implements TransactionDao{
 			ps=con.prepareStatement(query);
 			ps.setString(1, tm.getTransactionid());
 			ps.setString(2, tm.getTransactionno());
-			ps.setString(3, tm.getBookingdate());
+			ps.setString(3, tm.getBookingDate());
 			ps.setString(4, tm.getValuedate());
 			ps.setString(5, tm.getProcessdate());
 			ps.setString(6, tm.getAccountnumber());
@@ -236,20 +256,44 @@ public class TransactionDaoImpl implements TransactionDao{
 		}
 		return false;
 	}
-	public List<TransactionModel> getMultiTransaction()
+	public List<TellerTransactionModel> getMultiTransaction()
 	{
-		List<TellerTransactionModel> list=null;
-		TellerTransactionModel model=null;
+		List<TellerTransactionModel> list=new ArrayList<TellerTransactionModel>();		
+		TellerTransactionModel tm=null;
 		try{
 			con=DBConnection.getConnection();
-			String query="select * from ";
+			String query="select * from multipletransactiontbl";
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
 			
-			if(rs.next())
+			while(rs.next())
 			{
 				
+				tm=new TellerTransactionModel();
+				tm.setTransactionid(rs.getString("transactionId"));
+				tm.setTransactionno(rs.getString("transactionno"));
+				tm.setBookingDate(rs.getString("bookingDate"));
+				tm.setValuedate(rs.getString("valueDate"));
+				tm.setProcessdate(rs.getString("processingDate"));
+				tm.setAccountnumber(rs.getString("accountNumber"));	
+				tm.setDrcr(rs.getString("drcr"));
+				tm.setNarrative(rs.getString("narrative"));
+				tm.setChequenumber(rs.getString("cheqNumber"));
+				tm.setAmount(rs.getString("amount"));
+				tm.setTransactioncode(rs.getString("transactionCode"));
+				tm.setBranchid(rs.getString("branchId"));
+				tm.setInputter(rs.getString("inputter"));
+				tm.setInputter(rs.getString("inputter"));
+				tm.setAuthorizer(rs.getString("authorizer"));
+				list.add(tm);
 			}
+			if(list.size()>0){
+				con.close();
+				ps=null;
+				rs=null;
+				return list;
+			}
+			
 			}
 		catch(Exception e){
 			System.out.println(e);
@@ -269,7 +313,7 @@ public class TransactionDaoImpl implements TransactionDao{
 				tm=new TellerTransactionModel();
 				tm.setTransactionid(rs.getString("transactionid"));
 				tm.setTransactionno(rs.getString("transactionno"));
-				tm.setBookingdate(rs.getString("bookingdate"));
+				tm.setBookingDate(rs.getString("bookingdate"));
 				tm.setValuedate(rs.getString("valuedate"));
 				tm.setProcessdate(rs.getString("processdate"));
 				tm.setAccountnumber(rs.getString("accountnumber"));
@@ -283,6 +327,8 @@ public class TransactionDaoImpl implements TransactionDao{
 				
 				return tm;
 			}
+			
+			
 		}catch(Exception e){
 			System.out.println(e);
 		}
@@ -338,7 +384,7 @@ public class TransactionDaoImpl implements TransactionDao{
 			while(rs.next()){
 				tm=new TellerTransactionModel();
 				tm.setTransactionid(rs.getString("transactionId"));
-				tm.setBookingdate(rs.getString("bookingDate"));
+				tm.setBookingDate(rs.getString("bookingDate"));
 				tm.setValuedate(rs.getString("valueDate"));
 				tm.setProcessdate(rs.getString("processingDate"));
 				tm.setDebitaccountnumber(rs.getString("debitAccountNumber"));
@@ -375,7 +421,7 @@ public class TransactionDaoImpl implements TransactionDao{
 			if(rs.next()){
 				tm=new TellerTransactionModel();
 				tm.setTransactionid(rs.getString("transactionId"));
-				tm.setBookingdate(rs.getString("bookingDate"));
+				tm.setBookingDate(rs.getString("bookingDate"));
 				tm.setValuedate(rs.getString("valueDate"));
 				tm.setProcessdate(rs.getString("processingDate"));
 				tm.setDebitaccountnumber(rs.getString("debitAccountNumber"));

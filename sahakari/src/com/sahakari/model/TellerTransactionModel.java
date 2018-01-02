@@ -1,7 +1,15 @@
 package com.sahakari.model;
 
 public class TellerTransactionModel {
-	String transactionid,bookingdate,valuedate,processdate,debitaccountnumber,creditaccountnumber,narrative,chequenumber,amount,transactioncode,branchid,inputter,authorizer;
+	String transactionid,bookingDate,valuedate,processdate,debitaccountnumber,creditaccountnumber,narrative,chequenumber,amount,transactioncode,branchid,inputter,authorizer;
+	public String getBookingDate() {
+		return bookingDate;
+	}
+
+	public void setBookingDate(String bookingDate) {
+		this.bookingDate = bookingDate;
+	}
+
 	public String getBranchid() {
 		return branchid;
 	}
@@ -44,13 +52,6 @@ public class TellerTransactionModel {
 		this.transactionid = transactionid;
 	}
 
-	public String getBookingdate() {
-		return bookingdate;
-	}
-
-	public void setBookingdate(String bookingdate) {
-		this.bookingdate = bookingdate;
-	}
 
 	public String getValuedate() {
 		return valuedate;

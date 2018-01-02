@@ -271,7 +271,7 @@ public class NavigationController extends HttpServlet {
 		if(uri.endsWith("viewMultiTxn.click"))
 		{
 			TransactionDao dao=new TransactionDaoImpl();
-			List<TransactionModel> list=dao.getMultiTransaction();
+			List<TellerTransactionModel> list=dao.getMultiTransaction();
 			
 			request.setAttribute("multitransactionlist", list);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/MultiTransactions/viewMultiTransaction.jsp");

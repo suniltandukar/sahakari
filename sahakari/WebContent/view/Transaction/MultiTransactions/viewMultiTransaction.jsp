@@ -31,33 +31,29 @@
 					<tr>
 						<th>S. No.</th>
 						<th>Transaction Id</th>
-						<th>Reference Number</th>
-						<th>Transaction Type</th>
+						<th>Transaction Number</th>
 						<th>Booking Date</th>
-						<th>Transaction No</th>
 						
 						<th><i class="fa fa-cog" aria-hidden="true"></i></th>
 					</tr>
 				</thead>
 				<tbody>
-	<%int sno=1; %>
+				<%int sno=1; %>
 						<c:forEach items="${multitransactionlist }" var="list">				
 					<tr>
 						<td><%=sno %></td>
-						<td>${list.id }</td>
-						<td>${list.refNo }</td>
-						<td>${list.transactionType }</td>
-						<td>${list.bookingDate }</td>
+						<td>${list.transactionid }</td>
 						<td>${list.transactionno }</td>
+						<td>${list.bookingDate }</td>
 						<td><div class="dropdown">
 								<button class="btn btn-default dropdown-toggle" type="button"
 									data-toggle="dropdown">
 									Action <span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="edittransaction.click?id=${list.id}" style="color: blue;"><i
+									<li><a href="editmultitransaction.click?id=${list.transactionid}" style="color: blue;"><i
 											class="fa fa-eye" aria-hidden="true"></i> Show Detail</a></li>
-									<li><a class="clickbtn" href="transaction.del?id=${list.id }"
+									<li><a class="clickbtn" href="multitransaction.del?id=${list.transactionid }"
 										style="color: red;"><i class="fa fa-trash-o"
 											aria-hidden="true"></i> Delete</a></li>
 								</ul>

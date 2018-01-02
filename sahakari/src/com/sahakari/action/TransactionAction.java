@@ -196,7 +196,7 @@ public class TransactionAction {
 		
 		TellerTransactionModel tm=new TellerTransactionModel();
 		tm.setTransactionid(transactionid);
-		tm.setBookingdate(bookingdate);
+		tm.setBookingDate(bookingdate);
 		tm.setValuedate(valuedate);
 		tm.setProcessdate(processdate);
 		tm.setDebitaccountnumber(debitaccoutnumber);
@@ -230,7 +230,7 @@ public class TransactionAction {
 		String 
 		transactionid=request.getParameter("transactionid"),
 		transactionno=request.getParameter("transactionno"),
-		bookingdate=request.getParameter("bookingdate"),
+		bookingDate=request.getParameter("bookingDate"),
 		valuedate=request.getParameter("valuedate"),
 		processdate=request.getParameter("processdate"),
 		accountnumber=request.getParameter("accountnumber"),
@@ -249,7 +249,7 @@ public class TransactionAction {
 		TellerTransactionModel tm=new TellerTransactionModel();
 		tm.setTransactionid(transactionid);
 		tm.setTransactionno(transactionno);
-		tm.setBookingdate(bookingdate);
+		tm.setBookingDate(bookingDate);
 		tm.setValuedate(valuedate);
 		tm.setProcessdate(processdate);
 		tm.setAccountnumber(accountnumber);
@@ -303,7 +303,7 @@ public class TransactionAction {
 		TellerTransactionModel tm=new TellerTransactionModel();
 		tm.setTransactionid(transactionid);
 		tm.setTransactionno(transactionno);
-		tm.setBookingdate(bookingdate);
+		tm.setBookingDate(bookingdate);
 		tm.setValuedate(valuedate);
 		tm.setProcessdate(processdate);
 		tm.setAccountnumber(accountnumber);
@@ -346,6 +346,26 @@ public class TransactionAction {
 			request.setAttribute("msg", "Delete  Failed!");
 		}
 		RequestDispatcher rd=request.getRequestDispatcher("viewteller.click");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void deleteMultiTransaction(HttpServletRequest request, HttpServletResponse response) {
+
+		String id=request.getParameter("id");
+		
+		TransactionDao dao=new TransactionDaoImpl();
+		boolean status=dao.deleteMultiTransaction(id);
+		if(status){
+			request.setAttribute("msg", "Delete Successful!");
+		}
+		else{
+			request.setAttribute("msg", "Delete  Failed!");
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("viewMultiTxn.click");
 		try {
 			rd.forward(request, response);
 		} catch (ServletException | IOException e) {
