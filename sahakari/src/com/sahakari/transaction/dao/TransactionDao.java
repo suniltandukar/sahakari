@@ -27,6 +27,7 @@ public interface TransactionDao {
 	
 	public boolean updateTransaction(TransactionModel tm,String id);
 	public boolean updateMultiTransaction(TellerTransactionModel tm, String previousid);
+	public boolean updateTellerTransaction(TellerTransactionModel tm);
 	
 
 	
