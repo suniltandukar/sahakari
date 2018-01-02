@@ -258,7 +258,7 @@
                                      <ul class="treeview-menu">
 	                             	  	 <li id=""><a href="insertMultiTxn.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
 	                                	<li id=""><a href="viewMultiTxn.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
-	                               		 <li id=""><a href="" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
+	                               		 <li id=""><a href="editmultitxn.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
                                 	</ul>
                              	 </li>
                              	 

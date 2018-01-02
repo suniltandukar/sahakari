@@ -31,6 +31,7 @@ public interface TransactionDao {
 	public boolean deleteMultiTransaction(String id);
 
 	public boolean updateTellerTransaction(TellerTransactionModel tm);
+
 	
 
 	
