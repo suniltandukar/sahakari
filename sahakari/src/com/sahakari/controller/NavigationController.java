@@ -291,12 +291,7 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/MultiTransactions/viewMultiTransaction.jsp");
 			rd.forward(request, response);
 		}
-		else if(uri.endsWith("editmultitransaction.click")){
-			String id=request.getParameter("id");
-			request.setAttribute("id", id);
-			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/editMultiTransaction.jsp");
-			rd.forward(request, response);
-		}
+		
 		else if(uri.endsWith("multitransactioneditdisplayform.click")){
 			String id=request.getParameter("id");
 			TransactionDao td=new TransactionDaoImpl();
