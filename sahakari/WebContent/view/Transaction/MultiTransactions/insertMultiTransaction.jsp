@@ -62,7 +62,7 @@ h5 {
 								<td><h5>Dr/Cr</h5> <select class="form-control" name="drcr">
 								
 								<option value="D">Dr</option>
-								<option value="Cr">Cr</option>
+								<option value="C">Cr</option>
 								
 								</select>
 								</td>

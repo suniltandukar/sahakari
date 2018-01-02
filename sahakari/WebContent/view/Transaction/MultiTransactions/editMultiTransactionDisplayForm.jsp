@@ -53,8 +53,8 @@ h5 {
 								</td>
 								<td><h5>Dr/Cr</h5> <select class="form-control" name="drcr" value="${multitxn.drcr }">
 								
-								<option value="D">Dr</option>
-								<option value="C">Cr</option>
+								<option value="D" <c:if test="${multitxn.drcr eq 'D' }">selected</c:if>>Dr</option>
+								<option value="C" <c:if test="${multitxn.drcr eq 'C' }">selected</c:if>>Cr</option>
 								
 								</select>
 								</td>
