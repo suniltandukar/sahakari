@@ -305,17 +305,17 @@ public class TransactionDaoImpl implements TransactionDao{
 	{
 		TellerTransactionModel tm=null;
 		try{
-			String query="select * from multipletransactiontbl where id='"+id+"'";
+			String query="select * from multipletransactiontbl where transactionId='"+id+"'";
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
-			while(rs.next()){
+			if(rs.next()){
 				tm=new TellerTransactionModel();
 				tm.setTransactionid(rs.getString("transactionid"));
 				tm.setTransactionno(rs.getString("transactionno"));
 				tm.setBookingdate(rs.getString("bookingdate"));
 				tm.setValuedate(rs.getString("valuedate"));
-				tm.setProcessdate(rs.getString("processdate"));
+				tm.setProcessdate(rs.getString("processingdate"));
 				tm.setAccountnumber(rs.getString("accountnumber"));
 				tm.setDrcr(rs.getString("drcr"));
 				tm.setNarrative(rs.getString("narrative"));
@@ -323,7 +323,7 @@ public class TransactionDaoImpl implements TransactionDao{
 				tm.setTransactioncode(rs.getString("transactioncode"));
 				tm.setInputter(rs.getString("inputter"));
 				tm.setAuthorizer(rs.getString("authorizer"));
-				tm.setChequenumber(rs.getString("chequenumber"));
+				tm.setChequenumber(rs.getString("cheqnumber"));
 				
 				return tm;
 			}

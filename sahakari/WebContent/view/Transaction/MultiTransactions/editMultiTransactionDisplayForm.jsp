@@ -15,21 +15,9 @@ h5 {
 </head>
 <body class="hiddenscroll bgcolor">
 
-	<div class="breadcrumb-line">
-		<nav aria-label="breadcrumb" role="navigation">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><i class="fa fa-home"
-					aria-hidden="true"></i>&nbsp;<a href="#">Home</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Transaction</li>
-				<li class="breadcrumb-item active" aria-current="page">Add
-					Multi Transaction</li>
-			</ol>
-		</nav>
-	</div>
+	
 	<div class="panel panel-default " style="width: 95%; margin: auto;">
-		<div class="panel-heading">
-			<h4>Add Multi Transaction Details</h4>
-		</div>
+		
 		<div class="panel-body">
 
 			<form class="form-horizontal shareCertForm" id="form1" method="post"

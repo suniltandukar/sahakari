@@ -35,7 +35,7 @@ $(document).ready(function()
 		 $.ajax
 	        ({
 	        type: "POST",
-	        url: "multitransactioneditdisplayform.click",
+	        url: "multitxneditdisplayform.click",
 	        data: dataString,
 	        cache: false,
 	        success: function(html)
