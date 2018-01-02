@@ -462,5 +462,33 @@ public class TransactionDaoImpl implements TransactionDao{
 	}
 	return false;
 	}
+	public boolean updateTellerTransaction(TellerTransactionModel tm){
+		try{
+			con=DBConnection.getConnection();
+			String query="update tellertransactiontbl set bookingDate=?,valueDate=?,processingDate=?,debitAccountNumber=?,creditAccountNumber=?,narrative=?,cheqNumber=?,amount=?,transactionCode=?, branchId=? where transactionId=?  ";
+			ps=con.prepareStatement(query);
+			ps.setString(1, tm.getBookingdate());
+			ps.setString(2, tm.getValuedate());
+			ps.setString(3, tm.getProcessdate());
+			ps.setString(4, tm.getDebitaccountnumber());
+			ps.setString(5, tm.getCreditaccountnumber());
+			ps.setString(6, tm.getNarrative());
+			ps.setString(7, tm.getChequenumber());
+			ps.setString(8, tm.getAmount());
+			ps.setString(9, tm.getTransactioncode());
+			ps.setString(10,tm.getBranchid());
+			ps.setString(11, tm.getTransactionid());
+
+			int i =ps.executeUpdate();
+			if(i>0){
+				con.close();
+				ps=null;
+				return true;
+			}
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
 
 }

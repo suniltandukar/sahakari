@@ -188,6 +188,7 @@ public class TransactionAction {
 		chequenumber=request.getParameter("chequenumber"),
 		amount=request.getParameter("amount"),
 		transactioncode=request.getParameter("transactioncode"),
+		branchid=request.getParameter("branchid"),
 		authorizer="0";
 		
 		HttpSession session =request.getSession();
@@ -207,6 +208,7 @@ public class TransactionAction {
 		tm.setInputter(inputter);
 		tm.setAuthorizer(authorizer);
 		tm.setChequenumber(chequenumber);
+		tm.setBranchid(branchid);
 		
 		TransactionDao td=new TransactionDaoImpl();
 		boolean status=td.insertTellerTransaction(tm);
@@ -353,6 +355,7 @@ public class TransactionAction {
 		}
 	}
 
+
 	public void deleteMultiTransaction(HttpServletRequest request, HttpServletResponse response) {
 
 		String id=request.getParameter("id");
@@ -371,6 +374,59 @@ public class TransactionAction {
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void updateTellerTransaction(HttpServletRequest request,
+			HttpServletResponse response) {
+		String 
+		transactionid=request.getParameter("transactionid"),
+		bookingdate=request.getParameter("bookingdate"),
+		valuedate=request.getParameter("valuedate"),
+		processdate=request.getParameter("processdate"),
+		debitaccoutnumber=request.getParameter("debitaccountnumber"),
+		creditaccountnumber=request.getParameter("creditaccountnumber"),
+		narrative=request.getParameter("narrative"),
+		chequenumber=request.getParameter("chequenumber"),
+		amount=request.getParameter("amount"),
+		transactioncode=request.getParameter("transactioncode"),
+		branchid=request.getParameter("branchid"),
+		authorizer="0";
+		
+		HttpSession session =request.getSession();
+		UserModel userdetail=(UserModel)session.getAttribute("userDetail");
+		String inputter=userdetail.getUsername();
+		
+		TellerTransactionModel tm=new TellerTransactionModel();
+		tm.setTransactionid(transactionid);
+		tm.setBookingdate(bookingdate);
+		tm.setValuedate(valuedate);
+		tm.setProcessdate(processdate);
+		tm.setDebitaccountnumber(debitaccoutnumber);
+		tm.setCreditaccountnumber(creditaccountnumber);
+		tm.setNarrative(narrative);
+		tm.setAmount(amount);
+		tm.setTransactioncode(transactioncode);
+		tm.setInputter(inputter);
+		tm.setAuthorizer(authorizer);
+		tm.setChequenumber(chequenumber);
+		tm.setBranchid(branchid);
+		
+		TransactionDao td=new TransactionDaoImpl();
+		boolean status=td.updateTellerTransaction(tm);
+		if(status){
+			request.setAttribute("msg", "Update Successful!");
+		}
+		else{
+			request.setAttribute("msg", "Update Failed!");
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("viewteller.click");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
+		
+
 	}
 
 }

@@ -261,6 +261,20 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/viewTeller.jsp");
 			rd.forward(request, response);
 		}	
+		else if(uri.endsWith("editteller.click")){
+			String id=request.getParameter("id");
+			request.setAttribute("id", id);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/editTellerTransaction.jsp");
+			rd.forward(request, response);
+		}
+		else if(uri.endsWith("tellereditdisplayform.click")){
+			String id=request.getParameter("id");
+			TransactionDao td=new TransactionDaoImpl();
+			TellerTransactionModel list=td.getspecifictellertransaction(id);
+			request.setAttribute("tellertxn",list);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/editTellerDisplayForm.jsp");
+			rd.forward(request, response);
+		}
 		//multi transactions
 		if(uri.endsWith("insertMultiTxn.click"))
 		{

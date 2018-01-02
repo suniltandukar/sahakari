@@ -25,27 +25,33 @@ public class UpdateController extends HttpServlet {
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri=request.getRequestURI();
-		if(uri.endsWith("customer.update")){
-			CustomerAction c=new CustomerAction();
-			c.updateCustomer(request,response);
-		}
-		if(uri.endsWith("sharecertificate.update")){
-			CustomerAction c=new CustomerAction();
-			c.updateShareCertificate(request,response);
-		}
 		if(uri.endsWith("account.update")){
 			AccountAction action=new AccountAction();
 			action.updateAccount(request,response);
 		}
-		if(uri.endsWith("transaction.update")){
-			TransactionAction ta=new TransactionAction();
-			ta.updateTransaction(request,response);
+		if(uri.endsWith("customer.update")){
+			CustomerAction c=new CustomerAction();
+			c.updateCustomer(request,response);
 		}
 		if(uri.endsWith("multitransaction.update"))
 		{
 			TransactionAction ta=new TransactionAction();
 			ta.updateMultiTransaction(request,response);
 		}
+		if(uri.endsWith("sharecertificate.update")){
+			CustomerAction c=new CustomerAction();
+			c.updateShareCertificate(request,response);
+		}
+		if(uri.endsWith("tellertransaction.update")){
+			TransactionAction ta=new TransactionAction();
+			ta.updateTellerTransaction(request,response);
+		}
+		
+		if(uri.endsWith("transaction.update")){
+			TransactionAction ta=new TransactionAction();
+			ta.updateTransaction(request,response);
+		}
+		
 	}
 
 }
