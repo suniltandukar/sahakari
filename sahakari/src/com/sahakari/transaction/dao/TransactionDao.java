@@ -27,11 +27,10 @@ public interface TransactionDao {
 	
 	public boolean updateTransaction(TransactionModel tm,String id);
 	public boolean updateMultiTransaction(TellerTransactionModel tm, String previousid);
-<<<<<<< HEAD
+
 	public boolean deleteMultiTransaction(String id);
-=======
+
 	public boolean updateTellerTransaction(TellerTransactionModel tm);
->>>>>>> branch 'master' of https://github.com/hackersdelima/sahakari.git
 	
 
 	

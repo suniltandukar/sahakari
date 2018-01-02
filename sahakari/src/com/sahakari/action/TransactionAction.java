@@ -398,7 +398,7 @@ public class TransactionAction {
 		
 		TellerTransactionModel tm=new TellerTransactionModel();
 		tm.setTransactionid(transactionid);
-		tm.setBookingdate(bookingdate);
+		tm.setBookingDate(bookingdate);
 		tm.setValuedate(valuedate);
 		tm.setProcessdate(processdate);
 		tm.setDebitaccountnumber(debitaccoutnumber);
