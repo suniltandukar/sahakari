@@ -309,7 +309,7 @@ public class NavigationController extends HttpServlet {
 		{
 			String id=request.getParameter("id");
 			request.setAttribute("id", id);
-			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/editMultiTransaction.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/MultiTransactions/editMultiTransaction.jsp");
 			rd.forward(request, response);
 			
 		}

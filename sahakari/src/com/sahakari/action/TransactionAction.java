@@ -197,7 +197,7 @@ public class TransactionAction {
 		
 		TellerTransactionModel tm=new TellerTransactionModel();
 		tm.setTransactionid(transactionid);
-		tm.setBookingDate(bookingdate);
+		tm.setBookingdate(bookingdate);
 		tm.setValuedate(valuedate);
 		tm.setProcessdate(processdate);
 		tm.setDebitaccountnumber(debitaccoutnumber);
@@ -251,7 +251,7 @@ public class TransactionAction {
 		TellerTransactionModel tm=new TellerTransactionModel();
 		tm.setTransactionid(transactionid);
 		tm.setTransactionno(transactionno);
-		tm.setBookingDate(bookingDate);
+		tm.setBookingdate(bookingDate);
 		tm.setValuedate(valuedate);
 		tm.setProcessdate(processdate);
 		tm.setAccountnumber(accountnumber);
@@ -305,7 +305,7 @@ public class TransactionAction {
 		TellerTransactionModel tm=new TellerTransactionModel();
 		tm.setTransactionid(transactionid);
 		tm.setTransactionno(transactionno);
-		tm.setBookingDate(bookingdate);
+		tm.setBookingdate(bookingdate);
 		tm.setValuedate(valuedate);
 		tm.setProcessdate(processdate);
 		tm.setAccountnumber(accountnumber);
@@ -398,7 +398,7 @@ public class TransactionAction {
 		
 		TellerTransactionModel tm=new TellerTransactionModel();
 		tm.setTransactionid(transactionid);
-		tm.setBookingDate(bookingdate);
+		tm.setBookingdate(bookingdate);
 		tm.setValuedate(valuedate);
 		tm.setProcessdate(processdate);
 		tm.setDebitaccountnumber(debitaccoutnumber);

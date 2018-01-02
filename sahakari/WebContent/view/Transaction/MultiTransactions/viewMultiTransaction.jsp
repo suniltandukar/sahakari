@@ -44,7 +44,7 @@
 						<td><%=sno %></td>
 						<td>${list.transactionid }</td>
 						<td>${list.transactionno }</td>
-						<td>${list.bookingDate }</td>
+						<td>${list.bookingdate }</td>
 						<td><div class="dropdown">
 								<button class="btn btn-default dropdown-toggle" type="button"
 									data-toggle="dropdown">
