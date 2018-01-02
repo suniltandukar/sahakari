@@ -263,6 +263,7 @@ public class TransactionAction {
 		
 		TransactionDao td=new TransactionDaoImpl();
 		boolean status=td.insertMultiTransaction(tm);
+		System.out.println(status);
 		if(status){
 			request.setAttribute("msg", "Transaction Successful!");
 		}

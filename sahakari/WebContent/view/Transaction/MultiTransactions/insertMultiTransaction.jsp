@@ -37,6 +37,10 @@ h5 {
 				<div id="1" class="tab-pane fade in active">
 					<table class="table">
 						<tbody>
+						<tr>
+								<td><input type="submit" class="btn btn-success"
+									value="Save"></td>
+							</tr>
 							<tr>
 								<td><h5>Transaction Id</h5> <input type="text"
 									class="form-control" name="transactionid" value="">
@@ -57,8 +61,8 @@ h5 {
 								</td>
 								<td><h5>Dr/Cr</h5> <select class="form-control" name="drcr">
 								
-								<option value="">Dr</option>
-								<option value="">Cr</option>
+								<option value="D">Dr</option>
+								<option value="Cr">Cr</option>
 								
 								</select>
 								</td>

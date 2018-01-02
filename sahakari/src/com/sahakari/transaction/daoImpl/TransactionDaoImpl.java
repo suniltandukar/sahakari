@@ -207,9 +207,29 @@ public class TransactionDaoImpl implements TransactionDao{
 		
 		try{
 			con=DBConnection.getConnection();
-			String query="";
+			String query="insert into multipletransactiontbl values (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			ps=con.prepareStatement(query);
-			ps.executeUpdate();
+			ps.setString(1, tm.getTransactionid());
+			ps.setString(2, tm.getTransactionno());
+			ps.setString(3, tm.getBookingdate());
+			ps.setString(4, tm.getValuedate());
+			ps.setString(5, tm.getProcessdate());
+			ps.setString(6, tm.getAccountnumber());
+			ps.setString(7, tm.getDrcr());
+			ps.setString(8, tm.getAmount());
+			ps.setString(9, tm.getNarrative());
+			ps.setString(10, tm.getChequenumber());
+			ps.setString(11, tm.getTransactioncode());
+			ps.setString(12,tm.getBranchid());
+			ps.setString(13, tm.getInputter());
+			ps.setString(14, tm.getAuthorizer());
+			
+			int i=ps.executeUpdate();
+			if(i>0){
+				con.close();
+				ps=null;
+				return true;
+			}
 			}
 		catch(Exception e){
 			System.out.println(e);
