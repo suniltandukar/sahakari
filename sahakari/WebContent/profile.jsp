@@ -3,11 +3,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en-US">
     <head>
-    	
+   
+    <link rel="stylesheet" href="assets/css/preloader.css" media="screen" type="text/css" />
+    	<script type="text/javascript" src="assets/js/preloader.js"></script>
+    <!-- 	<style>
+    	#preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    background: #333 url('//cdnjs.cloudflare.com/ajax/libs/file-uploader/3.7.0/processing.gif') no-repeat center center;
+}</style> -->
     </head>
 
     <body   class="hold-transition skin-blue sidebar-mini" >
-	<div class="se-pre-con"></div>
+	<div class="se-pre-con" id="preloader" ></div>
         <div class="wrapper"  >
 
             <header class="main-header">
@@ -114,7 +127,6 @@
                     </div>
                 </nav>
             </header>
-
             <!-- Left side column. contains the logo and sidebar -->
             <aside class="main-sidebar">
                 <!-- sidebar: style can be found in sidebar.less -->
@@ -244,8 +256,8 @@
                                         </span>
                                     </a>
                                      <ul class="treeview-menu">
-	                             	  	 <li id=""><a href="" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-	                                	<li id=""><a href="" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
+	                             	  	 <li id=""><a href="insertMultiTxn.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
+	                                	<li id=""><a href="viewMultiTxn.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
 	                               		 <li id=""><a href="" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
                                 	</ul>
                              	 </li>
@@ -317,6 +329,7 @@
         </div>
       
     </body>
+   
 </html>
 <%
 }else{

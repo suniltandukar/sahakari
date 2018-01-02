@@ -1,7 +1,32 @@
 package com.sahakari.model;
 
 public class TellerTransactionModel {
-	String transactionid,bookingdate,valuedate,processdate,debitaccoutnumber,creditaccountnumber,narrative,chequenumber,amount,transactioncode,inputter,authorizer;
+	String transactionid,bookingdate,valuedate,processdate,debitaccountnumber,creditaccountnumber,narrative,chequenumber,amount,transactioncode,inputter,authorizer;
+	String transactionno,drcr,accountnumber;//for multi txn
+	
+	public String getTransactionno() {
+		return transactionno;
+	}
+
+	public void setTransactionno(String transactionno) {
+		this.transactionno = transactionno;
+	}
+
+	public String getDrcr() {
+		return drcr;
+	}
+
+	public void setDrcr(String drcr) {
+		this.drcr = drcr;
+	}
+
+	public String getAccountnumber() {
+		return accountnumber;
+	}
+
+	public void setAccountnumber(String accountnumber) {
+		this.accountnumber = accountnumber;
+	}
 
 	public String getTransactionid() {
 		return transactionid;
@@ -35,12 +60,12 @@ public class TellerTransactionModel {
 		this.processdate = processdate;
 	}
 
-	public String getDebitaccoutnumber() {
-		return debitaccoutnumber;
+	public String getDebitaccountnumber() {
+		return debitaccountnumber;
 	}
 
-	public void setDebitaccoutnumber(String debitaccoutnumber) {
-		this.debitaccoutnumber = debitaccoutnumber;
+	public void setDebitaccountnumber(String debitaccoutnumber) {
+		this.debitaccountnumber = debitaccoutnumber;
 	}
 
 	public String getCreditaccountnumber() {

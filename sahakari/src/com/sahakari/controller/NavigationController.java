@@ -260,7 +260,36 @@ public class NavigationController extends HttpServlet {
 			request.setAttribute("transactionlist", list);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/viewTellerTransaction.jsp");
 			rd.forward(request, response);
+		}	
+		//multi transactions
+		if(uri.endsWith("insertMultiTxn.click"))
+		{
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/MultiTransactions/insertMultiTransaction.jsp");
+			rd.forward(request, response);
+			
 		}
-	
+		if(uri.endsWith("viewMultiTxn.click"))
+		{
+			TransactionDao dao=new TransactionDaoImpl();
+			List<TransactionModel> list=dao.getMultiTransaction();
+			
+			request.setAttribute("multitransactionlist", list);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/MultiTransactions/viewMultiTransaction.jsp");
+			rd.forward(request, response);
+		}
+		else if(uri.endsWith("editmultitransaction.click")){
+			String id=request.getParameter("id");
+			request.setAttribute("id", id);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/editMultiTransaction.jsp");
+			rd.forward(request, response);
+		}
+		else if(uri.endsWith("multitransactioneditdisplayform.click")){
+			String id=request.getParameter("id");
+			TransactionDao td=new TransactionDaoImpl();
+			TellerTransactionModel list=td.getMultiTransactionDetail(id);
+			request.setAttribute("multitxn",list);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/editMultiTransactionDisplayForm.jsp");
+			rd.forward(request, response);
+		}
 	}
 }

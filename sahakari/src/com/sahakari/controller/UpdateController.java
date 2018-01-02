@@ -41,6 +41,11 @@ public class UpdateController extends HttpServlet {
 			TransactionAction ta=new TransactionAction();
 			ta.updateTransaction(request,response);
 		}
+		if(uri.endsWith("multitransaction.update"))
+		{
+			TransactionAction ta=new TransactionAction();
+			ta.updateMultiTransaction(request,response);
+		}
 	}
 
 }
