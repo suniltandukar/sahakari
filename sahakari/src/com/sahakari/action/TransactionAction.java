@@ -267,10 +267,10 @@ public class TransactionAction {
 		boolean status=td.insertMultiTransaction(tm);
 		System.out.println(status);
 		if(status){
-			request.setAttribute("msg", "Transaction Successful!");
+			request.setAttribute("msg", "Transaction Added Successfully!");
 		}
 		else{
-			request.setAttribute("msg", "Transaction  Failed!");
+			request.setAttribute("msg", "Add  Failed!");
 		}
 		RequestDispatcher rd=request.getRequestDispatcher("insertMultiTxn.click");
 		try {
@@ -322,10 +322,10 @@ public class TransactionAction {
 		TransactionDao td=new TransactionDaoImpl();
 		boolean status=td.updateMultiTransaction(tm,previousid);
 		if(status){
-			request.setAttribute("msg", "Transaction Successful!");
+			request.setAttribute("msg", "Transaction Update Successful!");
 		}
 		else{
-			request.setAttribute("msg", "Transaction  Failed!");
+			request.setAttribute("msg", "Transaction Update Failed!");
 		}
 		RequestDispatcher rd=request.getRequestDispatcher("viewMultiTxn.click");
 		try {
