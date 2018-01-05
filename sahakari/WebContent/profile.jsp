@@ -67,7 +67,7 @@
 									<ul class="nav child_menu">
 										<li><a href="view/dashboard.jsp" target="iframe_a">Dashboard</a></li>
 									</ul></li>
-								<li><a><i class="fa fa-circle-o"></i> Member(With KYC)
+								<li><a><i class="fa fa-users" aria-hidden="true"></i> Member(With KYC)
 										<span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 										<li><a><span class="fa fa-chevron-down"></span>New
@@ -91,7 +91,7 @@
 										<li><a href="#" target="iframe_a">member Documents</a></li>
 
 									</ul></li>
-								<li><a><i class="fa fa-circle-o"></i>Shareholder <span
+								<li><a><i class="fa fa-suitcase" aria-hidden="true"></i>Shareholder <span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 
@@ -100,7 +100,7 @@
 										<li><a href="viewsharecertificate.click"
 											target="iframe_a">Amendment of shareholder</a></li>
 									</ul></li>
-								<li><a><i class="fa fa-circle-o"></i> Retail Operation
+								<li><a><i class="fa fa-balance-scale" aria-hidden="true"></i>Retail Operation
 										<span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 										<li><a><span class="fa fa-chevron-down"></span>Account</a>
@@ -166,7 +166,7 @@
 											</ul></li>
 
 									</ul></li>
-								<li><a><i class="fa fa-circle-o"></i> General
+								<li><a><i class="fa fa-tasks" aria-hidden="true"></i> General
 										Transaction <span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 										<li><a><span class="fa fa-chevron-down"></span>Funds
@@ -193,7 +193,7 @@
 											</ul></li>
 									</ul></li>
 
-								<li><a><i class="fa fa-circle-o"></i> Loan Module <span
+								<li><a><i class="fa fa-university" aria-hidden="true"></i> Loan Module <span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 										<li><a><span class="fa fa-chevron-down"></span>Loan</a>
@@ -212,21 +212,21 @@
 										<li><a href="#" target="iframe_a">Guarantor </a></li>
 										<li><a href="#" target="iframe_a">Valuator </a></li>
 									</ul></li>
-								<li><a><i class="fa fa-circle-o"></i> Non-fund business
+								<li><a><i class="fa fa-briefcase" aria-hidden="true"></i> Non-fund business
 										<span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 
 										<li><a href="#" target="iframe_a">Guarantee </a></li>
 										<li><a href="#" target="iframe_a"> Letter of Credit </a></li>
 									</ul></li>
-								<li><a><i class="fa fa-circle-o"></i> Other utilities <span
+								<li><a><i class="fa fa-list" aria-hidden="true"></i> Other utilities <span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 
 										<li><a href="#" target="iframe_a">Clearing </a></li>
 										<li><a href="#" target="iframe_a"> Reconciliation </a></li>
 									</ul></li>
-								<li><a><i class="fa fa-users"></i> Reports <span
+								<li><a><i class="fa fa-book" aria-hidden="true"></i> Reports <span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 
@@ -272,7 +272,7 @@
 						<div class="menu_section">
 							<h3>Settings</h3>
 							<ul class="nav side-menu">
-								<li><a><i class="fa fa-users"></i> Admin Settings <span
+								<li><a><i class="fa fa-lock" aria-hidden="true"></i> Admin Settings <span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 
