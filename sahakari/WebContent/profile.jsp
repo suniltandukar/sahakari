@@ -334,15 +334,15 @@
 					<!-- /menu footer buttons -->
 					<div class="sidebar-footer hidden-small">
 						<a data-toggle="tooltip" data-placement="top" title="Settings">
-							<i class="fa fa-cog" aria-hidden="true"></i>
+							<i class="fa fa-cog" aria-hidden="true" style="color:white"></i>
 						</a> <a data-toggle="tooltip" data-placement="top" title="FullScreen"
 							id="fullscreen"> <i class="fa fa-arrows-alt"
-							aria-hidden="true"></i>
+							aria-hidden="true" style="color:white"></i>
 						</a> <a data-toggle="tooltip" data-placement="top" title="Lock"> <i
-							class="fa fa-eye-slash" aria-hidden="true"></i>
+							class="fa fa-eye-slash" aria-hidden="true" style="color:white"></i>
 						</a> <a data-toggle="tooltip" data-placement="top" title="Logout"
 							href="logout.log"> <i class="fa fa-sign-out"
-							aria-hidden="true"></i>
+							aria-hidden="true" style="color:white"></i>
 						</a>
 					</div>
 					<!-- /menu footer buttons -->
