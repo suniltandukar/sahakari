@@ -226,7 +226,46 @@
 										<li><a href="#" target="iframe_a">Clearing </a></li>
 										<li><a href="#" target="iframe_a"> Reconciliation </a></li>
 									</ul></li>
+								<li><a><i class="fa fa-users"></i> Reports <span
+										class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
 
+										<li><a><span class="fa fa-chevron-down"></span> Daily Reports </a>
+											<ul class="nav child_menu">
+
+												<li><a href="#" target="iframe_a">User Transaction List  </a></li>
+												<li><a href="#" target="iframe_a">Daily Cash income and expenses  </a></li>
+												<li><a href="#" target="iframe_a"> Daily Voucher 
+												</a></li>
+												<li><a href="#" target="iframe_a">  Trial Balance  </a></li>
+												<li><a href="#" target="iframe_a">  Search Account and Balance  </a></li>
+											</ul></li>
+										<li><a><span class="fa fa-chevron-down"></span> Services Reports </a>
+											<ul class="nav child_menu">
+
+												<li><a href="#" target="iframe_a">  Loan outstanding  </a></li>
+												<li><a href="#" target="iframe_a"> Overdue Loans 
+														 </a></li>
+												<li><a href="#" target="iframe_a"> Search Loan accounts
+												</a></li>
+											</ul></li>
+										<li><a><span class="fa fa-chevron-down"></span>Financial Reports</a>
+											<ul class="nav child_menu">
+
+												<li><a href="adduser.user" target="iframe_a">
+														 Balance Sheet  </a></li>
+												<li><a href="#" target="iframe_a">  Profit and Loss Account </a></li>
+												<li><a href="#" target="iframe_a">  Movement sheet </a></li>
+												<li><a href="#" target="iframe_a">  Cash-flow statement </a></li>
+											</ul></li>
+										<li><a><span class="fa fa-chevron-down"></span> MIS Report </a>
+											<ul class="nav child_menu">
+
+												<li><a href="adduser.user" target="iframe_a">  Management Report </a></li>
+												<li><a href="#" target="iframe_a">  CAMEL
+ </a></li>
+											</ul></li>
+									</ul></li>
 
 							</ul>
 						</div>
