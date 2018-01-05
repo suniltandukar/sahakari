@@ -15,7 +15,7 @@ public class DBConnection {
     }
     public static Connection getConnection(){
         try{
-            con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/coop_dat","root","centoa");//javproject name of database
+            con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/coop_dat","root","centos");//javproject name of database
         }
         catch(Exception e){
             e.printStackTrace();
