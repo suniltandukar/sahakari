@@ -204,7 +204,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
     }
 	public boolean insertCustomer(CustomerModel cm){
-		String query="insert into customertbl(memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity,ttole,citizenshipNo,citizenshipIssuedFrom,telno, mobno,fatherName,spouseName,dob,typeid,statusid,inputter,authorizer,insertStatus, updateStatus, delStatus) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+		String query="insert into customertbl(memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity,ttole,citizenshipNo,citizenshipIssuedFrom,telno, mobno,fatherName,spouseName,dob,typeid,statusid,inputter,authorizer,insertStatus, updateStatus, delStatus, address) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
 		try{
 			int i=0;
 			con=DBConnection.getConnection();
@@ -237,6 +237,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(26, cm.getInsertStatus());
 			ps.setString(27, cm.getUpdateStatus());
 			ps.setString(28, cm.getDelStatus());
+			ps.setString(29, cm.getAddress());
 			i=ps.executeUpdate();
 			if(i>0){
 				return true;
@@ -534,7 +535,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 	public boolean addShareCertificate(CustomerModel cm){
 		int i=0;
-		String query="insert into shareCertificate (pid,shareCertNo,shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate,inputter)values(?,?,?,?,?,?,?,?,?)";
+		String query="insert into shareCertificate (pid,shareCertNo,shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate,inputter,shareid)values(?,?,?,?,?,?,?,?,?,?)";
 		try{
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
@@ -547,6 +548,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(7, cm.getShareAmount());
 			ps.setString(8, cm.getShareDate());
 			ps.setString(9, cm.getInputter());
+			ps.setString(10,cm.getShareid());
 			i=ps.executeUpdate();
 			if(i>0){
 				con.close();
@@ -579,7 +581,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		return false;
 	}
 	public boolean updateShareCertificate(CustomerModel cm){
-		String query="update sharecertificate set shareCertNo=?,shareFrom=?,shareTo=?,totalShareNos=?,shareRate=?,shareAmount=?,shareDate=? where id=? ";
+		String query="update sharecertificate set shareCertNo=?,shareFrom=?,shareTo=?,totalShareNos=?,shareRate=?,shareAmount=?,shareDate=?, shareid=? where id=? ";
 		int i;
 		try{
 			con=DBConnection.getConnection();
@@ -591,7 +593,8 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(5, cm.getShareRate());
 			ps.setString(6, cm.getShareAmount());
 			ps.setString(7, cm.getShareDate());
-			ps.setString(8, cm.getShareCertificateId());
+			ps.setString(8, cm.getShareid());
+			ps.setString(9, cm.getShareCertificateId());
 			i=ps.executeUpdate();
 			if(i>0){
 				con.close();

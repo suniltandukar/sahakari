@@ -1,337 +1,379 @@
-<%if(session.getAttribute("userDetail")!=null){ %>
-<jsp:include page="/includefile"></jsp:include>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html lang="en-US">
-    <head>
-   
-    <link rel="stylesheet" href="assets/css/preloader.css" media="screen" type="text/css" />
-    	<script type="text/javascript" src="assets/js/preloader.js"></script>
-    <!-- 	<style>
-    	#preloader {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 999;
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-    background: #333 url('//cdnjs.cloudflare.com/ajax/libs/file-uploader/3.7.0/processing.gif') no-repeat center center;
-}</style> -->
-    </head>
 
-    <body   class="hold-transition skin-blue sidebar-mini" >
-	<div class="se-pre-con" id="preloader" ></div>
-        <div class="wrapper"  >
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@page import='java.sql.*'%>
+<%@page import='com.sahakari.model.UserModel'%>
+<%
+	if ((session.getAttribute("userDetail")) != null) {
+		UserModel userdetail = (UserModel) session
+				.getAttribute("userDetail");
+%>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Meta, title, CSS, favicons, etc. -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-            <header class="main-header">
-                <!-- Logo -->
-                <a href="index2.html" class="logo">
-                    <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class="logo-mini"><b>S</b></span>
-                    <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b></b>&nbsp;SAHAKARI</span>
-                </a>
-                <!-- Header Navbar: style can be found in header.less -->
-                <nav class="navbar navbar-static-top">
-                    <!-- Sidebar toggle button-->
-                    <a  class="sidebar-toggle" data-toggle="push-menu" role="button">
-                        <span class="sr-only">Toggle navigation</span>
-                    </a>
-                    <span class="navbar-text bg-info">
-                    <strong>ARTHIK BARSA (2073-2074) </strong>
-                    </span>
-                    <div class="navbar-custom-menu">
-                        <ul class="nav navbar-nav">
-                            <!-- Messages: style can be found in dropdown.less-->
-                            <li class="dropdown messages-menu">
-                                <a class="dropdown-toggle clickable" data-toggle="dropdown">
-                                    <i class="fa fa-envelope-o"></i>
-                                    <span class="label label-success">1</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="header">You have 1 messages</li>
-                                    <li>
-                                        <!-- inner menu: contains the actual data -->
-                                        <ul class="menu">
-                                            <li>
-                                                <a>
-                                                    <div class="pull-left">
-                                                        <a href="#"><i class="fa fa-user"></i> Shishir Karki</a>
-                                                    </div>
+<title>Digi Nepal | Profile</title>
 
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="footer"><a href="#">See All Messages</a></li>
-                                </ul>
-                            </li>
-                            <!-- Notifications: style can be found in dropdown.less -->
-                            <li class="dropdown notifications-menu">
-                                <a class="dropdown-toggle clickable" data-toggle="dropdown">
-                                    <i class="fa fa-bell-o"></i>
-                                    <span class="label label-warning">1</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="header">You have 1 notifications</li>
-                                    <li>
-                                        <!-- inner menu: contains the actual data -->
-                                        <ul class="menu">
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-users text-aqua"></i> abc
-                                                </a>
-                                            </li>
+<!-- Bootstrap -->
+<link href="template/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="template/css/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="template/css/nprogress.css" rel="stylesheet">
 
-                                        </ul>
-                                    </li>
-                                    <li class="footer"><a class="clickable">View all</a></li>
-                                </ul>
-                            </li>
-                            <!-- Tasks: style can be found in dropdown.less -->
+<!-- Custom Theme Style -->
+<link href="template/css/custom.min.css" rel="stylesheet">
+</head>
 
-                            <!-- User Account: style can be found in dropdown.less -->
-                            <li class="dropdown user user-menu">
-                                <a class="dropdown-toggle clickable" data-toggle="dropdown">
-                                    <i class="fa fa-user"></i>
-                                    <span class="hidden-xs"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <!-- Menu Body -->
-                                    <li class="user-body">
-                                        <div class="row">
-                                            <div class="col-xs-4 text-center">
-                                                <a class="clickable">Setting1</a>
-                                            </div>
-                                            <div class="col-xs-4 text-center">
-                                                <a class="clickable">Setting2</a>
-                                            </div>
-                                            <div class="col-xs-4 text-center">
-                                                <a class="clickable">Setting3</a>
-                                            </div>
-                                        </div>
-                                        <!-- /.row -->
-                                    </li>
-                                    <!-- Menu Footer-->
-                                    <li class="user-footer">
-                                        <div class="pull-left">
-                                            <a  class="btn btn-default btn-flat">Profile</a>
-                                        </div>
-                                        <div class="pull-right">
-                                            <a href="logout.log" class="btn btn-default btn-flat">Sign out</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </header>
-            <!-- Left side column. contains the logo and sidebar -->
-            <aside class="main-sidebar">
-                <!-- sidebar: style can be found in sidebar.less -->
-                <section class="sidebar">
-                    <!-- Sidebar user panel -->
-                    <div class="user-panel">
-                        <div class="pull-left image">
-                            <h4><i class="fa fa-user"></i></h4>
-                        </div>
-                        <div class="pull-left info">
-                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                        </div>
-                    </div>
-                    <!-- search form -->
-                    <form action="" method="get" class="sidebar-form">
-                        <div class="input-group">
-                            <input type="text" name="q" class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                    </form>
-                    <!-- /.search form -->
-                    <!-- sidebar menu: : style can be found in sidebar.less -->
-                    <ul class="sidebar-menu" data-widget="tree">
-                        <li class="header">MAIN NAVIGATION</li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-home"></i>
-                                <span>Dashboard</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li class="header"><a href="#/!"><i class="fa fa-circle-o"></i> Dashboard</a></li>            
-                            </ul>
-                        </li>
+<body class="nav-md">
+	<div class="container body">
+		<div class="main_container">
+			<div class="col-md-3 left_col">
+				<div class="left_col scroll-view">
+					<div class="navbar nav_title" style="border: 0;">
+						<a href="#" class="site_title"><i class="fa fa-desktop"
+							aria-hidden="true"></i> <span>Digi Nepal</span></a>
+					</div>
 
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-child"></i>
-                                <span>Customer</span>
+					<div class="clearfix"></div>
 
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
+					<!-- menu profile quick info -->
+					<div class="profile clearfix">
+						<div class="profile_pic">
+							<img src="template/images/user.jpg" alt="..."
+								class="img-circle profile_img">
+						</div>
+						<div class="profile_info">
+							<span>Welcome,</span>
+							<h2><%=userdetail.getUsername()%></h2>
+						</div>
+					</div>
+					<!-- /menu profile quick info -->
 
-                                <li id="nav1"><a href="customerinsert.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-                                <li id="nav2"><a href="viewcustomer.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
-                                <li id="nav3"><a href="editcustomer.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
-                            </ul>
-                        </li>
-                        <li id="share" class="treeview">
-                            <a href="#">
-                                <i class="fa fa-child"></i>
-                                <span>Share Certificate</span>
+					<br />
 
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
+					<!-- sidebar menu -->
+					<div id="sidebar-menu"
+						class="main_menu_side hidden-print main_menu">
+						<div class="menu_section">
+							<h3>General</h3>
+							<ul class="nav side-menu">
+								<li><a><i class="fa fa-home"></i> Home <span
+										class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li><a href="view/dashboard.jsp" target="iframe_a">Dashboard</a></li>
+									</ul></li>
+								<li><a><i class="fa fa-circle-o"></i> Member(With KYC)
+										<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li><a><span class="fa fa-chevron-down"></span>New
+												Member</a>
+											<ul class="nav child_menu">
+												<li><a href="customerinsert.click" target="iframe_a">
+														Member</a></li>
+												<li style="display: none"><a href="#" target="iframe_a">Corporate
+														member</a></li>
+											</ul></li>
+										<li><a><span class="fa fa-chevron-down"></span>Ammendment
+												of Member</a>
+											<ul class="nav child_menu">
+												<li><a href="viewcustomer.click" target="iframe_a">
+														Member</a></li>
+												<!-- <li><a href="#" target="iframe_a">Corporate member</a> -->
 
-                                <li id="nav4"><a href="sharecertificateinsert.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-                                <li id="nav5"><a href="viewsharecertificate.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-child"></i>
-                                <span>Account</span>
+											</ul></li>
+										<li><a href="#" target="iframe_a">Authorization of
+												member</a></li>
+										<li><a href="#" target="iframe_a">member Documents</a></li>
 
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
+									</ul></li>
+								<li><a><i class="fa fa-circle-o"></i>Shareholder <span
+										class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
 
-                                <li id="nav6" ><a href="insertaccount.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-                                <li id="nav7"><a href="viewaccount.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
-                                <li id="nav8"><a href="editaccount.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-child"></i>
-                                <span>Transaction</span>
+										<li><a href="sharecertificateinsert.click"
+											target="iframe_a"> New Shareholder</a></li>
+										<li><a href="viewsharecertificate.click"
+											target="iframe_a">Amendment of shareholder</a></li>
+									</ul></li>
+								<li><a><i class="fa fa-circle-o"></i> Retail Operation
+										<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li><a><span class="fa fa-chevron-down"></span>Account</a>
+											<ul class="nav child_menu">
+												<li><a href="insertaccount.click" target="iframe_a">Open
+														New member Account</a></li>
+												<!-- 	<li><a href="#" target="iframe_a">Open New
+														Shareholder Account</a> -->
+												<li><a href="viewaccount.click" target="iframe_a">Amendment
+														of member Account</a></li>
+												<li><a href="insertfinancialaccount.click"
+													target="iframe_a">Open Financial Account</a>
+												<li><a href="#" target="iframe_a">Amendment of
+														Financial Account</a></li>
+												<li><a href="#" target="iframe_a">Authorization of
+														Account</a>
+												<li><a href="#" target="iframe_a">Account
+														maintenance</a></li>
+												<li><a href="#" target="iframe_a">Account Closure</a></li>
+											</ul></li>
+										<li><a><span class="fa fa-chevron-down"></span>Cheque</a>
+											<ul class="nav child_menu">
+												<li><a href="#" target="iframe_a">Issue Cheque</a></li>
+												<li><a href="#" target="iframe_a">Reversal of
+														issued cheque</a></li>
+												<li><a href="#" target="iframe_a">List issued
+														chequese</a></li>
+												<li><a href="#" target="iframe_a">List reversed
+														cheques</a></li>
+												<li><a href="#" target="iframe_a">Authorization of
+														Issued Cheques</a></li>
+											</ul></li>
+										<li><a><span class="fa fa-chevron-down"></span>Signature</a>
+											<ul class="nav child_menu">
+												<li><a href="#" target="iframe_a">Upload Signature
+												</a></li>
+												<li><a href="#" target="iframe_a">Reverse Signature</a>
+												</li>
+												<li><a href="#" target="iframe_a">Authorization of
+														signature upload</a></li>
+											</ul></li>
+										<li><a><span class="fa fa-chevron-down"></span>Certificate
+												of deposits(Time Deposits)</a>
+											<ul class="nav child_menu">
+												<li><a href="#" target="iframe_a">New Deposit
+														Account </a></li>
+												<li><a href="#" target="iframe_a">Amend Deposit
+														Account</a></li>
+												<li><a href="#" target="iframe_a">Authorization of
+														Deposit Account</a></li>
+											</ul></li>
+										<li><a><span class="fa fa-chevron-down"></span>Teller
+												Operation</a>
+											<ul class="nav child_menu">
+												<li><a href="insertTeller.click" target="iframe_a">Cash
+														Deposit </a></li>
+												<li><a href="insertTeller.click" target="iframe_a">Cash
+														Withdraw</a></li>
+												<li><a href="#" target="iframe_a">Cash Withdraw
+														without cheque</a></li>
+												<li><a href="#" target="iframe_a">Authorization of
+														teller operation</a></li>
+											</ul></li>
 
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            
-                             <ul class="treeview-menu">
-                             	 <li class="treeview">
-                             	 	<a href="#"><i class="fa fa-circle-o"></i> Fund Transfer
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                     <ul class="treeview-menu">
-	                             	  	 <li id="nav9"><a href="inserttransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-	                                	<li id="nav10"><a href="viewtransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
-	                               		 <li id="nav11"><a href="edittransaction.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
-                                	</ul>
-                             	 </li>
-                             	  <li class="treeview">
-                             	 	<a href="#" ><i class="fa fa-circle-o" ></i> Teller
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                     <ul class="treeview-menu">
-	                             	  	 <li id=""><a href="insertTeller.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-	                                	<li id=""><a href="viewteller.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
-	                               		 <li id=""><a href="editteller.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
-                                	</ul>
-                             	 </li>
-                             	  <li class="treeview">
-                             	 	<a href="#"><i class="fa fa-circle-o"></i> Multiple Transaction
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                     <ul class="treeview-menu">
-	                             	  	 <li id=""><a href="insertMultiTxn.click" target="iframe_a"><i class="fa fa-circle-o"></i>Insert</a></li>
-	                                	<li id=""><a href="viewMultiTxn.click" target="iframe_a"><i class="fa fa-circle-o"></i>View </a></li>
-	                               		 <li id=""><a href="editmultitxn.click" target="iframe_a"><i class="fa fa-circle-o"></i>Edit </a></li>                                  
-                                	</ul>
-                             	 </li>
-                             	 
-                             </ul>
-                             
-								
-						</li>
-								 	 
-                                 
-                               
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-share"></i> <span>Multilevel</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li class="treeview">
-                                    <a href="#"><i class="fa fa-circle-o"></i> Level One
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li id="nav12"><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                                        <li id="nav13" class="treeview">
-                                            <a href="#"><i class="fa fa-circle-o"></i> Level Two
-                                                <span class="pull-right-container">
-                                                    <i class="fa fa-angle-left pull-right"></i>
-                                                </span>
-                                            </a>
-                                            <ul class="treeview-menu">
-                                                <li id="nav14"><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                                                <li id="nav15"><a class="click"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-share"></i> <span>User Settings</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                            	<li id="nav17"><a href="adduser.user" target="iframe_a"><i class="fa fa-circle-o"></i> Add Users</a></li>
-                                
-                            </ul>
-                        </li>
+									</ul></li>
+								<li><a><i class="fa fa-circle-o"></i> General
+										Transaction <span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li><a><span class="fa fa-chevron-down"></span>Funds
+												Transfer</a>
+											<ul class="nav child_menu">
+												<li><a href="inserttransaction.click" target="iframe_a">New
+														Account Transfer </a></li>
+												<li><a href="viewtransaction.click" target="iframe_a">Amend
+														Account Transfer</a></li>
+												<li><a href="#" target="iframe_a">Authorize Account
+														Transfer</a></li>
+
+											</ul></li>
+										<li><a><span class="fa fa-chevron-down"></span>
+												Journal Entry (Multiple Debit - Multiple Credit) </a>
+											<ul class="nav child_menu">
+												<li><a href="insertMultiTxn.click" target="iframe_a">New
+														Journal Entry </a></li>
+												<li><a href="viewMultiTxn.click" target="iframe_a">Amend
+														Journal Entry </a></li>
+												<li><a href="#" target="iframe_a"> Authorize
+														Journal Entry </a></li>
+
+											</ul></li>
+									</ul></li>
+
+								<li><a><i class="fa fa-circle-o"></i> Loan Module <span
+										class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li><a><span class="fa fa-chevron-down"></span>Loan</a>
+											<ul class="nav child_menu">
+												<li><a href="#" target="iframe_a"> Create New Loan
+												</a></li>
+												<li><a href="#" target="iframe_a">Amendment of Loan
+												</a></li>
+												<li><a href="#" target="iframe_a">Authorization of
+														Loan </a></li>
+
+											</ul></li>
+										<li><a href="#" target="iframe_a">Past Due Loan </a></li>
+										<li><a href="#" target="iframe_a">Collateral </a></li>
+										<li><a href="#" target="iframe_a">Limit </a></li>
+										<li><a href="#" target="iframe_a">Guarantor </a></li>
+										<li><a href="#" target="iframe_a">Valuator </a></li>
+									</ul></li>
+								<li><a><i class="fa fa-circle-o"></i> Non-fund business
+										<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+
+										<li><a href="#" target="iframe_a">Guarantee </a></li>
+										<li><a href="#" target="iframe_a"> Letter of Credit </a></li>
+									</ul></li>
+								<li><a><i class="fa fa-circle-o"></i> Other utilities <span
+										class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+
+										<li><a href="#" target="iframe_a">Clearing </a></li>
+										<li><a href="#" target="iframe_a"> Reconciliation </a></li>
+									</ul></li>
 
 
-                    </ul>
-                </section>
-                <!-- /.sidebar -->
-            </aside>
+							</ul>
+						</div>
+						<div class="menu_section">
+							<h3>Settings</h3>
+							<ul class="nav side-menu">
+								<li><a><i class="fa fa-users"></i> Admin Settings <span
+										class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
 
+										<li><a href="#" target="iframe_a">Branch/Company
+												setup </a></li>
+										<li><a href="#" target="iframe_a">
+												ChartOfAccount(COA) </a></li>
+										<li><a href="#" target="iframe_a"> MigrationtoolSetup
+										</a></li>
+										<li><a><span class="fa fa-chevron-down"></span>Calender
+												Setting</a>
+											<ul class="nav child_menu">
 
-            <div class="content-wrapper " >
-            	
-                <iframe height="1300px" width="100%" src="" id="Iframe" name="iframe_a" style=" margin:auto ">
-                </iframe>
-                	
-            </div>
-        </div>
-      
-    </body>
-   
+												<li><a href="#" target="iframe_a">Nepali Calendar </a></li>
+												<li><a href="#" target="iframe_a">Fiscal Year </a></li>
+												<li><a href="#" target="iframe_a"> Holiday Setting
+												</a></li>
+												<li><a href="#" target="iframe_a"> Month End </a></li>
+												<li><a href="#" target="iframe_a"> Quarter End </a></li>
+												<li><a href="#" target="iframe_a"> Year End </a></li>
+											</ul></li>
+										<li><a><span class="fa fa-chevron-down"></span>Interest
+												Rate</a>
+											<ul class="nav child_menu">
+
+												<li><a href="#" target="iframe_a"> Loan Interest
+														Rate </a></li>
+												<li><a href="#" target="iframe_a">Deposit Interest
+														Rate </a></li>
+												<li><a href="#" target="iframe_a"> Commission Rate
+												</a></li>
+											</ul></li>
+										<li><a><span class="fa fa-chevron-down"></span>User</a>
+											<ul class="nav child_menu">
+
+												<li><a href="adduser.user" target="iframe_a">
+														Create New user </a></li>
+												<li><a href="#" target="iframe_a"> Amendment of
+														user </a></li>
+												<li><a href="#" target="iframe_a"> Authorize user </a></li>
+											</ul></li>
+										<li><a><span class="fa fa-chevron-down"></span>Closing</a>
+											<ul class="nav child_menu">
+
+												<li><a href="adduser.user" target="iframe_a"> Day
+														End </a></li>
+												<li><a href="#" target="iframe_a"> Month End </a></li>
+												<li><a href="#" target="iframe_a"> Quarter End </a></li>
+												<li><a href="#" target="iframe_a"> Year End </a></li>
+											</ul></li>
+									</ul></li>
+							</ul>
+
+						</div>
+
+					</div>
+					<!-- /sidebar menu -->
+
+					<!-- /menu footer buttons -->
+					<div class="sidebar-footer hidden-small">
+						<a data-toggle="tooltip" data-placement="top" title="Settings">
+							<i class="fa fa-cog" aria-hidden="true"></i>
+						</a> <a data-toggle="tooltip" data-placement="top" title="FullScreen"
+							id="fullscreen"> <i class="fa fa-arrows-alt"
+							aria-hidden="true"></i>
+						</a> <a data-toggle="tooltip" data-placement="top" title="Lock"> <i
+							class="fa fa-eye-slash" aria-hidden="true"></i>
+						</a> <a data-toggle="tooltip" data-placement="top" title="Logout"
+							href="logout.log"> <i class="fa fa-sign-out"
+							aria-hidden="true"></i>
+						</a>
+					</div>
+					<!-- /menu footer buttons -->
+				</div>
+			</div>
+
+			<!-- top navigation -->
+			<div class="top_nav">
+				<div class="nav_menu">
+					<nav>
+						<div class="nav toggle">
+							<a id="menu_toggle"><i class="fa fa-bars"></i></a>
+						</div>
+
+						<ul class="nav navbar-nav navbar-right">
+							<li class=""><a href="javascript:;"
+								class="user-profile dropdown-toggle" data-toggle="dropdown"
+								aria-expanded="false"> <img src="template/images/user.jpg"
+									alt=""><%=userdetail.getUsername()%> <span
+									class=" fa fa-angle-down"></span>
+							</a>
+								<ul class="dropdown-menu dropdown-usermenu pull-right">
+									<li><a href="view/settings/userprofile.jsp"
+										target="iframe_a"> Profile</a></li>
+									<li><a href="javascript:;"> <span>Settings</span>
+									</a></li>
+									<li><a href="javascript:;">Help</a></li>
+									<li><a href="logout.log"><i
+											class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+								</ul></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<!-- /top navigation -->
+
+			<!-- page content -->
+			<div class="right_col" role="main">
+				<iframe height="1400px" width="100%" src="view/dashboard.jsp"
+					id="Iframe" name="iframe_a" style="border: none;"> </iframe>
+			</div>
+			<!-- /page content -->
+
+			<!-- footer content -->
+			<footer>
+				<div class="pull-right">
+					Copyright 2018 <a href="https://diginepal.com.np">Digi-Nepal</a>
+				</div>
+				<div class="clearfix"></div>
+			</footer>
+			<!-- /footer content -->
+		</div>
+	</div>
+
+	<!-- jQuery -->
+	<script src="template/js/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="template/js/bootstrap.min.js"></script>
+	<!-- FastClick -->
+	<script src="template/js/fastclick.js"></script>
+	<!-- NProgress -->
+	<script src="template/js/nprogress.js"></script>
+
+	<!-- Custom Theme Scripts -->
+	<script src="template/js/custom.min.js"></script>
+
+</body>
 </html>
 <%
-}else{
-	out.println("No Session Found! Please Login Again! ");
-}%>
+	} else {
+		out.println("No User Session Found!");
+	}
+%>

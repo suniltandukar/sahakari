@@ -23,7 +23,7 @@ public class CustomerAction {
 		CustomerDao c=new CustomerDaoImpl();
 		CustomerModel cm=new CustomerModel();
 		String cusCitizenshipNo, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, 
-No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus;
+No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus, address;
 		String[] cusRelation,cusRelName,dateOfBirth,fcitizenshipNo,fremarks;
 		String[] cusJob, cusInstitution, cusPost, incomePeryear, jremarks;
 		String[] bankName, accountNumber, accountType, bremarks;
@@ -68,7 +68,7 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		dob=request.getParameter("dob");
 		typeid=request.getParameter("typeid");
 		statusid=request.getParameter("statusid");
-		
+		address=request.getParameter("address");
 		HttpSession session=request.getSession();
 		UserModel userDetail=(UserModel)session.getAttribute("userDetail");
 		
@@ -107,7 +107,7 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		cm.setInsertStatus(insertStatus);
 		cm.setUpdateStatus(updateStatus);
 		cm.setDelStatus(delStatus);
-		
+		cm.setAddress(address);
 		
 		boolean customerstatus=c.insertCustomer(cm);
 		boolean finalstatus=false;
@@ -322,7 +322,7 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		String inputter=userDetail.getUsername();
 		
 		CustomerModel cm=new CustomerModel();
-		String shareCertNo, shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate, memberid;
+		String shareid,shareCertNo, shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate, memberid;
 		shareCertNo=request.getParameter("shareCertNo");
 		shareFrom=request.getParameter("shareFrom");
 		shareTo=request.getParameter("shareTo");
@@ -331,7 +331,9 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		shareAmount=request.getParameter("shareAmount");
 		shareDate=request.getParameter("shareDate");
 		memberid=request.getParameter("memberid");
+		shareid=request.getParameter("shareid");
 		
+		cm.setShareid(shareid);
 		cm.setShareCertNo(shareCertNo);
 		cm.setShareFrom(shareFrom);
 		cm.setShareTo(shareTo);
@@ -390,7 +392,7 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		String inputter=userDetail.getUsername();
 		
 		CustomerModel cm=new CustomerModel();
-		String shareCertificateId,shareCertNo, shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate, memberid;
+		String shareCertificateId,shareid,shareCertNo, shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate, memberid;
 		shareCertificateId=request.getParameter("shareCertificateId");
 		shareCertNo=request.getParameter("shareCertNo");
 		shareFrom=request.getParameter("shareFrom");
@@ -400,8 +402,10 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		shareAmount=request.getParameter("shareAmount");
 		shareDate=request.getParameter("shareDate");
 		memberid=request.getParameter("memberid");
+		shareid=request.getParameter("shareid");
 		
 		cm.setShareCertificateId(shareCertificateId);
+		cm.setShareid(shareid);
 		cm.setShareCertNo(shareCertNo);
 		cm.setShareFrom(shareFrom);
 		cm.setShareTo(shareTo);

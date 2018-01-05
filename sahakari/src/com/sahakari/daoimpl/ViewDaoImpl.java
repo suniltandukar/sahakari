@@ -41,6 +41,7 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setTypeName(rs.getString("TypeName"));
 				cust.setStatusName(rs.getString("StatusName"));
 				cust.setPid(rs.getString("pid"));
+				cust.setAddress(rs.getString("address"));
 				list.add(cust);
 			}
 			if(list.size()>0){
@@ -222,6 +223,7 @@ public class ViewDaoImpl implements ViewDao{
 				cust=new CustomerModel();
 				cust.setMemberid(rs.getString("memberid"));
 				cust.setPid(rs.getString("pid"));
+				cust.setShareid(rs.getString("shareid"));
 				cust.setShareCertificateId(rs.getString("id"));
 				cust.setShareCertNo(rs.getString("shareCertNo"));
 				cust.setShareFrom(rs.getString("shareFrom"));

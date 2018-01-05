@@ -7,8 +7,16 @@ public class CustomerModel {
 	tvdcmunid, tvdcName, twardno, tcity,
 	ttole, cusCitizenshipNo, citizenshipIssuedFrom, citidistName,
 	telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer,
-	insertStatus, updateStatus, delStatus;
+	insertStatus, updateStatus, delStatus, address;
 	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	public String getPvdcName() {
 		return pvdcName;
 	}
@@ -41,7 +49,15 @@ public class CustomerModel {
 		this.citidistName = citidistName;
 	}
 
-	String shareCertNo, shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate, shareCertificateId;
+	String shareid, shareCertNo, shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate, shareCertificateId;
+	public String getShareid() {
+		return shareid;
+	}
+
+	public void setShareid(String shareid) {
+		this.shareid = shareid;
+	}
+
 	public String getShareCertificateId() {
 		return shareCertificateId;
 	}

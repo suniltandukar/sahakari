@@ -117,6 +117,13 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 		}
 		else if(uri.endsWith("sharecertificateinsert.click")){
+			ViewDao view=new ViewDaoImpl();
+			List<CustomerModel> list=view.viewCustomerDetail();
+			request.setAttribute("list", list);
+			
+			 List<CustomerModel> slist=view.viewShareCertificate();
+			 request.setAttribute("shareCert", slist);
+			 
 			RequestDispatcher rd=request.getRequestDispatcher("view/ShareCertificate/insertShareCertificate.jsp");
 			rd.forward(request, response);
 			
@@ -176,6 +183,14 @@ public class NavigationController extends HttpServlet {
 			else{
 				out.println("1");
 			}
+		}
+		else if(uri.endsWith("insertfinancialaccount.click")){
+			AccountDao a=new AccountDaoImpl();
+			List<AccountModel> categorylist=a.getCategories();
+			request.setAttribute("categorylist", categorylist);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Account/insertFinancialAccount.jsp");
+			rd.forward(request, response);
+			
 		}
 		else if(uri.endsWith("insertaccount.click")){
 			AccountDao a=new AccountDaoImpl();

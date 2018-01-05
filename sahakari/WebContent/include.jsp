@@ -1,50 +1,11 @@
-<div class="new">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="assets/css/ionicons.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/nepaliDatePicker/nepali.datepicker.v2.2.min.css" />
-  <!-- Theme style -->
-  <link rel="stylesheet" href="assets/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="assets/css/_all-skins.min.css">
-   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  
-  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-
- <script src="assets/js/jquery.min.js"></script>
- <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
- 
- <!-- jQuery 3 -->
- <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-<script src="assets/js/dateConverter.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" src="assets/nepaliDatePicker/nepali.datepicker.v2.2.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="assets/js/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<!-- Bootstrap 3.3.7 -->
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/adminlte.min.js"></script>
-
-</div>
-	<style>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<style>
 	#nav1,#nav2,#nav3,#nav4,#nav5,#nav6,#nav7,#nav8,#nav9,#nav10,#nav11,#nav12,#nav13,#nav14,#nav15,#nav16,#nav17,#change,#action,#share{
 	display:none;
 	}
@@ -52,6 +13,61 @@
 	${userrole}{
 	display:block;
  }
-
-
 </style>
+<!-- Bootstrap -->
+    <link href="template/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="template/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="template/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="template/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="template/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="template/css/scroller.bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="template/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="template/css/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="template/css/custom.min.css" rel="stylesheet">
+    <style>
+    	.background{
+    	background-color:#F7F7F7;}
+    </style>
+</head>
+<body>
+ <!-- jQuery -->
+    <script src="template/js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="template/js/bootstrap.min.js"></script>
+     <!-- Datatables -->
+    <script src="template/js/jquery.dataTables.min.js"></script>
+    <script src="template/js/dataTables.bootstrap.min.js"></script>
+    <script src="template/js/dataTables.buttons.min.js"></script>
+    <script src="template/js/buttons.bootstrap.min.js"></script>
+    <script src="template/js/buttons.flash.min.js"></script>
+    <script src="template/js/buttons.html5.min.js"></script>
+    <script src="template/js/buttons.print.min.js"></script>
+    <script src="template/js/dataTables.fixedHeader.min.js"></script>
+    <script src="template/js/dataTables.keyTable.min.js"></script>
+    <script src="template/js/dataTables.responsive.min.js"></script>
+    <script src="template/js/responsive.bootstrap.js"></script>
+    <script src="template/js/dataTables.scroller.min.js"></script>
+    <script src="template/js/jszip.min.js"></script>
+    <script src="template/js/pdfmake.min.js"></script>
+    <script src="template/js/vfs_fonts.js"></script>
+    <!-- FastClick -->
+    <script src="template/js/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="template/js/nprogress.js"></script>
+    
+    <!-- Custom Theme Scripts -->
+    <script src="template/js/custom.min.js"></script>
+    
+    <!-- Form Required Scripts -->
+	<script type="text/javascript" src="template/nepaliDatePicker/nepali.datepicker.v2.2.min.js"></script>
+	<script type="text/javascript" src="template/js/dconverter.js"></script>
+	<script type="text/javascript" src="template/js/selector.js"></script>   
+	
+</body>
+</html>
