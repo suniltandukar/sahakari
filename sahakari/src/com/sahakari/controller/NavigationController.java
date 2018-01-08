@@ -324,5 +324,11 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 			
 		}
+		
+		else if(uri.endsWith("emi.click"))
+		{
+			RequestDispatcher rd=request.getRequestDispatcher("emi.jsp");
+			rd.forward(request, response);
+		}
 	}
 }

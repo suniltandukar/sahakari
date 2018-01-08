@@ -13,11 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sahakari.action.AccountAction;
 import com.sahakari.action.CustomerAction;
+import com.sahakari.action.EMICalculator;
 import com.sahakari.action.GetFormOptions;
 import com.sahakari.action.TransactionAction;
 import com.sahakari.dao.ViewDao;
 import com.sahakari.daoimpl.ViewDaoImpl;
 import com.sahakari.model.CustomerModel;
+import com.sahakari.model.EMImodel;
 /**
  * Servlet implementation class AddController
  */
@@ -78,6 +80,20 @@ public class AddController extends HttpServlet {
 		if(uri.endsWith("teller.add")){
 			TransactionAction ta=new TransactionAction();
 			ta.addTellerTransaction(request,response);
+		}
+		if(uri.endsWith("calculate.add"))
+		{
+			System.out.println("reacherd");
+			EMICalculator action=new EMICalculator();
+			List<EMImodel> list=action.calculate(request,response);
+			request.setAttribute("list", list);
+			RequestDispatcher rd=request.getRequestDispatcher("ShowEmi.jsp");
+			try {
+				rd.forward(request, response);
+			} catch (ServletException | IOException e) {
+				e.printStackTrace();
+			}
+		
 		}
 	}
 
