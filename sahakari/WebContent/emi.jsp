@@ -56,18 +56,18 @@
 								</select></td>
 							</tr>
 							<tr>
-								<td>Start Date: <input type="text" name="startdate"
-									class="form-control" form="calculateForm"></td>
-								<td>Maturity Date: <input type="text" name="mdate"
-									class="form-control" form="calculateForm"></td>
+								<td>Start Date: <input type="date" name="startdate"
+									class="form-control" form="calculateForm" required></td>
+								<td>Maturity Date: <input type="date" name="mdate"
+									class="form-control" form="calculateForm" required></td>
 							</tr>
 							<tr>
 								<td>Amount: <input type="text" name="amount"
-									class="form-control" form="calculateForm"></td>
+									class="form-control" form="calculateForm" value="0" required></td>
 								<td>Interest Rate: <input type="text" name="irate"
-									class="form-control" form="calculateForm"></td>
+									class="form-control" form="calculateForm" value="0" required></td>
 								<td>No. of Payments: <input type="text" name="payments"
-									class="form-control" form="calculateForm"></td>
+									class="form-control" form="calculateForm" value="1" required></td>
 							</tr>
 							<tr>
 								<td><input type="submit" value="Calculate"
