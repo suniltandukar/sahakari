@@ -1,11 +1,8 @@
 package com.sahakari.action;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -41,7 +38,6 @@ public class EMICalculator {
             EMImodel model=null;
             List<EMImodel> list=new ArrayList<EMImodel>();
            
-            
             for (double i = 1; i <= n; i++) {
             	
             	model=new EMImodel();
@@ -59,10 +55,10 @@ public class EMICalculator {
                     System.out.println("***************************");
                    
                     model.setMonth((int)i);
-                    model.setInterest(intPerMonth);
+                    model.setInterest(Math.round(intPerMonth));
                     
-                    model.setPrincipal((e) - intPerMonth);
-                    model.setBalance(P);
+                    model.setPrincipal(Math.round((e) - intPerMonth));
+                    model.setBalance(Math.round(P));
                     list.add(model);
                    
             }
