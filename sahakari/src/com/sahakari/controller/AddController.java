@@ -83,10 +83,11 @@ public class AddController extends HttpServlet {
 		}
 		if(uri.endsWith("calculate.add"))
 		{
-			System.out.println("reacherd");
+			
 			EMICalculator action=new EMICalculator();
 			List<EMImodel> list=action.calculate(request,response);
 			request.setAttribute("list", list);
+			System.out.println("reacherd");
 			RequestDispatcher rd=request.getRequestDispatcher("ShowEmi.jsp");
 			try {
 				rd.forward(request, response);
