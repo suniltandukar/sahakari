@@ -1,8 +1,12 @@
 package com.sahakari.action;
 
+import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -38,8 +42,9 @@ public class EMICalculator {
             EMImodel model=null;
             List<EMImodel> list=new ArrayList<EMImodel>();
            
+            
             for (double i = 1; i <= n; i++) {
-            	
+            	DecimalFormat df = new DecimalFormat("#.##");
             	model=new EMImodel();
                     intPerMonth = (P * R);
                     P = ((P) - ((e) - (intPerMonth)));
@@ -55,10 +60,10 @@ public class EMICalculator {
                     System.out.println("***************************");
                    
                     model.setMonth((int)i);
-                    model.setInterest(Math.round(intPerMonth));
+                    model.setInterest(Double.parseDouble(df.format(intPerMonth)));
                     
-                    model.setPrincipal(Math.round((e) - intPerMonth));
-                    model.setBalance(Math.round(P));
+                    model.setPrincipal(Double.parseDouble(df.format((e) - intPerMonth)));
+                    model.setBalance(Double.parseDouble(df.format(P)));
                     list.add(model);
                    
             }
