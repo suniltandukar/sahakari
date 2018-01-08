@@ -60,6 +60,7 @@ public class EMICalculator {
                    
                     model.setMonth((int)i);
                     model.setInterest(intPerMonth);
+                    
                     model.setPrincipal((e) - intPerMonth);
                     model.setBalance(P);
                     list.add(model);
