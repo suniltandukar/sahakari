@@ -233,6 +233,7 @@
 										<li><a><span class="fa fa-chevron-down"></span> Daily Reports </a>
 											<ul class="nav child_menu">
 
+												<li><a href="emi.click" target="iframe_a">EMI </a></li>
 												<li><a href="#" target="iframe_a">User Transaction List  </a></li>
 												<li><a href="#" target="iframe_a">Daily Cash income and expenses  </a></li>
 												<li><a href="#" target="iframe_a"> Daily Voucher 
