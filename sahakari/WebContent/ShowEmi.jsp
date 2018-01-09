@@ -7,8 +7,12 @@
     		<div class="col-md-12 col-sm-12 col-xs-12">
 
 		<div class="x_panel">
+		
 			<div class="x_title">
-				<h2>CALCULATED EMI RESULT</h2>
+			
+              <button class="pull-left btn btn-primary" onclick="goBack()"><i class="fa fa-chevron-left" aria-hidden="true"></i> Go Back</button>
+
+				<h3 align="center">CALCULATED EMI RESULT</h>
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
@@ -46,6 +50,11 @@
 		</div>
 	</div>
     		
+    		<script>
+function goBack() {
+    window.history.back();
+}
+</script>
     	</body>
     </html>
 			
