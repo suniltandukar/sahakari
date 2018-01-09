@@ -43,7 +43,69 @@
 
 						<tbody>
 							<tr>
-								<td><select class="form-control" name="repayment" form="calculateForm">
+								<td>Account No: <input type="text" name="accountno"
+									class="form-control" form="calculateForm" required>
+								</td>
+								<td>Account Holder <input type="text" name="accountholder"
+									class="form-control" form="calculateForm" required>
+								</td>
+							</tr>
+							<tr>
+								<td>Principal <input type="text" name="amount"
+									class="form-control" form="calculateForm" value="0" required>
+								</td>
+								<td>EMI Liquidation Account
+								 <input type="text" name="emiliquidation"
+									class="form-control" form="calculateForm"  required>
+									</td>
+							</tr>
+							 <tr>
+                                  <td>
+                                       <h5>Loan Start Date(B.S.)</h5> <input type="text"
+                                                name="loanstartdate" class="form-control" id="nepaliDate1"
+                                                placeholder="YYYY-MM-DD"  form="form" maxlength="10">
+                                   </td>
+                                   <td>
+                                                <h5>Loan Start Date (A.D.)</h5> <input type="text"
+                                                name="loanstartdateen" class="form-control" id="englishDate1"
+                                                placeholder="YYYY-MM-DD"  form="form" maxlength="10">
+                                  </td>
+                             </tr>
+                              <tr>
+                                  <td>
+                                       <h5>Loan Maturity Date(B.S.)</h5> <input type="text"
+                                                name="loanmaturitydate" class="form-control" id="nepaliDate1"
+                                                placeholder="YYYY-MM-DD"  form="form" maxlength="10">
+                                   </td>
+                                   <td>
+                                                <h5>Loan Maturity Date (A.D.)</h5> <input type="text"
+                                                name="loanmaturitydateen" class="form-control" id="englishDate1"
+                                                placeholder="YYYY-MM-DD"  form="form" maxlength="10">
+                                  </td>
+                             </tr>
+                             <tr>
+                             		<td>Interest Rate
+                             		 <input type="text" name="irate"
+									class="form-control" form="calculateForm" value="0" required>
+									</td>
+									<!-- <td>Interest Type <input type="radio" name="fixed" class="form-control"> Fixed
+									   			<input type="radio" name="variable" class="form-control">Variable
+									   												</td> -->
+							</tr>	
+							<tr>
+                                  <td>
+                                       <h5>EMI Start Date(B.S.)</h5> <input type="text"
+                                                name="emistart" class="form-control" id="nepaliDate1"
+                                                placeholder="YYYY-MM-DD"  form="form" maxlength="10">
+                                   </td>
+                                   <td>
+                                                <h5>EMI Start Date (A.D.)</h5> <input type="text"
+                                                name="emistarten" class="form-control" id="englishDate1"
+                                                placeholder="YYYY-MM-DD"  form="form" maxlength="10">
+                                  </td>
+                             </tr>
+							<tr>
+								<td>Payment Frequency<select class="form-control" name="repayment" form="calculateForm">
 										<option value="365">Daily</option>
 										<option value="52">Weekly</option>
 										<option value="26">Biweekly</option>
@@ -54,25 +116,18 @@
 										<option value="2">Half Yearly</option>
 										<option value="1">Yearly</option>
 								</select></td>
+								
+									<td>Payments
+									<input type="text" name="payments"
+									class="form-control" form="calculateForm" value="0" required>
+									</td>
+									
 							</tr>
-							<tr>
-								<td>Start Date: <input type="date" name="startdate"
-									class="form-control" form="calculateForm" required></td>
-								<td>Maturity Date: <input type="date" name="mdate"
-									class="form-control" form="calculateForm" required></td>
-							</tr>
-							<tr>
-								<td>Amount: <input type="text" name="amount"
-									class="form-control" form="calculateForm" value="0" required></td>
-								<td>Interest Rate: <input type="text" name="irate"
-									class="form-control" form="calculateForm" value="0" required></td>
-								<td>No. of Payments: <input type="text" name="payments"
-									class="form-control" form="calculateForm" value="1" required></td>
-							</tr>
-							<tr>
+<tr>
 								<td><input type="submit" value="Calculate"
 									class="btn btn-primary" form="calculateForm"></td>
 							</tr>
+							
 						</tbody>
 
 					</table>
