@@ -66,6 +66,13 @@
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 										<li><a href="view/dashboard.jsp" target="iframe_a">Dashboard</a></li>
+										<li><a><span class="fa fa-chevron-down"></span>Category</a>
+											<ul class="nav child_menu">
+												<li><a href="category.click" target="iframe_a">
+														Add category</a></li>
+												<li><a href="updatecategory.click" target="iframe_a">update
+														category</a></li>
+											</ul></li>
 									</ul></li>
 								<li><a><i class="fa fa-users" aria-hidden="true"></i> Member(With KYC)
 										<span class="fa fa-chevron-down"></span></a>
