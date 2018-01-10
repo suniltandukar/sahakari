@@ -57,7 +57,10 @@ h5 {
 								</td>
 								<td>
 									<h5>Account Type</h5> <select class="form-control" name="accountType" required >
-										<option value="a">Select Account Type</option>
+										
+										<c:forEach items="${accounttype}" var="at">
+										<option value="${at.accountType }">${at.accountHead }</option>
+										</c:forEach>
 									</select>
 								</td>
 								
@@ -94,13 +97,13 @@ h5 {
 				</thead>
 				<tbody>
 	
-				<c:forEach items="${list}" var="list">
+				<c:forEach items="${categorylist}" var="list">
 											
-					<tr>
+					<tr class="categories">
 						
-						<td>${list.memberid }</td>
-						<td>${list.name }</td>
-						<td>${list.address }</td>
+						<td class="categoryid">${list.categoryId }</td>
+						<td>${list.categoryHead }</td>
+						<td>${list.accountType }</td>
 					</tr>
 					
 					</c:forEach>
@@ -109,7 +112,7 @@ h5 {
 			</div>
 		</div>
 	</div>
-
+<div class="categorymodal"></div>
 	
 	<jsp:include page="/msgmodal"></jsp:include>
 	<script type="text/javascript" src="template/js/form.js"></script> 
@@ -119,6 +122,23 @@ h5 {
 		$('#myModal').modal('show');
 	<%}%>
 	$('#sharetable').DataTable();
+	$('.categoryid').click(function(){
+		var id=$(this).html();
+		var dataString = 'id='+ id;
+		$.ajax
+		({
+		type: "POST",
+		url: "specificCategoryDetail.click",
+		data: dataString,
+		cache: false,
+		success: function(html)
+		{
+		$(".categorymodal").html(html);
+		$('#categoryModal').modal('show');
+		} 
+		});
+	});
+	
 	</script>
 </body>
 </html>

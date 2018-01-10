@@ -326,8 +326,8 @@ h5 {
 	<input type="hidden" class="memberidstatus" value="">
 
 	<jsp:include page="/msgmodal"></jsp:include>
-	<script type="text/javascript" src="assets/js/dynamicselector.js"></script>
-	<script type="text/javascript" src="assets/js/form.js"></script>
+	<script type="text/javascript" src="template/js/selector.js"></script>
+	<script type="text/javascript" src="template/js/form.js"></script>
 	<script>
 	<%if(request.getAttribute("msg")!=null){%>
 	   $('#myModal').modal('show');

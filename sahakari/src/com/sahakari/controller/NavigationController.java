@@ -17,11 +17,14 @@ import org.apache.tomcat.jdbc.pool.DataSource;
 import com.sahakari.account.dao.AccountDao;
 import com.sahakari.account.daoImpl.AccountDaoImpl;
 import com.sahakari.action.GetFormOptions;
+import com.sahakari.dao.CategoryDao;
 import com.sahakari.dao.CustomerDao;
 import com.sahakari.dao.ViewDao;
+import com.sahakari.daoimpl.CategoryDaoImpl;
 import com.sahakari.daoimpl.CustomerDaoImpl;
 import com.sahakari.daoimpl.ViewDaoImpl;
 import com.sahakari.model.AccountModel;
+import com.sahakari.model.CategoryModel;
 import com.sahakari.model.CustomerModel;
 import com.sahakari.model.FamilyRelationModel;
 import com.sahakari.model.TellerTransactionModel;
@@ -46,9 +49,25 @@ public class NavigationController extends HttpServlet {
 		String uri=request.getRequestURI();
 		 if(uri.endsWith("category.click"))
 		{
+			 CategoryDao c=new CategoryDaoImpl();
+			 List<CategoryModel> list=c.selectCategories();
+			 request.setAttribute("categorylist", list);
+			 
+			 List<CategoryModel> accounttype=c.accounttype();
+			 request.setAttribute("accounttype", accounttype);
+			 
 			RequestDispatcher rd=request.getRequestDispatcher("view/categories/insertCategory.jsp");
 			rd.forward(request, response);
 		}
+		 else if(uri.endsWith("specificCategoryDetail.click")){
+			 String id=request.getParameter("id");
+			 CategoryDao c=new CategoryDaoImpl();
+			 CategoryModel cm=c.getSpecificCategoryDetail(id);
+			 request.setAttribute("categorydetail", cm);
+			 
+			RequestDispatcher rd=request.getRequestDispatcher("view/categories/categoryDetailModal.jsp");
+			rd.forward(request, response);
+			}
 		 else if(uri.endsWith("collateralrightinsert.click")){
 			RequestDispatcher rd=request.getRequestDispatcher("view/CollateralRight/Collateral_Right_Form.jsp");
 			rd.forward(request, response);

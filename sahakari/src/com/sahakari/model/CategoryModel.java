@@ -1,7 +1,19 @@
 package com.sahakari.model;
 
 public class CategoryModel {
+	//categories table
 String categoryId, categoryHead, accountType,inputter,authorizer;
+//accounttype table
+String accountHead;
+
+
+public String getAccountHead() {
+	return accountHead;
+}
+
+public void setAccountHead(String accountHead) {
+	this.accountHead = accountHead;
+}
 
 public String getCategoryId() {
 	return categoryId;
