@@ -50,60 +50,53 @@ public class EMICalculator {
             List<EMImodel> list=new ArrayList<EMImodel>();
            
             
-            for (int i = 1; i <= n; i++) {
-            	DecimalFormat df = new DecimalFormat("#.##");
-            	model=new EMImodel();
-                    intPerMonth = (P * R);
-                    P = ((P) - ((e) - (intPerMonth)));
-                   
-                    //for dynamic date
-            		
-                    DateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-            		Date todaydate=new Date();
-            		Date end;
-            	
-            	
-            		
-            		
-            			try {
-            				end = dateformat.parse(loanstartdate);
-            				
-            				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            				
-            				Calendar c = Calendar.getInstance();
-            				c.setTime(end); // Now use today date.
-            				Date date=c.getTime();
-            				
-            				
-            				System.out.println(date+"jksdjflks");
-            				 // Adding 5 days
-            				            				
-            			
-            				
-            				while(todaydate.compareTo(date) > 0){
-            				
-            					c.add(Calendar.DATE, 30);
-            					date=c.getTime();
-            					String output = sdf.format(c.getTime());
-            					
-                				System.out.println("date is"+date);
-
-            					
-            					
-            				}
-            				
-            			} catch (ParseException ex) {
-            				ex.printStackTrace();
-            			}
-            			//model.setDate(output);
-                    model.setMonth((int)i);
-                    model.setInterest(Double.parseDouble(df.format(intPerMonth)));
-                    
-                    model.setPrincipal(Double.parseDouble(df.format((e) - intPerMonth)));
-                    model.setBalance(Double.parseDouble(df.format(P)));
-                    list.add(model);
-                   
-            }
+            
+            
+            //for dynamic date
+    		
+            
+    		try {
+    			DateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+    			Date todaydate=new Date();
+    			Date end;
+    				end = dateformat.parse(loanstartdate);
+    				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    				Calendar c = Calendar.getInstance();
+    				c.setTime(end); // Now use today date.
+    				Date date=c.getTime();
+    				
+    				
+    				
+    				while(todaydate.compareTo(date) > 0){
+    				
+    					c.add(Calendar.DATE, 30);
+    					date=c.getTime();
+    					String output = sdf.format(c.getTime());
+    					
+        				System.out.println("date is"+date);
+        				DecimalFormat df = new DecimalFormat("#.##");
+                    	model=new EMImodel();
+                            intPerMonth = (P * R);
+                            P = ((P) - ((e) - (intPerMonth)));
+                           
+                          
+                    		model.setDate(output);
+                            model.setInterest(Double.parseDouble(df.format(intPerMonth)));
+                            
+                            model.setPrincipal(Double.parseDouble(df.format((e) - intPerMonth)));
+                            model.setBalance(Double.parseDouble(df.format(P)));
+                            list.add(model);
+        				
+        				
+    					
+    					
+    				}
+    				
+    			} catch (ParseException ex) {
+    				ex.printStackTrace();
+    			}
+            
+          
             if(list.size()>0)
             {
             	return list;
