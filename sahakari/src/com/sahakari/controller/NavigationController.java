@@ -44,7 +44,12 @@ public class NavigationController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out=response.getWriter();
 		String uri=request.getRequestURI();
-		if(uri.endsWith("collateralrightinsert.click")){
+		 if(uri.endsWith("category.click"))
+		{
+			RequestDispatcher rd=request.getRequestDispatcher("view/categories/insertCategory.jsp");
+			rd.forward(request, response);
+		}
+		 else if(uri.endsWith("collateralrightinsert.click")){
 			RequestDispatcher rd=request.getRequestDispatcher("view/CollateralRight/Collateral_Right_Form.jsp");
 			rd.forward(request, response);
 		}
