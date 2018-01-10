@@ -62,25 +62,25 @@
 							 <tr>
                                   <td>
                                        <h5>Loan Start Date(B.S.)</h5> <input type="text"
-                                                name="loanstartdate" class="form-control" id="nepaliDate1"
-                                                placeholder="YYYY-MM-DD"  form="form" maxlength="10">
+                                                name="startdate" class="form-control" id="nepaliDate1"
+                                                placeholder="YYYY-MM-DD"  form="calculateForm" maxlength="10">
                                    </td>
                                    <td>
                                                 <h5>Loan Start Date (A.D.)</h5> <input type="text"
-                                                name="loanstartdateen" class="form-control" id="englishDate1"
-                                                placeholder="YYYY-MM-DD"  form="form" maxlength="10">
+                                                name="startdateen" class="form-control" id="englishDate1"
+                                                placeholder="YYYY-MM-DD"  form="calculateForm">
                                   </td>
                              </tr>
                               <tr>
                                   <td>
                                        <h5>Loan Maturity Date(B.S.)</h5> <input type="text"
                                                 name="loanmaturitydate" class="form-control" id="nepaliDate1"
-                                                placeholder="YYYY-MM-DD"  form="form" maxlength="10">
+                                                placeholder="YYYY-MM-DD"  form="calculateForm" maxlength="10">
                                    </td>
                                    <td>
                                                 <h5>Loan Maturity Date (A.D.)</h5> <input type="text"
                                                 name="loanmaturitydateen" class="form-control" id="englishDate1"
-                                                placeholder="YYYY-MM-DD"  form="form" maxlength="10">
+                                                placeholder="YYYY-MM-DD"  form="calculateForm" maxlength="10">
                                   </td>
                              </tr>
                              <tr>
@@ -96,12 +96,12 @@
                                   <td>
                                        <h5>EMI Start Date(B.S.)</h5> <input type="text"
                                                 name="emistart" class="form-control" id="nepaliDate1"
-                                                placeholder="YYYY-MM-DD"  form="form" maxlength="10">
+                                                placeholder="YYYY-MM-DD"  form="calculateForm" maxlength="10">
                                    </td>
                                    <td>
                                                 <h5>EMI Start Date (A.D.)</h5> <input type="text"
                                                 name="emistarten" class="form-control" id="englishDate1"
-                                                placeholder="YYYY-MM-DD"  form="form" maxlength="10">
+                                                placeholder="YYYY-MM-DD"  form="calculateForm" maxlength="10">
                                   </td>
                              </tr>
 							<tr>

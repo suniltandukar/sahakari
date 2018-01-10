@@ -6,6 +6,13 @@ public class EMImodel {
 	private double balance;
 	private double principal;
 	private int month;
+	private String date;
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
 	public double getInterest() {
 		return interest;
 	}

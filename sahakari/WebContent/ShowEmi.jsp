@@ -26,6 +26,7 @@
 				<thead>
 					<tr>
 						<th>S. No.</th>
+						<th>Date</th>
 						<th>Interest</th>
 						<th>Principal</th>
 						<th>Balance</th>
@@ -37,6 +38,7 @@
 											
 					<tr>
 						<td><%=sno %></td>
+						<td>${list.date }</td>
 						<td>${list.interest }</td>
 						<td>${list.principal }</td>
 						<td>${list.balance }</td>
