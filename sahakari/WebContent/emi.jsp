@@ -1,17 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <jsp:include page="/includefile"></jsp:include>
 <html>
-<head>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-</script>
-
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-<title>Insert title here</title>
-</head>
 <body class="background">
 	<div class="breadcrumb-line">
 		<nav aria-label="breadcrumb" role="navigation">
@@ -105,7 +95,7 @@
                                   </td>
                              </tr>
 							<tr>
-								<td>Payment Frequency<select class="form-control" name="repayment" form="calculateForm">
+								<td>Payment Frequency<select id="pf" class="form-control" name="repayment" form="calculateForm">
 										<option value="365">Daily</option>
 										<option value="52">Weekly</option>
 										<option value="26">Biweekly</option>
@@ -121,6 +111,7 @@
 									<input type="text" name="payments"
 									class="form-control" form="calculateForm" value="0" required>
 									</td>
+									<td><input type="text" placeholder="dynamic box" id="db" value=""></td>
 									
 							</tr>
 <tr>
@@ -135,6 +126,22 @@
 			</form>
 		</div>
 	</div>
+	<script>
+$('#pf').change(function() {
+	var selectvalue=$(this).val();
+	 if(selectvalue=="52"){
+		var week='7';	
+	
+		$("#db").val(week);
+	}
+	else{
+		var none='0';	
+		
+		$("#db").val(none);
+	}
+    
+});
+</script>
 	<!-- <script>
 
 	    $('#calculateForm').submit(function (e) {
@@ -156,5 +163,6 @@
 	});
 	    return false;
 </script> -->
+
 </body>
 </html>

@@ -37,7 +37,7 @@ h5 {
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
-				<form class="form-horizontal shareCertForm"  method="post"
+				<form class="form-horizontal"  method="post"
 					action="category.add">
 
 					<table class="table">
@@ -57,7 +57,7 @@ h5 {
 								</td>
 								<td>
 									<h5>Account Type</h5> <select class="form-control" name="accountType" required >
-										<option value="">Select Account Type</option>
+										<option value="a">Select Account Type</option>
 									</select>
 								</td>
 								
@@ -112,19 +112,6 @@ h5 {
 
 	
 	<jsp:include page="/msgmodal"></jsp:include>
-	<div class="modal fade" id="memberidmsgmodal" role="dialog">
-		<div class="modal-dialog modal-sm">
-			<div class="modal-content">
-				<div class="modal-body">
-					<p id="modalmsg"></p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<input type="hidden" class="memberidstatus" value="">
 	<script type="text/javascript" src="template/js/form.js"></script> 
 	<script type="text/javascript">
 		

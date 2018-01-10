@@ -67,7 +67,7 @@ public class EMICalculator {
     				
     				
     				
-    				while(todaydate.compareTo(date) > 0){
+    				do{
     				
     					c.add(Calendar.DATE, 30);
     					date=c.getTime();
@@ -91,6 +91,7 @@ public class EMICalculator {
     					
     					
     				}
+    				while(todaydate.compareTo(date) > 0);
     				
     			} catch (ParseException ex) {
     				ex.printStackTrace();
