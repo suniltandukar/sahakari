@@ -60,7 +60,7 @@ public class EMICalculator {
                     //for dynamic date
             		
                     DateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-            		
+            		Date todaydate=new Date();
             		Date end;
             	
             	
@@ -69,30 +69,34 @@ public class EMICalculator {
             			try {
             				end = dateformat.parse(loanstartdate);
             				
-                    		Calendar cal=new GregorianCalendar();
-                    		cal.setTime(end);
-
-                    		Calendar today=new GregorianCalendar();
-                    		today.setTime(new Date());
-                    		
-                    		int yearsInBetween = today.get(Calendar.YEAR) - cal.get(Calendar.YEAR);
-                    		int monthsDiff = today.get(Calendar.MONTH) - cal.get(Calendar.MONTH);
-
-                    		System.out.println(yearsInBetween+"years");
-                    		System.out.println("Months "+monthsDiff);
-                    		
             				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            				
             				Calendar c = Calendar.getInstance();
             				c.setTime(end); // Now use today date.
+            				Date date=c.getTime();
             				
-            				c.add(Calendar.DATE, i); // Adding 5 days
-            				String output = sdf.format(c.getTime());
-            				System.out.println("date is"+output);
+            				
+            				System.out.println(date+"jksdjflks");
+            				 // Adding 5 days
+            				            				
             			
-            				model.setDate(output);
+            				
+            				while(todaydate.compareTo(date) > 0){
+            				
+            					c.add(Calendar.DATE, 30);
+            					date=c.getTime();
+            					String output = sdf.format(c.getTime());
+            					
+                				System.out.println("date is"+date);
+
+            					
+            					
+            				}
+            				
             			} catch (ParseException ex) {
             				ex.printStackTrace();
             			}
+            			//model.setDate(output);
                     model.setMonth((int)i);
                     model.setInterest(Double.parseDouble(df.format(intPerMonth)));
                     
