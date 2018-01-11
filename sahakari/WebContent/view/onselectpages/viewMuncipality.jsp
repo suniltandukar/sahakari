@@ -11,7 +11,7 @@ System.out.println("reached viewMuncipality");
         Statement smt = con.createStatement(); //Create Statement to interact
         ResultSet rs = smt.executeQuery("select * from vdccodes where (DistrictCode='" + id + "');");
         %>
-        <option value="0" selected>Select muncipality or VDC</option>
+       <option value="0">Select VDC/Muncipality</option>
         <%
         while (rs.next()) {
          %>

@@ -10,7 +10,7 @@
         ResultSet rs = smt.executeQuery("select WardCount from vdccodes where (VDCCode='" + id + "');");
         int i=0;
         %>
-        <option  value="0" selected>Select ward no.</option>
+       <option value="0">Select Ward No</option>
         <%
         while (rs.next()) {
         	for(i=1;i<=Integer.parseInt(rs.getString(1));i++){

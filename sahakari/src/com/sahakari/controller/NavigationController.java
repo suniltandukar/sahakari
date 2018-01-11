@@ -114,13 +114,36 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_View.jsp");
 			rd.forward(request, response);
 		}
-		else if(uri.endsWith("editcustomer.click")){
-			String memberid=request.getParameter("memberid");
-			request.setAttribute("memberid", memberid);
+		else if(uri.endsWith("viewcustomerModal.click")){
+			GetFormOptions g=new GetFormOptions();
+			List<CustomerModel> statuslist=g.getStatus();
+			List<CustomerModel> typelist=g.getType();
+			List<CustomerModel> districtlist=g.getDistrict();
+			request.setAttribute("statuslist", statuslist);
+			request.setAttribute("typelist", typelist);
+			request.setAttribute("districtlist", districtlist);
 			
-			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/Customer_edit.jsp");
+			String id=request.getParameter("id");
+			List<FamilyRelationModel> familyrelationlist=g.getfamilyRelationNames();
+			request.setAttribute("familyrelationlist", familyrelationlist);
+			
+			ViewDao v=new ViewDaoImpl();
+			CustomerModel c=v.viewSpecificCustomerDetail(id);
+			request.setAttribute("cdetail", c);
+			
+			List<CustomerModel> customerFamilylist=v.viewCustomerFamilyDetail(id);
+			request.setAttribute("cusFamilyDetail", customerFamilylist);
+			
+			List<CustomerModel> customerJoblist=v.viewCustomerJobDetail(id);
+			request.setAttribute("cusJobDetail", customerJoblist);
+			
+			List<CustomerModel> customerBankDetailList=v.viewCustomerBankDetail(id);
+			request.setAttribute("customerBankDetail", customerBankDetailList);
+			
+			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/customerCompleteDetailModal.jsp");
 			rd.forward(request, response);
 		}
+		
 		else if(uri.endsWith("customereditdisplayform.click")){
 			GetFormOptions g=new GetFormOptions();
 			List<CustomerModel> statuslist=g.getStatus();
@@ -131,7 +154,6 @@ public class NavigationController extends HttpServlet {
 			request.setAttribute("districtlist", districtlist);
 			
 			String id=request.getParameter("id");
-			
 			List<FamilyRelationModel> familyrelationlist=g.getfamilyRelationNames();
 			request.setAttribute("familyrelationlist", familyrelationlist);
 			

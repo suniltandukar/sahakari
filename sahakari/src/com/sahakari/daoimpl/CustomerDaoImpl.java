@@ -349,7 +349,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		return false;
 	}
 	public boolean updateCustomer(String pid, CustomerModel cm){
-		String query="update customertbl set memberid=?, registrationDate=?, name=?, gender=?, pdistid=?, pvdcmunid=?, pwardno=?, pcity=?, ptole=?, tdistid=?, tvdcmunid=?, twardno=?, tcity=?,ttole=?,citizenshipNo=?,citizenshipIssuedFrom=?,telno=?, mobno=?,fatherName=?,spouseName=?,dob=?,typeid=?,statusid=?,inputter=?,authorizer=?,insertStatus=?, updateStatus=?, delStatus=? where pid='"+pid+"'";
+		String query="update customertbl set memberid=?, registrationDate=?, name=?, gender=?, pdistid=?, pvdcmunid=?, pwardno=?, pcity=?, ptole=?, tdistid=?, tvdcmunid=?, twardno=?, tcity=?,ttole=?,citizenshipNo=?,citizenshipIssuedFrom=?,telno=?, mobno=?,fatherName=?,spouseName=?,dob=?,typeid=?,statusid=?,inputter=?,authorizer=?,insertStatus=?, updateStatus=?, delStatus=?, address=? where pid='"+pid+"'";
 		try{
 			int i=0;
 			con=DBConnection.getConnection();
@@ -382,6 +382,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(26, cm.getInsertStatus());
 			ps.setString(27, cm.getUpdateStatus());
 			ps.setString(28, cm.getDelStatus());
+			ps.setString(29, cm.getAddress());
 			i=ps.executeUpdate();
 			if(i>0){
 				return true;

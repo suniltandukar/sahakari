@@ -176,7 +176,7 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 	public void updateCustomer(HttpServletRequest request,
 			HttpServletResponse response) {
 		CustomerModel cm=new CustomerModel();
-		String pid, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, cusCitizenshipNo, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus;
+		String pid,address, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, cusCitizenshipNo, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus;
 		String[] cusJob, cusInstitution, cusPost, incomePeryear, jremarks;
 		String[] cusRelation,cusRelName,dateOfBirth,fcitizenshipNo,fremarks;
 		String[] bankName, accountNumber, accountType, bremarks;
@@ -200,7 +200,7 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		
 		
 		
-	
+		address=request.getParameter("address");
 		memberid=request.getParameter("memberid");
 		registrationDate=request.getParameter("registrationDate");
 		name=request.getParameter("name");
@@ -233,6 +233,7 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		updateStatus="0";
 		delStatus="0";
 		
+		cm.setAddress(address);
 		cm.setMemberid(memberid);
 		cm.setRegistrationDate(registrationDate);
 		cm.setName(name);

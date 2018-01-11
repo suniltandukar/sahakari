@@ -32,9 +32,10 @@ public class ViewDaoImpl implements ViewDao{
 			{
 				
 				cust=new CustomerModel();
+				cust.setPid(rs.getString("pid"));
 				cust.setMemberid(rs.getString("memberid"));
 				cust.setRegistrationDate(rs.getString("registrationDate"));
-
+				cust.setAddress(rs.getString("address"));
 				cust.setName(rs.getString("Name"));
 				cust.setGender(rs.getString("Gender"));
 				cust.setDob(rs.getString("Dob"));
@@ -60,7 +61,7 @@ public class ViewDaoImpl implements ViewDao{
 	}
 	public CustomerModel viewSpecificCustomerDetail(String id)
 	{
-		String query="select * from customerdetail where memberid=? ";
+		String query="select * from customerdetail where pid=? ";
 		try {
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
@@ -70,6 +71,7 @@ public class ViewDaoImpl implements ViewDao{
 			{
 				cust=new CustomerModel();
 				cust.setPid(rs.getString("pid"));
+				cust.setAddress(rs.getString("address"));
 				cust.setMemberid(rs.getString("memberid"));
 				cust.setRegistrationDate(rs.getString("registrationDate"));
 				cust.setName(rs.getString("Name"));
