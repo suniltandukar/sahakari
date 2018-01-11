@@ -83,7 +83,7 @@ public class GetFormOptions {
 	}
 	public List<FamilyRelationModel> getfamilyRelationNames(){
 		List<FamilyRelationModel> list=new ArrayList<FamilyRelationModel>();
-		String query="SELECT * from familyRelationtbl;";
+		String query="SELECT * from familyrelationtbl;";
 		FamilyRelationModel fr=null;
 		try {
 			con=DBConnection.getConnection();
