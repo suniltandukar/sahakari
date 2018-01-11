@@ -14,19 +14,7 @@ h5 {
 </style>
 </head>
 <body class="background">
-
-	<div class="breadcrumb-line">
-		<nav aria-label="breadcrumb" role="navigation">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><i class="fa fa-home"
-					aria-hidden="true"></i>&nbsp;<a href="#">Home</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Category</li>
-				<li class="breadcrumb-item active" aria-current="page">Update</li>
-			</ol>
-		</nav>
-	</div>
 	<div class="col-md-12 col-sm-12 col-xs-12">
-
 		<div class="x_panel">
 			<div class="x_title">
 				<h2>UPDATE CATEGORY</h2>
@@ -38,26 +26,32 @@ h5 {
 			</div>
 			<div class="x_content">
 				<form class="form-horizontal shareCertForm" id="form1" method="post"
-					action="shareCertificate.add">
+					action="category.update">
 
 					<table class="table">
 						<tbody>
 							<tr>
-								<td><input type="submit" class="btn btn-success"
-									value="Save"></td>
+								<td><input type="submit" class="btn btn-success cm"
+									value="Update"></td>
+									<td></td>
+									<td><a class="btn btn-info pull-right" href="category.click">Go Back</a></td>
 							</tr>
 							<tr>
 								<td>
+								<input type="hidden" name="previousid" value="${categorydetail.categoryId }">
 									<h5>Category ID</h5> <input type="text" class="form-control"
-									name="categoryId" value="" required>
+									name="categoryId" value="${categorydetail.categoryId }" required>
 								</td>
 								<td>
 									<h5>Category Head</h5> <input type="text" class="form-control "
-									name="categoryHead" value="">
+									name="categoryHead" value="${categorydetail.categoryHead }">
 								</td>
 								<td>
-									<h5>Account Type</h5> <select name="accountType">
-										<option value="">Select Account Type</option>
+									<h5>Account Type</h5> <select name="accountType" class="form-control" required>
+										<option value="${categorydetail.accountType }">${categorydetail.accountType }</option>
+										<c:forEach items="${accounttype}" var="at">
+										<option value="${at.accountType }">${at.accountHead }</option>
+										</c:forEach>
 								</select>
 								</td>
 
@@ -69,5 +63,10 @@ h5 {
 			</div>
 		</div>
 	</div>
+	<script>
+	$('.cm').click(function(){
+		return confirm('Confirm?');
+	});
+	</script>
 </body>
 </html>

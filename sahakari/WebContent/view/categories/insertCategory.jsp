@@ -11,6 +11,10 @@ h5 {
 	font-size: 80%;
 	font-weight: bold;
 }
+/* .borderless td, .borderless th {
+    border-bottom-style: hidden;
+     border-top-style: hidden;
+} */
 </style>
 </head>
 <body class="background">
@@ -40,7 +44,7 @@ h5 {
 				<form class="form-horizontal"  method="post"
 					action="category.add">
 
-					<table class="table">
+					<table class="table borderless" >
 						<tbody>
 							<tr>
 								<td><input type="submit" class="btn btn-success"
@@ -76,7 +80,7 @@ h5 {
 
 		<div class="x_panel">
 			<div class="x_title">
-				<h2>MEMBER DETAILS</h2>
+				<h2>CATEGORIES DETAILS</h2>
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
@@ -138,7 +142,6 @@ h5 {
 		} 
 		});
 	});
-	
 	</script>
 </body>
 </html>

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sahakari.action.AccountAction;
+import com.sahakari.action.CategoryAction;
 import com.sahakari.action.CustomerAction;
 import com.sahakari.action.TransactionAction;
 import com.sahakari.dao.ViewDao;
@@ -55,6 +56,10 @@ public class DeleteController extends HttpServlet {
 			TransactionAction ta=new TransactionAction();
 			
 			ta.deTransactionAccount(request,response);
+		}
+		if(uri.endsWith("category.del")){
+			CategoryAction c=new CategoryAction();
+			c.deleteCategory(request,response);
 		}
 	}
 

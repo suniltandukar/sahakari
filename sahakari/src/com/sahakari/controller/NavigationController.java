@@ -59,6 +59,18 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/categories/insertCategory.jsp");
 			rd.forward(request, response);
 		}
+		 else if(uri.endsWith("updateCategory.click")){
+			 String id=request.getParameter("id");
+			 CategoryDao c=new CategoryDaoImpl();
+			 CategoryModel cm=c.getSpecificCategoryDetail(id);
+			 request.setAttribute("categorydetail", cm);
+			 
+			 List<CategoryModel> accounttype=c.accounttype();
+			 request.setAttribute("accounttype", accounttype);
+			 
+			 RequestDispatcher rd=request.getRequestDispatcher("view/categories/updateCategory.jsp");
+				rd.forward(request, response);
+		 }
 		 else if(uri.endsWith("specificCategoryDetail.click")){
 			 String id=request.getParameter("id");
 			 CategoryDao c=new CategoryDaoImpl();

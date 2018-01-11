@@ -119,6 +119,45 @@ public class CategoryDaoImpl implements CategoryDao {
 		}
 		return null;
 	}
-	
+	public boolean deleteCategory(String id){
+		try{
+			String query="delete from categories where categoryId='"+id+"'";
+			con=DBConnection.getConnection();
+			ps=con.clientPrepareStatement(query);
+			int i=ps.executeUpdate();
+			if(i>0){
+				con.close();
+				ps=null;
+				return true;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
+	public boolean updateCategory(CategoryModel cm, String previousid){
+		try{
+			String query="update categories set categoryId=?,categoryHead=?,accountType=?,inputter=?,authorizer=? where categoryId=?";
+			con=DBConnection.getConnection();
+			ps=con.clientPrepareStatement(query);
+			ps.setString(1, cm.getCategoryId());
+			ps.setString(2, cm.getCategoryHead());
+			ps.setString(3, cm.getAccountType());
+			ps.setString(4, cm.getInputter());
+			ps.setString(5, cm.getAuthorizer());
+			ps.setString(6, previousid);
+			int i=ps.executeUpdate();
+			if(i>0){
+				con.close();
+				ps=null;
+				return true;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
 
 }

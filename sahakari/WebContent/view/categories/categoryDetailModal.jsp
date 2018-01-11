@@ -30,11 +30,16 @@
         </div>
         <div class="modal-footer">
         <div class="pull-left">
-        <a class="btn btn-success">Edit</a>
-        <a class="btn btn-danger">Delete</a>
+        <a class="btn btn-success" id="update" href="updateCategory.click?id=${categorydetail.categoryId }">Edit</a>
+        <a class="btn btn-danger cm" href="category.del?id=${categorydetail.categoryId }">Delete</a>
         </div>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
 </div>
+<script>
+$('.cm').click(function(){
+	return confirm('Confirm?');
+});
+</script>

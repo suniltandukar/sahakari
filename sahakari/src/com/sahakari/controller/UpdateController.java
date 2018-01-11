@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sahakari.action.AccountAction;
+import com.sahakari.action.CategoryAction;
 import com.sahakari.action.CustomerAction;
 import com.sahakari.action.TransactionAction;
 @WebServlet("/UpdateController")
@@ -50,6 +51,10 @@ public class UpdateController extends HttpServlet {
 		if(uri.endsWith("transaction.update")){
 			TransactionAction ta=new TransactionAction();
 			ta.updateTransaction(request,response);
+		}
+		if(uri.endsWith("category.update")){
+			CategoryAction ca=new CategoryAction();
+			ca.updateCategory(request,response);
 		}
 		
 	}

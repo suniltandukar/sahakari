@@ -9,6 +9,8 @@ public interface CategoryDao {
 	public boolean insertCategory(CategoryModel cm);
 	public List<CategoryModel> selectCategories();
 	public CategoryModel getSpecificCategoryDetail(String id);
+	public boolean deleteCategory(String id);
+	public boolean updateCategory(CategoryModel cm, String previousid);
 	
 
 }
