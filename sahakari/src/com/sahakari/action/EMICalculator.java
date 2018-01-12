@@ -110,6 +110,9 @@ public class EMICalculator {
                             model.setBalance(Double.parseDouble(df.format(P)));
                             list.add(model);
     						}
+    						else{
+    							break;
+    						}
     					}
     				
     				}
@@ -160,11 +163,22 @@ public class EMICalculator {
 				
 				int no=1;
 				while(loanmaturitydate.compareTo(date) > 0){
+					long difference =  loanmaturitydate.getTime()-emi.getTime();
+				       float daysBetween = (difference / (1000*60*60*24));
+			             
+				       System.out.println("Number of Days between dates: "+daysBetween);
+					if(occurence<=daysBetween){
 					no=no+1;
 					c.add(Calendar.DATE, occurence);
 					date=c.getTime();
 					String output = sdf.format(c.getTime());
 					System.out.println(output+"output");
+					
+					
+					}
+					else{
+						break;
+					}
 				}
 				System.out.println("The value of n is"+no);
 		
