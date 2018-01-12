@@ -58,22 +58,25 @@ public class EMICalculator {
     		try {
     			DateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
     			
-    			Date end;
-    				end = dateformat.parse(emistart);
+    			Date emi;
+    				emi = dateformat.parse(emistart);
     				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     				Calendar c = Calendar.getInstance();
-    				c.setTime(end); // Now use today date.
+    				c.setTime(emi); // Now use today date.
     				Date date=c.getTime();
     				
     				
     				
     				int test=1;
-    				while(loanmaturitydate.compareTo(date) > 0){
+    				while(loanmaturitydate.compareTo(emi) > 0) {
     				
-    					if(loanmaturitydate.compareTo(date) < 0)
-    					{
-    						
-    					}
+    					
+    					long difference =  loanmaturitydate.getTime()-emi.getTime();
+    				       float daysBetween = (difference / (1000*60*60*24));
+    			             
+    				       System.out.println("Number of Days between dates: "+daysBetween);
+    				       
+    					
     					System.out.println("date is"+date);
         				DecimalFormat df = new DecimalFormat("#.##");
                     	model=new EMImodel();
@@ -92,8 +95,10 @@ public class EMICalculator {
                             test+=test;
     					}
     					else{
+    						if(occurence<=daysBetween)
+    						{
     					c.add(Calendar.DATE, occurence);
-    					date=c.getTime();
+    					emi=c.getTime();
     					String output = sdf.format(c.getTime());
     					
         			
@@ -104,6 +109,7 @@ public class EMICalculator {
                             model.setPrincipal(Double.parseDouble(df.format((e) - intPerMonth)));
                             model.setBalance(Double.parseDouble(df.format(P)));
                             list.add(model);
+    						}
     					}
     				
     				}
@@ -150,6 +156,7 @@ public class EMICalculator {
 				Calendar c = Calendar.getInstance();
 				c.setTime(emi); // Now use today date.
 				Date date=c.getTime();
+				
 				
 				int no=1;
 				while(loanmaturitydate.compareTo(date) > 0){
