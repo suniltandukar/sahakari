@@ -96,10 +96,10 @@
                              </tr>
 							<tr>
 								<td>Payment Frequency<select id="pf" class="form-control" name="repayment" form="calculateForm">
-										<option value="365">Daily</option>
-										<option value="52">Weekly</option>
+										<option value="365,1">Daily</option>
+										<option value="52,7">Weekly</option>
 										<option value="26">Biweekly</option>
-										<option value="12">Monthly</option>
+										<option value="12,30">Monthly</option>
 										<option value="24">Semi Monthly</option>
 										<option value="6">Bimonthly</option>
 										<option value="4">Semi Yearly</option>
@@ -107,11 +107,7 @@
 										<option value="1">Yearly</option>
 								</select></td>
 								
-									<td>Payments
-									<input type="text" name="payments"
-									class="form-control" form="calculateForm" value="0" required>
-									</td>
-									<td><input type="text" placeholder="dynamic box" id="db" value=""></td>
+									
 									
 							</tr>
 <tr>
@@ -126,7 +122,7 @@
 			</form>
 		</div>
 	</div>
-	<script>
+	<!-- <script>
 $('#pf').change(function() {
 	var selectvalue=$(this).val();
 	 if(selectvalue=="52"){
@@ -134,6 +130,16 @@ $('#pf').change(function() {
 	
 		$("#db").val(week);
 	}
+	 else if(selectvalue=="12"){
+			var month='30';	
+		
+			$("#db").val(month);
+		}
+	 elst if(selectvalue=="1"){
+			var year='365';	
+		
+			$("#db").val(365);
+		}
 	else{
 		var none='0';	
 		
@@ -141,7 +147,7 @@ $('#pf').change(function() {
 	}
     
 });
-</script>
+</script> -->
 	<!-- <script>
 
 	    $('#calculateForm').submit(function (e) {
