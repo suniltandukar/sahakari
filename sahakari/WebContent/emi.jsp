@@ -98,13 +98,13 @@
 								<td>Payment Frequency<select id="pf" class="form-control" name="repayment" form="calculateForm">
 										<option value="365,1">Daily</option>
 										<option value="52,7">Weekly</option>
-										<option value="26">Biweekly</option>
+										<option value="26,14">Biweekly</option>
 										<option value="12,30">Monthly</option>
-										<option value="24">Semi Monthly</option>
-										<option value="6">Bimonthly</option>
-										<option value="4">Semi Yearly</option>
-										<option value="2">Half Yearly</option>
-										<option value="1">Yearly</option>
+										<option value="24,45">Semi Monthly</option>
+										<option value="6,60">Bimonthly</option>
+										<option value="4,120">Semi Yearly</option>
+										<option value="2,180">Half Yearly</option>
+										<option value="1,365">Yearly</option>
 								</select></td>
 								
 									

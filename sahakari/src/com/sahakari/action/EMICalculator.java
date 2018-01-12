@@ -111,6 +111,19 @@ public class EMICalculator {
                             list.add(model);
     						}
     						else{
+    							c.add(Calendar.DATE, (int) daysBetween);
+    	    					emi=c.getTime();
+    	    					String output = sdf.format(c.getTime());
+    	    					
+    	        			
+    	                          
+    	                    		model.setDate(output);
+    	                            model.setInterest(Double.parseDouble(df.format(intPerMonth)));
+    	                            
+    	                            model.setPrincipal(Double.parseDouble(df.format((e) - intPerMonth)));
+    	                            model.setBalance(Double.parseDouble(df.format(P)));
+    	                            list.add(model);
+    							
     							break;
     						}
     					}
@@ -177,6 +190,13 @@ public class EMICalculator {
 					
 					}
 					else{
+						no=no+1;
+						c.add(Calendar.DATE, (int) daysBetween);
+						date=c.getTime();
+						String output = sdf.format(c.getTime());
+						System.out.println(output+"output");
+						
+						
 						break;
 					}
 				}
