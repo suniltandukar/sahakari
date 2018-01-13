@@ -80,4 +80,14 @@
     <servlet-name>UserController</servlet-name>
     <url-pattern>*.user</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>DateConverter</display-name>
+    <servlet-name>DateConverter</servlet-name>
+    <servlet-class>com.sahakari.user.controller.DateConverter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DateConverter</servlet-name>
+    <url-pattern>*.convertDate</url-pattern>
+  </servlet-mapping>
 </web-app>

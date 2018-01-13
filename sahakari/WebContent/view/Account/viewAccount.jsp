@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="/includefile"></jsp:include>
 <html>
+<style>
+.resulttable{
+display:none;}
+</style>
 <head>
-
 </head>
-<body class="bgcolor hiddenscroll">
+<body class="background">
 	<div class="breadcrumb-line">
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">
@@ -17,57 +20,57 @@
 			</ol>
 		</nav>
 	</div>
+	<div class="col-md-12 col-sm-12 col-xs-12 ">
 
-	<div class="panel panel-default" style="width: 95%; margin: auto;">
-		<div class="panel-heading">
-			<h6>
-				<strong>Account Details</strong>
-			</h6>
-		</div>
-		<div class="panel-body">
-			<table id="example" class="display table table-striped table-bordered"
-				cellspacing="0" width="100%">
-				<thead>
-					<tr>
-						<th>S. No.</th>
-						<th>Member Id</th>
-						<th>Account Number</th>
-						<th>Account Type</th>
-						<th>Account Name</th>
-						<th><i class="fa fa-cog" aria-hidden="true"></i></th>
-					</tr>
-				</thead>
-				<tbody>
-	<%int sno=1; %>
-						<c:forEach items="${accountlist }" var="list">				
-					<tr>
-						<td><%=sno %></td>
-						<td>${list.memberid }</td>
-						<td>${list.accountNumber }</td>
-						<td>${list.accountType }</td>
-						<td>${list.accountName }</td>
-						<td><div class="dropdown">
-								<button class="btn btn-default dropdown-toggle" type="button"
-									data-toggle="dropdown">
-									Action <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="editaccount.click?accountNumber=${list.accountNumber }" style="color: blue;"><i
-											class="fa fa-eye" aria-hidden="true"></i> Show Detail</a></li>
-									<li><a class="clickbtn" href="account.del?id=${list.accountNumber }"
-										style="color: red;"><i class="fa fa-trash-o"
-											aria-hidden="true"></i> Delete</a></li>
-								</ul>
-							</div>
-							</td>
-					</tr>
-					<%sno++; %>
-					</c:forEach>	
-				</tbody>
-			</table>
+		<div class="x_panel">
+			<div class="x_title">
+				<h2>
+					<B>MEMBER ACCOUNT DETAILS</B>
+				</h2>
+
+				<a href="insertaccount.click" class="btn btn-info pull-right btn-sm"
+					href="">Add New Account</a>
+
+
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+			<div class="loader"><p>Loading Please Wait......</p></div>
+				<table id="datatable"
+					class="table jambo_table table-striped table-bordered resulttable"
+					style="font-size: 100%;">
+					<thead>
+						<tr>
+							<th>Member Id</th>
+							<th>Legacy Member Id</th>
+							<th>Account Number</th>
+							<th>Account Type</th>
+							<th>Account Name</th>
+							<th>Balance</th>
+							<th><i class="fa fa-cog" aria-hidden="true"></i></th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${accountlist }" var="list">
+							<tr>
+								<td>${list.pid }</td>
+								<td>${list.memberid }</td>
+								<td>${list.accountNumber }</td>
+								<td>${list.accountType }</td>
+								<td>${list.accountName }</td>
+								<td>${list.openingBal }</td>
+								<td><a
+									href="editaccount.click?accountNumber=${list.accountNumber }"
+									 class="btn btn-primary btn-xs">View</a> &nbsp;&nbsp;&nbsp;&nbsp;
+										<a href="account.del?id=${list.accountNumber }"
+									class="clickbtn btn btn-danger btn-xs">Remove</a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
-
 	<div class="modal fade" id="myModal" role="dialog">
 		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
@@ -81,15 +84,21 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-	$('.clickbtn').click(function() {
-		return confirm('CONFIRM?');
-	});
+	 $('#datatable').each(function() 
+				{
+			$(".resulttable").show();
+					$(".loader").hide();
+				});
+			$('.clickbtn').click(function() {
+				return confirm('CONFIRM?');
+			}); 
+		$('.clickbtn').click(function() {
+			return confirm('CONFIRM?');
+		});
 	<%if (request.getAttribute("msg") != null) {%>
-	$('#myModal').modal('show');
-<%}%>
-	 $('#example').DataTable();
-		
-		
+		$('#myModal').modal('show');
+	<%}%>
+		$('#example').DataTable();
 	</script>
 </body>
 </html>

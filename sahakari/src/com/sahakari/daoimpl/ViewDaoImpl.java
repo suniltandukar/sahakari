@@ -124,7 +124,7 @@ public class ViewDaoImpl implements ViewDao{
 	public List<CustomerModel> viewCustomerFamilyDetail(String id){
 		List<CustomerModel> list=new ArrayList<CustomerModel>();
 		CustomerModel cust=null;
-		String query="select familydetail.* from familydetail join customertbl on customertbl.pid=familydetail.pid where customertbl.memberid='"+id+"' ";
+		String query="select familydetail.* from familydetail join customertbl on customertbl.pid=familydetail.pid where customertbl.pid='"+id+"' ";
 		try {
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
@@ -154,7 +154,7 @@ public class ViewDaoImpl implements ViewDao{
 	public List<CustomerModel> viewCustomerJobDetail(String id){
 		List<CustomerModel> list=new ArrayList<CustomerModel>();
 		CustomerModel cust=null;
-		String query="select jobdetail.* from jobdetail join customertbl on customertbl.pid=jobdetail.pid where customertbl.memberid='"+id+"' ";
+		String query="select jobdetail.* from jobdetail join customertbl on customertbl.pid=jobdetail.pid where customertbl.pid='"+id+"' ";
 		try {
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
@@ -185,7 +185,7 @@ public class ViewDaoImpl implements ViewDao{
 	public List<CustomerModel> viewCustomerBankDetail(String id){
 		List<CustomerModel> list=new ArrayList<CustomerModel>();
 		CustomerModel cust=null;
-		String query="select bankaccountdetail.* from bankaccountdetail join customertbl on customertbl.pid=bankaccountdetail.pid where customertbl.memberid='"+id+"' ";
+		String query="select bankaccountdetail.* from bankaccountdetail join customertbl on customertbl.pid=bankaccountdetail.pid where customertbl.pid='"+id+"' ";
 		try {
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);

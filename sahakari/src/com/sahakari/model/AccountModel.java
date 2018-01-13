@@ -1,7 +1,15 @@
 package com.sahakari.model;
 
 public class AccountModel {
-	String pid, memberid, accountNumber,alternativeAccounId, accountName, limitRef, inputter;
+	String pid, memberid, accountNumber,alternativeAccounId, accountName, limitRef, inputter, openingBal;
+	public String getOpeningBal() {
+		return openingBal;
+	}
+
+	public void setOpeningBal(String openingBal) {
+		this.openingBal = openingBal;
+	}
+
 	String categoryId, categoryHead;
 	String accountType, accountTypeHead;
 	String previousAccountNumber;
