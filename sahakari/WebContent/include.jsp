@@ -22,6 +22,7 @@
     <link href="template/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="template/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="template/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <link href="template/css/switchery.min.css" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link href="template/css/font-awesome.min.css" rel="stylesheet">
@@ -56,6 +57,8 @@
     <script src="template/js/jszip.min.js"></script>
     <script src="template/js/pdfmake.min.js"></script>
     <script src="template/js/vfs_fonts.js"></script>
+      <script src="template/js/switchery.min.js"></script>
+    
     <!-- FastClick -->
     <script src="template/js/fastclick.js"></script>
     <!-- NProgress -->
