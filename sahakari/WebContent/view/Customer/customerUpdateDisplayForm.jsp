@@ -119,7 +119,7 @@ h5 {
 													name="mobno" maxlength="10" value="${cdetail.mobno }">
 												</td>
 												<td>
-													<h5>Father's Name</h5> <input type="text"
+													<h5>VAT/PAN</h5> <input type="text"
 													class="form-control" name="fatherName"
 													value="${cdetail.fatherName }">
 												</td>

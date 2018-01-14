@@ -47,7 +47,7 @@ h5 {
 										<th>Citizenship Issued From</th>
 										<th>Telephone No</th>
 										<th>Mobile No</th>
-										<th>Father's Name</th>
+										<th>VAT/PAN</th>
 										<th>Spouse Name</th>
 										<th>DOB</th>
 										<th>Type</th>
