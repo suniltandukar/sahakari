@@ -49,28 +49,28 @@
 									class="form-control" form="calculateForm"  required>
 									</td>
 							</tr>
-							 <tr>
+							 <tr data-column="2">
                                   <td>
                                        <h5>Loan Start Date(B.S.)</h5> <input type="text"
-                                                name="startdate" class="form-control" id="nepaliDate1"
+                                                name="startdate" class="form-control nepaliDate" id="nepaliDate2"
                                                 placeholder="YYYY-MM-DD"  form="calculateForm" maxlength="10">
                                    </td>
                                    <td>
                                                 <h5>Loan Start Date (A.D.)</h5> <input type="text"
-                                                name="startdateen" class="form-control" id="englishDate1"
+                                                name="startdateen" class="form-control englishDate" id="englishDate2"
                                                 placeholder="YYYY-MM-DD"  form="calculateForm">
                                   </td>
                              </tr>
-                              <tr>
+                              <tr data-column="1" >
                                   <td>
                                        <h5>Loan Maturity Date(B.S.)</h5> <input type="text"
-                                                name="loanmaturitydate" class="form-control" id="nepaliDate1"
-                                                placeholder="YYYY-MM-DD"  form="calculateForm" maxlength="10">
+                                                name="loanmaturitydate" class="form-control nepaliDate" id="nepaliDate1"
+                                                placeholder="YYYY-MM-DD"  form="calculateForm" maxlength="10" >
                                    </td>
                                    <td>
                                                 <h5>Loan Maturity Date (A.D.)</h5> <input type="text"
-                                                name="loanmaturitydateen" class="form-control" id="englishDate1"
-                                                placeholder="YYYY-MM-DD"  form="calculateForm" maxlength="10">
+                                                name="loanmaturitydateen" class="form-control englishDate" id="englishDate1"
+                                                placeholder="YYYY-MM-DD"  form="calculateForm" maxlength="10" data-column="1">
                                   </td>
                              </tr>
                              <tr>
@@ -82,15 +82,15 @@
 									   			<input type="radio" name="variable" class="form-control">Variable
 									   												</td> -->
 							</tr>	
-							<tr>
+							<tr data-column="3" >
                                   <td>
                                        <h5>EMI Start Date(B.S.)</h5> <input type="text"
-                                                name="emistart" class="form-control" id="nepaliDate1"
+                                                name="emistart" class="form-control nepaliDate" id="nepaliDate3"
                                                 placeholder="YYYY-MM-DD"  form="calculateForm" maxlength="10">
                                    </td>
                                    <td>
                                                 <h5>EMI Start Date (A.D.)</h5> <input type="text"
-                                                name="emistarten" class="form-control" id="englishDate1"
+                                                name="emistarten" class="form-control englishDate" id="englishDate3"
                                                 placeholder="YYYY-MM-DD"  form="calculateForm" maxlength="10">
                                   </td>
                              </tr>
@@ -122,53 +122,44 @@
 			</form>
 		</div>
 	</div>
-	<!-- <script>
-$('#pf').change(function() {
-	var selectvalue=$(this).val();
-	 if(selectvalue=="52"){
-		var week='7';	
+	<script type="text/javascript">
 	
-		$("#db").val(week);
-	}
-	 else if(selectvalue=="12"){
-			var month='30';	
+	$('input.englishDate').on( 'blur', function () {
+		var i=$(this).parents('tr').attr('data-column');
 		
-			$("#db").val(month);
-		}
-	 elst if(selectvalue=="1"){
-			var year='365';	
+		var date=$(this).val();
+		var dataString = 'date='+ date;
+		$.ajax
+		({
+		type: "POST",
+		url: "englishToNepali.convertDate",
+		data: dataString,
+		cache: false,
+		success: function(html)
+		{
+		$("#nepaliDate"+i).val(html);
+		} 
 		
-			$("#db").val(365);
-		}
-	else{
-		var none='0';	
-		
-		$("#db").val(none);
-	}
-    
-});
-</script> -->
-	<!-- <script>
-
-	    $('#calculateForm').submit(function (e) {
-		    {
-		    	
-		    alert('hello');
-		 $.ajax
-	        ({
-	        	alert('hello');
-	        data: $(this).serialize(),
-	        type: 'POST',
-	        url: 'calculate.add',
-	        success: function(response)
-	        {
-	        	 $('.x_panel').find('.displayform').html(response);
-	        } 
-	        });
-		 
+		  } );
 	});
-	    return false;
-</script> -->
 
+	$('input.nepaliDate').on( 'blur', function () {
+		
+		var i=$(this).parents('tr').attr('data-column');
+			var date=$(this).val();
+			var dataString = 'date='+ date;
+			$.ajax
+			({
+			type: "POST",
+			url: "nepaliToEnglish.convertDate",
+			data: dataString,
+			cache: false,
+			success: function(html)
+			{
+			$("#englishDate"+i).val(html);
+			} 
+			});
+		});
+</script>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body class="background">
 <input type="text" name="englishDate" id="englishDate" placeholder="English date">
 <input type="text" name="nepaliDate" id="nepaliDate" placeholder="Nepali date">
 <script>

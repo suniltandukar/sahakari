@@ -26,7 +26,7 @@ public class EMICalculator {
             return e;
     }
 
-    public List<EMImodel> calcEmiAllMonths(double p, double r, double n,int re,String emistart,int occurence,Date loanmaturitydate ) {
+    public List<EMImodel> calcEmiAllMonths(double p, double r, double n,int re,String emistarten,int occurence,Date loanmaturitydate ) {
 
             double R = r /(re*100);
             double P = p;
@@ -59,7 +59,7 @@ public class EMICalculator {
     			DateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
     			
     			Date emi;
-    				emi = dateformat.parse(emistart);
+    				emi = dateformat.parse(emistarten);
     				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     				Calendar c = Calendar.getInstance();
     				c.setTime(emi); // Now use today date.
@@ -144,11 +144,21 @@ public class EMICalculator {
     		
             return null;
     }
+  
+    
 
 	public List<EMImodel> calculate(HttpServletRequest request, HttpServletResponse response) {
 		String emistart=request.getParameter("emistart");
+		String emistarten=request.getParameter("emistarten");
 		String loanmaturity=request.getParameter("loanmaturitydate");
-		String mdate=request.getParameter("mdate");
+		String loanmaturityen=request.getParameter("loanmaturitydateen");
+		String loanstartdate=request.getParameter("loanstartdate");
+		String loanstartdateen=request.getParameter("loanstartdateen");
+				
+		
+		String accountholder=request.getParameter("accountholder");
+		String accountno=request.getParameter("accountno");
+		String emiliquidationaccount=request.getParameter("emiliquidation");
 		
 		double irate=Double.parseDouble(request.getParameter("irate"));
 		//int repayment=Integer.parseInt(request.getParameter("repayment"));
@@ -166,8 +176,8 @@ public class EMICalculator {
 		Date emi;
 		Date loanmaturitydate;
 			try {
-				emi = dateformat.parse(emistart);
-				loanmaturitydate=dateformat.parse(loanmaturity);
+				emi = dateformat.parse(emistarten);
+				loanmaturitydate=dateformat.parse(loanmaturityen);
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 				Calendar c = Calendar.getInstance();
 				c.setTime(emi); // Now use today date.
@@ -208,7 +218,7 @@ public class EMICalculator {
 		
 		
 		
-		List<EMImodel> list=calcEmiAllMonths(amount, irate, no,repayment,emistart,occurence,loanmaturitydate);
+		List<EMImodel> list=calcEmiAllMonths(amount, irate, no,repayment,emistarten,occurence,loanmaturitydate);
 		
 		return list;
 			} catch (ParseException e) {
