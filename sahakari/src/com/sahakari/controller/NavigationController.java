@@ -413,16 +413,14 @@ public class NavigationController extends HttpServlet {
 		}
 		else if(uri.endsWith("generateaccountno.click"))
 		{
-			String generatedAccountNo="0001056244554";
-			out.println(generatedAccountNo);
-			/*CustomerDao cust=new CustomerDaoImpl();
-			String maxaccountno=cust.acccountnogen();
-			System.out.println("reaached");
 			
-			request.setAttribute("accountno", maxaccountno);
-			System.out.println(maxaccountno);
-			RequestDispatcher rd=request.getRequestDispatcher("view/Account/insertAccount.jsp");
-			rd.forward(request, response);*/
+			
+			CustomerDao cust=new CustomerDaoImpl();
+			String maxaccountno=cust.acccountnogen();
+			int generatedaccountno=Integer.parseInt(maxaccountno);
+			out.println(generatedaccountno+1);
+			
+			
 		}
 	}
 }
