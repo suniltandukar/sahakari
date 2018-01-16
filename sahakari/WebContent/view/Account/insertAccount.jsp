@@ -117,11 +117,11 @@ h5 {
 	
 $(document).ready(function()
         {
-	 $("#memberid").blur(function()
+	 $(".memberid").blur(function()
 			 
 		        {
 		
-		 var id=$(".memberid").val();
+		 var id=$(this).val();
 		 var dataString = 'id='+ id;
 		 $.ajax
 	        ({
@@ -131,7 +131,7 @@ $(document).ready(function()
 	        cache: false,
 	        success: function(html)
 	        {
-	        $(".accountNumber").html(html);
+	        $(".accountNumber").val(html);
 	        } 
 	        });
 		 
