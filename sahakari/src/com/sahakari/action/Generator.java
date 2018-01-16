@@ -13,19 +13,21 @@ public class Generator {
 	public Generator(String branchdb){
 		con=DBConnection.getConnection();
 	}
-	public String accountidgenerator(String branchid, String accounttypeid) {
+	public String accountidgenerator(String branchid, String memberid,String accountno) {
+	 branchid="0001";
 		String code="";
 		try{
 			
 			//String query="select * from inventorytbl where itemcode LIKE '"+branchid+'%'+accounttypeid+"' order by itemcode DESC;";
-			String query="select * from inventorytbl where itemcode LIKE '%"+branchid+accounttypeid+"%' order by itemcode DESC";
+			String query="select * from customertbl where memberid '"+branchid+memberid+"'";
 			ps=con.prepareStatement(query);
 			ResultSet rs=ps.executeQuery();
 			
 			if(rs.next()) {
 				int number=0;
-				code = rs.getString("itemcode");
-				String[] splitCode = code.split(accounttypeid);
+				
+				code = rs.getString("memberid");
+				String[] splitCode = code.split(accountno);
 				number=Integer.parseInt(splitCode[1]);
 				number++;
 				String num=Integer.toString(number);
@@ -34,12 +36,12 @@ public class Generator {
 						num="0"+num;
 					}
 				}
-				code = branchid+accounttypeid+num;
+				code = branchid+accountno+num;
 				System.out.println(code);
 			}
 			else{
 				System.out.println("else part");
-				code=branchid+accounttypeid+"000001";
+				code=branchid+accountno+"000001";
 			}
 		}
 		catch(Exception e){

@@ -388,5 +388,18 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("emi.jsp");
 			rd.forward(request, response);
 		}
+		else if(uri.endsWith("generateaccountno.click"))
+		{
+			CustomerDao cust=new CustomerDaoImpl();
+			String maxaccountno=cust.acccountnogen();
+			System.out.println("reaached");
+			
+			request.setAttribute("accountno", maxaccountno);
+			System.out.println(maxaccountno);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Account/insertAccount.jsp");
+			rd.forward(request, response);
+			
+			
+		}
 	}
 }

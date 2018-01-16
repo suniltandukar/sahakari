@@ -37,6 +37,8 @@ public interface CustomerDao {
 	public void updateCustomerBank(CustomerModel cm);
 
 	public void updateCustomerJob(CustomerModel cm);
+
+	public String acccountnogen();
 	
 	
 }

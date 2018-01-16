@@ -608,4 +608,25 @@ public class CustomerDaoImpl implements CustomerDao {
 		}
 		return false;
 	}
+	public String acccountnogen()
+	{
+		String query="select max(accountNumber) as accountNumber from accountstbl";
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			
+			if(rs.next())
+			{
+				return rs.getString("accountNumber");
+				
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+		
+		
+	}
 }

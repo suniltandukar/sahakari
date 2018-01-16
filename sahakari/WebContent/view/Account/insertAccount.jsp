@@ -5,6 +5,8 @@
 
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <style>
 h5 {
 	font-size: 80%;
@@ -42,14 +44,14 @@ h5 {
 							</tr>
 							<tr>
 								<td>
-									<h5>Member Id</h5> <input type="text"
-									class="form-control sharecertmemberid" name="memberid" value="">
+									<h5>Member Id</h5> <input type="text" id="memberid"
+									class="form-control sharecertmemberid memberid" name="memberid" value="">
 								</td>
 							</tr>
 							<tr>
 									<td>
 										<h5>Account No</h5> <input type="text"
-									class="form-control" name="accountNumber" value="" required>
+									class="form-control accountNumber" name="accountNumber" value="${accountno }"  required>
 									</td>
 								<td>
 									<h5>Alternative Account ID</h5> <input type="text"
@@ -110,6 +112,31 @@ h5 {
 	   $('#myModal').modal('show');
 	   <%}%>
 	  
+</script>
+<script>
+	
+$(document).ready(function()
+        {
+	 $("#memberid").blur(function()
+			 
+		        {
+		
+		 var id=$(".memberid").val();
+		 var dataString = 'id='+ id;
+		 $.ajax
+	        ({
+	        type: "POST",
+	        url: "generateaccountno.click",
+	        data: dataString,
+	        cache: false,
+	        success: function(html)
+	        {
+	        $(".accountNumber").html(html);
+	        } 
+	        });
+		 
+	});
+});
 </script>
 </body>
 </html>
