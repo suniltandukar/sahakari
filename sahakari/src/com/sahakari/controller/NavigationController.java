@@ -107,6 +107,29 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 		}
 		else if(uri.endsWith("viewcustomer.click")){
+			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/searchCustomer.jsp");
+			rd.forward(request, response);
+		}
+		else if(uri.endsWith("customerSearchResult.click")){
+			String memberid=request.getParameter("memberid"),
+					membername=request.getParameter("membername");
+			String searchingby=memberid+membername;
+			
+			if(memberid.equals("") && membername.equals("")){
+				out.println("No Inputs Found! ");
+			}
+			else{
+				ViewDao view=new ViewDaoImpl();
+				List<CustomerModel> list=view.viewSearchedCustomerDetail(searchingby);
+				request.setAttribute("list", list);
+				
+				RequestDispatcher rd=request.getRequestDispatcher("view/Customer/customerDetailTable.jsp");
+				rd.forward(request, response);
+				
+			}
+			
+		}
+		else if(uri.endsWith("viewAllCustomers.click")){
 			ViewDao view=new ViewDaoImpl();
 			List<CustomerModel> list=view.viewCustomerDetail();
 			request.setAttribute("list", list);

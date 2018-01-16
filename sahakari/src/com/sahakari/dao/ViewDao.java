@@ -8,6 +8,7 @@ import com.sahakari.model.FamilyRelationModel;
 public interface ViewDao {
 
 	public List<CustomerModel> viewCustomerDetail();
+	public List<CustomerModel> viewSearchedCustomerDetail(String searchingby);
 	public CustomerModel viewSpecificCustomerDetail(String id);
 	public List<CustomerModel> viewCustomerFamilyDetail(String id);
 	public List<CustomerModel> viewCustomerJobDetail(String id);

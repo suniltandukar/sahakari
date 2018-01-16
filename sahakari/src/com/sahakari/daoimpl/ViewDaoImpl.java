@@ -59,6 +59,44 @@ public class ViewDaoImpl implements ViewDao{
 		
 		return null;
 	}
+	public List<CustomerModel> viewSearchedCustomerDetail(String searchingby){
+		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl left join typetbl on typetbl.typeid=customertbl.typeid left join statustbl on statustbl.statusid=customertbl.statusid where concat(customertbl.pid, customertbl.name) like '%"+searchingby+"%' ";
+		List<CustomerModel> list=new ArrayList<CustomerModel>();
+		CustomerModel cust=null;
+		try {
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			while(rs.next())
+			{
+				
+				cust=new CustomerModel();
+				cust.setPid(rs.getString("pid"));
+				cust.setMemberid(rs.getString("memberid"));
+				cust.setRegistrationDate(rs.getString("registrationDate"));
+				cust.setAddress(rs.getString("address"));
+				cust.setName(rs.getString("Name"));
+				cust.setGender(rs.getString("Gender"));
+				cust.setDob(rs.getString("Dob"));
+				cust.setTypeName(rs.getString("TypeName"));
+				cust.setStatusName(rs.getString("StatusName"));
+				cust.setPid(rs.getString("pid"));
+				cust.setAddress(rs.getString("address"));
+				list.add(cust);
+			}
+			if(list.size()>0){
+				con.close();
+				rs=null;
+				ps=null;
+				return list;
+			}
+		} catch (SQLException e) {
+			System.out.println("viewCustomerDetail");
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 	public CustomerModel viewSpecificCustomerDetail(String id)
 	{
 		String query="select * from customerdetail where pid=? ";
