@@ -22,7 +22,7 @@ public class AccountAction {
 		String inputter=userDetail.getUsername();
 		
 		String pid, memberid,accountNumber, alternativeAccounId, categoryId, accountType, accountName, limitRef;
-		memberid=request.getParameter("memberid");
+		pid=request.getParameter("memberid");
 		accountNumber=request.getParameter("accountNumber");
 		alternativeAccounId=request.getParameter("alternativeAccounId");
 		categoryId=request.getParameter("categoryId");
@@ -30,7 +30,8 @@ public class AccountAction {
 		accountName=request.getParameter("accountName");
 		limitRef=request.getParameter("limitRef");
 		AccountModel am=new AccountModel();
-		am.setMemberid(memberid);
+		am.setPid(pid);
+		//am.setMemberid(memberid);
 		am.setAccountNumber(accountNumber);
 		am.setAlternativeAccounId(alternativeAccounId);
 		am.setCategoryId(categoryId);
@@ -41,9 +42,9 @@ public class AccountAction {
 		
 		AccountDao a=new AccountDaoImpl();
 		
-		pid=a.selectpid(am);
+		/*pid=a.selectpid(am);
 		am.setPid(pid);
-		
+		*/
 		boolean status=a.insertAccount(am);
 		if(status){
 			request.setAttribute("msg", "Account Add Successful !");

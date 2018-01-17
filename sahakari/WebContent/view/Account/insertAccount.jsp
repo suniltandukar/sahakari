@@ -85,9 +85,11 @@ h5 {
 							<tr>
 								<td>
 									<h5>Account Name</h5> <input type="text"
+
 									class="form-control memberid" name="accountName" value=""
 									data-validation="letternumeric" 
 									data-validation-error-msg=" ">
+
 								</td>
 								<td>
 									<h5>Limit Reference</h5> <input type="text"
@@ -131,7 +133,7 @@ $(document).ready(function()
 		        {
 		
 		 var id=$(this).val();
-		 var dataString = 'id='+ id;
+		 var dataString = 'memberid='+ id;
 		 $.ajax
 	        ({
 	        type: "POST",
