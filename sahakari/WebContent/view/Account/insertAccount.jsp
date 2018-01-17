@@ -62,7 +62,8 @@ h5 {
 									<h5>Alternative Account ID</h5> <input type="text"
 									class="form-control" name="alternativeAccounId" value=""
 									data-validation="number" 
-									data-validation-error-msg=" ">
+									data-validation-error-msg=" "
+									>
 								</td>
 							</tr>
 							<tr>
@@ -88,7 +89,8 @@ h5 {
 
 									class="form-control memberid" name="accountName" value=""
 									data-validation="letternumeric" 
-									data-validation-error-msg=" ">
+									data-validation-error-msg=" "
+									>
 
 								</td>
 								<td>

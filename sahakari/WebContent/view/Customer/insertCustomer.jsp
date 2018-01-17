@@ -110,7 +110,7 @@ h5 {
 											<td>
 												<h5>Citizenship No</h5> <input type="text"
 												class="form-control" name="cusCitizenshipNo" value="" data-validation="number"
-												 data-validation-error-msg=" ">
+												 data-validation-error-msg=" "  data-validation-optional="true">
 											</td>
 											<td>
 												<h5>Citizenship Issued From</h5> <select
