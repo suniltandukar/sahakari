@@ -6,18 +6,13 @@
 <html>
 <head>
 <style type="text/css">
-#form1 .has-error .control-label,
-#form1 .has-error .help-block,
-#form1 .has-error .form-control-feedback {
-    color: #f39c12;
-}
-
-#form1 .has-success .control-label,
-#form1 .has-success .help-block,
-#form1 .has-success .form-control-feedback {
-    color: #18bc9c;
-}
+  /* Add ajax preloader when server is being requested */
+  .validating-server-side {
+    background: url(img/ajax-preloader.gif) no-repeat center right;
+    opacity: 0.6
+  }
 </style>
+
 <style>
 h5 {
 	font-size: 80%;
@@ -86,18 +81,22 @@ h5 {
 											</td>
 											<td>
 												<h5>Registration Date</h5> <input type="text"
-												class="form-control" name="registrationDate" value="">
+												class="form-control" name="registrationDate" value="" 
+												data-validation="birthdate" 
+													 data-validation-help="yyyy-mm-dd">
+		 
 											</td>
 											
 										</tr>
 										<tr>
 											<td>
 												<h5>Name</h5> <input type="text" class="form-control"
-												name="name" value="">
+								name="name" value="" data-validation="length alphanumeric"  data-validation-length="3-12" 
+									 data-validation-error-msg="User name has to be an alphanumeric value (3-12 chars)">
 											</td>
 											<td>
 												<h5>Address</h5> <input type="text" class="form-control"
-												name="address" value="">
+												name="address" value="" >
 											</td>
 										</tr>
 										<tr>
@@ -110,7 +109,8 @@ h5 {
 											</td>
 											<td>
 												<h5>Citizenship No</h5> <input type="text"
-												class="form-control" name="cusCitizenshipNo" value="">
+												class="form-control" name="cusCitizenshipNo" value="" data-validation="number"
+												 data-validation-error-msg="please, enter a valid numbers">
 											</td>
 											<td>
 												<h5>Citizenship Issued From</h5> <select
@@ -125,11 +125,11 @@ h5 {
 										<tr>
 											<td>
 												<h5>Telephone No</h5> <input type="text"
-												class="form-control" name="telno" maxlength="10" value="">
+												class="form-control" name="telno" maxlength="10" value="" data-validation="number">
 											</td>
 											<td>
 												<h5>Mobile No</h5> <input type="text" class="form-control"
-												name="mobno" maxlength="10" value="">
+												name="mobno" maxlength="10" value="" data-validation="number">
 											</td>
 											<td>
 												<h5>VAT/PAN</h5> <input type="text"
@@ -143,7 +143,8 @@ h5 {
 											</td>
 											<td>
 												<h5>Date of birth (DOB)</h5> <input type="text"
-												class="form-control" name="dob" value="">
+												class="form-control" name="dob" value="" data-validation="birthdate" 
+													 data-validation-help="yyyy-mm-dd">
 											</td>
 										</tr>
 										<tr>
@@ -264,7 +265,8 @@ h5 {
 										</td>
 										<td>
 											<h5>DOB</h5> <input type="text" class="form-control"
-											name="dateOfBirth" value="">
+											name="dateOfBirth" value="" data-validation="birthdate" 
+													 data-validation-help="yyyy-mm-dd">
 										</td>
 										<td>
 											<h5>citizenshipNo</h5> <input type="text"
@@ -372,42 +374,11 @@ h5 {
 	   <%}%>
 </script>
 <script>
-$(document).ready(function() {
-    $('#form1').formValidation({
-        framework: 'bootstrap',
-        icon: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-            username: {
-                validators: {
-                    notEmpty: {
-                        message: 'The username is required'
-                    },
-                    stringLength: {
-                        min: 6,
-                        max: 30,
-                        message: 'The username must be more than 6 and less than 30 characters long'
-                    },
-                    regexp: {
-                        regexp: /^[a-zA-Z0-9_\.]+$/,
-                        message: 'The username can only consist of alphabetical, number, dot and underscore'
-                    }
-                }
-            },
-            password: {
-                validators: {
-                    notEmpty: {
-                        message: 'The password is required'
-                    }
-                }
-            }
-        }
-    });
-});
+  $.validate({
+    lang: 'en',
+     modules : 'date'  });
 </script>
+
 
 </body>
 </html>
