@@ -29,7 +29,7 @@ h5 {
 			</div>
 			<div class="x_content">
 				<c:if test="${cdetail!=null}">
-					<form class="form-horizontal" id="form1" method="post"
+					<form class="form-horizontal toggle-disabled" id="form1" method="post"
 						action="customer.update">
 						<div class="" role="tabpanel" data-example-id="togglable-tabs">
 							<ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
@@ -499,9 +499,8 @@ h5 {
 	<script>
   $.validate({
     lang: 'en',
-     modules : 'date',
-     modules : 'toggleDisabled',
-     disabledFormFilter : 'form1.toggle-disabled',
+     modules : 'date,toggleDisabled',
+     disabledFormFilter : 'form.toggle-disabled',
      showErrorDialogs : false
      });
 </script>

@@ -5,6 +5,8 @@
 
 <html>
 <head>
+	
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <style>
@@ -13,7 +15,7 @@ h5 {
 	font-weight: bold;
 }
 </style>
-
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 </head>
 <body class="background">
 	<div class="breadcrumb-line">
@@ -33,7 +35,7 @@ h5 {
 		</div>
 		<div class="panel-body">
 
-			<form class="form-horizontal shareCertForm" id="form1" method="post"
+			<form class="form-horizontal shareCertForm toggle-disabled" id="form1" method="post"
 				action="account.add">
 				<div id="1" class="tab-pane fade in active">
 					<table class="table">
@@ -45,17 +47,22 @@ h5 {
 							<tr>
 								<td>
 									<h5>Member Id</h5> <input type="text" id="memberid"
-									class="form-control sharecertmemberid memberid" name="memberid" value="">
+									class="form-control sharecertmemberid memberid" name="memberid" value="" data-validation="number" 
+									data-validation-error-msg=" " >
 								</td>
 							</tr>
 							<tr>
 									<td>
 										<h5>Account No</h5> <input type="text"
-									class="form-control accountNumber" name="accountNumber" value="${accountno }"  required>
+									class="form-control accountNumber" name="accountNumber" value="${accountno }" 
+									data-validation="number" 
+									data-validation-error-msg=" " required>
 									</td>
 								<td>
 									<h5>Alternative Account ID</h5> <input type="text"
-									class="form-control" name="alternativeAccounId" value="">
+									class="form-control" name="alternativeAccounId" value=""
+									data-validation="number" 
+									data-validation-error-msg=" ">
 								</td>
 							</tr>
 							<tr>
@@ -78,7 +85,9 @@ h5 {
 							<tr>
 								<td>
 									<h5>Account Name</h5> <input type="text"
-									class="form-control memberid" name="accountName" value="">
+									class="form-control memberid" name="accountName" value=""
+									data-validation="letternumeric" 
+									data-validation-error-msg=" ">
 								</td>
 								<td>
 									<h5>Limit Reference</h5> <input type="text"
@@ -138,5 +147,15 @@ $(document).ready(function()
 	});
 });
 </script>
+<script>
+  $.validate({
+    lang: 'en',
+    modules : 'date,toggleDisabled',
+	  disabledFormFilter : 'form.toggle-disabled',
+	 showErrorDialogs : false
+
+    });
+</script>
+
 </body>
 </html>

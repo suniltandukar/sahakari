@@ -38,7 +38,7 @@ h5 {
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
-				<form class="form-horizontal shareCertForm" id="form1" method="post"
+				<form class="form-horizontal shareCertForm toggle-disabled" id="form1" method="post"
 					action="shareCertificate.add">
 
 					<table class="table">
@@ -86,12 +86,11 @@ h5 {
 								</td>
 								<td>
 									<h5>Share Amount</h5> <input type="text" class="form-control"
-									name="shareAmount" value="0" data-sanitize="insertRight" 
-		 data-sanitize-insert-right="$">
+									name="shareAmount" value="0" >
 								</td>
 								<td>
 									<h5>Share Date</h5> <input type="text" class="form-control"
-									name="shareDate" value="">
+									name="shareDate" value="" data-validation="birthdate" data-validation-error-msg=" ">
 								</td>
 
 							</tr>
@@ -212,7 +211,10 @@ h5 {
 	<script>
   $.validate({
     lang: 'en',
-     modules : 'date',
+    modules : 'date,toggleDisabled',
+	  disabledFormFilter : 'form.toggle-disabled',
+	 showErrorDialogs : false
+
     });
 </script>
 </body>
