@@ -83,7 +83,7 @@ h5 {
 												<h5>Registration Date</h5> <input type="text"
 												class="form-control" name="registrationDate" value="" 
 												data-validation="birthdate" 
-													 data-validation-help="yyyy-mm-dd">
+													 data-validation-help="yyyy-mm-dd"  data-validation-error-msg=" ">
 		 
 											</td>
 											
