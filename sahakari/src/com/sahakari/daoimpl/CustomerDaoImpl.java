@@ -18,7 +18,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	ResultSet rs=null;
 	public boolean checkMemberId(String id){
 		int i;
-		String query="select memberid from customertbl where memberid=?";
+		String query="select pid from customertbl where pid=?";
 		try{
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
@@ -30,7 +30,6 @@ public class CustomerDaoImpl implements CustomerDao {
 				rs=null;
 				return true;
 			}
-			
 		}catch(Exception e){
 			System.out.println(e);
 		}
@@ -608,9 +607,9 @@ public class CustomerDaoImpl implements CustomerDao {
 		}
 		return false;
 	}
-	public String acccountnogen()
+	public String acccountnogen(String memberid)
 	{
-		String query="select max(accountNumber) as accountNumber from accountstbl";
+		String query="select max(accountNumber)+1 as accountNumber from accountstbl where pid='"+memberid+"'";
 		con=DBConnection.getConnection();
 		try {
 			ps=con.prepareStatement(query);
@@ -618,15 +617,15 @@ public class CustomerDaoImpl implements CustomerDao {
 			
 			if(rs.next())
 			{
-				return rs.getString("accountNumber");
-				
+				String accountNumber=rs.getString("accountNumber");
+				con.close();
+				ps.close();
+				rs=null;
+				return accountNumber;
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
-		
-		
 	}
 }
