@@ -45,11 +45,11 @@ h5 {
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
-				<form class="form-horizontal customerForm" id="form1" method="post"
-					action="customer.add">
+				<form class="form-horizontal customerForm toggle-disabled" id="form1" method="post"
+					action="customer.add" data-validation="toggle">
 					<div class="" role="tabpanel" data-example-id="togglable-tabs">
 						<ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-						<li><button type="submit" form="form1" class="btn btn-success">Save Member</button></li>
+						<li><button type="submit" form="form1" class="btn btn-success form">Save Member</button></li>
 							<li role="presentation" class="active"><a
 								href="#tab_content1" id="home-tab" role="tab" data-toggle="tab"
 								aria-expanded="true">General Information</a></li>
@@ -77,13 +77,14 @@ h5 {
 											</td>
 											<td>
 												<h5>Legacy Member Id</h5> <input type="text"
-												class="form-control memberid" name="memberid" value="">
+												class="form-control memberid" name="memberid" value="" data-validation="number"
+												data-validation-error-msg=" ">
 											</td>
 											<td>
 												<h5>Registration Date</h5> <input type="text"
 												class="form-control" name="registrationDate" value="" 
-												data-validation="birthdate" 
-													 data-validation-help="yyyy-mm-dd"  data-validation-error-msg=" ">
+												data-validation="birthdate" data-validation-error-msg=" " 
+													>
 		 
 											</td>
 											
@@ -91,8 +92,7 @@ h5 {
 										<tr>
 											<td>
 												<h5>Name</h5> <input type="text" class="form-control"
-								name="name" value="" data-validation="length alphanumeric"  data-validation-length="3-12" 
-									 data-validation-error-msg="User name has to be an alphanumeric value (3-12 chars)">
+								name="name" value="" data-validation="alphanumeric"  data-validation-error-msg=" " >
 											</td>
 											<td>
 												<h5>Address</h5> <input type="text" class="form-control"
@@ -110,7 +110,7 @@ h5 {
 											<td>
 												<h5>Citizenship No</h5> <input type="text"
 												class="form-control" name="cusCitizenshipNo" value="" data-validation="number"
-												 data-validation-error-msg="please, enter a valid numbers">
+												 data-validation-error-msg=" ">
 											</td>
 											<td>
 												<h5>Citizenship Issued From</h5> <select
@@ -125,11 +125,13 @@ h5 {
 										<tr>
 											<td>
 												<h5>Telephone No</h5> <input type="text"
-												class="form-control" name="telno" maxlength="10" value="" data-validation="number">
+												class="form-control" name="telno" maxlength="10" value="" data-validation="number" 
+												data-validation-error-msg=" ">
 											</td>
 											<td>
 												<h5>Mobile No</h5> <input type="text" class="form-control"
-												name="mobno" maxlength="10" value="" data-validation="number">
+												name="mobno" maxlength="10" value="" data-validation="number"
+												data-validation-error-msg=" ">
 											</td>
 											<td>
 												<h5>VAT/PAN</h5> <input type="text"
@@ -144,7 +146,7 @@ h5 {
 											<td>
 												<h5>Date of birth (DOB)</h5> <input type="text"
 												class="form-control" name="dob" value="" data-validation="birthdate" 
-													 data-validation-help="yyyy-mm-dd">
+													data-validation-error-msg=" ">
 											</td>
 										</tr>
 										<tr>
@@ -266,11 +268,12 @@ h5 {
 										<td>
 											<h5>DOB</h5> <input type="text" class="form-control"
 											name="dateOfBirth" value="" data-validation="birthdate" 
-													 data-validation-help="yyyy-mm-dd">
+													 data-validation-error-msg=" ">
 										</td>
 										<td>
 											<h5>citizenshipNo</h5> <input type="text"
-											class="form-control" name="fcitizenshipNo" value="">
+											class="form-control" name="fcitizenshipNo" value="" data-validation="number"
+											data-validation-error-msg=" " >
 										</td>
 										<td>
 											<h5>Remarks</h5> <input type="text" class="form-control"
@@ -376,7 +379,11 @@ h5 {
 <script>
   $.validate({
     lang: 'en',
-     modules : 'date'  });
+     modules : 'date,toggleDisabled',
+    	  disabledFormFilter : 'form.toggle-disabled',
+    	 showErrorDialogs : false
+    
+     });
 </script>
 
 

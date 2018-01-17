@@ -60,7 +60,8 @@ h5 {
 													name="pid" readonly></td>
 												<td>
 													<h5>Legacy Id</h5> <input type="text" class="form-control"
-													name="memberid" value="${cdetail.memberid}">
+													name="memberid" value="${cdetail.memberid}" data-validation="number"
+												data-validation-error-msg=" ">
 												</td>
 												<td>
 													<h5>Registration Date</h5> <input type="text"
@@ -495,5 +496,14 @@ h5 {
 			return confirm("CONFIRM?");
 		});
 	</script>
+	<script>
+  $.validate({
+    lang: 'en',
+     modules : 'date',
+     modules : 'toggleDisabled',
+     disabledFormFilter : 'form1.toggle-disabled',
+     showErrorDialogs : false
+     });
+</script>
 </body>
 </html>

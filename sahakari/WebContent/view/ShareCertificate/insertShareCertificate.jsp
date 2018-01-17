@@ -50,17 +50,20 @@ h5 {
 							<tr>
 								<td>
 									<h5>Member ID</h5> <input type="text"
-									class="form-control sharecertmemberid" name="memberid" value="" required>
+									class="form-control sharecertmemberid" name="memberid" value="" data-validation="number"
+									data-validation-error-msg=" " required>
 								</td>
 							</tr>
 							<tr>
 								<td>
 									<h5>Share ID</h5> <input type="text"
-									class="form-control " name="shareid" value="">
+									class="form-control " name="shareid" value="" data-validation="number"
+									data-validation-error-msg=" ">
 								</td>
 								<td>
 									<h5>Share Certificate No</h5> <input type="text"
-									class="form-control" name="shareCertNo" value="">
+									class="form-control" name="shareCertNo" value="" data-validation="number"
+									data-validation-error-msg=" ">
 								</td>
 								<td>
 									<h5>Share From</h5> <input type="text" class="form-control"
@@ -74,7 +77,8 @@ h5 {
 							<tr>
 								<td>
 									<h5>Total Share No</h5> <input type="text" class="form-control"
-									name="totalShareNos" value="0">
+									name="totalShareNos" value="0" data-validation="number"
+									data-validation-error-msg=" ">
 								</td>
 								<td>
 									<h5>Share Rate</h5> <input type="text" class="form-control"
@@ -82,7 +86,8 @@ h5 {
 								</td>
 								<td>
 									<h5>Share Amount</h5> <input type="text" class="form-control"
-									name="shareAmount" value="0">
+									name="shareAmount" value="0" data-sanitize="insertRight" 
+		 data-sanitize-insert-right="$">
 								</td>
 								<td>
 									<h5>Share Date</h5> <input type="text" class="form-control"
@@ -204,5 +209,11 @@ h5 {
 	<%}%>
 	$('#sharetable').DataTable();
 	</script>
+	<script>
+  $.validate({
+    lang: 'en',
+     modules : 'date',
+    });
+</script>
 </body>
 </html>
