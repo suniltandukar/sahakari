@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sahakari.action.AccountAction;
+import com.sahakari.action.BranchAction;
 import com.sahakari.action.CategoryAction;
 import com.sahakari.action.CustomerAction;
 import com.sahakari.action.EMICalculator;
@@ -100,6 +101,10 @@ public class AddController extends HttpServlet {
 		if(uri.endsWith("category.add")){
 			CategoryAction ca=new CategoryAction();
 			ca.addCategory(request,response);
+		}
+		if(uri.endsWith("branch.add")){
+			BranchAction b=new BranchAction();
+			b.addBranch(request,response);
 		}
 	}
 

@@ -412,6 +412,11 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("emi.jsp");
 			rd.forward(request, response);
 		}
+		else if(uri.endsWith("branch.click"))
+		{
+			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/branch/addBranch.jsp");
+			rd.forward(request, response);
+		}
 		else if(uri.endsWith("generateaccountno.click"))
 		{
 			String generatedAccountNo="";
@@ -420,9 +425,9 @@ public class NavigationController extends HttpServlet {
 			boolean memberidCheck=cust.checkMemberId(memberid);
 			if(memberidCheck){
 			//setting branchid
-			String branchid="00001";
+			String branchid="0101";
 			//setting memberid into 7 digits
-			String strI = String.format("%07d", Integer.parseInt(memberid));
+			String strI = String.format("%08d", Integer.parseInt(memberid));
 			//setting last account number
 			String maxaccountno=cust.acccountnogen(memberid);
 			if(maxaccountno==null){//if member in accounts table not found

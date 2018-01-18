@@ -278,7 +278,7 @@
 									<ul class="nav child_menu">
 										<li><a href="category.click" target="iframe_a">
 														 Category</a></li>
-										<li><a href="#" target="iframe_a">Branch/Company
+										<li><a href="branch.click" target="iframe_a">Branch/Company
 												setup </a></li>
 										<li><a href="#" target="iframe_a">
 												ChartOfAccount(COA) </a></li>
