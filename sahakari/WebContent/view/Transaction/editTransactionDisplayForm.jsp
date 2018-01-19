@@ -1,4 +1,9 @@
+<jsp:include page="/includefile"></jsp:include>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<head>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+</head>
 <div class="panel panel-default" style="width: 95%; margin: auto;">
 <div class="panel-body ">
 		
@@ -15,7 +20,7 @@
 									<input type="hidden"
 									class="form-control sharecertmemberid" name="previousid" value="${tdetail.id }" >
 									<h5>Transaction Id</h5> <input type="text"
-									class="form-control sharecertmemberid" name="Id" value="${tdetail.id }">
+									class="form-control sharecertmemberid" name="Id" data-validation="number" value="${tdetail.id }">
 								</td>
 								<td>
 										<h5>Reference No</h5> <input type="text"
@@ -113,3 +118,13 @@
 			</form>
 		</div>
 </div>
+
+<script>
+  $.validate({
+    lang: 'en',
+    modules : 'date,toggleDisabled',
+	  disabledFormFilter : 'form.toggle-disabled',
+	 showErrorDialogs : false
+
+    });
+</script>

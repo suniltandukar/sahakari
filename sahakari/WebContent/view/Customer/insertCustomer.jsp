@@ -126,12 +126,12 @@ h5 {
 											<td>
 												<h5>Telephone No</h5> <input type="text"
 												class="form-control" name="telno" maxlength="10" value="" data-validation="number" 
-												data-validation-error-msg=" ">
+												data-validation-error-msg=" " data-validation-optional="true">
 											</td>
 											<td>
 												<h5>Mobile No</h5> <input type="text" class="form-control"
 												name="mobno" maxlength="10" value="" data-validation="number"
-												data-validation-error-msg=" ">
+												data-validation-error-msg=" " data-validation-optional="true">
 											</td>
 											<td>
 												<h5>VAT/PAN</h5> <input type="text"
@@ -146,7 +146,7 @@ h5 {
 											<td>
 												<h5>Date of birth (DOB)</h5> <input type="text"
 												class="form-control" name="dob" value="" data-validation="birthdate" 
-													data-validation-error-msg=" ">
+													data-validation-error-msg=" " data-validation-optional="true">
 											</td>
 										</tr>
 										<tr>
@@ -268,12 +268,12 @@ h5 {
 										<td>
 											<h5>DOB</h5> <input type="text" class="form-control"
 											name="dateOfBirth" value="" data-validation="birthdate" 
-													 data-validation-error-msg=" ">
+													 data-validation-error-msg=" " data-validation-optional="true">
 										</td>
 										<td>
 											<h5>citizenshipNo</h5> <input type="text"
 											class="form-control" name="fcitizenshipNo" value="" data-validation="number"
-											data-validation-error-msg=" " >
+											data-validation-error-msg=" " data-validation-optional="true" >
 										</td>
 										<td>
 											<h5>Remarks</h5> <input type="text" class="form-control"

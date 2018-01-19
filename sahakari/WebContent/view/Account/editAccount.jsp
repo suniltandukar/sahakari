@@ -1,6 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <jsp:include page="/includefile"></jsp:include>
+
 <html>
-<head></head>
+<head>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<style>
+h5 {
+	font-size: 80%;
+	font-weight: bold;
+}
+</style>
+
+</head>
 <body class="hiddenscroll bgcolor">
 	<div class="breadcrumb-line">
 		<nav aria-label="breadcrumb" role="navigation">
@@ -18,7 +34,7 @@
 				<strong>Insert Account No</strong>
 			</h6>
 			
-			<input type="text" class="form-control input" value="${accountNumber}" style="width: 20%;">
+			<input type="text" class="form-control input" data-validation="number" value="${accountNumber}" style="width: 20%;">
 			
 			<br> <input type="submit" class="btn btn-info searchbtn"
 				value="SEARCH">
@@ -46,6 +62,15 @@ $(document).ready(function()
 		 
 	});
 });
+</script>
+<script>
+  $.validate({
+    lang: 'en',
+    modules : 'date,toggleDisabled',
+	  disabledFormFilter : 'form.toggle-disabled',
+	 showErrorDialogs : false
+
+    });
 </script>
 </body>
 </html>

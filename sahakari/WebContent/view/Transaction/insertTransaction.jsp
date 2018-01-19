@@ -31,7 +31,7 @@ h5 {
 		</div>
 		<div class="panel-body">
 
-			<form class="form-horizontal shareCertForm" id="form1" method="post"
+			<form class="form-horizontal shareCertForm toggle-disabled" id="form1" method="post"
 				action="transaction.add">
 				<div id="1" class="tab-pane fade in active">
 					<table class="table">
@@ -43,11 +43,11 @@ h5 {
 							<tr>
 								<td>
 									<h5>Transaction Id</h5> <input type="text"
-									class="form-control sharecertmemberid" name="Id" value="">
+									class="form-control sharecertmemberid" data-validation="number" data-validation-error-msg=" " name="Id" value="">
 								</td>
 								<td>
 										<h5>Reference No</h5> <input type="text"
-									class="form-control" name="refNo" value="" >
+									class="form-control" name="refNo" value=""  data-validation="number" data-validation-error-msg=" " data-validation-optional="true">
 									</td>
 								<td>
 									<h5>Transaction Type</h5> <input type="text"
@@ -57,44 +57,44 @@ h5 {
 							<tr>
 								<td>
 									<h5>Value Date</h5> <input type="text"
-									class="form-control" name="valueDate" value="" >
+									class="form-control" name="valueDate" value=""  data-validation="date" data-validation-error-msg=" " data-validation-optional="true">
 								</td>
 								<td>
 									<h5>Booking Date</h5> <input type="text" class="form-control"
-									name="bookingDate">
+									name="bookingDate" data-validation="date" data-validation-error-msg=" " data-validation-optional="true">
 								</td>
 								<td>
 									<h5>Debit Account Number</h5> <input type="text"
-									class="form-control" name="debitAccountNumber" value="">
+									class="form-control" name="debitAccountNumber" value="" data-validation="number" data-validation-error-msg=" " data-validation-optional="true">
 								</td>
 							</tr>
 							<tr>
 								
 								<td>
 									<h5>Debit Currency</h5> <input type="text"
-									class="form-control" name="debitCurrency" value="">
+									class="form-control" name="debitCurrency" value="" data-validation="number" data-validation-error-msg=" " data-validation-optional="true">
 								</td>
 								<td>
 									<h5>Debit Narrative</h5> <input type="text"
-									class="form-control" name="debitNarrative" value="">
+									class="form-control" name="debitNarrative" value="" data-validation="number" data-validation-error-msg=" " data-validation-optional="true">
 								</td>
 								<td>
 									<h5>Credit Account Number</h5> <input type="text"
-									class="form-control" name="creditAccountNumber" value="">
+									class="form-control" name="creditAccountNumber" value="" data-validation="number" data-validation-error-msg=" " data-validation-optional="true">
 								</td>
 							</tr>
 							<tr>
 								<td>
 									<h5>Credit Currency</h5> <input type="text"
-									class="form-control" name="creditCurrency" value="">
+									class="form-control" name="creditCurrency" value="" data-validation="number" data-validation-error-msg=" " data-validation-optional="true">
 								</td>
 								<td>
 									<h5>Credit Narative</h5> <input type="text"
-									class="form-control" name="creditNarative" value="">
+									class="form-control" name="creditNarative" value="" data-validation="number" data-validation-error-msg=" " data-validation-optional="true">
 								</td>
 									<td>
 									<h5>Amount</h5> <input type="text"
-									class="form-control" name="amount" value="0">
+									class="form-control" name="amount" value="0" data-validation="number" data-validation-error-msg=" " data-validation-optional="true">
 								</td>
 							</tr>
 							<tr>
@@ -108,17 +108,17 @@ h5 {
 								</td>
 								<td>
 									<h5>Commission Amount</h5> <input type="text"
-									class="form-control" name="commissionAmount" value="0">
+									class="form-control" name="commissionAmount" value="0" data-validation="number" data-validation-error-msg=" " data-validation-optional="true">
 								</td>
 							</tr>
 							<tr>
 								<td>
 									<h5>Cheque Number</h5> <input type="text"
-									class="form-control" name="chequeNumber" value="">
+									class="form-control" name="chequeNumber" value="" data-validation="number" data-validation-error-msg=" " data-validation-optional="true">
 								</td>
 								<td>
 									<h5>Processing Date</h5> <input type="text"
-									class="form-control" name="processingDate" value="">
+									class="form-control" name="processingDate" value="" data-validation="date" data-validation-error-msg=" " data-validation-optional="true">
 								</td>
 								<td>
 									<h5>Override</h5> <input type="text"
@@ -143,6 +143,15 @@ h5 {
 		</div>
 	</div>
 	<jsp:include page="/msgmodal"></jsp:include>
+	<script>
+  $.validate({
+    lang: 'en',
+    modules : 'date,toggleDisabled',
+	  disabledFormFilter : 'form.toggle-disabled',
+	 showErrorDialogs : false
+
+    });
+</script>
 	<script type="text/javascript" src="assets/js/form.js"></script>
 	<script>
 	<%if(request.getAttribute("msg")!=null){%>
