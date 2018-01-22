@@ -97,7 +97,13 @@ public class EMICalculator {
     					else{
     						if(occurence<=daysBetween)
     						{
+    							if(occurence==30)
+    							{
+    								c.add(Calendar.MONTH, 1);
+    							}
+    							else{
     					c.add(Calendar.DATE, occurence);
+    							}
     					emi=c.getTime();
     					String output = sdf.format(c.getTime());
     					
@@ -192,7 +198,13 @@ public class EMICalculator {
 				       System.out.println("Number of Days between dates: "+daysBetween);
 					if(occurence<=daysBetween){
 					no=no+1;
+					if(occurence==30)
+					{
+						c.add(Calendar.MONTH, 1);
+					}
+					else{
 					c.add(Calendar.DATE, occurence);
+					}
 					date=c.getTime();
 					String output = sdf.format(c.getTime());
 					System.out.println(output+"output");
