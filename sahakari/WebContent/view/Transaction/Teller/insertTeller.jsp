@@ -44,8 +44,8 @@ h5 {
 							</tr>
 							<tr>
 								<td><h5>Transaction Id</h5> <input type="text"
-									class="form-control" name="transactionid" data-validation="number" 
-									data-validation-error-msg=" " value="">
+									class="form-control" name="transactionid" data-validation="alphanumeric" 
+									data-validation-error-msg=" " value="${tellerid }">
 								</td>
 							</tr>
 							<tr>
@@ -56,41 +56,49 @@ h5 {
 								<td><h5>Booking Date</h5> <input type="text"
 									class="form-control" name="bookingdate" 
 									data-validation="date" 
-									data-validation-error-msg=" "value="">
+									data-validation-error-msg=" " value=""
+									data-validation-optional="true">
 								</td>
 								<td><h5>Value Date</h5> <input type="text"
 									class="form-control" data-validation="date" 
-									data-validation-error-msg=" " name="valuedate" value="">
+									data-validation-error-msg=" " name="valuedate" value=""
+									data-validation-optional="true">
 								</td>
 							</tr>
 							<tr>
 								<td><h5>Process Date</h5> <input type="text"
 									class="form-control" name="processdate" 
 									data-validation="date" 
-									data-validation-error-msg=" " value="">
+									data-validation-error-msg=" " value=""
+									data-validation-optional="true">
 								</td>
 								<td><h5>Debit Account Number</h5> <input type="text"
 									class="form-control" name="debitaccountnumber" value=""
 									data-validation="number" 
-									data-validation-error-msg=" " >
+									data-validation-error-msg=" "
+									data-validation-optional="true" >
 								</td>
 								<td><h5>Credit Account Number</h5> <input type="text"
 									class="form-control" name="creditaccountnumber" 
 									data-validation="number" 
-									data-validation-error-msg=" "  value="">
+									data-validation-error-msg=" "  value=""
+									data-validation-optional="true">
 								</td>
 							</tr>
 							<tr>
 								<td><h5>Narrative</h5> <input type="text"
-									class="form-control" name="narrative" value="">
+									class="form-control" name="narrative" value=""
+									>
 								</td>
 								<td><h5>Cheque Number</h5> <input type="text"
 									class="form-control" data-validation="number" 
-									data-validation-error-msg=" "  name="chequenumber" value="">
+									data-validation-error-msg=" "  name="chequenumber" value=""
+									data-validation-optional="true">
 								</td>
 								<td><h5>Amount</h5> <input type="text"
 									class="form-control" name="amount" data-validation="number" 
-									data-validation-error-msg=" " value="">
+									data-validation-error-msg=" " value=""
+									data-validation-optional="true">
 								</td>
 							</tr>
 						</tbody>

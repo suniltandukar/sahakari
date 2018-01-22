@@ -11,12 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
-
-
-
 import org.apache.commons.lang.StringUtils;
+import org.eclipse.jdt.internal.compiler.IDebugRequestor;
 
 import com.sahakari.account.dao.AccountDao;
 import com.sahakari.account.daoImpl.AccountDaoImpl;
@@ -358,6 +354,12 @@ public class NavigationController extends HttpServlet {
 		}
 		//Teller Transaction
 		else if(uri.endsWith("insertTeller.click")){
+			
+			
+			Generator gen=new Generator("coop_dat");
+			String tellerid=gen.tellertransactionidgenerator();
+			request.setAttribute("tellerid", tellerid);
+			
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/insertTeller.jsp");
 			rd.forward(request, response);
 		}

@@ -99,6 +99,53 @@ public class Generator {
 		}
 		return transactionid;
 	}
+	public String tellertransactionidgenerator() {
+		String transactionid="";
+		
+		DateFormat yy = new SimpleDateFormat("yy");
+		DateFormat mm = new SimpleDateFormat("MM");
+		DateFormat dd = new SimpleDateFormat("dd");
+		
+		Date currentDate=new Date();
+		System.out.println(yy.format(currentDate));
+		System.out.println(mm.format(currentDate));
+		System.out.println(dd.format(currentDate));
+		String day=dd.format(currentDate);
+		String month=mm.format(currentDate);
+		String yr=yy.format(currentDate);
+		
+		try{
+			String query="select * from tellertransactiontbl where transactionId LIKE '%TT"+yr+month+day+"%' order by transactionId DESC;";
+			ps=con.prepareStatement(query);
+			 rs=ps.executeQuery();
+			
+			if(rs.next()) {
+				int number=0;
+				transactionid = rs.getString("transactionId");
+				String[] splitCode = transactionid.split(day);
+				System.out.println("tid"+splitCode[1]);
+				number=Integer.parseInt(splitCode[1]);
+				number++;
+				String num=Integer.toString(number);
+				if(num.length()<4){
+					while(num.length()<4){
+						num="0"+num;
+					}
+				}
+				transactionid = "TT"+yr+month+day+num;
+				System.out.println(transactionid);
+				
+			}
+			else{
+				transactionid= "TT"+yr+month+day+"0001";
+				System.out.println(transactionid);
+			}
+		}
+		catch(Exception e){
+			System.out.println("get tellertransaction id error"+e);
+		}
+		return transactionid;
+	}
 	public String multitransactionidgenerator() {
 		String transactionid="";
 		
