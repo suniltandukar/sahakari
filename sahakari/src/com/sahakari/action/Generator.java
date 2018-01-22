@@ -2,6 +2,9 @@ package com.sahakari.action;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import com.mysql.jdbc.Connection;
 import com.sahakari.dbconnection.DBConnection;
@@ -49,20 +52,32 @@ public class Generator {
 		}
 		return code;
 	}
-	public String transactionidgenerator(String branchcode, String year) {
+	public String transactionidgenerator() {
 		String transactionid="";
+		
+		DateFormat yy = new SimpleDateFormat("yy");
+		DateFormat mm = new SimpleDateFormat("MM");
+		DateFormat dd = new SimpleDateFormat("dd");
+		
+		Date currentDate=new Date();
+		System.out.println(yy.format(currentDate));
+		System.out.println(mm.format(currentDate));
+		System.out.println(dd.format(currentDate));
+		String day=dd.format(currentDate);
+		String month=mm.format(currentDate);
+		String yr=yy.format(currentDate);
+		
 		try{
-			String query="select * from inventorytbl where transactionid LIKE '%"+year+branchcode+"%' order by transactionid DESC;";
+			String query="select * from transactiontbl where Id LIKE '%TT"+yr+month+day+"%' order by Id DESC;";
 			ps=con.prepareStatement(query);
 			 rs=ps.executeQuery();
 			
 			if(rs.next()) {
 				int number=0;
-				transactionid = rs.getString("transactionid");
-				String[] splitCode = transactionid.split(branchcode);
+				transactionid = rs.getString("Id");
+				String[] splitCode = transactionid.split(day);
 				System.out.println("tid"+splitCode[1]);
 				number=Integer.parseInt(splitCode[1]);
-				number++;
 				number++;
 				String num=Integer.toString(number);
 				if(num.length()<4){
@@ -70,12 +85,12 @@ public class Generator {
 						num="0"+num;
 					}
 				}
-				transactionid = year+branchcode+num;
+				transactionid = "TT"+yr+month+day+num;
 				System.out.println(transactionid);
 				
 			}
 			else{
-				transactionid=year+branchcode+"0001";
+				transactionid= "TT"+yr+month+day+"0001";
 				System.out.println(transactionid);
 			}
 		}

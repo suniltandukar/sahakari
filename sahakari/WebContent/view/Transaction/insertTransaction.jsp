@@ -43,7 +43,7 @@ h5 {
 							<tr>
 								<td>
 									<h5>Transaction Id</h5> <input type="text"
-									class="form-control sharecertmemberid" data-validation="number" data-validation-error-msg=" " name="Id" value="">
+									class="form-control sharecertmemberid" data-validation="alphanumeric" data-validation-error-msg=" " name="Id" value="${tid }" readonly>
 								</td>
 								<td>
 										<h5>Reference No</h5> <input type="text"

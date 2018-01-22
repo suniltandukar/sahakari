@@ -17,6 +17,7 @@ import org.apache.commons.lang.StringUtils;
 
 import com.sahakari.account.dao.AccountDao;
 import com.sahakari.account.daoImpl.AccountDaoImpl;
+import com.sahakari.action.Generator;
 import com.sahakari.action.GetFormOptions;
 import com.sahakari.dao.CategoryDao;
 import com.sahakari.dao.CustomerDao;
@@ -322,6 +323,9 @@ public class NavigationController extends HttpServlet {
 		}
 		//Transaction
 		else if(uri.endsWith("inserttransaction.click")){
+			Generator gen=new Generator("coop_dat");
+			String tid=gen.transactionidgenerator();
+			request.setAttribute("tid", tid);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/insertTransaction.jsp");
 			rd.forward(request, response);
 		}
