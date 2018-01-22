@@ -379,6 +379,9 @@ public class NavigationController extends HttpServlet {
 		//multi transactions
 		if(uri.endsWith("insertMultiTxn.click"))
 		{
+			Generator gen=new Generator("coop_dat");
+			String mid=gen.multitransactionidgenerator();
+			request.setAttribute("mid", mid);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/MultiTransactions/insertMultiTransaction.jsp");
 			rd.forward(request, response);
 			

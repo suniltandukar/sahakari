@@ -43,7 +43,7 @@ h5 {
 							</tr>
 							<tr>
 								<td><h5>Transaction Id</h5> <input type="text"
-									class="form-control" name="transactionid" data-validation="number" data-validation-error-msg=" "  value="">
+									class="form-control" name="transactionid" data-validation="alphanumeric" data-validation-error-msg=" "  value="${mid }">
 								</td>
 								<td><h5>Transaction Number</h5> <input type="text"
 									class="form-control" name="transactionno" data-validation="number" data-validation-error-msg=" " value="" >

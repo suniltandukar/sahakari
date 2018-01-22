@@ -99,4 +99,51 @@ public class Generator {
 		}
 		return transactionid;
 	}
+	public String multitransactionidgenerator() {
+		String transactionid="";
+		
+		DateFormat yy = new SimpleDateFormat("yy");
+		DateFormat mm = new SimpleDateFormat("MM");
+		DateFormat dd = new SimpleDateFormat("dd");
+		
+		Date currentDate=new Date();
+		System.out.println(yy.format(currentDate));
+		System.out.println(mm.format(currentDate));
+		System.out.println(dd.format(currentDate));
+		String day=dd.format(currentDate);
+		String month=mm.format(currentDate);
+		String yr=yy.format(currentDate);
+		
+		try{
+			String query="select * from multipletransactiontbl where Id LIKE '%MT"+yr+month+day+"%' order by Id DESC;";
+			ps=con.prepareStatement(query);
+			 rs=ps.executeQuery();
+			
+			if(rs.next()) {
+				int number=0;
+				transactionid = rs.getString("Id");
+				String[] splitCode = transactionid.split(day);
+				System.out.println("tid"+splitCode[1]);
+				number=Integer.parseInt(splitCode[1]);
+				number++;
+				String num=Integer.toString(number);
+				if(num.length()<4){
+					while(num.length()<4){
+						num="0"+num;
+					}
+				}
+				transactionid = "MT"+yr+month+day+num;
+				System.out.println(transactionid);
+				
+			}
+			else{
+				transactionid= "MT"+yr+month+day+"001";
+				System.out.println(transactionid);
+			}
+		}
+		catch(Exception e){
+			System.out.println("get transaction id error"+e);
+		}
+		return transactionid;
+	}
 }
