@@ -1,7 +1,7 @@
 <jsp:include page="/includefile"></jsp:include>
 <html>
 <head></head>
-<body class="hiddenscroll bgcolor">
+<body class="hiddenscroll bgcolor background">
 	<div class="breadcrumb-line">
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">

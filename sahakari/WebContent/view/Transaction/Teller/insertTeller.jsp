@@ -14,7 +14,7 @@ h5 {
 }
 </style>
 </head>
-<body class="hiddenscroll bgcolor">
+<body class="hiddenscroll bgcolor background">
 
 	<div class="breadcrumb-line">
 		<nav aria-label="breadcrumb" role="navigation">

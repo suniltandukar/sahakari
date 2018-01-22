@@ -6,7 +6,7 @@
 <head>
 
 </head>
-<body class="bgcolor hiddenscroll">
+<body class="bgcolor hiddenscroll background">
 	<div class="breadcrumb-line">
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">

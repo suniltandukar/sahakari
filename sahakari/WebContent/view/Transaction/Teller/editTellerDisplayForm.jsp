@@ -13,7 +13,7 @@ h5 {
 }
 </style>
 </head>
-<body class="hiddenscroll bgcolor">
+<body class="hiddenscroll bgcolor background">
 
 	<div class="panel panel-default " style="width: 95%; margin: auto;">
 		
