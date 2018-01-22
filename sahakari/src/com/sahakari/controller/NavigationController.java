@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+
+
+
 import org.apache.commons.lang.StringUtils;
 
 import com.sahakari.account.dao.AccountDao;
@@ -21,11 +24,14 @@ import com.sahakari.action.Generator;
 import com.sahakari.action.GetFormOptions;
 import com.sahakari.dao.CategoryDao;
 import com.sahakari.dao.CustomerDao;
+import com.sahakari.dao.ListDao;
 import com.sahakari.dao.ViewDao;
 import com.sahakari.daoimpl.CategoryDaoImpl;
 import com.sahakari.daoimpl.CustomerDaoImpl;
+import com.sahakari.daoimpl.ListDaoImpl;
 import com.sahakari.daoimpl.ViewDaoImpl;
 import com.sahakari.model.AccountModel;
+import com.sahakari.model.BranchModel;
 import com.sahakari.model.CategoryModel;
 import com.sahakari.model.CustomerModel;
 import com.sahakari.model.FamilyRelationModel;
@@ -421,6 +427,10 @@ public class NavigationController extends HttpServlet {
 		}
 		else if(uri.endsWith("branch.click"))
 		{
+			ListDao list=new ListDaoImpl();
+			List<BranchModel> branchlist=list.branch();
+			
+			request.setAttribute("branchlist", branchlist);
 			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/branch/addBranch.jsp");
 			rd.forward(request, response);
 		}

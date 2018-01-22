@@ -85,6 +85,51 @@ h5 {
 			</div>
 		</div>
 	</div>
+	<div class="col-md-12 col-sm-12 col-xs-12">
+
+		<div class="x_panel">
+			<div class="x_title">
+				<h2><strong>BRANCH DETAILS</strong></h2>
+				<ul class="nav navbar-right panel_toolbox">
+					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+				<table id="datatable" class="table jambo_table table-striped table-bordered"
+					style="font-size: 95%;">
+				<thead>
+					<tr>
+						
+						<th>Company Id</th>
+						<th>Branch Id</th>
+						<th>Branch Name</th>
+						<th>Branch Address</th>
+						<th>Branch Phone</th>
+						<th>Branch Fax</th>
+					</tr>
+				</thead>
+				<tbody>
+	
+				<c:forEach items="${branchlist}" var="list">
+											
+					<tr>
+						
+						<td>${list.companyId }</td>
+						<td>${list.branchId }</td>
+						<td>${list.branchName }</td>
+						<td>${list.branchAddress }</td>
+						<td>${list.branchPhone }</td>
+						<td>${list.branchFax }</td>
+					</tr>
+					
+					</c:forEach>
+				</tbody>
+			</table>
+			</div>
+		</div>
+	</div>
 	<jsp:include page="/msgmodal"></jsp:include>
 	<script>
   $.validate({
