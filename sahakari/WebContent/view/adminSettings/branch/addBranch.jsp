@@ -53,15 +53,15 @@ h5 {
 							<tr>
 								<td>
 									<h5>Company ID</h5> <input type="text"
-									class="form-control" name="companyId" value="" required>
+									class="form-control" name="companyId" value="" data-validation="number" data-validetion-error-msg=" " data-validation-optional="true" required>
 								</td>
 								<td>
 									<h5>Branch ID</h5> <input type="text"
-									class="form-control" name="branchId" value="" required>
+									class="form-control" name="branchId" value=""  data-validation="number" data-validetion-error-msg=" " data-validation-optional="true" required>
 								</td>
 								<td>
 									<h5>Branch Name</h5> <input type="text"
-									class="form-control" name="branchName" value="" required>
+									class="form-control" name="branchName" value="" data-validation="alphanumeric" data-validetion-error-msg=" " data-validation-optional="true" required>
 								</td>
 								
 								
@@ -69,15 +69,15 @@ h5 {
 							<tr>
 							<td>
 									<h5>Branch Address</h5> <input type="text"
-									class="form-control" name="branchAddress" value="" required>
+									class="form-control" name="branchAddress" value="" data-validation="alphanumeric" data-validetion-error-msg=" " data-validation-optional="true" required>
 								</td>
 								<td>
 									<h5>Branch Phone</h5> <input type="text"
-									class="form-control" name="branchPhone" value="" required>
+									class="form-control" name="branchPhone" value="" data-validation="length number" data-validation-length="max10" data-validation-error-msg=" " data-validation-optional="true" required>
 								</td>
 								<td>
 									<h5>Branch Fax</h5> <input type="text"
-									class="form-control" name="branchFax" value="" required>
+									class="form-control" name="branchFax" value=""  data-validation="alphanumeric" data-validetion-error-msg=" " data-validation-optional="true" required>
 								</td>
 						</tbody>
 					</table>
@@ -131,6 +131,15 @@ h5 {
 		</div>
 	</div>
 	<jsp:include page="/msgmodal"></jsp:include>
+	<script>
+  $.validate({
+    lang: 'en',
+    modules : 'date,toggleDisabled',
+	  disabledFormFilter : 'form.toggle-disabled',
+	 showErrorDialogs : false
+
+    });
+</script>
 	<script type="text/javascript" src="template/js/form.js"></script> 
 	<script type="text/javascript">
 		

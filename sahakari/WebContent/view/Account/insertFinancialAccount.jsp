@@ -31,7 +31,7 @@ h5 {
 		</div>
 		<div class="panel-body">
 
-			<form class="form-horizontal shareCertForm" id="form1" method="post"
+			<form class="form-horizontal shareCertForm toggle-disabled" id="form1" method="post"
 				action="account.add">
 				<div id="1" class="tab-pane fade in active">
 					<table class="table">
@@ -43,11 +43,12 @@ h5 {
 							<tr>
 									<td>
 										<h5>Account No</h5> <input type="text"
-									class="form-control" name="accountNumber" value="" required>
+									class="form-control" name="accountNumber" value="" data-validation="number" data-validation-error-msg=" " 
+									required>
 									</td>
 								<td>
 									<h5>Alternative Account ID</h5> <input type="text"
-									class="form-control" name="alternativeAccounId" value="">
+									class="form-control" name="alternativeAccounId" value="" data-validation="number" data-validation-error-msg=" " data-validation-optional="true">
 								</td>
 							</tr>
 							<tr>
@@ -70,7 +71,7 @@ h5 {
 							<tr>
 								<td>
 									<h5>Account Name</h5> <input type="text"
-									class="form-control memberid" name="accountName" value="">
+									class="form-control memberid" name="accountName" value="" data-validation="alphanumeric" data-validation-error-msg=" ">
 								</td>
 								<td>
 									<h5>Limit Reference</h5> <input type="text"
@@ -104,6 +105,15 @@ h5 {
 	   $('#myModal').modal('show');
 	   <%}%>
 	  
+</script>
+<script>
+  $.validate({
+    lang: 'en',
+    modules : 'date,toggleDisabled',
+	  disabledFormFilter : 'form.toggle-disabled',
+	 showErrorDialogs : false
+
+    });
 </script>
 </body>
 </html>

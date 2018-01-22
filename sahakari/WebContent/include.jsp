@@ -72,7 +72,17 @@
     <!-- Form Required Scripts -->
 	<script type="text/javascript" src="template/nepaliDatePicker/nepali.datepicker.v2.2.min.js"></script>
 	<script type="text/javascript" src="template/js/dconverter.js"></script>
-	<script type="text/javascript" src="template/js/selector.js"></script>   
+	<script type="text/javascript" src="template/js/selector.js"></script>  
+	<script>
+	
+  $.validate({
+    lang: 'en',
+    modules : 'date,toggleDisabled',
+	  disabledFormFilter : 'form.toggle-disabled',
+	 showErrorDialogs : false
+
+    });
+</script> 
 	
 	
 </body>

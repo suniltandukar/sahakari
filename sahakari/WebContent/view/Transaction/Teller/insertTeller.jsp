@@ -3,8 +3,10 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <jsp:include page="/includefile"></jsp:include>
 
+
 <html>
 <head>
+
 <style>
 h5 {
 	font-size: 80%;
@@ -42,29 +44,40 @@ h5 {
 							</tr>
 							<tr>
 								<td><h5>Transaction Id</h5> <input type="text"
-									class="form-control" name="transactionid" value="">
+									class="form-control" name="transactionid" data-validation="number" 
+									data-validation-error-msg=" " value="">
 								</td>
 							</tr>
 							<tr>
 								<td><h5>Branch Id</h5> <input type="text"
-									class="form-control" name="branchid" value="">
+									class="form-control" name="branchid" data-validation="number" 
+									data-validation-error-msg=" " value="">
 								</td>
 								<td><h5>Booking Date</h5> <input type="text"
-									class="form-control" name="bookingdate" value="">
+									class="form-control" name="bookingdate" 
+									data-validation="date" 
+									data-validation-error-msg=" "value="">
 								</td>
 								<td><h5>Value Date</h5> <input type="text"
-									class="form-control" name="valuedate" value="">
+									class="form-control" data-validation="date" 
+									data-validation-error-msg=" " name="valuedate" value="">
 								</td>
 							</tr>
 							<tr>
 								<td><h5>Process Date</h5> <input type="text"
-									class="form-control" name="processdate" value="">
+									class="form-control" name="processdate" 
+									data-validation="date" 
+									data-validation-error-msg=" " value="">
 								</td>
 								<td><h5>Debit Account Number</h5> <input type="text"
-									class="form-control" name="debitaccountnumber" value="">
+									class="form-control" name="debitaccountnumber" value=""
+									data-validation="number" 
+									data-validation-error-msg=" " >
 								</td>
 								<td><h5>Credit Account Number</h5> <input type="text"
-									class="form-control" name="creditaccountnumber" value="">
+									class="form-control" name="creditaccountnumber" 
+									data-validation="number" 
+									data-validation-error-msg=" "  value="">
 								</td>
 							</tr>
 							<tr>
@@ -72,10 +85,12 @@ h5 {
 									class="form-control" name="narrative" value="">
 								</td>
 								<td><h5>Cheque Number</h5> <input type="text"
-									class="form-control" name="chequenumber" value="">
+									class="form-control" data-validation="number" 
+									data-validation-error-msg=" "  name="chequenumber" value="">
 								</td>
 								<td><h5>Amount</h5> <input type="text"
-									class="form-control" name="amount" value="">
+									class="form-control" name="amount" data-validation="number" 
+									data-validation-error-msg=" " value="">
 								</td>
 							</tr>
 						</tbody>
@@ -85,6 +100,15 @@ h5 {
 		</div>
 	</div>
 	<jsp:include page="/msgmodal"></jsp:include>
+	<script>
+  $.validate({
+    lang: 'en',
+    modules : 'date,toggleDisabled',
+	  disabledFormFilter : 'form.toggle-disabled',
+	 showErrorDialogs : false
+
+    });
+</script> 
 	<script type="text/javascript" src="assets/js/form.js"></script>
 	<script>
 	<%if(request.getAttribute("msg")!=null){%>
@@ -92,5 +116,6 @@ h5 {
 	   <%}%>
 	  
 </script>
+
 </body>
 </html>

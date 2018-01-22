@@ -70,6 +70,15 @@
 	</div>
 
 	<jsp:include page="/msgmodal"></jsp:include>
+	<script>
+  $.validate({
+    lang: 'en',
+    modules : 'date,toggleDisabled',
+	  disabledFormFilter : 'form.toggle-disabled',
+	 showErrorDialogs : false
+
+    });
+</script>
 	<script type="text/javascript">
 	$('.clickbtn').click(function() {
 		return confirm('CONFIRM?');

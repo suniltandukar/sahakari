@@ -1,5 +1,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<jsp:include page="/includefile"></jsp:include>
+<html>
 
+
+<head>
+
+</head>
+
+<body>
 <div class="panel panel-default " style="width: 95%; margin: auto;">
 		
 		<div class="panel-body">
@@ -16,7 +24,7 @@
 							<tr>
 								<td>
 									<h5>Member Id</h5> <input type="text"
-									class="form-control sharecertmemberid" name="memberid" value="${accountdetail.memberid }">
+									class="form-control sharecertmemberid" data-validation="number" name="memberid" value="${accountdetail.memberid }">
 								</td>
 							</tr>
 							<tr>
@@ -51,7 +59,7 @@
 							<tr>
 								<td>
 									<h5>Account Name</h5> <input type="text"
-									class="form-control memberid" name="accountName" value="${accountdetail.accountName }">
+									class="form-control memberid" data-validation="alphanumeric" name="accountName" value="${accountdetail.accountName }">
 								</td>
 								<td>
 									<h5>Limit Reference</h5> <input type="text"
@@ -76,4 +84,18 @@
       </div>
     </div>
 </div>
+
+
 <input type="hidden" class="memberidstatus" value="">
+
+<script>
+  $.validate({
+    lang: 'en',
+    modules : 'date,toggleDisabled',
+	  disabledFormFilter : 'form.toggle-disabled',
+	 showErrorDialogs : false
+
+    });
+</script>
+</body>
+</html>

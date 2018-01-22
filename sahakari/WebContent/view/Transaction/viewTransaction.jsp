@@ -69,6 +69,7 @@
 	</div>
 
 	<jsp:include page="/msgmodal"></jsp:include>
+	
 	<script type="text/javascript">
 	$('.clickbtn').click(function() {
 		return confirm('CONFIRM?');

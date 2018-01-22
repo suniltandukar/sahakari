@@ -18,16 +18,18 @@
 				<strong>Insert Transaction No</strong>
 			</h6>
 			
-			<input type="text" class="form-control input" value="${id}" style="width: 20%;">
+			<input type="text" class="form-control input" data-validation="number" value="${id}" style="width: 20%;">
 			
 			<br> <input type="submit" class="btn btn-info searchbtn"
 				value="SEARCH">
 		</div>
 	</div>
 	<div class="displayform"></div>
+	
 	<script>
 $(document).ready(function()
         {
+	
 	 $(".searchbtn").click(function()
 		        {
 		 var id=$(".input").val();
