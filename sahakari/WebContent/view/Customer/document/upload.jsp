@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Customer Bill Upload</title>
 
 </head>
@@ -31,7 +26,7 @@
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
 				</ul>
-				<a class="btn btn-primary btn-xs pull-right">View documents</a>
+				<a href="viewmemberdocuments.click"class="btn btn-primary btn-xs pull-right">View documents</a>
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">

@@ -21,15 +21,18 @@ import com.sahakari.action.GetFormOptions;
 import com.sahakari.dao.CategoryDao;
 import com.sahakari.dao.CustomerDao;
 import com.sahakari.dao.ListDao;
+import com.sahakari.dao.OtherActionDAO;
 import com.sahakari.dao.ViewDao;
 import com.sahakari.daoimpl.CategoryDaoImpl;
 import com.sahakari.daoimpl.CustomerDaoImpl;
 import com.sahakari.daoimpl.ListDaoImpl;
+import com.sahakari.daoimpl.OtherActionDaoImpl;
 import com.sahakari.daoimpl.ViewDaoImpl;
 import com.sahakari.model.AccountModel;
 import com.sahakari.model.BranchModel;
 import com.sahakari.model.CategoryModel;
 import com.sahakari.model.CustomerModel;
+import com.sahakari.model.Document;
 import com.sahakari.model.FamilyRelationModel;
 import com.sahakari.model.TellerTransactionModel;
 import com.sahakari.model.TransactionModel;
@@ -468,6 +471,15 @@ public class NavigationController extends HttpServlet {
 		else if(uri.endsWith("memberdocument.click"))
 		{
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/document/upload.jsp");
+			rd.forward(request, response);
+			
+		}
+		else if(uri.endsWith("viewmemberdocuments.click"))
+		{
+			OtherActionDAO action=new OtherActionDaoImpl();
+			List<Document> documentlist=action.getDocumentDetails();
+			request.setAttribute("documentlist", documentlist);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/document/view.jsp");
 			rd.forward(request, response);
 			
 		}

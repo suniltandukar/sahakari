@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.sahakari.dbconnection.DBConnection;
 import com.sahakari.dao.OtherActionDAO;
@@ -58,6 +60,32 @@ public class OtherActionDaoImpl implements OtherActionDAO {
 		
 		return false;
 	}
-
-
+	public List<Document> getDocumentDetails(){
+		List<Document> list=new ArrayList<Document>();
+		Document d=null;
+		try{
+			String query="select * from memberdocuments";
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			while(rs.next()){
+				d=new Document();
+				d.setMemberid(rs.getString("memberid"));
+				d.setDocumenttype(rs.getString("documenttype"));
+				d.setFilepath(rs.getString("documentpath"));
+				d.setFilename(rs.getString("originalfilename"));
+				list.add(d);
+			}
+			if(list.size()>0){
+				con.close();
+				ps.close();
+				rs=null;
+				return list;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return null;
+	}
 }
