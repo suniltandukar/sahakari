@@ -465,5 +465,11 @@ public class NavigationController extends HttpServlet {
 				out.println("Member ID not Found.");
 			}
 		}
+		else if(uri.endsWith("memberdocument.click"))
+		{
+			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/insertCustomerDocument.jsp");
+			rd.forward(request, response);
+			
+		}
 	}
 }

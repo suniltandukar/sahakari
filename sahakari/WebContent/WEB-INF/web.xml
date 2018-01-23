@@ -80,7 +80,7 @@
     <servlet-name>UserController</servlet-name>
     <url-pattern>*.user</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>DateConverter</display-name>
     <servlet-name>DateConverter</servlet-name>

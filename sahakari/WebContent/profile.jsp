@@ -88,7 +88,7 @@
 											</ul></li>
 										<li><a href="#" target="iframe_a">Authorization of
 												member</a></li>
-										<li><a href="#" target="iframe_a">member Documents</a></li>
+										<li><a href="memberdocument.click" target="iframe_a">Member Documents</a></li>
 
 									</ul></li>
 								<li><a><i class="fa fa-suitcase" aria-hidden="true"></i>Shareholder <span
