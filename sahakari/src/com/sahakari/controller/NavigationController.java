@@ -467,7 +467,7 @@ public class NavigationController extends HttpServlet {
 		}
 		else if(uri.endsWith("memberdocument.click"))
 		{
-			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/insertCustomerDocument.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/document/upload.jsp");
 			rd.forward(request, response);
 			
 		}

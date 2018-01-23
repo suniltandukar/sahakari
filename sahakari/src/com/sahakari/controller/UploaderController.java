@@ -18,9 +18,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import com.oreilly.servlet.MultipartRequest;
 import com.sahakari.action.OtherAction;
+import com.sahakari.dao.OtherActionDAO;
+import com.sahakari.daoimpl.OtherActionDaoImpl;
 import com.sahakari.model.Document;
 
 /**
@@ -29,79 +30,75 @@ import com.sahakari.model.Document;
 @WebServlet("/UploaderController")
 public class UploaderController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final String UPLOAD_DIRECTORY = "C:/Users/sunil/git/adblassetmanagementproject/adblassetmanagementproject/WebContent/view/uploadedbills";
-	//private final String UPLOAD_DIRECTORY = "C:/xampp/tomcat/webapps/adblassetbillimages/billimages";
-	Map<String,String> formMap = new HashMap<String,String>();
-       
-    public UploaderController() {
-        super();
-    }
+	
+	OtherActionDAO oa=new OtherActionDaoImpl();
+	String Uploaddirectory=oa.getUploadDirectory();
+	private final String UPLOAD_DIRECTORY = Uploaddirectory;
+
+	Map<String, String> formMap = new HashMap<String, String>();
+
+	public UploaderController() {
+		super();
+	}
+
 	public void init(ServletConfig config) throws ServletException {
 	}
+
 	public void destroy() {
 	}
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 
+		System.out.println("uploader controller reached");
+		MultipartRequest req = new MultipartRequest(request, UPLOAD_DIRECTORY,
+				1024 * 1024 * 1024);
+		String memberid = req.getParameter("memberid");
+		String documenttype = req.getParameter("documenttype");
 
-		MultipartRequest req = new MultipartRequest(request, UPLOAD_DIRECTORY, 1024 * 1024 * 1024);
-	      String billno=req.getParameter("billno");
-	      String companyid=req.getParameter("companyid");
-	      String billdate=req.getParameter("billdate");
-	      String billdateen=req.getParameter("billdateen");
-	      String branchdb=req.getParameter("branchdb");
-	      
-	     String[] billdateString=billdate.split("-");
-	     String[] billdateenString=billdateen.split("-");
-	     String billdateyear=billdateString[0];
-	     String billdateenyear=billdateenString[0];
-	     String billimagegeneratedname=billdateyear+billno+billdateenyear;
-	     
-	  	
-	      Document document=new Document();
-		document.setBilldate(billdate);
-		document.setBilldateen(billdateen);
-		document.setBillno(billno);
-		document.setCompany(companyid);
+		String generatedfilename = memberid + documenttype;
+
+		Document document = new Document();
+		document.setMemberid(memberid);
+		document.setDocumenttype(documenttype);
+		document.setGeneratedfilename(generatedfilename);
 		document.setFilepath(UPLOAD_DIRECTORY);
-		//document.setBillimagegeneratedname(billimagegeneratedname);
-		   
-try{	   
-	    Enumeration files = req.getFileNames();
-	    while (files.hasMoreElements()) {
-	        String name = (String) files.nextElement();
-	        String filename = req.getFilesystemName(name);
-	        System.out.println(filename);
-	        document.setFilename(filename);
-	        String type = req.getContentType(name);
-	        System.out.println(type);
-	      
-	        File uploadedFile = req.getFile(name);
-	        System.out.println(uploadedFile);
-	    	
-	        FileInputStream fis = new FileInputStream(uploadedFile);
-	        BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+		// document.setBillimagegeneratedname(billimagegeneratedname);
 
-	        FileWriter fstream = new FileWriter(UPLOAD_DIRECTORY + name, true);
-	        BufferedWriter out11 = new BufferedWriter(fstream);
+		try{	   
+		    Enumeration files = req.getFileNames();
+		    while (files.hasMoreElements()) {
+		        String name = (String) files.nextElement();
+		        String filename = req.getFilesystemName(name);
+		        System.out.println(filename);
+		        document.setFilename(filename);
+		        String type = req.getContentType(name);
+		        System.out.println(type);
+		      
+		        File uploadedFile = req.getFile(name);
+		        System.out.println(uploadedFile);
+		    	
+		        FileInputStream fis = new FileInputStream(uploadedFile);
+		        BufferedReader in = new BufferedReader(new InputStreamReader(fis));
 
-	        String aLine = null;
-	        while ((aLine = in.readLine()) != null) {
-	            //Process each line and add output to Dest.txt file
-	            out11.write(aLine);
-	            out11.newLine();
-	        }
-	        in.close();
-	        out11.close();
-               }    
-	    OtherAction action = new OtherAction();
-		action.saveFileData(request, response,document);
-            } catch (Exception ex) {
-               request.setAttribute("message", "File Upload Failed due to " + ex);
-            }          
-         
-        }
-    
-      
+		        FileWriter fstream = new FileWriter(UPLOAD_DIRECTORY + name, true);
+		        BufferedWriter out11 = new BufferedWriter(fstream);
+
+		        String aLine = null;
+		        while ((aLine = in.readLine()) != null) {
+		            //Process each line and add output to Dest.txt file
+		            out11.write(aLine);
+		            out11.newLine();
+		        }
+		        in.close();
+		        out11.close();
+	               }    
+		    OtherAction action = new OtherAction();
+			action.saveFileData(request, response, document);
+		} catch (Exception ex) {
+			request.setAttribute("message", "File Upload Failed due to " + ex);
+		}
+
+	}
 
 }
