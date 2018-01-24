@@ -12,4 +12,5 @@ public interface OtherActionDAO {
 	public String getUploadDirectory();
 	public boolean uploaddocumentDao(Document document);
 	public List<Document> getDocumentDetails();
+	public Document getPortandpath();
 }

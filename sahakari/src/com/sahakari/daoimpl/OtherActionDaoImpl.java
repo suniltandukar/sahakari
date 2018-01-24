@@ -88,4 +88,24 @@ public class OtherActionDaoImpl implements OtherActionDAO {
 		}
 		return null;
 	}
+	public Document getPortandpath(){
+		
+		Document d=null;
+		try{
+			String query="select * from documentportpathtbl";
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			if(rs.next()){
+				d=new Document();
+				d.setPort(rs.getString("ipport"));
+				d.setFilepath(rs.getString("filepath"));
+				return d;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return null;
+	}
 }

@@ -478,7 +478,9 @@ public class NavigationController extends HttpServlet {
 		{
 			OtherActionDAO action=new OtherActionDaoImpl();
 			List<Document> documentlist=action.getDocumentDetails();
+			Document portandpath=action.getPortandpath();
 			request.setAttribute("documentlist", documentlist);
+			request.setAttribute("portandpath", portandpath);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/document/view.jsp");
 			rd.forward(request, response);
 			

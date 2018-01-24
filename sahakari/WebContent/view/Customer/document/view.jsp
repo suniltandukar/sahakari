@@ -52,12 +52,14 @@
 							<tr>
 								<td>${list.memberid }</td>
 								<td>${list.documenttype }</td>
-								<td><a href="#" data-toggle="modal"
+								<td>	
+											<a href="#" data-toggle="modal" class="btn btn-primary btn-xs"
 										data-caption="test caption text"
-										data-image="${list.filepath }/${list.filename}"
+										data-image="//${portandpath.port }/${portandpath.filepath }/${list.filename}"
 										data-target="#trslphotos"><img
-											src="${list.filepath }/${list.filename}"
-											alt="recent photo" width="0px">View</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+											src="//${portandpath.port }/${portandpath.filepath }/${list.filename}"
+											alt="recent photo" width="0px">View</a>
+											</td>
 							</tr>
 						</c:forEach>
 					</tbody>

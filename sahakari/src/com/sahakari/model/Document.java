@@ -2,7 +2,15 @@ package com.sahakari.model;
 
 public class Document {
 	
-	String memberid,documenttype,filepath,filename,generatedfilename;
+	String memberid,documenttype,filepath,filename,generatedfilename,port;
+
+	public String getPort() {
+		return port;
+	}
+
+	public void setPort(String port) {
+		this.port = port;
+	}
 
 	public String getGeneratedfilename() {
 		return generatedfilename;
