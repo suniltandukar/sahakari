@@ -1,11 +1,18 @@
 package com.sahakari.controller;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -52,7 +59,7 @@ public class NavigationController extends HttpServlet {
 	public void destroy() {
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out=response.getWriter();
+		
 		String uri=request.getRequestURI();
 		 if(uri.endsWith("category.click"))
 		{
@@ -118,6 +125,7 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 		}
 		else if(uri.endsWith("customerSearchResult.click")){
+			PrintWriter out=response.getWriter();
 			String memberid=request.getParameter("memberid"),
 					membername=request.getParameter("membername");
 			String searchingby=memberid+membername;
@@ -249,6 +257,7 @@ public class NavigationController extends HttpServlet {
 		}
 	
 		else if(uri.endsWith("checkmemberid.click")){
+			PrintWriter out=response.getWriter();
 			String id=request.getParameter("id");
 			CustomerDao c=new CustomerDaoImpl();
 			boolean status=c.checkMemberId(id);
@@ -261,6 +270,7 @@ public class NavigationController extends HttpServlet {
 			}
 		}
 		else if(uri.endsWith("sharecertcheckmemberid.click")){
+			PrintWriter out=response.getWriter();
 			String id=request.getParameter("id");
 			CustomerDao c=new CustomerDaoImpl();
 			boolean status=c.checkMemberId(id);
@@ -358,6 +368,8 @@ public class NavigationController extends HttpServlet {
 		//Teller Transaction
 		else if(uri.endsWith("insertTeller.click")){
 			
+			String type=request.getParameter("type");
+			request.setAttribute("type", type);
 			
 			Generator gen=new Generator("coop_dat");
 			String tellerid=gen.tellertransactionidgenerator();
@@ -441,6 +453,7 @@ public class NavigationController extends HttpServlet {
 		}
 		else if(uri.endsWith("generateaccountno.click"))
 		{
+			PrintWriter out=response.getWriter();
 			String generatedAccountNo="";
 			CustomerDao cust=new CustomerDaoImpl();
 			String memberid=request.getParameter("memberid");
@@ -478,12 +491,36 @@ public class NavigationController extends HttpServlet {
 		{
 			OtherActionDAO action=new OtherActionDaoImpl();
 			List<Document> documentlist=action.getDocumentDetails();
-			Document portandpath=action.getPortandpath();
 			request.setAttribute("documentlist", documentlist);
-			request.setAttribute("portandpath", portandpath);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/document/view.jsp");
 			rd.forward(request, response);
 			
 		}
+		else if(uri.endsWith("viewDocument.click")){
+			String documentname=request.getParameter("documentname");
+			OtherActionDAO action=new OtherActionDaoImpl();
+			String location=action.getDocumentLocation(documentname);
+			
+			String contentType="image/png";
+			
+			ServletOutputStream ot= response.getOutputStream ();
+			response.setContentType(contentType);  
+		    ServletOutputStream os;  
+		    os = response.getOutputStream();  
+		    FileInputStream fin = new FileInputStream(location+"\\"+documentname);  
+		      
+		    BufferedInputStream bin = new BufferedInputStream(fin);  
+		    BufferedOutputStream bout = new BufferedOutputStream(os);  
+		    int ch =0; ;  
+		    while((ch=bin.read())!=-1)  
+		    {  
+		    bout.write(ch);  
+		    }  
+		      
+		    bin.close();  
+		    fin.close();  
+		    bout.close();  
+		    os.close();  
+		    }  
 	}
 }

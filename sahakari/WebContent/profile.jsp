@@ -155,9 +155,9 @@
 										<li><a><span class="fa fa-chevron-down"></span>Teller
 												Operation</a>
 											<ul class="nav child_menu">
-												<li><a href="insertTeller.click" target="iframe_a">Cash
+												<li><a href="insertTeller.click?type=cashDeposit" target="iframe_a">Cash
 														Deposit </a></li>
-												<li><a href="insertTeller.click" target="iframe_a">Cash
+												<li><a href="insertTeller.click?type=cashWithdraw" target="iframe_a">Cash
 														Withdraw</a></li>
 												<li><a href="#" target="iframe_a">Cash Withdraw
 														without cheque</a></li>

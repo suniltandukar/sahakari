@@ -52,14 +52,7 @@
 							<tr>
 								<td>${list.memberid }</td>
 								<td>${list.documenttype }</td>
-								<td>	
-											<a href="#" data-toggle="modal" class="btn btn-primary btn-xs"
-										data-caption="test caption text"
-										data-image="//${portandpath.port }/${portandpath.filepath }/${list.filename}"
-										data-target="#trslphotos"><img
-											src="//${portandpath.port }/${portandpath.filepath }/${list.filename}"
-											alt="recent photo" width="0px">View</a>
-											</td>
+								<td><a class="btn btn-info btn-xs" href="viewDocument.click?documentname=${list.generatedfilename }" target="_blank">view file</a>
 							</tr>
 						</c:forEach>
 					</tbody>

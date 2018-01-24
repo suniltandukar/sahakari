@@ -94,7 +94,7 @@
     <description></description>
     <display-name>UploaderController</display-name>
     <servlet-name>UploaderController</servlet-name>
-    <servlet-class>com.sahakari.controller.UploaderController</servlet-class>
+    <servlet-class>com.sahakari.controller.UploadController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>UploaderController</servlet-name>

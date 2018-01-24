@@ -16,7 +16,7 @@ public class OtherActionDaoImpl implements OtherActionDAO {
 	Connection con=null;
 	ResultSet rs=null;
 	public String getUploadDirectory(){
-		String uploaddir="C:/Program Files/xampp/tomcat/webapps/sahakariimages";
+		String uploaddir="C:/diginepalProject/memberDocuments";
 		String query="select uploadpath from documentportpathtbl";
 		try{
 			con=DBConnection.getConnection();
@@ -74,6 +74,7 @@ public class OtherActionDaoImpl implements OtherActionDAO {
 				d.setDocumenttype(rs.getString("documenttype"));
 				d.setFilepath(rs.getString("documentpath"));
 				d.setFilename(rs.getString("originalfilename"));
+				d.setGeneratedfilename(rs.getString("generatedname"));
 				list.add(d);
 			}
 			if(list.size()>0){
@@ -88,24 +89,25 @@ public class OtherActionDaoImpl implements OtherActionDAO {
 		}
 		return null;
 	}
-	public Document getPortandpath(){
-		
-		Document d=null;
+	public String getDocumentLocation(String documentName){
+		String location=null;
 		try{
-			String query="select * from documentportpathtbl";
+			String query="select documentpath from memberdocuments where generatedname='"+documentName+"'";
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
 			if(rs.next()){
-				d=new Document();
-				d.setPort(rs.getString("ipport"));
-				d.setFilepath(rs.getString("filepath"));
-				return d;
+				location=rs.getString("documentpath");
+				con.close();
+				ps.close();
+				rs=null;
+				return location;
 			}
 		}
 		catch(Exception e){
 			System.out.println(e);
 		}
 		return null;
+		
 	}
 }

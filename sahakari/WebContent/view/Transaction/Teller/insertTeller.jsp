@@ -2,8 +2,6 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <jsp:include page="/includefile"></jsp:include>
-
-
 <html>
 <head>
 
@@ -11,6 +9,9 @@
 h5 {
 	font-size: 80%;
 	font-weight: bold;
+}
+#${type}{
+display:none;
 }
 </style>
 </head>
@@ -72,13 +73,13 @@ h5 {
 									data-validation-error-msg=" " value=""
 									data-validation-optional="true">
 								</td>
-								<td><h5>Debit Account Number</h5> <input type="text"
+								<td id="cashDeposit"><h5>Debit Account Number</h5> <input type="text"
 									class="form-control" name="debitaccountnumber" value=""
 									data-validation="number" 
 									data-validation-error-msg=" "
 									data-validation-optional="true" >
 								</td>
-								<td><h5>Credit Account Number</h5> <input type="text"
+								<td id="cashWithdraw"><h5>Credit Account Number</h5> <input type="text"
 									class="form-control" name="creditaccountnumber" 
 									data-validation="number" 
 									data-validation-error-msg=" "  value=""

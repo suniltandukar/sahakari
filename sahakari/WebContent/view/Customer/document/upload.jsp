@@ -30,13 +30,13 @@
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
-				<form method="POST" action="document.upload" class="confirm"
+				<form method="POST" action="document.upload" class="confirm" role="form"
 					enctype="multipart/form-data">
 					<table class="table">
 						<tbody>
 							<tr>
-								<td><input type="submit" name="button" value="submit"
-									class="btn btn-primary"></td>
+								<td><button type="submit"
+									class="btn btn-primary">Upload</button></td>
 							</tr>
 
 							<tr>
@@ -54,7 +54,7 @@
 								</td>
 								<td>
 									<h5>Attach Image</h5> <input type="file" name="filename"
-									class="form-control" value="" required>
+									class="form-control" value="" >
 								</td>
 							</tr>
 						</tbody>
