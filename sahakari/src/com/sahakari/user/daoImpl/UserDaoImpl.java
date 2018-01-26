@@ -18,16 +18,26 @@ public class UserDaoImpl implements UserDao {
 	List<UserModel> list=null;
 	UserModel usermodel=null;
 	
-	public boolean adduserdao(String username,String givenrole)
+	public boolean adduserdao(UserModel u)
 	{
-		String query="insert into usertbl(username,password,givenrole) values(?,?,?)";
+		String query="insert into usertbl(username,password,status,givenrole,fullName,post,staffCode,startDate,endDate,branchCode,functionAllowed,functionRestriction,branchAllowed) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		int rs=0;
 		con=DBConnection.getConnection();
 		try {
 			ps=con.prepareStatement(query);
-			ps.setString(1, username);
-			ps.setString(2, username);
-			ps.setString(3, givenrole);
+			ps.setString(1, u.getUsername());
+			ps.setString(2, u.getPassword());
+			ps.setString(3, u.getStatus());
+			ps.setString(4,u.getGivenrole() );
+			ps.setString(5,u.getFullName() );
+			ps.setString(6, u.getPost() );
+			ps.setString(7,u.getStaffCode() );
+			ps.setString(8,u.getStartDate() );
+			ps.setString(9,u.getEndDate() );
+			ps.setString(10,u.getBranchCode() );
+			ps.setString(11,u.getFunctionAllowed() );
+			ps.setString(12,u.getFunctionRestriction() );
+			ps.setString(13,u.getBranchAllowed() );
 			rs=ps.executeUpdate();
 			if(rs>0)
 			{
@@ -140,6 +150,31 @@ public class UserDaoImpl implements UserDao {
 		}
 		
 		return false;
+		
+	}
+	public String getRoleAssigned(String name)
+	{
+		
+		String query="select roles from roleindex where name='"+name+"'";
+		String roles="";
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			if(rs.next()){
+				roles=rs.getString("roles");
+				con.close();
+				ps.close();
+				rs=null;
+				return roles;
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("updateuserdao error");
+		}
+		
+		return null;
 		
 	}
 

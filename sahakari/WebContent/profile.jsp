@@ -7,6 +7,7 @@
 	if ((session.getAttribute("userDetail")) != null) {
 		UserModel userdetail = (UserModel) session
 				.getAttribute("userDetail");
+		String givenRoles=userdetail.getGivenrole();
 %>
 <html lang="en">
 <head>
@@ -27,6 +28,11 @@
 
 <!-- Custom Theme Style -->
 <link href="template/css/custom.min.css" rel="stylesheet">
+<style>
+<%=givenRoles%>{
+display:block;
+}
+</style>
 </head>
 
 <body class="nav-md">
@@ -36,7 +42,7 @@
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
 						<a href="#" class="site_title"><i class="fa fa-desktop"
-							aria-hidden="true"></i> <span>Digi Nepal</span></a>
+							aria-hidden="true"></i> <span class="account">Digi Nepal</span></a>
 					</div>
 
 					<div class="clearfix"></div>
@@ -65,12 +71,12 @@
 								<li><a><i class="fa fa-home"></i> Home <span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
-										<li><a href="view/dashboard.jsp" target="iframe_a">Dashboard</a></li>
+										<li id="dashboard"><a href="view/dashboard.jsp" target="iframe_a">Dashboard</a></li>
 									</ul></li>
 								<li><a><i class="fa fa-users" aria-hidden="true"></i> Member(With KYC)
 										<span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
-										<li><a><span class="fa fa-chevron-down"></span>New
+										<li ><a><span class="fa fa-chevron-down"></span>New
 												Member</a>
 											<ul class="nav child_menu">
 												<li><a href="customerinsert.click" target="iframe_a">

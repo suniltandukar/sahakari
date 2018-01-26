@@ -1,7 +1,87 @@
 package com.sahakari.model;
 
 public class UserModel {
-	String username, password, status,userid,givenrole,viewname;
+	String username, password, status,userid,givenrole,fullName,post,staffCode,endDate,startDate,branchCode,roleName,functionAllowed,functionRestriction,branchAllowed;
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public String getPost() {
+		return post;
+	}
+
+	public void setPost(String post) {
+		this.post = post;
+	}
+
+	public String getStaffCode() {
+		return staffCode;
+	}
+
+	public void setStaffCode(String staffCode) {
+		this.staffCode = staffCode;
+	}
+
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+
+	public String getBranchCode() {
+		return branchCode;
+	}
+
+	public void setBranchCode(String branchCode) {
+		this.branchCode = branchCode;
+	}
+
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+
+	public String getFunctionAllowed() {
+		return functionAllowed;
+	}
+
+	public void setFunctionAllowed(String functionAllowed) {
+		this.functionAllowed = functionAllowed;
+	}
+
+	public String getFunctionRestriction() {
+		return functionRestriction;
+	}
+
+	public void setFunctionRestriction(String functionRestriction) {
+		this.functionRestriction = functionRestriction;
+	}
+
+	public String getBranchAllowed() {
+		return branchAllowed;
+	}
+
+	public void setBranchAllowed(String branchAllowed) {
+		this.branchAllowed = branchAllowed;
+	}
 
 	public String getUserid() {
 		return userid;
@@ -17,14 +97,6 @@ public class UserModel {
 
 	public void setGivenrole(String givenrole) {
 		this.givenrole = givenrole;
-	}
-
-	public String getViewname() {
-		return viewname;
-	}
-
-	public void setViewname(String viewname) {
-		this.viewname = viewname;
 	}
 
 	public String getStatus() {

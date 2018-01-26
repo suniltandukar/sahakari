@@ -6,7 +6,7 @@ import com.sahakari.model.UserModel;
 
 public interface UserDao {
 
-	public boolean adduserdao(String username, String role);
+	public boolean adduserdao(UserModel u);
 	
 	public boolean deleteuserdao(String userid);
 
@@ -15,5 +15,6 @@ public interface UserDao {
 	public List<UserModel> getexistingusers();
 
 	public boolean updateuserdao(String userid, String username,String givenrole);
+	public String getRoleAssigned(String name);
 
 }

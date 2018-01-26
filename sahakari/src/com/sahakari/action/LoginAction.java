@@ -1,7 +1,6 @@
 package com.sahakari.action;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -15,6 +14,8 @@ import javax.servlet.http.HttpSession;
 import com.sahakari.dao.LoginDao;
 import com.sahakari.daoimpl.LoginDaoImpl;
 import com.sahakari.model.UserModel;
+import com.sahakari.user.dao.UserDao;
+import com.sahakari.user.daoImpl.UserDaoImpl;
 
 @WebServlet("/LoginAction")
 public class LoginAction extends HttpServlet {
@@ -46,7 +47,14 @@ public class LoginAction extends HttpServlet {
 			UserModel userDetail=l.getUserDetail(u);
 			HttpSession session=request.getSession(true);
 			session.setAttribute("userDetail", userDetail);
-			request.setAttribute("userrole", userDetail.getGivenrole());
+			String currentBranchcode=userDetail.getBranchCode();
+			session.setAttribute("currentBranchcode", currentBranchcode);
+			
+			UserDao ud=new UserDaoImpl();
+			String name=userDetail.getGivenrole();
+			request.setAttribute("userrole", ud.getRoleAssigned(name));
+			System.out.println(ud.getRoleAssigned(name));
+			
 			RequestDispatcher rd=request.getRequestDispatcher("profile.jsp");
 			try {
 				rd.forward(request, response);

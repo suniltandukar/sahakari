@@ -6,11 +6,11 @@
 <html>
 <head>
 <style type="text/css">
-  /* Add ajax preloader when server is being requested */
-  .validating-server-side {
-    background: url(img/ajax-preloader.gif) no-repeat center right;
-    opacity: 0.6
-  }
+/* Add ajax preloader when server is being requested */
+.validating-server-side {
+	background: url(img/ajax-preloader.gif) no-repeat center right;
+	opacity: 0.6
+}
 </style>
 
 
@@ -46,11 +46,13 @@ h5 {
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
-				<form class="form-horizontal customerForm toggle-disabled" id="form1" method="post"
-					action="customer.add" data-validation="toggle">
+				<form class="form-horizontal customerForm toggle-disabled"
+					id="form1" method="post" action="customer.add"
+					data-validation="toggle">
 					<div class="" role="tabpanel" data-example-id="togglable-tabs">
 						<ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-						<li><button type="submit" form="form1" class="btn btn-success form">Save Member</button></li>
+							<li><button type="submit" form="form1"
+									class="btn btn-success form">Save Member</button></li>
 							<li role="presentation" class="active"><a
 								href="#tab_content1" id="home-tab" role="tab" data-toggle="tab"
 								aria-expanded="true">General Information</a></li>
@@ -63,7 +65,10 @@ h5 {
 							<li role="presentation" class=""><a href="#tab_content4"
 								role="tab" id="profile-tab3" data-toggle="tab"
 								aria-expanded="false">Bank Account Information</a></li>
-							
+							<li role="presentation" class=""><a href="#tab_content5"
+								role="tab" id="profile-tab4" data-toggle="tab"
+								aria-expanded="false">Other Details</a></li>
+
 						</ul>
 						<div id="myTabContent" class="tab-content">
 							<div role="tabpanel" class="tab-pane fade active in"
@@ -72,32 +77,31 @@ h5 {
 									<tbody>
 										<tr>
 											<td>
-												<h5>Member Id</h5>
-												<input type="text"
+												<h5>Member Id</h5> <input type="text"
 												class="form-control memberid" name="pid" value="" readonly>
 											</td>
 											<td>
 												<h5>Legacy Member Id</h5> <input type="text"
-												class="form-control memberid" name="memberid" value="" data-validation="number"
-												data-validation-error-msg=" ">
+												class="form-control memberid" name="memberid" value=""
+												data-validation="number" data-validation-error-msg=" ">
 											</td>
 											<td>
 												<h5>Registration Date</h5> <input type="text"
-												class="form-control" name="registrationDate" value="" 
-												data-validation="birthdate" data-validation-error-msg=" " 
-													>
-		 
+												class="form-control" name="registrationDate" value=""
+												data-validation="birthdate" data-validation-error-msg=" ">
+
 											</td>
-											
+
 										</tr>
 										<tr>
 											<td>
 												<h5>Name</h5> <input type="text" class="form-control"
-								name="name" value="" data-validation="alphanumeric"  data-validation-error-msg=" " >
+												name="name" value="" data-validation="alphanumeric"
+												data-validation-error-msg=" ">
 											</td>
 											<td>
 												<h5>Address</h5> <input type="text" class="form-control"
-												name="address" value="" >
+												name="address" value="">
 											</td>
 										</tr>
 										<tr>
@@ -110,8 +114,9 @@ h5 {
 											</td>
 											<td>
 												<h5>Citizenship No</h5> <input type="text"
-												class="form-control" name="cusCitizenshipNo" value="" data-validation="number"
-												 data-validation-error-msg=" "  data-validation-optional="true">
+												class="form-control" name="cusCitizenshipNo" value=""
+												data-validation="number" data-validation-error-msg=" "
+												data-validation-optional="true">
 											</td>
 											<td>
 												<h5>Citizenship Issued From</h5> <select
@@ -126,17 +131,19 @@ h5 {
 										<tr>
 											<td>
 												<h5>Telephone No</h5> <input type="text"
-												class="form-control" name="telno" maxlength="10" value="" data-validation="number" 
-												data-validation-error-msg=" " data-validation-optional="true">
+												class="form-control" name="telno" maxlength="10" value=""
+												data-validation="number" data-validation-error-msg=" "
+												data-validation-optional="true">
 											</td>
 											<td>
 												<h5>Mobile No</h5> <input type="text" class="form-control"
-												name="mobno" maxlength="10" value="" data-validation="number"
-												data-validation-error-msg=" " data-validation-optional="true">
+												name="mobno" maxlength="10" value=""
+												data-validation="number" data-validation-error-msg=" "
+												data-validation-optional="true">
 											</td>
 											<td>
-												<h5>VAT/PAN</h5> <input type="text"
-												class="form-control" name="fatherName">
+												<h5>VAT/PAN</h5> <input type="text" class="form-control"
+												name="fatherName">
 											</td>
 										</tr>
 										<tr>
@@ -146,8 +153,9 @@ h5 {
 											</td>
 											<td>
 												<h5>Date of birth (DOB)</h5> <input type="text"
-												class="form-control" name="dob" value="" data-validation="birthdate" 
-													data-validation-error-msg=" " data-validation-optional="true">
+												class="form-control" name="dob" value=""
+												data-validation="birthdate" data-validation-error-msg=" "
+												data-validation-optional="true">
 											</td>
 										</tr>
 										<tr>
@@ -157,7 +165,7 @@ h5 {
 													<c:forEach items="${typelist}" var="type">
 														<option value="${type.typeid}">${type.typeName}</option>
 													</c:forEach>
-											</select> 
+											</select>
 											</td>
 											<td>
 												<h5>Status</h5> <select class="form-control" name="statusid">
@@ -247,106 +255,111 @@ h5 {
 									</tbody>
 								</table>
 							</div>
-							<div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+							<div role="tabpanel" class="tab-pane fade" id="tab_content2"
+								aria-labelledby="profile-tab">
 								<input type="button" name="button" value="+ Add Relation"
-								class="btn btn-primary addrealtionbtn">
-							<table class="table" id="relationtable">
-								<tbody>
-									<tr class="tr_clone">
-										<td>
-											<h5>Relation</h5> <select class="form-control"
-											name="cusRelation">
-												<option value="">Select Relation</option>
-												<c:forEach items="${familyrelationlist}" var="relation">
-													<option value="${relation.relationName}">${relation.relationName}</option>
-												</c:forEach>
-										</select>
-										</td>
-										<td>
-											<h5>Relation Name</h5> <input type="text"
-											class="form-control" name="cusRelName" value="">
-										</td>
-										<td>
-											<h5>DOB</h5> <input type="text" class="form-control"
-											name="dateOfBirth" value="" data-validation="birthdate" 
-													 data-validation-error-msg=" " data-validation-optional="true">
-										</td>
-										<td>
-											<h5>citizenshipNo</h5> <input type="text"
-											class="form-control" name="fcitizenshipNo" value="" data-validation="number"
-											data-validation-error-msg=" " data-validation-optional="true" >
-										</td>
-										<td>
-											<h5>Remarks</h5> <input type="text" class="form-control"
-											name="fremarks" value="">
-										</td>
-										<td><a><i class='fa fa-times' aria-hidden='true'
-												style='color: red;'></i></a></td>
-									</tr>
-								</tbody>
-							</table>
+									class="btn btn-primary addrealtionbtn">
+								<table class="table" id="relationtable">
+									<tbody>
+										<tr class="tr_clone">
+											<td>
+												<h5>Relation</h5> <select class="form-control"
+												name="cusRelation">
+													<option value="">Select Relation</option>
+													<c:forEach items="${familyrelationlist}" var="relation">
+														<option value="${relation.relationName}">${relation.relationName}</option>
+													</c:forEach>
+											</select>
+											</td>
+											<td>
+												<h5>Relation Name</h5> <input type="text"
+												class="form-control" name="cusRelName" value="">
+											</td>
+											<td>
+												<h5>DOB</h5> <input type="text" class="form-control"
+												name="dateOfBirth" value="" data-validation="birthdate"
+												data-validation-error-msg=" "
+												data-validation-optional="true">
+											</td>
+											<td>
+												<h5>citizenshipNo</h5> <input type="text"
+												class="form-control" name="fcitizenshipNo" value=""
+												data-validation="number" data-validation-error-msg=" "
+												data-validation-optional="true">
+											</td>
+											<td>
+												<h5>Remarks</h5> <input type="text" class="form-control"
+												name="fremarks" value="">
+											</td>
+											<td><a><i class='fa fa-times' aria-hidden='true'
+													style='color: red;'></i></a></td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
-							<div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+							<div role="tabpanel" class="tab-pane fade" id="tab_content3"
+								aria-labelledby="profile-tab">
 								<input type="button" name="button" value="+ Add Job"
-								class="btn btn-primary addjobbtn">
-							<table class="table" id="jobtable">
-								<tbody>
-									<tr>
-										<td>
-											<h5>Job Name</h5> <input type="text" class="form-control"
-											name="cusJob" value="">
-										</td>
-										<td>
-											<h5>Instituion</h5> <input type="text" class="form-control"
-											name="cusInstitution" value="">
-										</td>
-										<td>
-											<h5>Post</h5> <input type="text" class="form-control"
-											name="cusPost" value="">
-										</td>
-										<td>
-											<h5>Income per year</h5> <input type="text"
-											class="form-control" name="incomePeryear" value="0">
-										</td>
-										<td>
-											<h5>Remarks</h5> <input type="text" class="form-control"
-											name="jremarks" value="">
-										</td>
-										<td><a><i class='fa fa-times' aria-hidden='true'
-												style='color: red;'></i></a></td>
-									</tr>
+									class="btn btn-primary addjobbtn">
+								<table class="table" id="jobtable">
+									<tbody>
+										<tr>
+											<td>
+												<h5>Job Name</h5> <input type="text" class="form-control"
+												name="cusJob" value="">
+											</td>
+											<td>
+												<h5>Instituion</h5> <input type="text" class="form-control"
+												name="cusInstitution" value="">
+											</td>
+											<td>
+												<h5>Post</h5> <input type="text" class="form-control"
+												name="cusPost" value="">
+											</td>
+											<td>
+												<h5>Income per year</h5> <input type="text"
+												class="form-control" name="incomePeryear" value="0">
+											</td>
+											<td>
+												<h5>Remarks</h5> <input type="text" class="form-control"
+												name="jremarks" value="">
+											</td>
+											<td><a><i class='fa fa-times' aria-hidden='true'
+													style='color: red;'></i></a></td>
+										</tr>
 
-								</tbody>
-							</table>
+									</tbody>
+								</table>
 							</div>
-							<div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
+							<div role="tabpanel" class="tab-pane fade" id="tab_content4"
+								aria-labelledby="profile-tab">
 								<input type="button" name="button" value="+ Add Bank"
-								class="btn btn-primary addbankbtn">
-							<table class="table" id="bankdetailtable">
-								<tbody>
-									<tr>
-										<td>
-											<h5>Bank Name</h5> <input type="text" class="form-control"
-											name="bankName" value="">
+									class="btn btn-primary addbankbtn">
+								<table class="table" id="bankdetailtable">
+									<tbody>
+										<tr>
+											<td>
+												<h5>Bank Name</h5> <input type="text" class="form-control"
+												name="bankName" value="">
 
-										</td>
-										<td>
-											<h5>Account Number</h5> <input type="text"
-											class="form-control" name="accountNumber" value="">
-										</td>
-										<td>
-											<h5>Account Type</h5> <input type="text" class="form-control"
-											name="accountType" value="">
-										</td>
-										<td>
-											<h5>Remarks</h5> <input type="text" class="form-control"
-											name="bremarks" value="">
-										</td>
-										<td><a><i class='fa fa-times' aria-hidden='true'
-												style='color: red;'></i></a></td>
-									</tr>
-								</tbody>
-							</table>
+											</td>
+											<td>
+												<h5>Account Number</h5> <input type="text"
+												class="form-control" name="accountNumber" value="">
+											</td>
+											<td>
+												<h5>Account Type</h5> <input type="text"
+												class="form-control" name="accountType" value="">
+											</td>
+											<td>
+												<h5>Remarks</h5> <input type="text" class="form-control"
+												name="bremarks" value="">
+											</td>
+											<td><a><i class='fa fa-times' aria-hidden='true'
+													style='color: red;'></i></a></td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
 						</div>
 					</div>
@@ -389,12 +402,12 @@ h5 {
 	<script>
 		
 	<%if (request.getAttribute("msg") != null) {%>
-	   $('#myModal').modal('show');
-	   <%}%>
-</script>
 
-
-
+		$('#myModal').modal('show');
+	<%}%>
+		
+	</script>
+	
 
 </body>
 </html>
