@@ -1,6 +1,7 @@
 package com.sahakari.user.controller;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -39,6 +40,7 @@ public class UserController extends HttpServlet {
 		String uri=request.getRequestURI();
 		if(uri.endsWith("adduser.user"))
 		{
+		
 			UserDao userdao=new UserDaoImpl();
 			List<UserModel> userInfo=userdao.getexistingusers();
 			request.setAttribute("userInfo",userInfo);

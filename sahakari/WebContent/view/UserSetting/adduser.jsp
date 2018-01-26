@@ -6,7 +6,6 @@
 <html>
 <head>
 <style>
-
 .green {
 	color: green
 }
@@ -14,14 +13,15 @@
 .red {
 	color: red
 }
+
 .updatebtn {
 	display: none;
 }
 
+<%--
 <%
-if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
-	display:block;
-	
+if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
+	display: block;
 }
 
 .submitbtn {
@@ -30,6 +30,7 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 <%
 }
 %>
+--%>
 </style>
 </head>
 <body class="background">
@@ -49,47 +50,87 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 		</nav>
 	</div>
 
-	
-	
-	
+
+
+
 	<div class="col-md-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Form Basic Elements <small>different form elements</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                   <div class="x_content">
-                   
-                   	<form method="post" id="form" name="Form1">
-								<table class="table">
-									<tbody>
-										<tr>
+		<div class="x_panel">
+			<div class="x_title">
+				<h2>
+					Form Basic Elements <small>different form elements</small>
+				</h2>
+				<ul class="nav navbar-right panel_toolbox">
+					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+					</li>
+					<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
 
-											<td>
-												
-												<label class="control-label col-md-3 col-sm-3 col-xs-12">Username
-												<span class="usercheck"></span></label>
-										 <div class="col-md-12 col-sm-6 col-xs-6 form-group has-feedback">
-										<input type="hidden" form="form" value="${userid}" name="useridforupdate">
-												<input type="text" name="username"
-												class="form-control datepicker username has-feedback-left" form="form"
-												value="${username }">
-												<span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-														</div>
-											</td>
+				<form method="post" id="form" name="Form1">
+					<table class="table">
+						<tbody>
+							<tr>
 
-										</tr>
-									
-						
-									</tbody>
-								</table>
-								<table id="table1">
+								<td>
+									<h6>Username<h6> <input type="hidden" form="form"
+									value="${userid}" name="useridforupdate"> 
+									<input
+									type="text" name="username"
+									class="form-control"
+									form="form" value="${username }">
+
+								</td>
+								<td>
+									<h6>Role Name</h6> <select class="form-control"
+									name="givenRole">
+										<option value="admin">Admin</option>
+										<option value="account">Account</option>
+								</select>
+								</td>
+								<td>
+									<h6>Full Name</h6> <input type="text" class="form-control"
+									name="fullName">
+								</td>
+
+							</tr>
+							<tr>
+							<td>
+									<h6>Post</h6> <input type="text" class="form-control"
+									name="post">
+								</td>
+							<td>
+									<h6>Staff Code</h6> <input type="text" class="form-control"
+									name="staffCode">
+								</td>
+								<td>
+									<h6>Branch Code</h6> <input type="text" class="form-control"
+									name="branchCode">
+								</td>
+							</tr>
+							<tr>
+							<td>
+									<h6>Start Date</h6> <input type="text" class="form-control"
+									name="startDate">
+								</td>
+							<td>
+									<h6>End Date</h6> <input type="text" class="form-control"
+									name="endDate">
+								</td>
+								<td>
+									<h6>Branch Allowed</h6> <select multiple class="form-control"
+									name="branchAllowed">
+									<option value="001">Kalimati</option>
+									<option value="002">Kalanki</option>
+									</select>
+								</td>
+							</tr>
+
+
+						</tbody>
+					</table>
+					<%-- <table id="table1">
 									<caption>Check User Roles</caption>
 										<c:set var="givenrole" value="${givenrole }" />
 										<td><label><input type="checkbox"    id="view"
@@ -178,65 +219,66 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 												name="role" value="#delete" 
 												<c:if test="${fn:contains(givenrole,'#delete')}"> checked="checked"</c:if>>Delete User</label></td>
 									</tr>
-								</table>
-								<br> <input type="submit" name="button" value="submit"
-									class="btn btn-primary submitbtn" onclick="return OnButton1()">
+								</table> --%>
+					<br> <input type="submit" name="button" value="submit"
+						class="btn btn-primary submitbtn" onclick="return OnButton1()">
 
-								<input type="submit"   name="updatebtn"
-									class="updatebtn btn btn-primary" value="update"
-									onclick="return OnButton2()">
+					<input type="submit" name="updatebtn"
+						class="updatebtn btn btn-primary" value="update"
+						onclick="return OnButton2()">
 
-							</form>
-                   </div>
-                  </div>
-                  </div>
-             <div class="col-md-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                 	 <strong>Existing Users</strong>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                    
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                      
-                    </ul>
-                    <div class="clearfix"></div>
-                     <div class="x_content">
-                     	
-                     	<table class="table display jambo_table table-striped table-bordered" id="datatable">
-								<thead>
-									<tr>
-										<th>S No.</th>
-										<th>User Name</th>
-										<th>Actions</th>
-										
-									</tr>
-								</thead>
-								<tbody>
-								<c:forEach items="${userInfo}" var="user">
-									<tr>
-										<td></td>
-										<td>${user.username }</td>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12 col-xs-12">
+		<div class="x_panel">
+			<div class="x_title">
+				<strong>Existing Users</strong>
+				<ul class="nav navbar-right panel_toolbox">
+					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+					</li>
 
-										<td>
+					<li><a class="close-link"><i class="fa fa-close"></i></a></li>
 
-										<a href="edituser.user?userid=${user.userid })"  ><i class="fa fa-pencil-square-o"></i></a>
-										<a class="confirmbtn" href="deleteuser.user?userid=${user.userid }"   ><i  class="fa fa-trash" id="deletebtn" aria-hidden="true" style="color:red"></i></a>
-										</td>
-							
-										
-									</tr>
-									</c:forEach>
-								</tbody>
-							</table>
-                     </div>
-                  </div>
-                  
-                  </div>
-                  </div>
-                  
+				</ul>
+				<div class="clearfix"></div>
+				<div class="x_content">
+
+					<table
+						class="table display jambo_table table-striped table-bordered"
+						id="datatable">
+						<thead>
+							<tr>
+								<th>S No.</th>
+								<th>User Name</th>
+								<th>Actions</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${userInfo}" var="user">
+								<tr>
+									<td></td>
+									<td>${user.username }</td>
+
+									<td><a href="edituser.user?userid=${user.userid })"><i
+											class="fa fa-pencil-square-o"></i></a> <a class="confirmbtn"
+										href="deleteuser.user?userid=${user.userid }"><i
+											class="fa fa-trash" id="deletebtn" aria-hidden="true"
+											style="color: red"></i></a></td>
+
+
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
 
 	<script>
 		$(document).ready(function() {
@@ -320,14 +362,14 @@ if (request.getAttribute ("updatebtn") != null ) { %> .updatebtn {
 		}
 		
 	</script>
-	
+
 	<c:if test="${msg!=null }">
-	<script>
+		<script>
 	
 	$('#myModal').modal('show');
 	</script>
 	</c:if>
-	
+
 </body>
 
 </html>
