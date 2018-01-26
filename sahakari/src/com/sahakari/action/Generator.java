@@ -52,7 +52,7 @@ public class Generator {
 		}
 		return code;
 	}
-	public String transactionidgenerator() {
+	public String transactionidgenerator(String branchid) {
 		String transactionid="";
 		
 		DateFormat yy = new SimpleDateFormat("yy");
@@ -85,12 +85,12 @@ public class Generator {
 						num="0"+num;
 					}
 				}
-				transactionid = "TT"+yr+month+day+num;
+				transactionid = "FT"+yr+month+day+branchid+num;
 				System.out.println(transactionid);
 				
 			}
 			else{
-				transactionid= "TT"+yr+month+day+"0001";
+				transactionid= "FT"+yr+month+day+branchid+"0001";
 				System.out.println(transactionid);
 			}
 		}
@@ -99,7 +99,7 @@ public class Generator {
 		}
 		return transactionid;
 	}
-	public String tellertransactionidgenerator() {
+	public String tellertransactionidgenerator(String branchid) {
 		String transactionid="";
 		
 		DateFormat yy = new SimpleDateFormat("yy");
@@ -132,12 +132,12 @@ public class Generator {
 						num="0"+num;
 					}
 				}
-				transactionid = "TT"+yr+month+day+num;
+				transactionid = "TT"+yr+month+day+branchid+num;
 				System.out.println(transactionid);
 				
 			}
 			else{
-				transactionid= "TT"+yr+month+day+"0001";
+				transactionid= "TT"+yr+month+day+branchid+"0001";
 				System.out.println(transactionid);
 			}
 		}
@@ -146,7 +146,7 @@ public class Generator {
 		}
 		return transactionid;
 	}
-	public String multitransactionidgenerator() {
+	public String multitransactionidgenerator(String branchid) {
 		String transactionid="";
 		
 		DateFormat yy = new SimpleDateFormat("yy");
@@ -179,12 +179,12 @@ public class Generator {
 						num="0"+num;
 					}
 				}
-				transactionid = "MT"+yr+month+day+num;
+				transactionid = "MT"+yr+month+day+branchid+num;
 				System.out.println(transactionid);
 				
 			}
 			else{
-				transactionid= "MT"+yr+month+day+"001";
+				transactionid= "MT"+yr+month+day+branchid+"001";
 				System.out.println(transactionid);
 			}
 		}

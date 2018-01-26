@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.jdt.internal.compiler.IDebugRequestor;
 
+import com.generator.IdGenerator;
 import com.sahakari.account.dao.AccountDao;
 import com.sahakari.account.daoImpl.AccountDaoImpl;
 import com.sahakari.action.Generator;
@@ -338,8 +339,9 @@ public class NavigationController extends HttpServlet {
 		}
 		//Transaction
 		else if(uri.endsWith("inserttransaction.click")){
+		String branchid="001";
 			Generator gen=new Generator("coop_dat");
-			String tid=gen.transactionidgenerator();
+			String tid=gen.transactionidgenerator(branchid);
 			request.setAttribute("tid", tid);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/insertTransaction.jsp");
 			rd.forward(request, response);
@@ -367,12 +369,12 @@ public class NavigationController extends HttpServlet {
 		}
 		//Teller Transaction
 		else if(uri.endsWith("insertTeller.click")){
-			
+			String branchid="001";
 			String type=request.getParameter("type");
 			request.setAttribute("type", type);
 			
 			Generator gen=new Generator("coop_dat");
-			String tellerid=gen.tellertransactionidgenerator();
+			String tellerid=gen.tellertransactionidgenerator(branchid);
 			request.setAttribute("tellerid", tellerid);
 			
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/insertTeller.jsp");
@@ -402,8 +404,9 @@ public class NavigationController extends HttpServlet {
 		//multi transactions
 		if(uri.endsWith("insertMultiTxn.click"))
 		{
+			String branchid="001";
 			Generator gen=new Generator("coop_dat");
-			String mid=gen.multitransactionidgenerator();
+			String mid=gen.multitransactionidgenerator(branchid);
 			request.setAttribute("mid", mid);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/MultiTransactions/insertMultiTransaction.jsp");
 			rd.forward(request, response);

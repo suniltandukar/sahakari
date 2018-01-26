@@ -16,7 +16,7 @@ public class OtherActionDaoImpl implements OtherActionDAO {
 	Connection con=null;
 	ResultSet rs=null;
 	public String getUploadDirectory(){
-		String uploaddir="C:/diginepalProject/memberDocuments";
+		String uploaddir="C:/Users/Sunil/Desktop/adbl/uploaded images";
 		String query="select uploadpath from documentportpathtbl";
 		try{
 			con=DBConnection.getConnection();
