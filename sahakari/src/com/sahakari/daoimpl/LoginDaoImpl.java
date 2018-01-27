@@ -52,6 +52,8 @@ public class LoginDaoImpl implements LoginDao {
 				um.setPassword(rs.getString("password"));
 				um.setStatus(rs.getString("status"));
 				um.setGivenrole(rs.getString("givenrole"));
+				um.setBranchAllowed(rs.getString("branchAllowed"));
+				um.setBranchAllowedFunctions(rs.getString("branchAllowedFunctions"));
 				con.close();
 				ps.close();
 				return um;

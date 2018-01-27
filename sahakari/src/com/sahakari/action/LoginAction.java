@@ -49,6 +49,7 @@ public class LoginAction extends HttpServlet {
 			session.setAttribute("userDetail", userDetail);
 			String currentBranchcode=userDetail.getBranchCode();
 			session.setAttribute("currentBranchcode", currentBranchcode);
+			session.setAttribute("currentFunctions", userDetail.getFunctionAllowed());
 			
 			UserDao ud=new UserDaoImpl();
 			String name=userDetail.getGivenrole();

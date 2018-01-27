@@ -135,7 +135,7 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 										<c:set var="givenrole" value="${givenrole }" />
 										<td><label><input type="checkbox"    id="view"
 												name="role" value="#nav1" class="js-switch"
-												<c:if test="${fn:contains(givenrole,'#nav1')}"> checked="checked"</c:if>>
+												<c:if test="${fn:contains(givenrole,'i')}"> checked="checked"</c:if>>
 												Insert Customer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 										<td><label><input type="checkbox" id="add"   
 												name="role" value="#nav2" class="js-switch"

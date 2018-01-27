@@ -8,6 +8,7 @@
 		UserModel userdetail = (UserModel) session
 				.getAttribute("userDetail");
 		String givenRoles=userdetail.getGivenrole();
+		String currentBranchFunctions=(String)session.getAttribute("currentBranchFunctions");
 %>
 <html lang="en">
 <head>
@@ -29,6 +30,8 @@
 <!-- Custom Theme Style -->
 <link href="template/css/custom.min.css" rel="stylesheet">
 <style>
+<%=currentBranchFunctions%>{
+display:block}
 <%=givenRoles%>{
 display:block;
 }
@@ -286,6 +289,7 @@ display:block;
 														 Category</a></li>
 										<li><a href="branch.click" target="iframe_a">Branch/Company
 												setup </a></li>
+												
 										<li><a href="#" target="iframe_a">
 												ChartOfAccount(COA) </a></li>
 										<li><a href="#" target="iframe_a"> MigrationtoolSetup
@@ -378,7 +382,7 @@ display:block;
 										target="iframe_a"> Profile</a></li>
 									<li><a href="javascript:;"> <span>Settings</span>
 									</a></li>
-									<li><a href="javascript:;">Help</a></li>
+									<li><a href="branchselect.click" target="iframe_a">Switch Branch</a></li>
 									<li><a href="logout.log"><i
 											class="fa fa-sign-out pull-right"></i> Log Out</a></li>
 								</ul></li>
