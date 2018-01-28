@@ -49,15 +49,15 @@ public class LoginAction extends HttpServlet {
 			session.setAttribute("userDetail", userDetail);
 			String currentBranchcode=userDetail.getBranchCode();
 			session.setAttribute("currentBranchcode", currentBranchcode);
-			session.setAttribute("currentFunctions", userDetail.getFunctionAllowed());
+			
 			
 			
 			UserDao ud=new UserDaoImpl();
-			String givenRole=ud.getRoleAssigned(userDetail.getGivenrole());
+			String mainRole=ud.getRoleAssigned(userDetail.getGivenrole());
+			session.setAttribute("mainRole", mainRole);
 			
-			session.setAttribute("givenRole", givenRole);
+			session.setAttribute("currentBranchFunctions", userDetail.getFunctionAllowed());
 			
-			System.out.println("functionallowed"+ userDetail.getFunctionAllowed());
 			
 			
 			RequestDispatcher rd=request.getRequestDispatcher("profile.jsp");

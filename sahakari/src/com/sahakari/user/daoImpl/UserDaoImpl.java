@@ -178,5 +178,27 @@ public class UserDaoImpl implements UserDao {
 		return null;
 		
 	}
+	public List<String> getRoleName(){
+		List<String> list=new ArrayList<String>();
+		String query="select name from roleindex";
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			while(rs.next()){
+				list.add(rs.getString("name"));
+			}
+			if(list.size()>0){
+				con.close();
+				ps.close();
+				rs=null;
+				return list;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("getRoleName error");
+		}
+		return null;
+	}
 
 }

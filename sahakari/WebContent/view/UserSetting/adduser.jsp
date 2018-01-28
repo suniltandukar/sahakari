@@ -57,7 +57,7 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 		<div class="x_panel">
 			<div class="x_title">
 				<h2>
-					Form Basic Elements <small>different form elements</small>
+					<strong>ADD NEW USER</strong>
 				</h2>
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -76,7 +76,7 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 								<td>
 									<h6>
 										Username
-										<h6>
+										</h6>
 											<input type="hidden" form="form" value="${userid}"
 												name="useridforupdate"> <input type="text"
 												name="username" class="form-control" form="form"
@@ -85,8 +85,10 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 								<td>
 									<h6>Role Name</h6> <select class="form-control"
 									name="givenRole">
-										<option value="admin">Admin</option>
-										<option value="account">Account</option>
+									<c:forEach items="${rolename }" var="role">
+										<option value="${role }">${role }</option>
+									</c:forEach>
+										
 								</select>
 								</td>
 								<td>
@@ -144,28 +146,53 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 						</tbody>
 					</table>
 					<table>
+						<caption><h4>Additional Functions</h4></caption>
 						<tr>
+
+							<td><label><input type="checkbox" id="dashboard"
+									name="additionalFunctions" value="#dashboard" class="js-switch"
+									<c:if test="${fn:contains(functionAllowed,'#dashboard')}"> checked="checked"</c:if>>
+									Dashboard &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 							<td><label><input type="checkbox" id="member"
 									name="additionalFunctions" value="#member" class="js-switch"
 									<c:if test="${fn:contains(functionAllowed,'#member')}"> checked="checked"</c:if>>
 									Member &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+							<td><label><input type="checkbox" id="shareholder"
+									name="additionalFunctions" value="#shareholder" class="js-switch"
+									<c:if test="${fn:contains(functionAllowed,'#shareholder')}"> checked="checked"</c:if>>
+									Shareholder &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+							<td><label><input type="checkbox" id="retailoperation"
+									name="additionalFunctions" value="#retailoperation" class="js-switch"
+									<c:if test="${fn:contains(functionAllowed,'#retailoperation')}"> checked="checked"</c:if>>
+									Retail Operations &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+							<td><label><input type="checkbox" id="generaltransaction"
+									name="additionalFunctions" value="#generaltransaction" class="js-switch"
+									<c:if test="${fn:contains(functionAllowed,'#generaltransaction')}"> checked="checked"</c:if>>
+									General Transaction &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+							<td><label><input type="checkbox" id="loanmodule"
+									name="additionalFunctions" value="#loanmodule" class="js-switch"
+									<c:if test="${fn:contains(functionAllowed,'#loanmodule')}"> checked="checked"</c:if>>
+									Loan Module &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+							</tr>
+							<tr><td><label><input type="checkbox" id="nonfundbusiness"
+									name="additionalFunctions" value="#nonfundbusiness" class="js-switch"
+									<c:if test="${fn:contains(functionAllowed,'#nonfundbusiness')}"> checked="checked"</c:if>>
+									Non-fund Business &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+							<td><label><input type="checkbox" id="otherutilities"
+									name="additionalFunctions" value="#otherutilities" class="js-switch"
+									<c:if test="${fn:contains(functionAllowed,'#otherutilities')}"> checked="checked"</c:if>>
+									Other Utilities &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+							<td><label><input type="checkbox" id="reports"
+									name="additionalFunctions" value="#reports" class="js-switch"
+									<c:if test="${fn:contains(functionAllowed,'#reports')}"> checked="checked"</c:if>>
+									Reports &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+							<td><label><input type="checkbox" id="adminsettings"
+									name="additionalFunctions" value="#adminsettings" class="js-switch"
+									<c:if test="${fn:contains(functionAllowed,'#adminsettings')}"> checked="checked"</c:if>>
+									Admin Settings &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 						</tr>
 					</table>
-					<table id="table1">
 
-						<caption>Check User Roles</caption>
-						<c:set var="givenrole" value="${givenrole }" />
-						<tr>
-							<td><label><input type="checkbox" id="view"
-									name="role" value="#nav1" class="js-switch"
-									<c:if test="${fn:contains(givenrole,'i')}"> checked="checked"</c:if>>
-									Insert Customer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-							<td><label><input type="checkbox" id="add"
-									name="role" value="#nav2" class="js-switch"
-									<c:if test="${fn:contains(givenrole,'#nav2')}"> checked="checked"</c:if>>
-									View Customer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-						</tr>
-					</table>
 					<br> <input type="submit" name="button" value="submit"
 						class="btn btn-primary submitbtn" onclick="return OnButton1()">
 
@@ -180,7 +207,7 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 	<div class="col-md-12 col-xs-12">
 		<div class="x_panel">
 			<div class="x_title">
-				<strong>Existing Users</strong>
+				<h4><strong>Existing Users</strong></h4>
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>

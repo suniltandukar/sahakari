@@ -43,9 +43,6 @@ import com.sahakari.model.TransactionModel;
 import com.sahakari.model.UserModel;
 import com.sahakari.transaction.dao.TransactionDao;
 import com.sahakari.transaction.daoImpl.TransactionDaoImpl;
-/**
- * Servlet implementation class NavigationController
- */
 @WebServlet("/NavigationController")
 public class NavigationController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -540,17 +537,19 @@ public class NavigationController extends HttpServlet {
 					branchcode[]=branch.split("-");
 			HttpSession session=request.getSession(true);
 			System.out.println(branch);
-			session.removeAttribute("currentBranch");
-			session.setAttribute("currentBranch", branchcode[0]);
+			session.removeAttribute("currentBranchcode");
+			session.setAttribute("currentBranchcode", branchcode[0]);
 			
-			session.removeAttribute("currentFunctions");
+			session.removeAttribute("currentBranchFunctions");
 			
-			UserModel u=(UserModel)session.getAttribute("userDetails");
-			session.setAttribute("currentFunctions", u.getBranchAllowedFunctions());
-			System.out.println(session.getAttribute("currentBranch"));
+			UserModel u=(UserModel)session.getAttribute("userDetail");
+			System.out.println(u.getBranchAllowedFunctions());
+			session.setAttribute("currentBranchFunctions", u.getBranchAllowedFunctions());
 			
-			request.setAttribute("msg", "Switch successful. Current Branch ="+branchcode[0]);
-			RequestDispatcher rd=request.getRequestDispatcher("view/dashboard.jsp");
+			System.out.println(session.getAttribute("currentBranchFunctions"));
+			
+			request.setAttribute("msg", "Current Branch ="+branchcode[0]);
+			RequestDispatcher rd=request.getRequestDispatcher("profile.jsp");
 			rd.forward(request, response);
 			
 			

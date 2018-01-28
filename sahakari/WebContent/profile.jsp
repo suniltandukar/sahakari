@@ -1,17 +1,23 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import='java.sql.*'%>
 <%@page import='com.sahakari.model.UserModel'%>
 <%
 	if ((session.getAttribute("userDetail")) != null) {
 		UserModel userdetail = (UserModel) session
 				.getAttribute("userDetail");
-		String functionAllowed=userdetail.getFunctionAllowed();
+		String currentBranchCode=(String)session.getAttribute("currentBranchcode");
+		
+		String mainRole=(String)session.getAttribute("mainRole");
+		
+		String currentBranchFunctions=(String)session.getAttribute("currentBranchFunctions");
+		
 		String additionalFunctions=userdetail.getAdditionalFunctions();
 		
-		String givenRoles=userdetail.getGivenrole();
-		String currentBranchFunctions=(String)session.getAttribute("currentBranchFunctions");
+		
+		
 %>
 <html lang="en">
 <head>
@@ -35,12 +41,15 @@
 <style>
 #member,#retailoperation,#shareholder,#generaltransaction,#loanmodule,#nonfundbusiness,#otherutilities,#reports,#adminsettings, #i, #v,#e,#a,#r,#d{
 display:none;}
-<%=additionalFunctions%>{
+<%=mainRole%>{
 display:block;}
-<%=functionAllowed%>{
-display:block;}
+
 <%=currentBranchFunctions%>{
 display:block}
+<%=additionalFunctions%>{
+display:block;}
+
+
 
 </style>
 </head>
@@ -376,7 +385,7 @@ display:block}
 						<div class="nav toggle">
 							<a id="menu_toggle"><i class="fa fa-bars"></i></a>
 						</div>
-
+						<span>Current Branch: <%=currentBranchCode %></span>
 						<ul class="nav navbar-nav navbar-right">
 							<li class=""><a href="javascript:;"
 								class="user-profile dropdown-toggle" data-toggle="dropdown"
@@ -389,7 +398,7 @@ display:block}
 										target="iframe_a"> Profile</a></li>
 									<li><a href="javascript:;"> <span>Settings</span>
 									</a></li>
-									<li><a href="branchselect.click" target="iframe_a">Switch Branch</a></li>
+									<li><a href="branchselect.click" >Switch Branch</a></li>
 									<li><a href="logout.log"><i
 											class="fa fa-sign-out pull-right"></i> Log Out</a></li>
 								</ul></li>
@@ -416,6 +425,19 @@ display:block}
 			<!-- /footer content -->
 		</div>
 	</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p id="modalmsg">${msg }</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+
 
 	<!-- jQuery -->
 	<script src="template/js/jquery.min.js"></script>
@@ -428,6 +450,12 @@ display:block}
 
 	<!-- Custom Theme Scripts -->
 	<script src="template/js/custom.min.js"></script>
+	<c:if test="${msg!=null }">
+	<script>
+	
+	$('#myModal').modal('show');
+	</script>
+</c:if>
 	 <script type="text/javascript">
     function toggleFullscreen(elem) {
     	  elem = elem || document.documentElement;
