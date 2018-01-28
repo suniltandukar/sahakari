@@ -20,7 +20,7 @@ public class UserDaoImpl implements UserDao {
 	
 	public boolean adduserdao(UserModel u)
 	{
-		String query="insert into usertbl(username,password,status,givenrole,fullName,post,staffCode,startDate,endDate,branchCode,functionAllowed,functionRestriction,branchAllowed) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String query="insert into usertbl(username,password,status,givenrole,fullName,post,staffCode,startDate,endDate,branchCode,functionAllowed,functionRestriction,branchAllowed,additionalFunctions) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		int rs=0;
 		con=DBConnection.getConnection();
 		try {
@@ -38,6 +38,7 @@ public class UserDaoImpl implements UserDao {
 			ps.setString(11,u.getFunctionAllowed() );
 			ps.setString(12,u.getFunctionRestriction() );
 			ps.setString(13,u.getBranchAllowed() );
+			ps.setString(14, u.getAdditionalFunctions());
 			rs=ps.executeUpdate();
 			if(rs>0)
 			{

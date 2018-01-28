@@ -9,15 +9,12 @@
 .green {
 	color: green
 }
-
 .red {
 	color: red
 }
-
 .updatebtn {
 	display: none;
 }
-
 <%--
 <%
 if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
@@ -74,13 +71,13 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 							<tr>
 
 								<td>
-									<h6>Username<h6> <input type="hidden" form="form"
-									value="${userid}" name="useridforupdate"> 
-									<input
-									type="text" name="username"
-									class="form-control"
-									form="form" value="${username }">
-
+									<h6>
+										Username
+										<h6>
+											<input type="hidden" form="form" value="${userid}"
+												name="useridforupdate"> <input type="text"
+												name="username" class="form-control" form="form"
+												value="${username }">
 								</td>
 								<td>
 									<h6>Role Name</h6> <select class="form-control"
@@ -96,11 +93,11 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 
 							</tr>
 							<tr>
-							<td>
+								<td>
 									<h6>Post</h6> <input type="text" class="form-control"
 									name="post">
 								</td>
-							<td>
+								<td>
 									<h6>Staff Code</h6> <input type="text" class="form-control"
 									name="staffCode">
 								</td>
@@ -110,116 +107,48 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 								</td>
 							</tr>
 							<tr>
-							<td>
+								<td>
 									<h6>Start Date</h6> <input type="text" class="form-control"
 									name="startDate">
 								</td>
-							<td>
+								<td>
 									<h6>End Date</h6> <input type="text" class="form-control"
 									name="endDate">
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<div class="control-group">
+										<h5>Function Allowed</h5>
+										
+											<input id="tags_1" type="text" name="functionAllowed"
+												class="tags form-control" value="" />
+											<div id="suggestions-container"
+												style="position: relative; float: left; width: 250px; margin: 10px;"></div>
+										
+									</div>
 								</td>
 								<td>
 									<h6>Branch Allowed</h6> <select multiple class="form-control"
 									name="branchAllowed">
-									<option value="001">Kalimati</option>
-									<option value="002">Kalanki</option>
-									</select>
+										<option value="001">Kalimati</option>
+										<option value="002">Kalanki</option>
+								</select>
 								</td>
+								
 							</tr>
-
-
 						</tbody>
 					</table>
-					<%-- <table id="table1">
-									<caption>Check User Roles</caption>
-										<c:set var="givenrole" value="${givenrole }" />
-										<td><label><input type="checkbox"    id="view"
-												name="role" value="#nav1" class="js-switch"
-												<c:if test="${fn:contains(givenrole,'#nav1')}"> checked="checked"</c:if>>
-												Insert Customer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-										<td><label><input type="checkbox" id="add"   
-												name="role" value="#nav2" class="js-switch"
-												<c:if test="${fn:contains(givenrole,'#nav2')}"> checked="checked"</c:if>>
-												View Customer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+					<table>
+						<tr>
+							<td><label><input type="checkbox" id="member"
+									name="additionalFunctions" value="#member" class="js-switch"
+									<c:if test="${fn:contains(functionAllowed,'#member')}"> checked="checked"</c:if>>
+									Member &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+						</tr>
+					</table>
 
-									</tr>
-									<tr>
-										<td><label><input type="checkbox"    id="add"
-												name="role" value="#nav3" class="js-switch"
-												<c:if test="${fn:contains(givenrole,'#nav3')}"> checked="checked"</c:if>>
-												Edit Customer</label></td>
-										<td><label><input type="checkbox" class="js-switch"
-												   id="staff" name="role"
-												value="#share">
-
-												Share Certificate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-									</tr>
-									<tr>
-
-										<td><label><input type="checkbox"  class="js-switch"    id="admin"
-												name="role"
-												value="#nav1, #nav2, #nav3, #nav4, #nav5, #nav6, #nav7, #nav8, #nav9, #nav10, #nav11, #nav12, #nav13, #nav14, #nav15, #nav16, #nav17, #change, #remove, #share"
-												<c:if test="${givenrole eq '#nav1, #nav2, #nav3, #nav4, #nav5, #nav6, #nav7, #nav8, #nav9, #nav10, #nav11, #nav12, #nav13, #nav14, #nav15, #nav16, #nav17, #change, #remove, #share
-'}"> checked="checked"</c:if>>Admin(all)</label></td>
-										<td><label><input type="checkbox"  class="js-switch"   id="transfer"
-												name="role" value="#nav4" 
-												<c:if test="${fn:contains(givenrole,'#nav4')}"> checked="checked"</c:if>> Insert Certificate</label></td>
-										
-
-									</tr>
-									<tr>
-									<td><label><input type="checkbox"   class="js-switch"   id="update"
-												name="role" value="#nav5"
-												<c:if test="${fn:contains(givenrole,'#nav5')}"> checked="checked"</c:if>>View Certificate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-										<td>
-										<label><input type="checkbox"   class="js-switch"   name="role"
-												value="#nav6"
-												<c:if test="${fn:contains(givenrole,'#nav6')}"> checked="checked"</c:if>>Insert Account</label></td>
-										
-									</tr>
-										<tr>
-									<td><label><input type="checkbox"  class="js-switch"    id="update"
-												name="role" value="#nav7"
-												<c:if test="${fn:contains(givenrole,'#nav7')}"> checked="checked"</c:if>>View Account&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-										<td>
-										<label><input type="checkbox"  class="js-switch"   name="role"
-												value="#nav8"
-												<c:if test="${fn:contains(givenrole,'#nav8')}"> checked="checked"</c:if>>Edit Account</label></td>
-										
-									</tr>
-										<tr>
-									<td><label><input type="checkbox"  class="js-switch"   id="update"
-												name="role" value="#nav9"
-												<c:if test="${fn:contains(givenrole,'#nav9')}"> checked="checked"</c:if>>Insert Transaction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-										<td>
-										<label><input type="checkbox"  class="js-switch"   name="role"
-												value="#nav10"
-												<c:if test="${fn:contains(givenrole,'#nav10')}"> checked="checked"</c:if>>View Transaction</label></td>
-										
-									</tr>
-										<tr>
-											<td>
-										<label><input type="checkbox"  class="js-switch"   name="role"
-												value="#nav11"
-												<c:if test="${fn:contains(givenrole,'#nav11')}"> checked="checked"</c:if>>Edit Transaction</label></td>
-										
-										<td>
-										<label><input type="checkbox"  class="js-switch"   name="role"
-												value="#nav12"
-												<c:if test="${fn:contains(givenrole,'#nav12')}"> checked="checked"</c:if>>Multi Level</label></td>
-										
-									</tr>
-									<tr>
-										<td><label><input type="checkbox"  class="js-switch" id="createuser"
-												name="role" value="#nav17"
-												<c:if test="${fn:contains(givenrole,'#nav17')}"> checked="checked"</c:if>>Create
-												User&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
-										
-										<td><label><input type="checkbox" class="js-switch"   id="deluser"
-												name="role" value="#delete" 
-												<c:if test="${fn:contains(givenrole,'#delete')}"> checked="checked"</c:if>>Delete User</label></td>
-									</tr>
-								</table> --%>
 					<br> <input type="submit" name="button" value="submit"
 						class="btn btn-primary submitbtn" onclick="return OnButton1()">
 
@@ -287,30 +216,30 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 				$('input[type="text"]').val('');
 			});
 			var $others = $('input[name="role"]').not('#admin')
-			$('#admin').change(function () {
-			    if (this.checked) {
-			    	$others.bootstrapToggle('off')
-			    }
+			$('#admin').change(function() {
+				if (this.checked) {
+					$others.bootstrapToggle('off')
+				}
 			});
-			$others.change(function () {
-			    if (this.checked) {
-			    	$('#admin').bootstrapToggle('off') 
-			    }
+			$others.change(function() {
+				if (this.checked) {
+					$('#admin').bootstrapToggle('off')
+				}
 			})
 
-			var t=$('#table').DataTable({
+			var t = $('#table').DataTable({
 				"iDisplayLength" : 50
 			});
-			  t.on( 'order.dt search.dt', function () {
-			        t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-			            var c=cell.innerHTML = i+1;
-			        } );
-			    } ).draw();
-	
-			 
-	
+			t.on('order.dt search.dt', function() {
+				t.column(0, {
+					search : 'applied',
+					order : 'applied'
+				}).nodes().each(function(cell, i) {
+					var c = cell.innerHTML = i + 1;
+				});
+			}).draw();
 
-		$(".username").blur(function() {
+			$(".username").blur(function() {
 				var id = $(this).val();
 				var dataString = 'id=' + id;
 				$.ajax({
@@ -360,14 +289,12 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 			document.Form1.submit();
 			return true;
 		}
-		
 	</script>
 
 	<c:if test="${msg!=null }">
 		<script>
-	
-	$('#myModal').modal('show');
-	</script>
+			$('#myModal').modal('show');
+		</script>
 	</c:if>
 
 </body>

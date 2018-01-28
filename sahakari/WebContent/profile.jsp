@@ -7,7 +7,10 @@
 	if ((session.getAttribute("userDetail")) != null) {
 		UserModel userdetail = (UserModel) session
 				.getAttribute("userDetail");
-		String givenRoles=userdetail.getGivenrole();
+		String functionAllowed=userdetail.getFunctionAllowed();
+		String givenRole=(String)session.getAttribute("givenRole");
+		String additionalFunctions=userdetail.getAdditionalFunctions();
+		
 %>
 <html lang="en">
 <head>
@@ -29,9 +32,15 @@
 <!-- Custom Theme Style -->
 <link href="template/css/custom.min.css" rel="stylesheet">
 <style>
-<%=givenRoles%>{
-display:block;
-}
+#member,#retailoperation,#shareholder,#generaltransaction,#loanmodule,#nonfundbusiness,#otherutilities,#reports,#adminsettings, #i, #v,#e,#a,#r,#d{
+display:none;}
+<%=givenRole%>{
+display:block;}
+<%=additionalFunctions%>{
+display:block;}
+<%=functionAllowed%>{
+display:block;}
+
 </style>
 </head>
 
@@ -68,23 +77,23 @@ display:block;
 						<div class="menu_section">
 							<h3>General</h3>
 							<ul class="nav side-menu">
-								<li><a><i class="fa fa-home"></i> Home <span
+								<li id="nava"><a><i class="fa fa-home"></i> Home <span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
-										<li id="dashboard"><a href="view/dashboard.jsp" target="iframe_a">Dashboard</a></li>
+										<li id="nav1"><a href="view/dashboard.jsp" target="iframe_a">Dashboard</a></li>
 									</ul></li>
-								<li><a><i class="fa fa-users" aria-hidden="true"></i> Member(With KYC)
+								<li id="member"><a><i class="fa fa-users" aria-hidden="true"></i> Member(With KYC)
 										<span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
-										<li ><a><span class="fa fa-chevron-down"></span>New
+										<li id="i"><a><span class="fa fa-chevron-down"></span>New
 												Member</a>
 											<ul class="nav child_menu">
 												<li><a href="customerinsert.click" target="iframe_a">
 														Member</a></li>
-												<li style="display: none"><a href="#" target="iframe_a">Corporate
+												<li><a href="#" target="iframe_a">Corporate
 														member</a></li>
 											</ul></li>
-										<li><a><span class="fa fa-chevron-down"></span>Ammendment
+										<li id="v"><a><span class="fa fa-chevron-down"></span>Ammendment
 												of Member</a>
 											<ul class="nav child_menu">
 												<li><a href="viewcustomer.click" target="iframe_a">
@@ -92,123 +101,123 @@ display:block;
 												<!-- <li><a href="#" target="iframe_a">Corporate member</a> -->
 
 											</ul></li>
-										<li><a href="#" target="iframe_a">Authorization of
+										<li id="a"><a href="#" target="iframe_a">Authorization of
 												member</a></li>
-										<li><a href="memberdocument.click" target="iframe_a">Member Documents</a></li>
+										<li id="i"><a href="memberdocument.click" target="iframe_a">Member Documents</a></li>
 
 									</ul></li>
-								<li><a><i class="fa fa-suitcase" aria-hidden="true"></i>Shareholder <span
+								<li id="shareholder"><a><i class="fa fa-suitcase" aria-hidden="true"></i>Shareholder <span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 
-										<li><a href="sharecertificateinsert.click"
+										<li id="i"><a href="sharecertificateinsert.click"
 											target="iframe_a"> New Shareholder</a></li>
-										<li><a href="viewsharecertificate.click"
+										<li id="v"><a href="viewsharecertificate.click"
 											target="iframe_a">Amendment of shareholder</a></li>
 									</ul></li>
-								<li><a><i class="fa fa-balance-scale" aria-hidden="true"></i>Retail Operation
+								<li id="retailoperation"><a><i class="fa fa-balance-scale" aria-hidden="true"></i>Retail Operation
 										<span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 										<li><a><span class="fa fa-chevron-down"></span>Account</a>
 											<ul class="nav child_menu">
-												<li><a href="insertaccount.click" target="iframe_a">Open
+												<li id="i"><a href="insertaccount.click" target="iframe_a">Open
 														New member Account</a></li>
 												<!-- 	<li><a href="#" target="iframe_a">Open New
 														Shareholder Account</a> -->
-												<li><a href="viewaccount.click" target="iframe_a">Amendment
+												<li id="v"><a href="viewaccount.click" target="iframe_a">Amendment
 														of member Account</a></li>
-												<li><a href="insertfinancialaccount.click"
+												<li id="i"><a href="insertfinancialaccount.click"
 													target="iframe_a">Open Financial Account</a>
-												<li><a href="#" target="iframe_a">Amendment of
+												<li id="v"><a href="#" target="iframe_a">Amendment of
 														Financial Account</a></li>
-												<li><a href="#" target="iframe_a">Authorization of
+												<li id="a"><a href="#" target="iframe_a">Authorization of
 														Account</a>
-												<li><a href="#" target="iframe_a">Account
+												<li id="i"><a href="#" target="iframe_a">Account
 														maintenance</a></li>
-												<li><a href="#" target="iframe_a">Account Closure</a></li>
+												<li id="i"><a href="#" target="iframe_a">Account Closure</a></li>
 											</ul></li>
-										<li><a><span class="fa fa-chevron-down"></span>Cheque</a>
+										<li id="cheque"><a><span class="fa fa-chevron-down"></span>Cheque</a>
 											<ul class="nav child_menu">
-												<li><a href="#" target="iframe_a">Issue Cheque</a></li>
-												<li><a href="#" target="iframe_a">Reversal of
+												<li id="i"><a href="#" target="iframe_a">Issue Cheque</a></li>
+												<li id="r"><a href="#" target="iframe_a">Reversal of
 														issued cheque</a></li>
-												<li><a href="#" target="iframe_a">List issued
+												<li id="v"><a href="#" target="iframe_a">List issued
 														chequese</a></li>
-												<li><a href="#" target="iframe_a">List reversed
+												<li id="v"><a href="#" target="iframe_a">List reversed
 														cheques</a></li>
-												<li><a href="#" target="iframe_a">Authorization of
+												<li id="a"><a href="#" target="iframe_a">Authorization of
 														Issued Cheques</a></li>
 											</ul></li>
-										<li><a><span class="fa fa-chevron-down"></span>Signature</a>
+										<li id="signature"><a><span class="fa fa-chevron-down"></span>Signature</a>
 											<ul class="nav child_menu">
-												<li><a href="#" target="iframe_a">Upload Signature
+												<li id="i"><a href="#" target="iframe_a">Upload Signature
 												</a></li>
-												<li><a href="#" target="iframe_a">Reverse Signature</a>
+												<li id="r"><a href="#" target="iframe_a">Reverse Signature</a>
 												</li>
-												<li><a href="#" target="iframe_a">Authorization of
+												<li id="a"><a href="#" target="iframe_a">Authorization of
 														signature upload</a></li>
 											</ul></li>
 										<li><a><span class="fa fa-chevron-down"></span>Certificate
 												of deposits(Time Deposits)</a>
 											<ul class="nav child_menu">
-												<li><a href="#" target="iframe_a">New Deposit
+												<li id="i"><a href="#" target="iframe_a">New Deposit
 														Account </a></li>
-												<li><a href="#" target="iframe_a">Amend Deposit
+												<li id="e"><a href="#" target="iframe_a">Amend Deposit
 														Account</a></li>
-												<li><a href="#" target="iframe_a">Authorization of
+												<li id="a"><a href="#" target="iframe_a">Authorization of
 														Deposit Account</a></li>
 											</ul></li>
 										<li><a><span class="fa fa-chevron-down"></span>Teller
 												Operation</a>
 											<ul class="nav child_menu">
-												<li><a href="insertTeller.click?type=cashDeposit" target="iframe_a">Cash
+												<li id="i"><a href="insertTeller.click?type=cashDeposit" target="iframe_a">Cash
 														Deposit </a></li>
-												<li><a href="insertTeller.click?type=cashWithdraw" target="iframe_a">Cash
+												<li id="i"><a href="insertTeller.click?type=cashWithdraw" target="iframe_a">Cash
 														Withdraw</a></li>
-												<li><a href="#" target="iframe_a">Cash Withdraw
+												<li id="i"><a href="#" target="iframe_a">Cash Withdraw
 														without cheque</a></li>
-												<li><a href="#" target="iframe_a">Authorization of
+												<li id="a"><a href="#" target="iframe_a">Authorization of
 														teller operation</a></li>
 											</ul></li>
 
 									</ul></li>
-								<li><a><i class="fa fa-tasks" aria-hidden="true"></i> General
+								<li id="generaltransaction"><a><i class="fa fa-tasks" aria-hidden="true"></i> General
 										Transaction <span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 										<li><a><span class="fa fa-chevron-down"></span>Funds
 												Transfer</a>
 											<ul class="nav child_menu">
-												<li><a href="inserttransaction.click" target="iframe_a">New
+												<li id="i"><a href="inserttransaction.click" target="iframe_a">New
 														Account Transfer </a></li>
-												<li><a href="viewtransaction.click" target="iframe_a">Amend
+												<li id="e"><a href="viewtransaction.click" target="iframe_a">Amend
 														Account Transfer</a></li>
-												<li><a href="#" target="iframe_a">Authorize Account
+												<li><a href="a" target="iframe_a">Authorize Account
 														Transfer</a></li>
 
 											</ul></li>
 										<li><a><span class="fa fa-chevron-down"></span>
 												Journal Entry (Multiple Debit - Multiple Credit) </a>
 											<ul class="nav child_menu">
-												<li><a href="insertMultiTxn.click" target="iframe_a">New
+												<li id="i"><a href="insertMultiTxn.click" target="iframe_a">New
 														Journal Entry </a></li>
-												<li><a href="viewMultiTxn.click" target="iframe_a">Amend
+												<li id="v"><a href="viewMultiTxn.click" target="iframe_a">Amend
 														Journal Entry </a></li>
-												<li><a href="#" target="iframe_a"> Authorize
+												<li id="a"><a href="#" target="iframe_a"> Authorize
 														Journal Entry </a></li>
 
 											</ul></li>
 									</ul></li>
 
-								<li><a><i class="fa fa-university" aria-hidden="true"></i> Loan Module <span
+								<li id="loanmodule"><a><i class="fa fa-university" aria-hidden="true"></i> Loan Module <span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 										<li><a><span class="fa fa-chevron-down"></span>Loan</a>
 											<ul class="nav child_menu">
-												<li><a href="#" target="iframe_a"> Create New Loan
+												<li id="i"><a href="#" target="iframe_a"> Create New Loan
 												</a></li>
-												<li><a href="#" target="iframe_a">Amendment of Loan
+												<li id="v"><a href="#" target="iframe_a">Amendment of Loan
 												</a></li>
-												<li><a href="#" target="iframe_a">Authorization of
+												<li id="a"><a href="#" target="iframe_a">Authorization of
 														Loan </a></li>
 
 											</ul></li>
@@ -219,21 +228,21 @@ display:block;
 										<li><a href="#" target="iframe_a">Valuator </a></li>
 										<li><a href="emi.click" target="iframe_a">EMI </a></li>
 									</ul></li>
-								<li><a><i class="fa fa-briefcase" aria-hidden="true"></i> Non-fund business
+								<li id="nonfundbusiness"><a><i class="fa fa-briefcase" aria-hidden="true"></i> Non-fund business
 										<span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 
 										<li><a href="#" target="iframe_a">Guarantee </a></li>
 										<li><a href="#" target="iframe_a"> Letter of Credit </a></li>
 									</ul></li>
-								<li><a><i class="fa fa-list" aria-hidden="true"></i> Other utilities <span
+								<li id="otherutilities"><a><i class="fa fa-list" aria-hidden="true"></i> Other utilities <span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 
 										<li><a href="#" target="iframe_a">Clearing </a></li>
 										<li><a href="#" target="iframe_a"> Reconciliation </a></li>
 									</ul></li>
-								<li><a><i class="fa fa-book" aria-hidden="true"></i> Reports <span
+								<li id="reports"><a><i class="fa fa-book" aria-hidden="true"></i> Reports <span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 
@@ -279,12 +288,12 @@ display:block;
 						<div class="menu_section">
 							<h3>Settings</h3>
 							<ul class="nav side-menu">
-								<li><a><i class="fa fa-lock" aria-hidden="true"></i> Admin Settings <span
+								<li id="adminsettings"><a><i class="fa fa-lock" aria-hidden="true"></i> Admin Settings <span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
-										<li><a href="category.click" target="iframe_a">
+										<li id="i"><a href="category.click" target="iframe_a">
 														 Category</a></li>
-										<li><a href="branch.click" target="iframe_a">Branch/Company
+										<li id="i"><a href="branch.click" target="iframe_a">Branch/Company
 												setup </a></li>
 										<li><a href="#" target="iframe_a">
 												ChartOfAccount(COA) </a></li>
@@ -317,11 +326,11 @@ display:block;
 										<li><a><span class="fa fa-chevron-down"></span>User</a>
 											<ul class="nav child_menu">
 
-												<li><a href="adduser.user" target="iframe_a">
+												<li id="i"><a href="adduser.user" target="iframe_a">
 														Create New user </a></li>
-												<li><a href="#" target="iframe_a"> Amendment of
+												<li id="i"><a href="#" target="iframe_a"> Amendment of
 														user </a></li>
-												<li><a href="#" target="iframe_a"> Authorize user </a></li>
+												<li id="a"><a href="#" target="iframe_a"> Authorize user </a></li>
 											</ul></li>
 										<li><a><span class="fa fa-chevron-down"></span>Closing</a>
 											<ul class="nav child_menu">

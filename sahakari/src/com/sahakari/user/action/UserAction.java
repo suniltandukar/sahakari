@@ -24,13 +24,18 @@ public class UserAction {
 				.getParameter("startDate"), endDate = request
 				.getParameter("endDate"), branchCode = request
 				.getParameter("branchCode"), roleName = request
-				.getParameter("roleName"), functionAllowed = request
-				.getParameter("functionAllowed"), functionRestriction = request
-				.getParameter("branchAllowed");
+				.getParameter("roleName"), functionRestriction = request
+				.getParameter("branchAllowed"),
+				functionAllowed=request.getParameter("functionAllowed");
 
 		String[] branchArray = request.getParameterValues("branchAllowed");
 		String branchAllowed = Arrays.toString(branchArray).replace("[", "")
 				.replace("]", "");
+		
+		String[] additionalFunctionsArray=request.getParameterValues("additionalFunctions");
+		String additionalFunctions=Arrays.toString(additionalFunctionsArray).replace("[", "")
+				.replace("]", "");
+		
 		UserModel u = new UserModel();
 		u.setUsername(username);
 		u.setGivenrole(givenrole);
@@ -46,6 +51,7 @@ public class UserAction {
 		u.setFunctionAllowed(functionAllowed);
 		u.setFunctionRestriction(functionRestriction);
 		u.setBranchAllowed(branchAllowed);
+		u.setAdditionalFunctions(additionalFunctions);
 		
 
 		UserDao userdao = new UserDaoImpl();

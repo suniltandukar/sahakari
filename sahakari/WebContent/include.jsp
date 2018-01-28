@@ -31,6 +31,7 @@
 
     <!-- Custom Theme Style -->
     <link href="template/css/custom.min.css" rel="stylesheet">
+    <link href="template/css/jquery.tagsinput.css" rel="stylesheet">
     <style>
     	.background{
     	background-color:#F7F7F7;}
@@ -73,6 +74,8 @@
 	<script type="text/javascript" src="template/nepaliDatePicker/nepali.datepicker.v2.2.min.js"></script>
 	<script type="text/javascript" src="template/js/dconverter.js"></script>
 	<script type="text/javascript" src="template/js/selector.js"></script>  
+	<!-- jQuery Tags Input -->
+    <script type="text/javascript" src="template/js/jquery.tagsinput.js"></script>
 	<script>
 	
   $.validate({
