@@ -83,12 +83,12 @@ h5 {
 											<td>
 												<h5>Legacy Member Id</h5> <input type="text"
 												class="form-control memberid" name="memberid" value=""
-												data-validation="number" data-validation-error-msg=" ">
+												data-validation="number" data-validation-error-msg=" " >
 											</td>
 											<td>
 												<h5>Registration Date</h5> <input type="text"
 												class="form-control" name="registrationDate" value=""
-												data-validation="birthdate" data-validation-error-msg=" ">
+												data-validation="birthdate" data-validation-error-msg=" " >
 
 											</td>
 
@@ -389,7 +389,6 @@ h5 {
 		$(document).ready(function(){
   $.validate({
 	  
-  }
     lang: 'en',
      modules : 'date,toggleDisabled',
    disabledFormFilter : 'form.toggle-disabled',
@@ -397,7 +396,7 @@ h5 {
      showErrorDialogs : false
     
      });
-		};
+		});
 </script>
 	<script>
 		
