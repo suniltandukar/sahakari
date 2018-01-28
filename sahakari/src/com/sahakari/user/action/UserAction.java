@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sahakari.action.Generator;
 import com.sahakari.model.UserModel;
 import com.sahakari.user.dao.UserDao;
 import com.sahakari.user.daoImpl.UserDaoImpl;
@@ -27,6 +28,8 @@ public class UserAction {
 				.getParameter("roleName"), functionRestriction = request
 				.getParameter("branchAllowed"),
 				functionAllowed=request.getParameter("functionAllowed");
+		Generator g=new Generator("coop_dat");
+		functionAllowed=g.addHash(functionAllowed);
 
 		String[] branchArray = request.getParameterValues("branchAllowed");
 		String branchAllowed = Arrays.toString(branchArray).replace("[", "")
