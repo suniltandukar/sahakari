@@ -1,12 +1,9 @@
 package com.sahakari.controller;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.URL;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -17,9 +14,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
-import org.eclipse.jdt.internal.compiler.IDebugRequestor;
 
 import com.sahakari.account.dao.AccountDao;
 import com.sahakari.account.daoImpl.AccountDaoImpl;
@@ -43,6 +40,7 @@ import com.sahakari.model.Document;
 import com.sahakari.model.FamilyRelationModel;
 import com.sahakari.model.TellerTransactionModel;
 import com.sahakari.model.TransactionModel;
+import com.sahakari.model.UserModel;
 import com.sahakari.transaction.dao.TransactionDao;
 import com.sahakari.transaction.daoImpl.TransactionDaoImpl;
 /**
@@ -338,8 +336,9 @@ public class NavigationController extends HttpServlet {
 		}
 		//Transaction
 		else if(uri.endsWith("inserttransaction.click")){
+		String branchid="001";
 			Generator gen=new Generator("coop_dat");
-			String tid=gen.transactionidgenerator();
+			String tid=gen.transactionidgenerator(branchid);
 			request.setAttribute("tid", tid);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/insertTransaction.jsp");
 			rd.forward(request, response);
@@ -367,12 +366,12 @@ public class NavigationController extends HttpServlet {
 		}
 		//Teller Transaction
 		else if(uri.endsWith("insertTeller.click")){
-			
+			String branchid="001";
 			String type=request.getParameter("type");
 			request.setAttribute("type", type);
 			
 			Generator gen=new Generator("coop_dat");
-			String tellerid=gen.tellertransactionidgenerator();
+			String tellerid=gen.tellertransactionidgenerator(branchid);
 			request.setAttribute("tellerid", tellerid);
 			
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/insertTeller.jsp");
@@ -402,8 +401,9 @@ public class NavigationController extends HttpServlet {
 		//multi transactions
 		if(uri.endsWith("insertMultiTxn.click"))
 		{
+			String branchid="001";
 			Generator gen=new Generator("coop_dat");
-			String mid=gen.multitransactionidgenerator();
+			String mid=gen.multitransactionidgenerator(branchid);
 			request.setAttribute("mid", mid);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/MultiTransactions/insertMultiTransaction.jsp");
 			rd.forward(request, response);
@@ -522,5 +522,39 @@ public class NavigationController extends HttpServlet {
 		    bout.close();  
 		    os.close();  
 		    }  
+		
+		else if(uri.endsWith("branchselect.click"))
+		{
+			HttpSession session=request.getSession(true);
+			UserModel u=(UserModel)session.getAttribute("userDetail");
+			String branchAllowed=u.getBranchAllowed();
+			String[] branches=branchAllowed.split(",");
+		
+			request.setAttribute("branchesAllowed", branches);
+			RequestDispatcher rd=request.getRequestDispatcher("view/UserSetting/branchselect.jsp");
+			rd.forward(request, response);
+			
+		}
+		else if(uri.endsWith("switchbranc.click")){
+			String branch=request.getParameter("branch"),
+					branchcode[]=branch.split("-");
+			HttpSession session=request.getSession(true);
+			System.out.println(branch);
+			session.removeAttribute("currentBranch");
+			session.setAttribute("currentBranch", branchcode[0]);
+			
+			session.removeAttribute("currentFunctions");
+			
+			UserModel u=(UserModel)session.getAttribute("userDetails");
+			session.setAttribute("currentFunctions", u.getBranchAllowedFunctions());
+			System.out.println(session.getAttribute("currentBranch"));
+			
+			request.setAttribute("msg", "Switch successful. Current Branch ="+branchcode[0]);
+			RequestDispatcher rd=request.getRequestDispatcher("view/dashboard.jsp");
+			rd.forward(request, response);
+			
+			
+			
+		}
 	}
 }

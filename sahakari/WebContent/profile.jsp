@@ -8,9 +8,10 @@
 		UserModel userdetail = (UserModel) session
 				.getAttribute("userDetail");
 		String functionAllowed=userdetail.getFunctionAllowed();
-		String givenRole=(String)session.getAttribute("givenRole");
 		String additionalFunctions=userdetail.getAdditionalFunctions();
 		
+		String givenRoles=userdetail.getGivenrole();
+		String currentBranchFunctions=(String)session.getAttribute("currentBranchFunctions");
 %>
 <html lang="en">
 <head>
@@ -34,12 +35,12 @@
 <style>
 #member,#retailoperation,#shareholder,#generaltransaction,#loanmodule,#nonfundbusiness,#otherutilities,#reports,#adminsettings, #i, #v,#e,#a,#r,#d{
 display:none;}
-<%=givenRole%>{
-display:block;}
 <%=additionalFunctions%>{
 display:block;}
 <%=functionAllowed%>{
 display:block;}
+<%=currentBranchFunctions%>{
+display:block}
 
 </style>
 </head>
@@ -295,6 +296,7 @@ display:block;}
 														 Category</a></li>
 										<li id="i"><a href="branch.click" target="iframe_a">Branch/Company
 												setup </a></li>
+												
 										<li><a href="#" target="iframe_a">
 												ChartOfAccount(COA) </a></li>
 										<li><a href="#" target="iframe_a"> MigrationtoolSetup
@@ -387,7 +389,7 @@ display:block;}
 										target="iframe_a"> Profile</a></li>
 									<li><a href="javascript:;"> <span>Settings</span>
 									</a></li>
-									<li><a href="javascript:;">Help</a></li>
+									<li><a href="branchselect.click" target="iframe_a">Switch Branch</a></li>
 									<li><a href="logout.log"><i
 											class="fa fa-sign-out pull-right"></i> Log Out</a></li>
 								</ul></li>

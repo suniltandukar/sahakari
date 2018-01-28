@@ -21,5 +21,7 @@ public interface AccountDao {
 
 	public boolean updateAccount(AccountModel am);
 	
+	
+	
 
 }

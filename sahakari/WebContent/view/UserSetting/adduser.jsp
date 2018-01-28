@@ -9,12 +9,15 @@
 .green {
 	color: green
 }
+
 .red {
 	color: red
 }
+
 .updatebtn {
 	display: none;
 }
+
 <%--
 <%
 if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
@@ -121,12 +124,12 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 								<td>
 									<div class="control-group">
 										<h5>Function Allowed</h5>
-										
-											<input id="tags_1" type="text" name="functionAllowed"
-												class="tags form-control" value="" />
-											<div id="suggestions-container"
-												style="position: relative; float: left; width: 250px; margin: 10px;"></div>
-										
+
+										<input id="tags_1" type="text" name="functionAllowed"
+											class="tags form-control" value="" />
+										<div id="suggestions-container"
+											style="position: relative; float: left; width: 250px; margin: 10px;"></div>
+
 									</div>
 								</td>
 								<td>
@@ -136,7 +139,7 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 										<option value="002">Kalanki</option>
 								</select>
 								</td>
-								
+
 							</tr>
 						</tbody>
 					</table>
@@ -148,7 +151,21 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 									Member &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 						</tr>
 					</table>
+					<table id="table1">
 
+						<caption>Check User Roles</caption>
+						<c:set var="givenrole" value="${givenrole }" />
+						<tr>
+							<td><label><input type="checkbox" id="view"
+									name="role" value="#nav1" class="js-switch"
+									<c:if test="${fn:contains(givenrole,'i')}"> checked="checked"</c:if>>
+									Insert Customer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+							<td><label><input type="checkbox" id="add"
+									name="role" value="#nav2" class="js-switch"
+									<c:if test="${fn:contains(givenrole,'#nav2')}"> checked="checked"</c:if>>
+									View Customer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+						</tr>
+					</table>
 					<br> <input type="submit" name="button" value="submit"
 						class="btn btn-primary submitbtn" onclick="return OnButton1()">
 
