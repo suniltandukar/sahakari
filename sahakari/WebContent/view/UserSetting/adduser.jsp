@@ -5,6 +5,7 @@
 <jsp:include page="/includefile"></jsp:include>
 <html>
 <head>
+
 <style>
 
 .green {
@@ -121,6 +122,14 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 									<h6>End Date</h6> <input type="text" class="form-control"
 									name="endDate">
 								</td>
+								<td>
+									<h6>Branch Allowed</h6> <select multiple id="branches"
+									name="branchAllowed">
+									<c:forEach items="${branchlist }" var="b">
+										<option value="${b.branchCode }-${b.branchName}">${b.branchCode }-${b.branchName}</option>
+									</c:forEach>
+								</select>
+								</td>
 							</tr>
 
 							<tr>
@@ -129,21 +138,12 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 										<h5>Function Allowed</h5>
 
 										<input id="tags_1" type="text" name="functionAllowed"
-											class="tags form-control" value="" />
+											class="tags hash form-control" value="" />
 										<div id="suggestions-container"
 											style="position: relative; float: left; width: 250px; margin: 10px;"></div>
 
 									</div>
 								</td>
-								<td>
-									<h6>Branch Allowed</h6> <select multiple class="form-control"
-									name="branchAllowed">
-									<c:forEach items="${branchlist }" var="b">
-										<option value="${b.branchCode }-${b.branchName}">${b.branchCode }-${b.branchName}</option>
-									</c:forEach>
-								</select>
-								</td>
-
 							</tr>
 						</tbody>
 					</table>
@@ -342,7 +342,30 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 			$('#myModal').modal('show');
 		</script>
 	</c:if>
+<!-- <script>
+$('.hash').on('keypress',function(e){
+	var value=$(this).val();
+	$('.hash').val('#'+value);
+});
+</script> -->
 
+    <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"
+        type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#branches').multiselect({
+                includeSelectAllOption: true
+            });
+            $('#btnSelected').click(function () {
+                var selected = $("#lstFruits option:selected");
+                var message = "";
+                selected.each(function () {
+                    message += $(this).text() + " " + $(this).val() + "\n";
+                });
+                alert(message);
+            });
+        });
+    </script>
 </body>
 
 </html>

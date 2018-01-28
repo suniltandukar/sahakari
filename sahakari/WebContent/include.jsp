@@ -5,16 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<style>
-	#nav1,#nav2,#nav3,#nav4,#nav5,#nav6,#nav7,#nav8,#nav9,#nav10,#nav11,#nav12,#nav13,#nav14,#nav15,#nav16,#nav17,#change,#action,#share{
-	display:none;
-	}
-
-	${userrole}{
-	display:block;
- }
-</style>
 <!-- Bootstrap -->
+<link href="template/css/multiselecttick.css"
+        rel="stylesheet" type="text/css" />
     <link href="template/css/bootstrap.min.css" rel="stylesheet">
     <!-- Datatables -->
     <link href="template/css/dataTables.bootstrap.min.css" rel="stylesheet">
