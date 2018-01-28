@@ -38,7 +38,8 @@
     <script src="template/js/bootstrap.min.js"></script>
      <!-- Datatables -->
     
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script> -->
+	<script src="template/js/form-validator.min.js"></script>
     <script src="template/js/jquery.dataTables.min.js"></script>
     <script src="template/js/dataTables.bootstrap.min.js"></script>
     <script src="template/js/dataTables.buttons.min.js"></script>
