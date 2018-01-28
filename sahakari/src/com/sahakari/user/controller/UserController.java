@@ -47,6 +47,10 @@ public class UserController extends HttpServlet {
 			
 			List<String> rolename=userdao.getRoleName();
 			request.setAttribute("rolename", rolename);
+			
+			List<UserModel> branchlist=userdao.getBranchList();
+			request.setAttribute("branchlist", branchlist);
+			
 			RequestDispatcher rd=request.getRequestDispatcher("view/UserSetting/adduser.jsp");
 			rd.forward(request, response);
 		}

@@ -1,7 +1,17 @@
 package com.sahakari.model;
 
 public class UserModel {
-	String username, password, status,userid,givenrole,fullName,post,staffCode,endDate,startDate,branchCode,roleName,functionAllowed,functionRestriction,branchAllowed,branchAllowedFunctions,additionalFunctions;
+	String username, password, status,userid,givenrole,fullName,post,staffCode,endDate,startDate,roleName,functionAllowed,functionRestriction,branchAllowed,branchAllowedFunctions,additionalFunctions;
+	
+	String branchCode,branchName;
+	public String getBranchName() {
+		return branchName;
+	}
+
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
+	}
+
 	public String getAdditionalFunctions() {
 		return additionalFunctions;
 	}

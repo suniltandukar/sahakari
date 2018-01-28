@@ -200,5 +200,31 @@ public class UserDaoImpl implements UserDao {
 		}
 		return null;
 	}
+	public List<UserModel> getBranchList(){
+		List<UserModel> list=new ArrayList<UserModel>();
+		UserModel u=null;
+		String query="select * from branchtbl";
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			while(rs.next()){
+				u=new UserModel();
+				u.setBranchCode(rs.getString("branchId"));
+				u.setBranchName(rs.getString("branchName"));
+				list.add(u);
+			}
+			if(list.size()>0){
+				con.close();
+				ps.close();
+				rs=null;
+				return list;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("getRoleName error");
+		}
+		return null;
+	}
 
 }

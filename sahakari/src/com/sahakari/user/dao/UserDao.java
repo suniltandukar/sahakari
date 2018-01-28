@@ -19,4 +19,6 @@ public interface UserDao {
 
 	public List<String> getRoleName();
 
+	public List<UserModel> getBranchList();
+
 }

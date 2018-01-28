@@ -137,8 +137,9 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 								<td>
 									<h6>Branch Allowed</h6> <select multiple class="form-control"
 									name="branchAllowed">
-										<option value="001">Kalimati</option>
-										<option value="002">Kalanki</option>
+									<c:forEach items="${branchlist }" var="b">
+										<option value="${b.branchCode }-${b.branchName}">${b.branchCode }-${b.branchName}</option>
+									</c:forEach>
 								</select>
 								</td>
 
