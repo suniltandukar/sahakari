@@ -110,6 +110,7 @@
   </filter-mapping>
   
   <!--  <filter>
+  <filter>
     <filter-name>LogoutFilter</filter-name>
     <filter-class>com.sahakari.filter.LogoutFilter</filter-class>
   </filter>

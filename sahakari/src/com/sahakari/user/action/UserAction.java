@@ -145,4 +145,26 @@ public class UserAction {
 
 	}
 
+	public void insertusergroup(HttpServletRequest request,
+			HttpServletResponse response) {
+		String[] givenRolesArray=request.getParameterValues("givenRoles");
+		String givenRoles=Arrays.toString(givenRolesArray).replace("[", "")
+				.replace("]", "");
+		String groupname=request.getParameter("groupname");
+		
+		UserDao user=new UserDaoImpl();
+		boolean status=user.insertusergroup(groupname,givenRoles);
+		if(status){
+			request.setAttribute("msg", "Group added successfully!");
+			try {
+				request.getRequestDispatcher("addusergroup.user").forward(request, response);
+			} catch (ServletException | IOException e) {
+				e.printStackTrace();
+			};
+		}
+			
+		
+		
+	}
+
 }

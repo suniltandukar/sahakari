@@ -383,8 +383,11 @@ h5 {
 
 	<jsp:include page="/msgmodal"></jsp:include>
 
-	
-		<script>
+
+	<script type="text/javascript" src="template/js/ajaxFunctions.js"></script>
+	<script type="text/javascript" src="template/js/form.js"></script>
+		<!-- <script>
+		$(document).ready(function(){
   $.validate({
     lang: 'en',
     modules : 'date,toggleDisabled',
@@ -395,6 +398,15 @@ h5 {
 </script>
 <script type="text/javascript" src="template/js/ajaxFunctions.js"></script>
 	<script type="text/javascript" src="template/js/form.js"></script>
+
+     modules : 'date,toggleDisabled',
+   disabledFormFilter : 'form.toggle-disabled',
+    	  
+     showErrorDialogs : false
+    
+     });
+		});
+</script> -->
 	<script>
 		
 	<%if (request.getAttribute("msg") != null) {%>

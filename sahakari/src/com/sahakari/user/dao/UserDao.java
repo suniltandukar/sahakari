@@ -21,4 +21,8 @@ public interface UserDao {
 
 	public List<UserModel> getBranchList();
 
+	public boolean insertusergroup(String groupname, String givenRoles);
+
+	public boolean checkUserGroup(String parameter);
+
 }
