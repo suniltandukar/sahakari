@@ -226,5 +226,36 @@ public class UserDaoImpl implements UserDao {
 		}
 		return null;
 	}
+	public boolean insertusergroup(String groupname, String givenRoles){
+		String query="insert into roleindex values('"+givenRoles+"','"+groupname+"')";
+		try{
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			int i=ps.executeUpdate();
+			if(i>0){
+				return true;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
+	public boolean checkUserGroup(String parameter){
+		String query="select name from roleindex where name='"+parameter+"'";
+		try{
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			if(rs.next()){
+				return true;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+		
+	}
 
 }

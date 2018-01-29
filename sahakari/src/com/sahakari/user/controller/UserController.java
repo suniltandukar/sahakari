@@ -58,13 +58,16 @@ public class UserController extends HttpServlet {
 		{
 			UserAction user=new UserAction();
 			user.adduseraction(request,response);
-			
-		
 		}
 		if(uri.endsWith("addusergroup.user"))
 		{
 			RequestDispatcher rd=request.getRequestDispatcher("view/UserSetting/insertUserGroup.jsp");
 			rd.forward(request, response);
+		}
+		if(uri.endsWith("insertusergroup.user")){
+			UserAction user=new UserAction();
+			user.insertusergroup(request,response);
+			
 		}
 		if(uri.endsWith("deleteusernav.user"))
 		{
