@@ -16,6 +16,7 @@
     <link href="template/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="template/css/scroller.bootstrap.min.css" rel="stylesheet">
     <link href="template/css/switchery.min.css" rel="stylesheet">
+    <link href="template/css/bootstrap-tagsinput.css" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link href="template/css/font-awesome.min.css" rel="stylesheet">
@@ -37,7 +38,8 @@
     <script src="template/js/bootstrap.min.js"></script>
      <!-- Datatables -->
     
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script> -->
+	<script src="template/js/form-validator.min.js"></script>
     <script src="template/js/jquery.dataTables.min.js"></script>
     <script src="template/js/dataTables.bootstrap.min.js"></script>
     <script src="template/js/dataTables.buttons.min.js"></script>
@@ -54,6 +56,7 @@
     <script src="template/js/pdfmake.min.js"></script>
     <script src="template/js/vfs_fonts.js"></script>
       <script src="template/js/switchery.min.js"></script>
+         <script src="template/js/bootstrap-tagsinput.js"></script>
     
     <!-- FastClick -->
     <script src="template/js/fastclick.js"></script>

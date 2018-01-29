@@ -54,6 +54,7 @@ public class LoginAction extends HttpServlet {
 			UserDao ud=new UserDaoImpl();
 			String mainRole=ud.getRoleAssigned(userDetail.getGivenrole());
 			session.setAttribute("mainRole", mainRole);
+			System.out.println(mainRole);
 			
 			session.setAttribute("currentBranchFunctions", userDetail.getFunctionAllowed());
 			

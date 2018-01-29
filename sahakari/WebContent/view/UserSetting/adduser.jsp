@@ -5,6 +5,10 @@
 <jsp:include page="/includefile"></jsp:include>
 <html>
 <head>
+<<<<<<< HEAD
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+=======
+>>>>>>> branch 'master' of https://github.com/hackersdelima/sahakari.git
 
 <style>
 
@@ -81,7 +85,7 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 										</h6>
 											<input type="hidden" form="form" value="${userid}"
 												name="useridforupdate"> <input type="text"
-												name="username" class="form-control" form="form"
+												name="username" class="form-control" form="form" data-validation="number"
 												value="${username }">
 								</td>
 								<td>
@@ -95,14 +99,15 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 								</td>
 								<td>
 									<h6>Full Name</h6> <input type="text" class="form-control"
-									name="fullName">
+									name="fullName" data-sanitize-insert-right=" $" data-sanitize="insertLeft">
 								</td>
 
 							</tr>
 							<tr>
 								<td>
 									<h6>Post</h6> <input type="text" class="form-control"
-									name="post">
+									name="post" data-sanitize="insertRight" 
+								 data-sanitize-insert-right=" $">
 								</td>
 								<td>
 									<h6>Staff Code</h6> <input type="text" class="form-control"
@@ -134,15 +139,14 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 
 							<tr>
 								<td>
-									<div class="control-group">
+									
 										<h5>Function Allowed</h5>
 
-										<input id="tags_1" type="text" name="functionAllowed"
-											class="tags hash form-control" value="" />
-										<div id="suggestions-container"
-											style="position: relative; float: left; width: 250px; margin: 10px;"></div>
 
-									</div>
+										<input id="tags" type="text" name="functionAllowed"
+											class=" " value=""  data-role="tagsinput"  data-sanitize="insertLeft" data-sanitize-insert-left="#"/>
+										
+
 								</td>
 							</tr>
 						</tbody>
@@ -253,11 +257,19 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 
 		</div>
 	</div>
+<script>
+  $.validate({
+    lang: 'en',
+    modules : 'date,toggleDisabled,sanitize',
+	  disabledFormFilter : 'form.toggle-disabled',
+	 showErrorDialogs : false
 
+    });
+</script>
 
 	<script>
 		$(document).ready(function() {
-
+			
 			$('#button').click(function() {
 				$('input[type="text"]').val('');
 			});
