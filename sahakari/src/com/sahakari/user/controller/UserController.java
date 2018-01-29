@@ -61,6 +61,11 @@ public class UserController extends HttpServlet {
 			
 		
 		}
+		if(uri.endsWith("addusergroup.user"))
+		{
+			RequestDispatcher rd=request.getRequestDispatcher("view/UserSetting/insertUserGroup.jsp");
+			rd.forward(request, response);
+		}
 		if(uri.endsWith("deleteusernav.user"))
 		{
 			UserDao userdao=new UserDaoImpl();

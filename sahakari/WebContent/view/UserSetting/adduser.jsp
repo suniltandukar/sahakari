@@ -5,10 +5,7 @@
 <jsp:include page="/includefile"></jsp:include>
 <html>
 <head>
-<<<<<<< HEAD
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
-=======
->>>>>>> branch 'master' of https://github.com/hackersdelima/sahakari.git
 
 <style>
 
