@@ -42,8 +42,7 @@ public class LoginAction extends HttpServlet {
 		u.setUsername(request.getParameter("username"));
 		u.setPassword(request.getParameter("password"));
 		LoginDao l=new LoginDaoImpl();
-		boolean status=l.checkuser(u);
-		if(status){
+		
 			UserModel userDetail=l.getUserDetail(u);
 			HttpSession session=request.getSession(true);
 			session.setAttribute("userDetail", userDetail);
@@ -67,17 +66,9 @@ public class LoginAction extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		else{
-			request.setAttribute("msg", "Invalid Login Credentials!");
-			RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
-			try {
-				rd.forward(request, response);
-			} catch (ServletException | IOException e) {
-				e.printStackTrace();
-			}
-		}
 		
-	}
+		
+	
 
 	public void userlogout(HttpServletRequest request,
 			HttpServletResponse response) {

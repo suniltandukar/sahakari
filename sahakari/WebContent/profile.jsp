@@ -339,6 +339,8 @@ display:block;}
 
 												<li id="i"><a href="adduser.user" target="iframe_a">
 														Create New user </a></li>
+												<li id="i"><a href="usergroup.user" target="iframe_a">
+														Create user Group</a></li>
 												<li id="i"><a href="#" target="iframe_a"> Amendment of
 														user </a></li>
 												<li id="a"><a href="#" target="iframe_a"> Authorize user </a></li>
