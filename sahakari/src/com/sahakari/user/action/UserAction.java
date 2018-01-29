@@ -28,7 +28,7 @@ public class UserAction {
 				.getParameter("roleName"), functionRestriction = request
 				.getParameter("branchAllowed"),
 				functionAllowed=request.getParameter("functionAllowed");
-		Generator g=new Generator("coop_dat");
+		Generator g=new Generator();
 		functionAllowed=g.addHash(functionAllowed);
 
 		String[] branchArray = request.getParameterValues("branchAllowed");

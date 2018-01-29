@@ -102,6 +102,19 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 		}
 		else if(uri.endsWith("customerinsert.click")){
+			
+			Generator gen=new Generator();
+			String custid=gen.customeridGenerator();
+			if(custid==null)
+			{
+				request.setAttribute("pid", "00000001");
+			}
+			else
+			{
+				String strI = String.format("%08d", Integer.parseInt(custid));
+				request.setAttribute("pid", strI);
+			}
+			
 			GetFormOptions g=new GetFormOptions();
 			List<CustomerModel> statuslist=g.getStatus();
 			List<CustomerModel> typelist=g.getType();
@@ -334,7 +347,7 @@ public class NavigationController extends HttpServlet {
 		//Transaction
 		else if(uri.endsWith("inserttransaction.click")){
 		String branchid="001";
-			Generator gen=new Generator("coop_dat");
+			Generator gen=new Generator();
 			String tid=gen.transactionidgenerator(branchid);
 			request.setAttribute("tid", tid);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/insertTransaction.jsp");
@@ -367,7 +380,7 @@ public class NavigationController extends HttpServlet {
 			String type=request.getParameter("type");
 			request.setAttribute("type", type);
 			
-			Generator gen=new Generator("coop_dat");
+			Generator gen=new Generator();
 			String tellerid=gen.tellertransactionidgenerator(branchid);
 			request.setAttribute("tellerid", tellerid);
 			
@@ -399,7 +412,7 @@ public class NavigationController extends HttpServlet {
 		if(uri.endsWith("insertMultiTxn.click"))
 		{
 			String branchid="001";
-			Generator gen=new Generator("coop_dat");
+			Generator gen=new Generator();
 			String mid=gen.multitransactionidgenerator(branchid);
 			request.setAttribute("mid", mid);
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/MultiTransactions/insertMultiTransaction.jsp");

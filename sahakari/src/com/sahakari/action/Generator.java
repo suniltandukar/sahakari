@@ -2,6 +2,7 @@ package com.sahakari.action;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,10 +14,9 @@ public class Generator {
 	Connection con=null;
 	PreparedStatement ps=null;
 	ResultSet rs=null;
-	public Generator(String branchdb){
-		con=DBConnection.getConnection();
-	}
+	
 	public String accountidgenerator(String branchid, String memberid,String accountno) {
+		con=DBConnection.getConnection();
 	 branchid="0001";
 		String code="";
 		try{
@@ -53,6 +53,7 @@ public class Generator {
 		return code;
 	}
 	public String transactionidgenerator(String branchid) {
+		con=DBConnection.getConnection();
 		String transactionid="";
 		
 		DateFormat yy = new SimpleDateFormat("yy");
@@ -100,6 +101,7 @@ public class Generator {
 		return transactionid;
 	}
 	public String tellertransactionidgenerator(String branchid) {
+		con=DBConnection.getConnection();
 		String transactionid="";
 		
 		DateFormat yy = new SimpleDateFormat("yy");
@@ -147,6 +149,7 @@ public class Generator {
 		return transactionid;
 	}
 	public String multitransactionidgenerator(String branchid) {
+		con=DBConnection.getConnection();
 		String transactionid="";
 		
 		DateFormat yy = new SimpleDateFormat("yy");
@@ -206,5 +209,25 @@ public class Generator {
 			 return givenValue;
 		}
 		return null;
+	}
+	public String customeridGenerator() {
+		
+		con=DBConnection.getConnection();
+		String query="select max(pid)+1 as pid from customertbl ";
+		try {
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			
+			if(rs.next())
+			{
+				String custid=rs.getString("pid");
+				return custid;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+		
 	}
 }
