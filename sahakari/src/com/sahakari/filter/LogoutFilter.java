@@ -14,6 +14,8 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sahakari.model.UserModel;
+
 @WebFilter("/LogoutFilter")
 public class LogoutFilter implements Filter {
 
@@ -30,11 +32,10 @@ public class LogoutFilter implements Filter {
 		HttpServletResponse res=(HttpServletResponse) response;
 		
 		PrintWriter out=response.getWriter();
-		String uri=req.getRequestURI();
-	
+		
 			//if user is not logged in redirect to same page.
 			try{
-			String role=(String) req.getSession().getAttribute("userDetail");
+			UserModel role=(UserModel) req.getSession().getAttribute("userDetail");
 			if (role!=null){
 				chain.doFilter(request, response);
 			}
@@ -44,7 +45,7 @@ public class LogoutFilter implements Filter {
 			}
 			catch(Exception e){
 				RequestDispatcher rd=req.getRequestDispatcher("index.jsp");
-				request.setAttribute("login", "Please Login First.");
+				request.setAttribute("msg", "Please Login First.");
 				rd.forward(request,response);
 				
 			}}
