@@ -385,7 +385,7 @@ h5 {
 
 	<script type="text/javascript" src="template/js/ajaxFunctions.js"></script>
 	<script type="text/javascript" src="template/js/form.js"></script>
-		<script>
+		<!-- <script>
 		$(document).ready(function(){
   $.validate({
 	  
@@ -397,7 +397,7 @@ h5 {
     
      });
 		});
-</script>
+</script> -->
 	<script>
 		
 	<%if (request.getAttribute("msg") != null) {%>
