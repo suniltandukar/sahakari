@@ -109,4 +109,12 @@
     <url-pattern>/login.log</url-pattern>
   </filter-mapping>
   
+   <filter>
+    <filter-name>LogoutFilter</filter-name>
+    <filter-class>com.sahakari.filter.LogoutFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LogoutFilter</filter-name>
+    <url-pattern>*.click</url-pattern>
+  </filter-mapping>
 </web-app>
