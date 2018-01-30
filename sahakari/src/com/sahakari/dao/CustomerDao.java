@@ -39,6 +39,7 @@ public interface CustomerDao {
 	public void updateCustomerJob(CustomerModel cm);
 
 	public String acccountnogen(String memberid);
+	public boolean addMemberDocumentDetails(CustomerModel cm);
 	
 	
 }

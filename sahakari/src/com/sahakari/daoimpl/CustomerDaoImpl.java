@@ -628,4 +628,29 @@ public class CustomerDaoImpl implements CustomerDao {
 		}
 		return null;
 	}
+	public boolean addMemberDocumentDetails(CustomerModel cm){
+		String query="insert into documentdetails (pid, documentType, documentNumber,issuedDate,issuedDateen,issuedBy,expiryDate,expiryDateen) values (?,?,?,?,?,?,?,?)";
+		try{
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			ps.setString(1,cm.getPid() );
+			ps.setString(2, cm.getDocumentType());
+			ps.setString(3, cm.getDocumentNumber());
+			ps.setString(4, cm.getIssuedDate());
+			ps.setString(5, cm.getIssuedDateen());
+			ps.setString(6, cm.getIssuedBy());
+			ps.setString(7, cm.getExpiryDate());
+			ps.setString(8, cm.getExpiryDateen());
+			int i=ps.executeUpdate();
+			if(i>0){
+				con.close();
+				ps.close();
+				return true;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+	}
 }

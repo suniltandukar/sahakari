@@ -16,7 +16,6 @@ import com.sahakari.user.daoImpl.UserDaoImpl;
 
 @WebFilter("/UserFilter")
 public class UserFilter implements Filter {
-
     public UserFilter() {
     }
 	public void destroy() {
@@ -33,9 +32,6 @@ public class UserFilter implements Filter {
 			else{
 			chain.doFilter(request, response);
 			}
-		
-		
-		
 	}
 	public void init(FilterConfig fConfig) throws ServletException {
 	}

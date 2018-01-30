@@ -28,6 +28,9 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		String[] cusJob, cusInstitution, cusPost, incomePeryear, jremarks;
 		String[] bankName, accountNumber, accountType, bremarks;
 		
+		//document details
+		String[] documentType, documentNumber, issuedDate,issuedDateen,issuedBy,expiryDate,expiryDateen;
+		
 		 cusRelation=request.getParameterValues("cusRelation");
 		cusRelName=request.getParameterValues("cusRelName");
 		dateOfBirth=request.getParameterValues("dateOfBirth");
@@ -44,6 +47,14 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		accountNumber=request.getParameterValues("accountNumber");
 		accountType=request.getParameterValues("accountType");
 		bremarks=request.getParameterValues("bremarks");
+		
+		documentType=request.getParameterValues("documentType");
+		documentNumber=request.getParameterValues("documentNumber");
+		issuedDate=request.getParameterValues("issuedDate");
+		issuedDateen=request.getParameterValues("issuedDateen");
+		issuedBy=request.getParameterValues("issuedBy");
+		expiryDate=request.getParameterValues("expiryDate");
+		expiryDateen=request.getParameterValues("expiryDate");
 		
 		memberid=request.getParameter("memberid");
 		registrationDate=request.getParameter("registrationDate");
@@ -118,14 +129,16 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 				cm.setDateOfBirth(dateOfBirth[i]);
 				cm.setFcitizenshipNo(fcitizenshipNo[i]);
 				cm.setFremarks(fremarks[i]);
-				c.insertCustomerFamily(cm);
+				boolean familystatus=c.insertCustomerFamily(cm);
+				System.out.println("Family status ="+familystatus);
 			}
 			for(int j=0;j<accountNumber.length;j++){
 				cm.setBankName(bankName[j]);
 				cm.setAccountNumber(accountNumber[j]);
 				cm.setAccountType(accountType[j]);
 				cm.setBremarks(bremarks[j]);
-				c.insertCustomerBank(cm);
+				boolean accountstatus=c.insertCustomerBank(cm);
+				System.out.println("Account status ="+accountstatus);
 			}
 			for(int k=0;k<cusJob.length;k++){
 				cm.setCusJob(cusJob[k]);
@@ -133,7 +146,19 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 				cm.setCusPost(cusPost[k]);
 				cm.setIncomePeryear(incomePeryear[k]);
 				cm.setJremarks(jremarks[k]);
-				 c.insertCustomerJob(cm);
+				boolean jobstatus= c.insertCustomerJob(cm);
+				System.out.println("Job status ="+jobstatus);
+			}
+			for(int l=0;l<documentNumber.length;l++){
+				cm.setDocumentType(documentType[l]);
+				cm.setDocumentNumber(documentNumber[l]);
+				cm.setIssuedDate(issuedDate[l]);
+				cm.setIssuedDateen(issuedDateen[l]);
+				cm.setIssuedBy(issuedBy[l]);
+				cm.setExpiryDate(expiryDate[l]);
+				cm.setExpiryDateen(expiryDateen[l]);
+				boolean documentstatus=c.addMemberDocumentDetails(cm);
+				System.out.println("Document Status ="+documentstatus);
 			}
 			 finalstatus=true;
 		}

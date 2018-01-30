@@ -8,7 +8,65 @@ public class CustomerModel {
 	ttole, cusCitizenshipNo, citizenshipIssuedFrom, citidistName,
 	telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer,
 	insertStatus, updateStatus, delStatus, address;
+	//document details
+	String documentType, documentNumber, issuedDate,issuedDateen,issuedBy,expiryDate,expiryDateen;
 	
+	public String getDocumentType() {
+		return documentType;
+	}
+
+	public void setDocumentType(String documentType) {
+		this.documentType = documentType;
+	}
+
+	public String getDocumentNumber() {
+		return documentNumber;
+	}
+
+	public void setDocumentNumber(String documentNumber) {
+		this.documentNumber = documentNumber;
+	}
+
+	public String getIssuedDate() {
+		return issuedDate;
+	}
+
+	public void setIssuedDate(String issuedDate) {
+		this.issuedDate = issuedDate;
+	}
+
+	public String getIssuedDateen() {
+		return issuedDateen;
+	}
+
+	public void setIssuedDateen(String issuedDateen) {
+		this.issuedDateen = issuedDateen;
+	}
+
+	public String getIssuedBy() {
+		return issuedBy;
+	}
+
+	public void setIssuedBy(String issuedBy) {
+		this.issuedBy = issuedBy;
+	}
+
+	public String getExpiryDate() {
+		return expiryDate;
+	}
+
+	public void setExpiryDate(String expiryDate) {
+		this.expiryDate = expiryDate;
+	}
+
+	public String getExpiryDateen() {
+		return expiryDateen;
+	}
+
+	public void setExpiryDateen(String expiryDateen) {
+		this.expiryDateen = expiryDateen;
+	}
+
 	public String getAddress() {
 		return address;
 	}
