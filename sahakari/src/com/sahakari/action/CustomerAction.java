@@ -22,7 +22,7 @@ public class CustomerAction {
 			HttpServletResponse response) {
 		CustomerDao c=new CustomerDaoImpl();
 		CustomerModel cm=new CustomerModel();
-		String cusCitizenshipNo, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, 
+		String pid, cusCitizenshipNo, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, 
 No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus, address;
 		String[] cusRelation,cusRelName,dateOfBirth,fcitizenshipNo,fremarks;
 		String[] cusJob, cusInstitution, cusPost, incomePeryear, jremarks;
@@ -45,6 +45,7 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		accountType=request.getParameterValues("accountType");
 		bremarks=request.getParameterValues("bremarks");
 		
+		pid=request.getParameter("pid");
 		memberid=request.getParameter("memberid");
 		registrationDate=request.getParameter("registrationDate");
 		name=request.getParameter("name");
@@ -78,6 +79,7 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		updateStatus="abc";
 		delStatus="abc";
 		
+		cm.setPid(pid);
 		cm.setMemberid(memberid);
 		cm.setRegistrationDate(registrationDate);
 		cm.setName(name);
