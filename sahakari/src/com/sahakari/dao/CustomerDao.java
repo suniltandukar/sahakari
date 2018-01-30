@@ -40,6 +40,8 @@ public interface CustomerDao {
 
 	public String acccountnogen(String memberid);
 	public boolean addMemberDocumentDetails(CustomerModel cm);
+
+	public boolean updateDocuments(CustomerModel cm);
 	
 	
 }

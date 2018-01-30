@@ -654,4 +654,30 @@ public class CustomerDaoImpl implements CustomerDao {
 		}
 		return false;
 	}
+	public boolean updateDocuments(CustomerModel cm)
+	{
+		String query="update documentdetails set documentType=?, documentNumber=?, issuedBy=?,issedDate=?,issuedDateen=?,expiryDate=?,expiryDateen=? ";
+		con=DBConnection.getConnection();
+		int rs=0;
+		
+		try {
+			ps=con.prepareStatement(query);
+			ps.setString(1, cm.getDocumentType());
+			ps.setString(2, cm.getDocumentNumber());
+			ps.setString(3, cm.getIssuedBy());
+			ps.setString(4, cm.getIssuedDate());
+			ps.setString(5, cm.getIssuedDateen());
+			ps.setString(6, cm.getExpiryDate());
+			ps.setString(7, cm.getExpiryDateen());
+			rs=ps.executeUpdate();
+			if(rs>0)
+			{
+				return true;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }

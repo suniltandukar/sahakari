@@ -208,6 +208,18 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		String[] cusRelation,cusRelName,dateOfBirth,fcitizenshipNo,fremarks;
 		String[] bankName, accountNumber, accountType, bremarks;
 		
+		//document details
+				String[] documentType, documentNumber, issuedDate,issuedDateen,issuedBy,expiryDate,expiryDateen;
+				
+		documentType=request.getParameterValues("documentType");
+		documentNumber=request.getParameterValues("documentNumber");
+		issuedBy=request.getParameterValues("issuedBy");
+		issuedDate=request.getParameterValues("issuedDate");
+		issuedDateen=request.getParameterValues("issuedDateen");
+		expiryDate=request.getParameterValues("expiryDate");
+		expiryDateen=request.getParameterValues("expiryDateen");
+		
+		
 		cusJob=request.getParameterValues("cusJob");
 		cusInstitution=request.getParameterValues("cusInstitution");
 		cusPost=request.getParameterValues("cusPost");
@@ -323,6 +335,17 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 				cm.setIncomePeryear(incomePeryear[k]);
 				cm.setJremarks(jremarks[k]);
 			dao.updateCustomerJob(cm);
+			}
+			for(int l=0;l<documentNumber.length;l++){
+				cm.setDocumentType(documentType[l]);
+				cm.setDocumentNumber(documentNumber[l]);
+				cm.setIssuedDate(issuedDate[l]);
+				cm.setIssuedDateen(issuedDateen[l]);
+				cm.setIssuedBy(issuedBy[l]);
+				cm.setExpiryDate(expiryDate[l]);
+				cm.setExpiryDateen(expiryDateen[l]);
+				boolean documentstatus=dao.updateDocuments(cm);
+				System.out.println("Document Status ="+documentstatus);
 			}
 			customerUpdateStatus=true;
 			}
