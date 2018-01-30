@@ -67,7 +67,7 @@ h5 {
 								aria-expanded="false">Bank Account Information</a></li>
 							<li role="presentation" class=""><a href="#tab_content5"
 								role="tab" id="profile-tab4" data-toggle="tab"
-								aria-expanded="false">Other Details</a></li>
+								aria-expanded="false">Proof Document</a></li>
 
 						</ul>
 						<div id="myTabContent" class="tab-content">
@@ -361,6 +361,68 @@ h5 {
 									</tbody>
 								</table>
 							</div>
+							<div role="tabpanel" class="tab-pane fade" id="tab_content5"
+								aria-labelledby="profile-tab">
+								<input type="button" name="button" value="New Document"
+									class="btn btn-primary adddocumentbtn">
+								<table class="table" id="documenttbl">
+									<tbody>
+									<tr>
+										<tr class="tr_clone">
+											<td>
+												<h5>Document Type</h5> <select class="form-control"
+												name="documentType">
+													<option value="">Select Document Type</option>
+													<c:forEach items="${document}" var="relation">
+														<option value="${document}">${document}</option>
+													</c:forEach>
+											</select>
+											</td>
+											<td>
+												<h5>Document No</h5> <input type="text"
+												class="form-control" name="documentNumber" value=""
+												data-validation="number" data-validation-error-msg=" "
+												data-validation-optional="true">
+											</td>
+												<td>
+												<h5>Issued By</h5> <input type="text"
+												class="form-control" name="issuedBy" value=""
+												data-validation="number" data-validation-error-msg=" "
+												data-validation-optional="true">
+											</td>
+											
+										</tr>
+											<tr>
+											<td>
+												<h5>Issue Date(B.S.)</h5> <input type="text" class="form-control"
+												name="issuedDate" value="" data-validation="birthdate"
+												data-validation-error-msg=" "
+												data-validation-optional="true">
+											</td>
+												<td>
+												<h5>Issue Date(A.D.)</h5> <input type="text" class="form-control"
+												name="issuedDateen" value="" data-validation="birthdate"
+												data-validation-error-msg=" "
+												data-validation-optional="true">
+											</td>
+												<td>
+												<h5>Maturity Date(B.S.)</h5> <input type="text" class="form-control"
+												name="expiryDate" value="" data-validation="birthdate"
+												data-validation-error-msg=" "
+												data-validation-optional="true">
+											</td>
+												<td>
+												<h5>Maturity Date(A.D.)</h5> <input type="text" class="form-control"
+												name="expiryDateen" value="" data-validation="birthdate"
+												data-validation-error-msg=" "
+												data-validation-optional="true">
+											</td>
+											</tr>
+											<tr>
+									</tbody>
+								</table>
+							</div>
+							
 						</div>
 					</div>
 				</form>

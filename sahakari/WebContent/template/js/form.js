@@ -8,6 +8,11 @@ $('.addrealtionbtn').click(function () {
 		    $('#relationtable tbody').append($('#relationtable tbody tr:last').clone());
 		    
 	   });
+$('.adddocumentbtn').click(function () {
+	
+    $('#tab_content5').append($('#documenttbl  ').clone());
+    
+});
 	   $('.addbankbtn').click(function () {
 
 		    $('#bankdetailtable tbody').append($('#bankdetailtable tbody tr:last').clone());
