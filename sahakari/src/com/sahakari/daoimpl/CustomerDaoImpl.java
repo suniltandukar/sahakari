@@ -203,7 +203,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
     }
 	public boolean insertCustomer(CustomerModel cm){
-		String query="insert into customertbl(memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity,ttole,citizenshipNo,citizenshipIssuedFrom,telno, mobno,fatherName,spouseName,dob,typeid,statusid,inputter,authorizer,insertStatus, updateStatus, delStatus, address, pid,agentid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+		String query="insert into customertbl(memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity,ttole, pid,agentid,telno, mobno,fatherName,dob,typeid,statusid,inputter,authorizer,insertStatus, updateStatus, delStatus, address) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
 		try{
 			int i=0;
 			con=DBConnection.getConnection();
@@ -222,8 +222,8 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(12, cm.getTwardno());
 			ps.setString(13, cm.getTcity());
 			ps.setString(14, cm.getTtole());
-			ps.setString(15, cm.getCusCitizenshipNo());
-			ps.setString(16, cm.getCitizenshipIssuedFrom());
+			ps.setString(15, cm.getPid());
+			ps.setString(16, cm.getAgentid());
 			ps.setString(17, cm.getTelno());
 			ps.setString(18, cm.getMobno());
 			ps.setString(19, cm.getFatherName());
@@ -237,8 +237,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(27, cm.getUpdateStatus());
 			ps.setString(28, cm.getDelStatus());
 			ps.setString(29, cm.getAddress());
-			ps.setString(30, cm.getPid());
-			ps.setString(31, cm.getAgentid());
+			
 			i=ps.executeUpdate();
 			if(i>0){
 				return true;
@@ -350,7 +349,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		return false;
 	}
 	public boolean updateCustomer(String pid, CustomerModel cm){
-		String query="update customertbl set memberid=?, registrationDate=?, name=?, gender=?, pdistid=?, pvdcmunid=?, pwardno=?, pcity=?, ptole=?, tdistid=?, tvdcmunid=?, twardno=?, tcity=?,ttole=?,citizenshipNo=?,citizenshipIssuedFrom=?,telno=?, mobno=?,fatherName=?,spouseName=?,dob=?,typeid=?,statusid=?,inputter=?,authorizer=?,insertStatus=?, updateStatus=?, delStatus=?, address=? where pid='"+pid+"'";
+		String query="update customertbl set memberid=?, registrationDate=?, name=?, gender=?, pdistid=?, pvdcmunid=?, pwardno=?, pcity=?, ptole=?, tdistid=?, tvdcmunid=?, twardno=?, tcity=?,ttole=?, delStatus=?, address=?, telno=?, mobno=?,fatherName=?, agentid=?,dob=?,typeid=?,statusid=?,inputter=?,authorizer=?,insertStatus=?, updateStatus=? where pid='"+pid+"'";
 		try{
 			int i=0;
 			con=DBConnection.getConnection();
@@ -369,8 +368,8 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(12, cm.getTwardno());
 			ps.setString(13, cm.getTcity());
 			ps.setString(14, cm.getTtole());
-			ps.setString(15, cm.getCusCitizenshipNo());
-			ps.setString(16, cm.getCitizenshipIssuedFrom());
+			ps.setString(15, cm.getAddress());
+			ps.setString(16, cm.getDelStatus());
 			ps.setString(17, cm.getTelno());
 			ps.setString(18, cm.getMobno());
 			ps.setString(19, cm.getFatherName());
@@ -382,8 +381,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(25, cm.getAuthorizer());
 			ps.setString(26, cm.getInsertStatus());
 			ps.setString(27, cm.getUpdateStatus());
-			ps.setString(28, cm.getDelStatus());
-			ps.setString(29, cm.getAddress());
+			
 			i=ps.executeUpdate();
 			if(i>0){
 				return true;

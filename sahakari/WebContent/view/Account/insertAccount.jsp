@@ -81,7 +81,7 @@ h5 {
 							<tr>
 								<td>
 									<h5>Account Name</h5> <input type="text"
-									class="form-control memberid" name="accountName" value=""
+									class="form-control memberid" name="accountName" id="accountname" value=""
 									data-validation="letternumeric" data-validation-error-msg=" ">
 
 								</td>
@@ -143,6 +143,7 @@ $(".memberid").blur(function()
 		success: function(html)
 		{
 		$("#membername").val(html);
+		$("#accountname").val(html);
 		} 
 		});
 		});

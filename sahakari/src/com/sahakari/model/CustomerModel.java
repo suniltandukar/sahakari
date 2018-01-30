@@ -7,10 +7,9 @@ public class CustomerModel {
 	tvdcmunid, tvdcName, twardno, tcity,
 	ttole, cusCitizenshipNo, citizenshipIssuedFrom, citidistName,
 	telno, mobno, fatherName, dob, typeid,typeName, statusid, statusName, inputter, authorizer,
-	insertStatus, updateStatus, delStatus, address,agentid;
+	insertStatus, updateStatus, delStatus, address, agentid;
 	//document details
 	String documentType, documentNumber, issuedDate,issuedDateen,issuedBy,expiryDate,expiryDateen;
-	
 	
 	public String getAgentid() {
 		return agentid;

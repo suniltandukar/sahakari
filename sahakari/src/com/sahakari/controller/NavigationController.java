@@ -199,9 +199,11 @@ public class NavigationController extends HttpServlet {
 		
 		else if(uri.endsWith("customereditdisplayform.click")){
 			GetFormOptions g=new GetFormOptions();
+			List<AgentModel> agentdetail=g.getagent();
 			List<CustomerModel> statuslist=g.getStatus();
 			List<CustomerModel> typelist=g.getType();
 			List<CustomerModel> districtlist=g.getDistrict();
+			request.setAttribute("agent", agentdetail);
 			request.setAttribute("statuslist", statuslist);
 			request.setAttribute("typelist", typelist);
 			request.setAttribute("districtlist", districtlist);

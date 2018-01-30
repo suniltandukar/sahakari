@@ -124,16 +124,11 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setPtole(rs.getString("ptole"));
 				cust.setTdistid(rs.getString("tdistid"));
 				cust.setTdistName(rs.getString("tdistname"));
-				
 				cust.setTvdcmunid(rs.getString("tvdcmunid"));
 				cust.setTvdcName(rs.getString("tvdcname"));
 				cust.setTwardno(rs.getString("twardno"));
 				cust.setTcity(rs.getString("tcity"));
 				cust.setTtole(rs.getString("ttole"));
-				cust.setCusCitizenshipNo(rs.getString("citizenshipNo"));
-				cust.setCitizenshipIssuedFrom(rs.getString("citizenshipIssuedFrom"));
-				cust.setCitidistName(rs.getString("citdistname"));
-				
 				cust.setTelno(rs.getString("telno"));
 				cust.setMobno(rs.getString("mobno"));
 				cust.setFatherName(rs.getString("fatherName"));
@@ -155,7 +150,6 @@ public class ViewDaoImpl implements ViewDao{
 			System.out.println("viewCustomerDetail");
 			e.printStackTrace();
 		}
-		
 		
 		return null;
 	}

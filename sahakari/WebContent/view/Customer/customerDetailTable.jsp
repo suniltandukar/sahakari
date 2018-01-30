@@ -36,7 +36,14 @@
 		</tbody>
 	</table>
 </div>
-<div class="viewDetailModal"></div>
+<div class="modal fade bs-example-modal-lg" id="detailModal"
+	role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-body viewDetailModal"></div>
+		</div>
+	</div>
+</div>
 <script>
 $('#datatable').each(function() 
 		{

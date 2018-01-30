@@ -112,21 +112,7 @@ h5 {
 													<option value="o">Other</option>
 											</select>
 											</td>
-											<td>
-												<h5>Citizenship No</h5> <input type="text"
-												class="form-control" name="cusCitizenshipNo" value=""
-												data-validation="number" data-validation-error-msg=" "
-												data-validation-optional="true">
-											</td>
-											<td>
-												<h5>Citizenship Issued From</h5> <select
-												class="form-control" name="citizenshipIssuedFrom">
-													<option value="0">Select District</option>
-													<c:forEach items="${districtlist}" var="district">
-														<option value="${district.districtCode }">${district.districtName }</option>
-													</c:forEach>
-											</select>
-											</td>
+											
 										</tr>
 										<tr>
 											<td>

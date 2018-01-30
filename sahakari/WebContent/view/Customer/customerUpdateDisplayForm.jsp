@@ -94,23 +94,7 @@ h5 {
 														<option value="o">Other</option>
 												</select>
 												</td>
-												<td>
-													<h5>Citizenship No</h5> <input type="text"
-													class="form-control" name="cusCitizenshipNo"
-													value="${cdetail.cusCitizenshipNo }">
-												</td>
-												<td>
-													<h5>Citizenship Issued From</h5> <select
-													class="form-control" name="citizenshipIssuedFrom">
-														<c:if test="${cdetail.citizenshipIssuedFrom==null }">
-															<option value="0">Select District</option>
-														</c:if>
-														<option value="${cdetail.citizenshipIssuedFrom }">${cdetail.citidistName }</option>
-
-														<c:forEach items="${districtlist}" var="district">
-															<option value="${district.districtCode }">${district.districtName }</option>
-														</c:forEach>
-												</select>
+												
 												</td>
 											</tr>
 											<tr>
@@ -129,11 +113,7 @@ h5 {
 												</td>
 											</tr>
 											<tr>
-												<td>
-													<h5>Spouse Name</h5> <input type="text"
-													class="form-control" name="spouseName"
-													value="${cdetail.spouseName }">
-												</td>
+												
 												<td>
 													<h5>Date of birth (DOB)</h5> <input type="text"
 													class="form-control" name="dob" value="${cdetail.dob }">
@@ -210,6 +190,7 @@ h5 {
 													<h5>Tole</h5> <input type="text" class="form-control"
 													name="ptole" value="${cdetail.ptole }">
 												</td>
+												
 											</tr>
 										</tbody>
 									</table>
@@ -257,6 +238,18 @@ h5 {
 													<h5>Tole</h5> <input type="text" class="form-control"
 													name="ttole" value="${cdetail.ttole }">
 												</td>
+											</tr>
+											<tr>
+													<td>
+												<h5>Relationship Officer</h5>  <select class="form-control pdistrict"
+												name="pdistid">
+													<option value="${cdetail.agentid }">${cdetail.agentid }</option>
+													<c:forEach items="${agent }" var="agent">
+														<option value="${ agent.agentid}">${agent.agentname }</option>s
+													</c:forEach>
+													
+											</select>
+											</td>
 											</tr>
 										</tbody>
 									</table>
@@ -462,6 +455,61 @@ h5 {
 									<table class="table" id="documenttbl">
 									
 										<tbody>
+										<c:if test="${customerDocumentDetail==null }">
+											<tr class="tr_clone">
+													<td>
+														<h5>Document Type</h5> <select class="form-control"
+														name="documentType">
+															<option value="${doc.documentType }">${doc.documentType }</option>
+															
+													</select>
+													</td>
+													<td>
+														<h5>Document No</h5> <input type="text"
+														class="form-control" name="documentNumber"
+														value="" data-validation="number"
+														data-validation-error-msg=" "
+														data-validation-optional="true">
+													</td>
+													<td>
+														<h5>Issued By</h5> <input type="text" class="form-control"
+														name="issuedBy" value=""
+														data-validation="number" data-validation-error-msg=" "
+														data-validation-optional="true">
+													</td>
+
+												</tr>
+												<tr>
+													<td>
+														<h5>Issue Date(B.S.)</h5> <input type="text"
+														class="form-control" name="issuedDate"
+														value="" data-validation="birthdate"
+														data-validation-error-msg=" "
+														data-validation-optional="true">
+													</td>
+													<td>
+														<h5>Issue Date(A.D.)</h5> <input type="text"
+														class="form-control" name="issuedDateen"
+														value="" data-validation=""
+														data-validation-error-msg=" "
+														data-validation-optional="true">
+													</td>
+													<td>
+														<h5>Maturity Date(B.S.)</h5> <input type="text"
+														class="form-control" name="expiryDate"
+														value="" data-validation=""
+														data-validation-error-msg=" "
+														data-validation-optional="true">
+													</td>
+													<td>
+														<h5>Maturity Date(A.D.)</h5> <input type="text"
+														class="form-control" name="expiryDateen"
+														value="" data-validation=""
+														data-validation-error-msg=" "
+														data-validation-optional="true">
+													</td>
+												</tr>
+										</c:if>
 											<c:forEach items="${customerDocumentDetail}" var="doc">
 												<tr class="tr_clone">
 													<td>

@@ -9,11 +9,7 @@ h5 {
 	overflow-x: scroll;
 }
 </style>
-<div class="modal fade bs-example-modal-lg" id="detailModal"
-	role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<div class="modal-body">
+
 				<div class="" role="tabpanel" data-example-id="togglable-tabs">
 					<ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
 						<li role="presentation" class="active"><a
@@ -45,12 +41,9 @@ h5 {
 										<th>Name</th>
 										<th>Address</th>
 										<th>Gender</th>
-										<th>Citizenship No</th>
-										<th>Citizenship Issued From</th>
 										<th>Telephone No</th>
 										<th>Mobile No</th>
 										<th>VAT/PAN</th>
-										<th>Spouse Name</th>
 										<th>DOB</th>
 										<th>Type</th>
 										<th>Status</th>
@@ -76,12 +69,9 @@ h5 {
 										<td>${cdetail.name }</td>
 										<td>${cdetail.address }</td>
 										<td>${cdetail.gender }</td>
-										<td>${cdetail.cusCitizenshipNo }</td>
-										<td>${cdetail.citidistName }</td>
 										<td>${cdetail.telno }</td>
 										<td>${cdetail.mobno }</td>
 										<td>${cdetail.fatherName }</td>
-										<td>${cdetail.spouseName }</td>
 										<td>${cdetail.dob }</td>
 										<td>${cdetail.typeName }</td>
 										<td>${cdetail.statusName}</td>
@@ -207,7 +197,7 @@ h5 {
 						</div>
 					</div>
 				</div>
-			</div>
+			
 			<div class="modal-footer">
 				<div class="pull-left">
 					<a class="btn btn-success" id="update"
@@ -216,9 +206,7 @@ h5 {
 				</div>
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			</div>
-		</div>
-	</div>
-</div>
+		
 <script>
 $('.cm').click(function(){
 	return confirm('Confirm?');
