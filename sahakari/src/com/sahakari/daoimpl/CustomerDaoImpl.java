@@ -656,7 +656,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 	public boolean updateDocuments(CustomerModel cm)
 	{
-		String query="update documentdetails set documentType=?, documentNumber=?, issuedBy=?,issedDate=?,issuedDateen=?,expiryDate=?,expiryDateen=? ";
+		String query="update documentdetails set documentType=?, documentNumber=?, issuedBy=?,issuedDate=?,issuedDateen=?,expiryDate=?,expiryDateen=? ";
 		con=DBConnection.getConnection();
 		int rs=0;
 		

@@ -356,7 +356,7 @@ h5 {
 													</td>
 													<td>
 														<h5>Income per year</h5> <input type="text"
-														class="form-control" name="incomePeryear" value="">
+														class="form-control" name="incomePeryear" value="0">
 													</td>
 													<td>
 														<h5>Remarks</h5> <input type="text" class="form-control"
@@ -560,13 +560,13 @@ h5 {
 			return confirm("CONFIRM?");
 		});
 	</script>
-	<script>
+	<!-- <script>
   $.validate({
     lang: 'en',
      modules : 'date,toggleDisabled',
      disabledFormFilter : 'form.toggle-disabled',
      showErrorDialogs : false
      });
-</script>
+</script> -->
 </body>
 </html>
