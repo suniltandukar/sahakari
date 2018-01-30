@@ -320,6 +320,39 @@ public class ViewDaoImpl implements ViewDao{
 		}
 		return null;
 	}
+	public List<CustomerModel> viewCustomerDocumentDetail(String id){
+		String query="select * from documentdetails where pid=?";
+		List<CustomerModel> list=new ArrayList<CustomerModel>();
+		CustomerModel cust=null;
+		try {
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			ps.setString(1, id);
+			rs=ps.executeQuery();
+			while(rs.next())
+			{
+				cust=new CustomerModel();
+				cust.setDocumentType(rs.getString("documentType"));
+				cust.setDocumentNumber(rs.getString("documentNumber"));
+				cust.setIssuedBy(rs.getString("issuedBy"));
+				cust.setIssuedDate(rs.getString("issuedDate"));
+				cust.setIssuedDateen(rs.getString("issuedDateen"));
+				cust.setExpiryDate(rs.getString("expiryDate"));
+				cust.setExpiryDateen(rs.getString("expiryDateen"));
+				list.add(cust);
+			}
+			if(list.size()>0){
+				con.close();
+				ps.close();
+				rs=null;
+				return list;
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return null;
+	}
 	
 
 }

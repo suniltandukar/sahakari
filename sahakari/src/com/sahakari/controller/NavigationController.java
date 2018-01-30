@@ -165,6 +165,7 @@ public class NavigationController extends HttpServlet {
 			List<CustomerModel> statuslist=g.getStatus();
 			List<CustomerModel> typelist=g.getType();
 			List<CustomerModel> districtlist=g.getDistrict();
+			
 			request.setAttribute("statuslist", statuslist);
 			request.setAttribute("typelist", typelist);
 			request.setAttribute("districtlist", districtlist);
@@ -185,6 +186,9 @@ public class NavigationController extends HttpServlet {
 			
 			List<CustomerModel> customerBankDetailList=v.viewCustomerBankDetail(id);
 			request.setAttribute("customerBankDetail", customerBankDetailList);
+			
+			List<CustomerModel> documentDetailList=v.viewCustomerDocumentDetail(id);
+			request.setAttribute("customerDocumentDetail", documentDetailList);
 			
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/customerCompleteDetailModal.jsp");
 			rd.forward(request, response);
@@ -215,6 +219,9 @@ public class NavigationController extends HttpServlet {
 			
 			List<CustomerModel> customerBankDetailList=v.viewCustomerBankDetail(id);
 			request.setAttribute("customerBankDetail", customerBankDetailList);
+			
+			List<CustomerModel> documentDetailList=v.viewCustomerDocumentDetail(id);
+			request.setAttribute("customerDocumentDetail", documentDetailList);
 			
 			
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/customerUpdateDisplayForm.jsp");

@@ -28,12 +28,14 @@ h5 {
 						<li role="presentation" class=""><a href="#tab_content4"
 							role="tab" id="profile-tab3" data-toggle="tab"
 							aria-expanded="false">Bank Account Information</a></li>
+						<li role="presentation" class=""><a href="#tab_content5"
+							role="tab" id="profile-tab3" data-toggle="tab"
+							aria-expanded="false">Document Proof</a></li>
 
 					</ul>
 					<div id="myTabContent" class="tab-content">
 						<div role="tabpanel" class="tab-pane fade active in"
 							id="tab_content1" aria-labelledby="home-tab">
-
 							<table class="table jambo_table table-striped table-bordered">
 								<thead>
 									<tr>
@@ -92,7 +94,6 @@ h5 {
 										<td>${cdetail.tcity }</td>
 										<td>${cdetail.ttole }</td>
 									</tr>
-
 								</tbody>
 							</table>
 						</div>
@@ -168,6 +169,34 @@ h5 {
 										<td>${cbd.accountNumber }</td>
 										<td>${cbd.accountType }</td>
 										<td>${cbd.bremarks }</td>
+									</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="tab_content5"
+							aria-labelledby="profile-tab">
+							<table class="table jambo_table table-striped table-bordered">
+								<thead>
+									<tr>
+										<th>Document Type</th>
+										<th>Document Number</th>
+										<th>Issued Date(B.S)</th>
+										<th>Issued Date(A.D)</th>
+										<th>Expiry Date(B.S)</th>
+										<th>Expiry Date(A.D)</th>
+									</tr>
+									
+								</thead>
+								<tbody>
+									<c:forEach items="${customerDocumentDetail }" var="doc">
+									<tr>
+										<td>${doc.documentType }</td>
+										<td>${doc.documentNumber }</td>
+										<td>${doc.issuedDate }</td>
+										<td>${doc.issuedDateen }</td>
+										<td>${doc.expiryDate }</td>
+										<td>${doc.expiryDateen }</td>
 									</tr>
 									</c:forEach>
 								</tbody>
