@@ -33,6 +33,7 @@ import com.sahakari.daoimpl.ListDaoImpl;
 import com.sahakari.daoimpl.OtherActionDaoImpl;
 import com.sahakari.daoimpl.ViewDaoImpl;
 import com.sahakari.model.AccountModel;
+import com.sahakari.model.AgentModel;
 import com.sahakari.model.BranchModel;
 import com.sahakari.model.CategoryModel;
 import com.sahakari.model.CustomerModel;
@@ -111,16 +112,18 @@ public class NavigationController extends HttpServlet {
 			}
 			else
 			{
-				String strI = String.format("%08d", Integer.parseInt(custid));
+				String strI = String.format("%07d", Integer.parseInt(custid));
 				request.setAttribute("pid", strI);
 			}
 			
 			GetFormOptions g=new GetFormOptions();
+			List<AgentModel> agentdetail=g.getagent();
 			List<CustomerModel> statuslist=g.getStatus();
 			List<CustomerModel> typelist=g.getType();
 			List<CustomerModel> districtlist=g.getDistrict();
 			List<FamilyRelationModel> familyrelationlist=g.getfamilyRelationNames();
 			
+			request.setAttribute("agent", agentdetail);
 			request.setAttribute("statuslist", statuslist);
 			request.setAttribute("typelist", typelist);
 			request.setAttribute("districtlist", districtlist);
@@ -169,7 +172,6 @@ public class NavigationController extends HttpServlet {
 			request.setAttribute("statuslist", statuslist);
 			request.setAttribute("typelist", typelist);
 			request.setAttribute("districtlist", districtlist);
-			
 			String id=request.getParameter("id");
 			List<FamilyRelationModel> familyrelationlist=g.getfamilyRelationNames();
 			request.setAttribute("familyrelationlist", familyrelationlist);
@@ -190,8 +192,9 @@ public class NavigationController extends HttpServlet {
 			List<CustomerModel> documentDetailList=v.viewCustomerDocumentDetail(id);
 			request.setAttribute("customerDocumentDetail", documentDetailList);
 			
-			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/customerCompleteDetailModal.jsp");
-			rd.forward(request, response);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/customerDetailModal.jsp");
+			rd.forward(request, response);;
+			
 		}
 		
 		else if(uri.endsWith("customereditdisplayform.click")){

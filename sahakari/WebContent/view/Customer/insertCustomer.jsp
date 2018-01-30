@@ -78,7 +78,7 @@ h5 {
 										<tr>
 											<td>
 												<h5>Member Id</h5> <input type="text"
-												class="form-control memberid" name="pid" value="${pid }" >
+												class="form-control memberid" name="pid" value="${pid }" readonly>
 											</td>
 											<td>
 												<h5>Legacy Member Id</h5> <input type="text"
@@ -147,33 +147,12 @@ h5 {
 											</td>
 										</tr>
 										<tr>
-											<td>
-												<h5>Spouse Name</h5> <input type="text" class="form-control"
-												name="spouseName" value="">
-											</td>
+										
 											<td>
 												<h5>Date of birth (DOB)</h5> <input type="text"
 												class="form-control" name="dob" value=""
 												data-validation="birthdate" data-validation-error-msg=" "
 												data-validation-optional="true">
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<h5>Type</h5> <select class="form-control" name="typeid">
-													<option value="0">Select Type</option>
-													<c:forEach items="${typelist}" var="type">
-														<option value="${type.typeid}">${type.typeName}</option>
-													</c:forEach>
-											</select>
-											</td>
-											<td>
-												<h5>Status</h5> <select class="form-control" name="statusid">
-													<option value="0">Select Status</option>
-													<c:forEach items="${statuslist}" var="status">
-														<option value="${status.statusid}">${status.statusName}</option>
-													</c:forEach>
-											</select>
 											</td>
 										</tr>
 									</tbody>
@@ -250,6 +229,34 @@ h5 {
 											<td>
 												<h5>Tole</h5> <input type="text" class="form-control"
 												name="ttole" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<h5>Type</h5> <select class="form-control" name="typeid">
+													<option value="0">Select Type</option>
+													<c:forEach items="${typelist}" var="type">
+														<option value="${type.typeid}">${type.typeName}</option>
+													</c:forEach>
+											</select>
+											</td>
+											<td>
+												<h5>Status</h5> <select class="form-control" name="statusid">
+													<option value="0">Select Status</option>
+													<c:forEach items="${statuslist}" var="status">
+														<option value="${status.statusid}">${status.statusName}</option>
+													</c:forEach>
+											</select>
+											</td>
+												<td>
+												<h5>Relationship Officer</h5>  <select class="form-control pdistrict"
+												name="pdistid">
+													<option value="0">Select Officer</option>
+													<c:forEach items="${agent }" var="agent">
+														<option value="${ agent.agentid}">${agent.agentname }</option>s
+													</c:forEach>
+													
+											</select>
 											</td>
 										</tr>
 									</tbody>

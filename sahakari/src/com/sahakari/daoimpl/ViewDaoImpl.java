@@ -137,7 +137,8 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setTelno(rs.getString("telno"));
 				cust.setMobno(rs.getString("mobno"));
 				cust.setFatherName(rs.getString("fatherName"));
-				cust.setSpouseName(rs.getString("spouseName"));
+				//cust.setSpouseName(rs.getString("spouseName"));
+				cust.setAgentid(rs.getString("agentid"));
 				cust.setDob(rs.getString("dob"));
 				cust.setTypeid(rs.getString("typeid"));
 				cust.setTypeName(rs.getString("typeName"));
@@ -148,7 +149,6 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setInsertStatus(rs.getString("insertStatus"));
 				cust.setUpdateStatus(rs.getString("updateStatus"));
 				cust.setDelStatus(rs.getString("delStatus"));
-				
 				return cust;
 			}
 		} catch (SQLException e) {

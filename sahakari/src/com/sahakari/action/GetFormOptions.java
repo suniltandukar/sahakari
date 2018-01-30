@@ -3,9 +3,11 @@ package com.sahakari.action;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sahakari.model.AgentModel;
 import com.sahakari.dbconnection.DBConnection;
 import com.sahakari.model.CustomerModel;
 import com.sahakari.model.FamilyRelationModel;
@@ -104,6 +106,44 @@ public class GetFormOptions {
 			System.out.println(e);
 		}
 			
+		return null;
+	}
+
+	public List<AgentModel> getagent() {
+		
+		List<AgentModel> list=new ArrayList<AgentModel>();
+		AgentModel agent=null;
+		String query="select * from tblagent";
+		
+		try {
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			while(rs.next())
+			{
+				agent=new AgentModel();
+				agent.setAgentid(rs.getString("agentid"));
+				agent.setAgentname(rs.getString("agentname"));
+				agent.setAgentphone(rs.getString("agentphone"));
+				agent.setAgentaddress(rs.getString("agentaddress"));
+				agent.setStaffcode(rs.getString("staffcode"));
+				agent.setComissionBasis(rs.getString("comissionBasis"));
+				list.add(agent);
+				
+				if(list.size()>0)
+				{
+					return list;
+					
+				}
+				
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
 		return null;
 	}
 

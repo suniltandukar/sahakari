@@ -6,11 +6,20 @@ public class CustomerModel {
 	pvdcmunid, pvdcName, pwardno, pcity, ptole, tdistid, tdistName,
 	tvdcmunid, tvdcName, twardno, tcity,
 	ttole, cusCitizenshipNo, citizenshipIssuedFrom, citidistName,
-	telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer,
-	insertStatus, updateStatus, delStatus, address;
+	telno, mobno, fatherName, dob, typeid,typeName, statusid, statusName, inputter, authorizer,
+	insertStatus, updateStatus, delStatus, address,agentid;
 	//document details
 	String documentType, documentNumber, issuedDate,issuedDateen,issuedBy,expiryDate,expiryDateen;
 	
+	
+	public String getAgentid() {
+		return agentid;
+	}
+
+	public void setAgentid(String agentid) {
+		this.agentid = agentid;
+	}
+
 	public String getDocumentType() {
 		return documentType;
 	}
@@ -497,13 +506,7 @@ public class CustomerModel {
 		this.fatherName = fatherName;
 	}
 
-	public String getSpouseName() {
-		return spouseName;
-	}
 
-	public void setSpouseName(String spouseName) {
-		this.spouseName = spouseName;
-	}
 
 	public String getDob() {
 		return dob;

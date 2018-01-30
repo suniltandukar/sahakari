@@ -203,7 +203,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
     }
 	public boolean insertCustomer(CustomerModel cm){
-		String query="insert into customertbl(memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity,ttole,citizenshipNo,citizenshipIssuedFrom,telno, mobno,fatherName,spouseName,dob,typeid,statusid,inputter,authorizer,insertStatus, updateStatus, delStatus, address, pid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+		String query="insert into customertbl(memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity,ttole,citizenshipNo,citizenshipIssuedFrom,telno, mobno,fatherName,spouseName,dob,typeid,statusid,inputter,authorizer,insertStatus, updateStatus, delStatus, address, pid,agentid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
 		try{
 			int i=0;
 			con=DBConnection.getConnection();
@@ -227,7 +227,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(17, cm.getTelno());
 			ps.setString(18, cm.getMobno());
 			ps.setString(19, cm.getFatherName());
-			ps.setString(20, cm.getSpouseName());
+			ps.setString(20, cm.getAgentid());
 			ps.setString(21, cm.getDob());
 			ps.setString(22, cm.getTypeid());
 			ps.setString(23, cm.getStatusid());
@@ -238,6 +238,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(28, cm.getDelStatus());
 			ps.setString(29, cm.getAddress());
 			ps.setString(30, cm.getPid());
+			ps.setString(31, cm.getAgentid());
 			i=ps.executeUpdate();
 			if(i>0){
 				return true;
@@ -373,7 +374,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(17, cm.getTelno());
 			ps.setString(18, cm.getMobno());
 			ps.setString(19, cm.getFatherName());
-			ps.setString(20, cm.getSpouseName());
+			ps.setString(20, cm.getAgentid());
 			ps.setString(21, cm.getDob());
 			ps.setString(22, cm.getTypeid());
 			ps.setString(23, cm.getStatusid());

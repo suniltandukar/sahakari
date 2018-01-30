@@ -23,7 +23,7 @@ public class CustomerAction {
 		CustomerDao c=new CustomerDaoImpl();
 		CustomerModel cm=new CustomerModel();
 		String pid, cusCitizenshipNo, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, 
-No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus, address;
+No, citizenshipIssuedFrom, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus, address;
 		String[] cusRelation,cusRelName,dateOfBirth,fcitizenshipNo,fremarks;
 		String[] cusJob, cusInstitution, cusPost, incomePeryear, jremarks;
 		String[] bankName, accountNumber, accountType, bremarks;
@@ -76,7 +76,7 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		telno=request.getParameter("telno");
 		mobno=request.getParameter("mobno");
 		fatherName=request.getParameter("fatherName");
-		spouseName=request.getParameter("spouseName");
+		agentid=request.getParameter("agentid");
 		dob=request.getParameter("dob");
 		typeid=request.getParameter("typeid");
 		statusid=request.getParameter("statusid");
@@ -110,7 +110,8 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		cm.setTelno(telno);
 		cm.setMobno(mobno);
 		cm.setFatherName(fatherName);
-		cm.setSpouseName(spouseName);
+		//cm.setSpouseName(spouseName);
+		cm.setAgentid(agentid);
 		cm.setDob(dob);
 		cm.setTypeid(typeid);
 		cm.setStatusid(statusid);
@@ -203,7 +204,7 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 	public void updateCustomer(HttpServletRequest request,
 			HttpServletResponse response) {
 		CustomerModel cm=new CustomerModel();
-		String pid,address, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, cusCitizenshipNo, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus;
+		String pid,address, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, cusCitizenshipNo, citizenshipIssuedFrom, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus;
 		String[] cusJob, cusInstitution, cusPost, incomePeryear, jremarks;
 		String[] cusRelation,cusRelName,dateOfBirth,fcitizenshipNo,fremarks;
 		String[] bankName, accountNumber, accountType, bremarks;
@@ -259,7 +260,7 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		telno=request.getParameter("telno");
 		mobno=request.getParameter("mobno");
 		fatherName=request.getParameter("fatherName");
-		spouseName=request.getParameter("spouseName");
+		agentid=request.getParameter("agentid");
 		dob=request.getParameter("dob");
 		typeid=request.getParameter("typeid");
 		statusid=request.getParameter("statusid");
@@ -292,7 +293,8 @@ No, citizenshipIssuedFrom, telno, mobno, fatherName, spouseName, dob, typeid,typ
 		cm.setTelno(telno);
 		cm.setMobno(mobno);
 		cm.setFatherName(fatherName);
-		cm.setSpouseName(spouseName);
+		//cm.setSpouseName(spouseName);
+		cm.setAgentid(agentid);
 		cm.setDob(dob);
 		cm.setTypeid(typeid);
 		cm.setStatusid(statusid);

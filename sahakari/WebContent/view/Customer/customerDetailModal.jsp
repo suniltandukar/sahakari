@@ -64,6 +64,8 @@ h5 {
 										<th>T Ward No</th>
 										<th>T City</th>
 										<th>T Tole</th>
+										<th>Agent Id</th>
+										
 									</tr>
 								</thead>
 								<tbody>
@@ -93,6 +95,7 @@ h5 {
 										<td>${cdetail.twardno }</td>
 										<td>${cdetail.tcity }</td>
 										<td>${cdetail.ttole }</td>
+										<td>${cdetail.agentid}</td>
 									</tr>
 								</tbody>
 							</table>
