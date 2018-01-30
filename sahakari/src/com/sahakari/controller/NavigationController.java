@@ -345,13 +345,20 @@ public class NavigationController extends HttpServlet {
 			
 		}
 		else if(uri.endsWith("showaccounttype.click")){
-			AccountDao a=new AccountDaoImpl();
+			PrintWriter out=response.getWriter();
 			String categoryId=request.getParameter("id");
+			if(categoryId!=null){
+			
+			AccountDao a=new AccountDaoImpl();
+			
 			String accountType=a.selectAccountTypeFromCategory(categoryId);
+			
 			AccountModel am=a.getAccountTypes(accountType);
-			request.setAttribute("accounttype", am);
-			RequestDispatcher rd=request.getRequestDispatcher("view/onselectpages/accountType.jsp");
-			rd.forward(request, response);
+			out.println("<option value='"+am.getAccountType()+"'>"+am.getAccountTypeHead()+"</option>");
+			}
+			else{
+				out.println("<option value=''>Select Account Type</option>");
+			}
 			
 		}
 		//Transaction
@@ -574,8 +581,13 @@ public class NavigationController extends HttpServlet {
 			request.setAttribute("msg", "Current Branch ="+branchcode[0]);
 			RequestDispatcher rd=request.getRequestDispatcher("profile.jsp");
 			rd.forward(request, response);
-			
-			
+		}
+		else if(uri.endsWith("getmembername.click")){
+			PrintWriter out=response.getWriter();
+			String pid=request.getParameter("id");
+			ViewDao v=new ViewDaoImpl();
+			CustomerModel c=v.viewSpecificCustomerDetail(pid);
+			out.println(c.getName());
 			
 		}
 	}

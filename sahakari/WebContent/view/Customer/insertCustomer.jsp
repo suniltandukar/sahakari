@@ -425,7 +425,7 @@ h5 {
 												data-validation-optional="true">
 											</td>
 											</tr>
-											<tr>
+										<tr>
 									</tbody>
 								</table>
 							</div>
