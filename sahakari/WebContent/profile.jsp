@@ -48,9 +48,6 @@ display:block;}
 display:block}
 <%=additionalFunctions%>{
 display:block;}
-
-
-
 </style>
 </head>
 
