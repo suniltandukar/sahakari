@@ -3,9 +3,9 @@
 	<link rel="stylesheet" href="template/css/font-awesome.min.css">
 	<link rel="stylesheet" href="template/css/bootstrap.min.css">
     <link rel="stylesheet" href="template/css/admin.css" type="text/css"></head>
-    <body style="background-color: lightgrey;">
+    <body background="template/images/bg.jpg">
     	<div class="col-md-6 col-centered" style="text-align: center;" >
-    		<img src="template/images/logo5.jpg" alt="logo" class="img-responsive" />
+    		<img src="template/images/logo1.jpg" alt="logo" class="img-responsive" />
     		
     		<form class="login-form" action="login.log" method="post">
     		<p style="color:red;">${msg}</p>
