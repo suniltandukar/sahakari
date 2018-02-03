@@ -592,5 +592,17 @@ public class NavigationController extends HttpServlet {
 			out.println(c.getName());
 			
 		}
+		else if(uri.endsWith("showaccountname.click")){
+			PrintWriter out=response.getWriter();
+			String craccount=request.getParameter("craccount");
+			
+				ViewDao v=new ViewDaoImpl();
+				String accountName=v.viewAccountName(craccount);
+				System.out.println(accountName);
+				out.println(accountName);
+				
+			
+			
+		}
 	}
 }

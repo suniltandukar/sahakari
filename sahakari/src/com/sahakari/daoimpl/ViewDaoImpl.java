@@ -347,6 +347,21 @@ public class ViewDaoImpl implements ViewDao{
 		}
 		return null;
 	}
+	public String viewAccountName(String accountNumber){
+		try{
+			String query="select accountName from accountstbl where accountNumber='"+accountNumber+"'";
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			if(rs.next()){
+				String accountName=rs.getString("accountName");
+				return accountName;
+			}
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return null;
+	}
 	
 
 }
