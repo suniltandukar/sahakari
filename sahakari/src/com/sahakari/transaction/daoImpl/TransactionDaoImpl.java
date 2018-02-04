@@ -194,21 +194,20 @@ public class TransactionDaoImpl implements TransactionDao{
 	public boolean insertTellerTransaction(TellerTransactionModel tm){
 		try{
 			con=DBConnection.getConnection();
-			String query="insert into tellertransactiontbl values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String query="insert into tellertransactiontbl values (?,?,?,DATE(now()),?,?,?,?,?,?,?,?,?)";
 			ps=con.prepareStatement(query);
 			ps.setString(1, tm.getTransactionid());
 			ps.setString(2, tm.getBookingdate());
 			ps.setString(3, tm.getValuedate());
-			ps.setString(4, tm.getProcessdate());
-			ps.setString(5, tm.getDebitaccountnumber());
-			ps.setString(6, tm.getCreditaccountnumber());
-			ps.setString(7, tm.getNarrative());
-			ps.setString(8, tm.getChequenumber());
-			ps.setString(9, tm.getAmount());
-			ps.setString(10, tm.getTransactioncode());
-			ps.setString(11,tm.getBranchid());
-			ps.setString(12, tm.getInputter());
-			ps.setString(13, tm.getAuthorizer());
+			ps.setString(4, tm.getDebitaccountnumber());
+			ps.setString(5, tm.getCreditaccountnumber());
+			ps.setString(6, tm.getNarrative());
+			ps.setString(7, tm.getChequenumber());
+			ps.setString(8, tm.getAmount());
+			ps.setString(9, tm.getTransactioncode());
+			ps.setString(10,tm.getBranchid());
+			ps.setString(11, tm.getInputter());
+			ps.setString(12, tm.getAuthorizer());
 			
 			int i =ps.executeUpdate();
 			if(i>0){
