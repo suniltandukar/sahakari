@@ -1,11 +1,13 @@
 package com.sahakari.action;
 
-import javax.servlet.RequestDispatcher;import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
+import javax.servlet.RequestDispatcher;import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.sahakari.dao.OtherActionDAO;
-
 import com.sahakari.daoimpl.OtherActionDaoImpl;
 import com.sahakari.model.Document;
 
@@ -43,6 +45,15 @@ public class OtherAction {
 		}
 		
 	
+	}
+	public String getTodayDate(){
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar c = Calendar.getInstance();
+		Date date=c.getTime();
+		String todayDate=sdf.format(date);
+		
+		return todayDate;
+		
 	}
 	
 		

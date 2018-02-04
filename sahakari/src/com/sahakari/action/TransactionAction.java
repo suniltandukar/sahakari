@@ -177,21 +177,21 @@ public class TransactionAction {
 
 	public void addTellerTransaction(HttpServletRequest request,
 			HttpServletResponse response) {
+		HttpSession session=request.getSession(true);
+		
 		String 
 		transactionid=request.getParameter("transactionid"),
 		bookingdate=request.getParameter("bookingdate"),
 		valuedate=request.getParameter("valuedate"),
-		processdate=request.getParameter("processdate"),
 		debitaccoutnumber=request.getParameter("debitaccountnumber"),
 		creditaccountnumber=request.getParameter("creditaccountnumber"),
 		narrative=request.getParameter("narrative"),
 		chequenumber=request.getParameter("chequenumber"),
 		amount=request.getParameter("amount"),
 		transactioncode=request.getParameter("transactioncode"),
-		branchid=request.getParameter("branchid"),
+		branchid=(String)session.getAttribute("currentBranchcode"),
 		authorizer="0";
 		
-		HttpSession session =request.getSession();
 		UserModel userdetail=(UserModel)session.getAttribute("userDetail");
 		String inputter=userdetail.getUsername();
 		
@@ -199,7 +199,6 @@ public class TransactionAction {
 		tm.setTransactionid(transactionid);
 		tm.setBookingdate(bookingdate);
 		tm.setValuedate(valuedate);
-		tm.setProcessdate(processdate);
 		tm.setDebitaccountnumber(debitaccoutnumber);
 		tm.setCreditaccountnumber(creditaccountnumber);
 		tm.setNarrative(narrative);

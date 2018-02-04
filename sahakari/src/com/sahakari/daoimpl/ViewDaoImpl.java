@@ -6,11 +6,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import com.mysql.jdbc.Connection;
 import com.sahakari.dao.ViewDao;
 import com.sahakari.dbconnection.DBConnection;
 import com.sahakari.model.CustomerModel;
-import com.sahakari.model.FamilyRelationModel;
 
 public class ViewDaoImpl implements ViewDao{
 	PreparedStatement ps=null;
@@ -347,25 +349,26 @@ public class ViewDaoImpl implements ViewDao{
 		}
 		return null;
 	}
-	public String[] viewAccountName(String accountNumber){
-		String[] list=new String[10];
-		String accountName,pid,customername;
+	public JSONArray viewAccountName(String accountNumber){
+		
 		try{
 			String query="select accountstbl.pid,accountstbl.accountName, customertbl.name from accountstbl left join customertbl on customertbl.pid=accountstbl.pid where accountstbl.accountNumber='"+accountNumber+"'";
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
-			while(rs.next()){
-				accountName=rs.getString("accountName");
-				pid=rs.getString("pid");
-				customername=rs.getString("name");
-				list[0]=accountName;
-				list[1]=pid;
-				list[2]=customername;
-			}
-			if(list.length>0){
-				return list;
-			}
+			 if(!rs.next()){
+				 System.out.println("0");
+		        }else{
+		            JSONArray array=new JSONArray();
+		            do{
+		                JSONObject obj = new JSONObject();
+		                obj.put("memberid",rs.getString("pid"));
+		                obj.put("accountname",rs.getString("accountName"));
+		                obj.put("membername",rs.getString("name"));
+		                array.put(obj.toString());
+		            }while(rs.next());
+		           return array;
+		        }
 		}catch(Exception e){
 			System.out.println(e);
 		}

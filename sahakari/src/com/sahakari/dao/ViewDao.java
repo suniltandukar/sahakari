@@ -2,8 +2,9 @@ package com.sahakari.dao;
 
 import java.util.List;
 
+import org.json.JSONArray;
+
 import com.sahakari.model.CustomerModel;
-import com.sahakari.model.FamilyRelationModel;
 
 public interface ViewDao {
 
@@ -16,6 +17,6 @@ public interface ViewDao {
 	public List<CustomerModel> viewShareCertificate();
 	public CustomerModel viewSpecificShareCertificate(String id);
 	public List<CustomerModel> viewCustomerDocumentDetail(String id);
-	public String[] viewAccountName(String accountNumber);
+	public JSONArray viewAccountName(String accountNumber);
 	
 }

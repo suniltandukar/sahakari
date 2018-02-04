@@ -17,11 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
+import org.json.JSONArray;
 
 import com.sahakari.account.dao.AccountDao;
 import com.sahakari.account.daoImpl.AccountDaoImpl;
 import com.sahakari.action.Generator;
 import com.sahakari.action.GetFormOptions;
+import com.sahakari.action.OtherAction;
 import com.sahakari.dao.CategoryDao;
 import com.sahakari.dao.CustomerDao;
 import com.sahakari.dao.ListDao;
@@ -395,13 +397,19 @@ public class NavigationController extends HttpServlet {
 		}
 		//Teller Transaction
 		else if(uri.endsWith("insertTeller.click")){
-			String branchid="001";
+			HttpSession session=request.getSession(true);
+			
+			OtherAction o=new OtherAction();
+			String todayDate=o.getTodayDate();
+			
+			String branchid=(String)session.getAttribute("currentBranchcode");
 			String type=request.getParameter("type");
 			request.setAttribute("type", type);
 			
 			Generator gen=new Generator();
 			String tellerid=gen.tellertransactionidgenerator(branchid);
 			request.setAttribute("tellerid", tellerid);
+			request.setAttribute("todayDate", todayDate);
 			
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/insertTeller.jsp");
 			rd.forward(request, response);
@@ -593,27 +601,19 @@ public class NavigationController extends HttpServlet {
 			
 		}
 		else if(uri.endsWith("showaccountname.click")){
+			System.out.println("hello");
 			PrintWriter out=response.getWriter();
 			String craccount=request.getParameter("craccount");
 			String draccount=request.getParameter("draccount");
-			System.out.println("credit="+craccount+"=dr="+draccount);
-			String[] list=new String[10];
-			
+			JSONArray array=new JSONArray();
 				ViewDao v=new ViewDaoImpl();
 				if(draccount.equals("")){
-				list=v.viewAccountName(craccount);
+				 array=v.viewAccountName(craccount);
 				}
 				else{
-					list=v.viewAccountName(draccount);
+				array=v.viewAccountName(draccount);
 				}
-				
-				request.setAttribute("list", list);
-				
-				RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/showDynamicDetails.jsp");
-				rd.forward(request, response);
-				
-			
-			
+			out.println(array);
 		}
 	}
 }
