@@ -129,7 +129,7 @@ display:none;
 											<label class="control-label col-md-2 col-sm-2 col-xs-12" >Customer</label>
 											<div class="col-md-2 col-sm-2 col-xs-12">
 												<input type="text" class="form-control memberid"
-													placeholder="" val="" readonly>
+													placeholder="" value="" readonly>
 											</div>
 											<div class="col-md-8 col-sm-8 col-xs-12 ">
 											<span id="customername"></span></div>
