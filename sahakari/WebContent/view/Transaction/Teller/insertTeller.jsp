@@ -153,7 +153,7 @@ display:none;
 										<div class="form-group" id="cashDeposit">
 											<label class="control-label col-md-2 col-sm-2 col-xs-12">Debit Account</label>
 											<div class="col-md-4 col-sm-4 col-xs-12">
-												<input type="text" class="form-control" name="debitaccountnumber"
+												<input type="text" id="debitaccountnumber" class="form-control" name="debitaccountnumber"
 													placeholder="">
 											</div>
 											<div class="col-md-6 col-sm-6 col-xs-12 "><span class="accountName"></span>
@@ -185,7 +185,7 @@ display:none;
 											<label class="control-label col-md-2 col-sm-2 col-xs-12">New Current Balance</label>
 											<div class="col-md-4 col-sm-4 col-xs-12">
 												<input type="text" class="form-control" disabled
-													placeholder="45421656.45">
+													placeholder="">
 											</div>
 										</div>
 										
@@ -226,7 +226,8 @@ display:none;
 $("#validate").click(function()
 		{
 		var craccount=$('#creditaccountnumber').val();
-		var dataString = 'craccount='+ craccount;
+		var draccount=$('#debitaccountnumber').val();
+		var dataString = {'craccount':craccount,'draccount':draccount};/* 'craccount='+ craccount & 'draccount='+draccount; */
 		
 		$.ajax
 		({

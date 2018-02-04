@@ -595,9 +595,18 @@ public class NavigationController extends HttpServlet {
 		else if(uri.endsWith("showaccountname.click")){
 			PrintWriter out=response.getWriter();
 			String craccount=request.getParameter("craccount");
+			String draccount=request.getParameter("draccount");
+			System.out.println("credit="+craccount+"=dr="+draccount);
+			String[] list=new String[10];
 			
 				ViewDao v=new ViewDaoImpl();
-				String[] list=v.viewAccountName(craccount);
+				if(draccount.equals("")){
+				list=v.viewAccountName(craccount);
+				}
+				else{
+					list=v.viewAccountName(draccount);
+				}
+				
 				request.setAttribute("list", list);
 				
 				RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/showDynamicDetails.jsp");
