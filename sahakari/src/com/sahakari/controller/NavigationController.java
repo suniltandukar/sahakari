@@ -597,9 +597,11 @@ public class NavigationController extends HttpServlet {
 			String craccount=request.getParameter("craccount");
 			
 				ViewDao v=new ViewDaoImpl();
-				String accountName=v.viewAccountName(craccount);
-				System.out.println(accountName);
-				out.println(accountName);
+				String[] list=v.viewAccountName(craccount);
+				request.setAttribute("list", list);
+				
+				RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/showDynamicDetails.jsp");
+				rd.forward(request, response);
 				
 			
 			

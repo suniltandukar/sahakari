@@ -347,15 +347,24 @@ public class ViewDaoImpl implements ViewDao{
 		}
 		return null;
 	}
-	public String viewAccountName(String accountNumber){
+	public String[] viewAccountName(String accountNumber){
+		String[] list=new String[10];
+		String accountName,pid,customername;
 		try{
-			String query="select accountName from accountstbl where accountNumber='"+accountNumber+"'";
+			String query="select accountstbl.pid,accountstbl.accountName, customertbl.name from accountstbl left join customertbl on customertbl.pid=accountstbl.pid where accountstbl.accountNumber='"+accountNumber+"'";
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
-			if(rs.next()){
-				String accountName=rs.getString("accountName");
-				return accountName;
+			while(rs.next()){
+				accountName=rs.getString("accountName");
+				pid=rs.getString("pid");
+				customername=rs.getString("name");
+				list[0]=accountName;
+				list[1]=pid;
+				list[2]=customername;
+			}
+			if(list.length>0){
+				return list;
 			}
 		}catch(Exception e){
 			System.out.println(e);

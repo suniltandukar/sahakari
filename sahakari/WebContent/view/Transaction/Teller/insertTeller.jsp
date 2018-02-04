@@ -128,11 +128,11 @@ display:none;
 										<div class="form-group">
 											<label class="control-label col-md-2 col-sm-2 col-xs-12" >Customer</label>
 											<div class="col-md-2 col-sm-2 col-xs-12">
-												<input type="text" class="form-control"
-													placeholder="01234" readonly>
+												<input type="text" class="form-control memberid"
+													placeholder="" val="" readonly>
 											</div>
 											<div class="col-md-8 col-sm-8 col-xs-12 ">
-											<span id="customerName"></span></div>
+											<span id="customername"></span></div>
 										</div>
 										<div class="form-group">
 											<label class="control-label col-md-2 col-sm-2 col-xs-12">Booking Date</label>
@@ -147,7 +147,7 @@ display:none;
 												<input type="text" class="form-control" name="creditaccountnumber" id="creditaccountnumber"
 													placeholder="">
 											</div>
-											<div class="col-md-6 col-sm-6 col-xs-12 " ><span id="accountName"></span>
+											<div class="col-md-6 col-sm-6 col-xs-12 " ><span class="accountName"></span>
 											</div>
 										</div>
 										<div class="form-group" id="cashDeposit">
@@ -203,7 +203,7 @@ display:none;
 							</div>
 							
 	</div>
-	
+	<div class="scriptdiv"></div>
 	<jsp:include page="/msgmodal"></jsp:include>
 	<script>
   $.validate({
@@ -227,6 +227,7 @@ $("#validate").click(function()
 		{
 		var craccount=$('#creditaccountnumber').val();
 		var dataString = 'craccount='+ craccount;
+		
 		$.ajax
 		({
 		type: "POST",
@@ -235,7 +236,7 @@ $("#validate").click(function()
 		cache: false,
 		success: function(html)
 		{
-			$('#accountName').html(html);
+			$('.scriptdiv').html(html);
 		} 
 		});
 });
