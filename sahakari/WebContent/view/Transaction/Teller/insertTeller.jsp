@@ -150,6 +150,84 @@ display
 			</form>
 		</div>
 
+										<div class="form-group">
+											<label class="control-label col-md-2 col-sm-2 col-xs-12" >Customer</label>
+											<div class="col-md-2 col-sm-2 col-xs-12">
+												<input type="text" class="form-control memberid"
+													placeholder="" value="" readonly>
+											</div>
+											<div class="col-md-8 col-sm-8 col-xs-12 ">
+											<span id="customername"></span></div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2 col-sm-2 col-xs-12">Booking Date</label>
+											<div class="col-md-4 col-sm-4 col-xs-12">
+												<input type="text" class="form-control"
+													placeholder="">
+											</div>
+										</div>
+										<div class="form-group" id="cashWithdraw">
+											<label class="control-label col-md-2 col-sm-2 col-xs-12">Credit Account</label>
+											<div class="col-md-4 col-sm-4 col-xs-12">
+												<input type="text" class="form-control" name="creditaccountnumber" id="creditaccountnumber"
+													placeholder="">
+											</div>
+											<div class="col-md-6 col-sm-6 col-xs-12 " ><span class="accountName"></span>
+											</div>
+										</div>
+										<div class="form-group" id="cashDeposit">
+											<label class="control-label col-md-2 col-sm-2 col-xs-12">Debit Account</label>
+											<div class="col-md-4 col-sm-4 col-xs-12">
+												<input type="text" class="form-control" name="debitaccountnumber"
+													placeholder="">
+											</div>
+											<div class="col-md-6 col-sm-6 col-xs-12 "><span class="accountName"></span>
+											</div>
+										</div>
+										
+										<div class="form-group">
+											<label class="control-label col-md-2 col-sm-2 col-xs-12">Value Date </label>
+											<div class="col-md-4 col-sm-4 col-xs-12">
+												<input type="date" name="valuedate" class="form-control"
+													placeholder="">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2 col-sm-2 col-xs-12">Cheque No</label>
+											<div class="col-md-7 col-sm-7 col-xs-12">
+												<input type="text" class="form-control" name="chequenumber"
+													placeholder="">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2 col-sm-2 col-xs-12">Narrative</label>
+											<div class="col-md-7 col-sm-7 col-xs-12">
+												<input type="text" class="form-control" name="narrative"
+													placeholder="">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2 col-sm-2 col-xs-12">New Current Balance</label>
+											<div class="col-md-4 col-sm-4 col-xs-12">
+												<input type="text" class="form-control" disabled
+													placeholder="45421656.45">
+											</div>
+										</div>
+										
+										<div class="ln_solid"></div>
+										<div class="form-group">
+											<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+											<button class="btn btn-info" type="button" id="validate">Validate</button>
+												<button class="btn btn-primary" type="reset">Reset</button>
+												<button type="submit" class="btn btn-success">Submit</button>
+											</div>
+										</div>
+
+									</form>
+								</div>
+							</div>
+							
+
 	</div>
 	<div class="scriptdiv"></div>
 	<jsp:include page="/msgmodal"></jsp:include>
