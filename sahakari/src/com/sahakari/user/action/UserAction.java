@@ -2,6 +2,7 @@ package com.sahakari.user.action;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -106,12 +107,20 @@ public class UserAction {
 		useredit = userdao.edituserdao(userid);
 
 		if (useredit != null) {
+			List<UserModel> userInfo=userdao.getexistingusers();
+			request.setAttribute("userInfo",userInfo);
+			
+			List<String> rolename=userdao.getRoleName();
+			request.setAttribute("rolename", rolename);
+			
+			List<UserModel> branchlist=userdao.getBranchList();
+			request.setAttribute("branchlist", branchlist);
+			
 			request.setAttribute("update", "update");
 			request.setAttribute("updatebtn", "showupdatebutton");
-			request.setAttribute("username", useredit.getUsername());
-			request.setAttribute("userid", useredit.getUserid());
-			request.setAttribute("givenrole", useredit.getGivenrole());
-			RequestDispatcher rd = request.getRequestDispatcher("adduser.user");
+			request.setAttribute("useredit", useredit);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("view/UserSetting/edituser.jsp");
 			try {
 				rd.forward(request, response);
 			} catch (ServletException | IOException e) {
@@ -123,16 +132,53 @@ public class UserAction {
 	public void updateuseraction(HttpServletRequest request,
 			HttpServletResponse response) {
 
+		String username = request.getParameter("username"), givenrole = request
+				.getParameter("givenRole"), password = request
+				.getParameter("username"), status = "1", fullName = request
+				.getParameter("fullName"), post = request.getParameter("post"), staffCode = request
+				.getParameter("staffCode"), startDate = request
+				.getParameter("startDate"), endDate = request
+				.getParameter("endDate"), branchCode = request
+				.getParameter("branchCode"), roleName = request
+				.getParameter("roleName"), functionRestriction = request
+				.getParameter("branchAllowed"),
+				functionAllowed=request.getParameter("functionAllowed");
+		System.out.println("function is "+functionAllowed);
 		String userid = request.getParameter("useridforupdate");
-		String username = request.getParameter("username");
-		String[] name = request.getParameterValues("role");
-		String role = Arrays.toString(name).replace("[", "").replace("]", "");
-		System.out.println(role);
+		
+		Generator g=new Generator();
+		functionAllowed=g.addHash(functionAllowed);
 
+		String[] branchArray = request.getParameterValues("branchAllowed");
+		String branchAllowed = Arrays.toString(branchArray).replace("[", "")
+				.replace("]", "");
+		
+		String[] additionalFunctionsArray=request.getParameterValues("additionalFunctions");
+		String additionalFunctions=Arrays.toString(additionalFunctionsArray).replace("[", "")
+				.replace("]", "");
+		
+		UserModel u = new UserModel();
+		u.setUsername(username);
+		u.setGivenrole(givenrole);
+		u.setPassword(password);
+		u.setStatus(status);
+		u.setFullName(fullName);
+		u.setPost(post);
+		u.setStaffCode(staffCode);
+		u.setStartDate(startDate);
+		u.setEndDate(endDate);
+		u.setBranchCode(branchCode);
+		u.setRoleName(roleName);
+		u.setFunctionAllowed(functionAllowed);
+		u.setFunctionRestriction(functionRestriction);
+		u.setBranchAllowed(branchAllowed);
+		u.setAdditionalFunctions(additionalFunctions);
+		u.setUserid(userid);
+		
 		UserDao userdao = new UserDaoImpl();
-		boolean status = userdao.updateuserdao(userid, username, role);
+		boolean stats = userdao.updateuserdao(u);
 
-		if (status) {
+		if (stats) {
 			request.setAttribute("msg", "User Details Updated");
 			RequestDispatcher rd = request.getRequestDispatcher("adduser.user");
 			try {
@@ -142,6 +188,7 @@ public class UserAction {
 			}
 
 		}
+		
 
 	}
 

@@ -5,10 +5,7 @@
 <jsp:include page="/includefile"></jsp:include>
 <html>
 <head>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
-
 <style>
-
 .green {
 	color: green
 }
@@ -20,6 +17,8 @@
 .updatebtn {
 	display: none;
 }
+h6{
+font-weight:bold;}
 
 <%--
 <%
@@ -53,102 +52,97 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 		</nav>
 	</div>
 
+	<div class="panel panel-default" style="width: 100%; margin: auto;">
 
+		<div class="panel-body">
+			<div class="panel panel-default" style="width: 100%;">
+				<div class="panel-heading count">
+					<strong>Add New User</strong>
+				</div>
+				<div class="panel-body">
+					<form method="post" action="updateuser.user" name="form" id="form" >
+						<table class="table">
+							<tbody>
+								<tr>
 
-
-	<div class="col-md-12 col-xs-12">
-		<div class="x_panel">
-			<div class="x_title">
-				<h2>
-					<strong>ADD NEW USER</strong>
-				</h2>
-				<ul class="nav navbar-right panel_toolbox">
-					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-					</li>
-					<li><a class="close-link"><i class="fa fa-close"></i></a></li>
-				</ul>
-				<div class="clearfix"></div>
-			</div>
-			<div class="x_content">
-
-				<form method="post" id="form" name="Form1">
-					<table class="table">
-						<tbody>
-							<tr>
-
-								<td>
-									<h6>
-										Username
-										</h6>
-											<input type="hidden" form="form" value="${userid}"
-												name="useridforupdate"> <input type="text"
-												name="username" class="form-control" form="form" data-validation="number"
-												value="${username }">
-								</td>
-								<td>
-									<h6>Role Name</h6> <select class="form-control"
-									name="givenRole">
-									<c:forEach items="${rolename }" var="role">
-										<option value="${role }">${role }</option>
-									</c:forEach>
+									<td>
+										<h6>Username</h6> <input type="hidden" form="form"
+										value="${useredit.userid}" name="useridforupdate"> <input
+										type="text" name="username" class="form-control" form="form"
+										data-validation="number" value="${useredit.username }" required>
+									</td>
+									<td>
+										<h6>Role Name</h6> <select class="form-control"
+										name="givenRole" form="form">
+										<c:if test="${update eq 'update' }">
+											<c:forEach items="${rolename }" var="role">
+												<option value="${role }" >${role }</option>
+											</c:forEach>
+											</c:if>
+											<option value="" >Select Role</option>
+											<option value="${role }" <c:if test="${role eq 'admin' }">selected</c:if> >${role }</option>
+											<option value="${role }" <c:if test="${role eq 'staff' }">selected</c:if> >${role }</option>
+											
+											
 										
-								</select>
-								</td>
-								<td>
-									<h6>Full Name</h6> <input type="text" class="form-control"
-									name="fullName" data-sanitize-insert-right=" $" data-sanitize="insertLeft">
-								</td>
+										
+										
+											
 
-							</tr>
-							<tr>
-								<td>
-									<h6>Post</h6> <input type="text" class="form-control"
-									name="post" data-sanitize="insertRight" 
-								 data-sanitize-insert-right=" $">
-								</td>
-								<td>
-									<h6>Staff Code</h6> <input type="text" class="form-control"
-									name="staffCode">
-								</td>
-								<td>
-									<h6>Branch Code</h6> <input type="text" class="form-control"
-									name="branchCode">
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h6>Start Date</h6> <input type="text" class="form-control"
-									name="startDate">
-								</td>
-								<td>
-									<h6>End Date</h6> <input type="text" class="form-control"
-									name="endDate">
-								</td>
-								<td>
-									<h6>Branch Allowed</h6> <select multiple id="branches"
+									</select>
+									</td>
+									<td>
+										<h6>Full Name</h6> <input type="text" class="form-control"
+										name="fullName"  form="form" value="${useredit.fullName }">
+									</td>
+
+								</tr>
+								<tr>
+									<td>
+										<h6>Post</h6> <input type="text" class="form-control"
+										name="post"  form="form" value="${useredit.post }">
+									</td>
+									<td>
+										<h6>Staff Code</h6> <input type="text" class="form-control"
+										name="staffCode" form="form" value="${ useredit.staffCode}" required>
+									</td>
+									<td>
+										<h6>Branch Code</h6> <input type="text" class="form-control"
+										name="branchCode" form="form"  value="${ useredit.branchCode}" required>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h6>Start Date</h6> <input type="text" class="form-control"
+										name="startDate" form="form" value="${ useredit.startDate}">
+									</td>
+									<td>
+										<h6>End Date</h6> <input type="text" class="form-control"
+										name="endDate" form="form" value="${ useredit.endDate}" required >
+									</td>
+									<td>
+										<h6>Branch Allowed</h6> <select multiple id="branches"
 									name="branchAllowed">
 									<c:forEach items="${branchlist }" var="b">
 										<option value="${b.branchCode }-${b.branchName}">${b.branchCode }-${b.branchName}</option>
 									</c:forEach>
 								</select>
-								</td>
-							</tr>
+									</td>
+								</tr>
 
-							<tr>
-								<td>
-									
-										<h5>Function Allowed</h5>
+								<tr>
+									<td>
+
+										<h6>Function Allowed</h6> <input form="form"  type="text"
+										name="functionAllowed" class="form-control " value="${ useredit.functionAllowed}"
+										  />
 
 
-										<input id="tags" type="text" name="functionAllowed"
-											class=" " value=""  />
-										
-
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<table>
 						<caption><h4>Additional Functions</h4></caption>
 						<tr>
 
@@ -195,38 +189,34 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 									Admin Settings &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
 						</tr>
 					</table>
+						
+							
 
-					<br> <input type="submit" name="button" value="submit"
-						class="btn btn-primary submitbtn" onclick="return OnButton1()">
+						<input type="submit" name="button" value="Update"
+							class="btn btn-primary">
 
-					<input type="submit" name="updatebtn"
-						class="updatebtn btn btn-primary" value="update"
-						onclick="return OnButton2()">
+					
 
-				</form>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="col-md-12 col-xs-12">
-		<div class="x_panel">
-			<div class="x_title">
-				<h4><strong>Existing Users</strong></h4>
-				<ul class="nav navbar-right panel_toolbox">
-					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-					</li>
 
-					<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+	<div class="panel panel-default" style="width: 100%; margin: auto;">
 
-				</ul>
-				<div class="clearfix"></div>
-				<div class="x_content">
-
+		<div class="panel-body">
+			<div class="panel panel-default" style="width: 100%;">
+				<div class="panel-heading count">
+					<strong>Existing Users</strong>
+				</div>
+				<div class="panel-body">
+				
 					<table
 						class="table display jambo_table table-striped table-bordered"
 						id="datatable">
 						<thead>
 							<tr>
-								<th>S No.</th>
 								<th>User Name</th>
 								<th>Actions</th>
 
@@ -235,12 +225,11 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 						<tbody>
 							<c:forEach items="${userInfo}" var="user">
 								<tr>
-									<td></td>
 									<td>${user.username }</td>
 
-									<td><a href="edituser.user?userid=${user.userid })"><i
+									<td><a href="edituser.user?userid=${user.userid }&username=${user.username}"><i
 											class="fa fa-pencil-square-o"></i></a> <a class="confirmbtn"
-										href="deleteuser.user?userid=${user.userid }"><i
+										href="deleteuser.user?userid=${user.userid }&username=${user.username}"><i
 											class="fa fa-trash" id="deletebtn" aria-hidden="true"
 											style="color: red"></i></a></td>
 
@@ -254,11 +243,19 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 
 		</div>
 	</div>
+<!-- 	<script>
+		$.validate({
+			lang : 'en',
+			modules : 'date,toggleDisabled,sanitize',
+			disabledFormFilter : 'form.toggle-disabled',
+			showErrorDialogs : false
 
+		});
+	</script> -->
 
 	<script>
 		$(document).ready(function() {
-			
+
 			$('#button').click(function() {
 				$('input[type="text"]').val('');
 			});
@@ -276,6 +273,7 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 
 			var t = $('#table').DataTable({
 				"iDisplayLength" : 50
+				
 			});
 			t.on('order.dt search.dt', function() {
 				t.column(0, {
@@ -323,50 +321,41 @@ if (request.getAttribute ("updatebtn ") != null ) { %> .updatebtn {
 			});
 		});
 	</script>
-	<script>
-		function OnButton1() {
-			document.Form1.action = "adduseraction.user"
-			document.Form1.submit();
-			return true;
-		}
-
-		function OnButton2() {
-			document.Form1.action = "updateuser.user"
-
-			document.Form1.submit();
-			return true;
-		}
-	</script>
+	
 
 	<c:if test="${msg!=null }">
 		<script>
 			$('#myModal').modal('show');
 		</script>
 	</c:if>
-<!-- <script>
+	<!-- <script>
 $('.hash').on('keypress',function(e){
 	var value=$(this).val();
 	$('.hash').val('#'+value);
 });
 </script> -->
 
-    <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"
-        type="text/javascript"></script>
-    <script type="text/javascript">
-        $(function () {
-            $('#branches').multiselect({
-                includeSelectAllOption: true
-            });
-            $('#btnSelected').click(function () {
-                var selected = $("#lstFruits option:selected");
-                var message = "";
-                selected.each(function () {
-                    message += $(this).text() + " " + $(this).val() + "\n";
-                });
-                alert(message);
-            });
-        });
-    </script>
+	<script
+		src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"
+		type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('#branches').multiselect({
+				includeSelectAllOption : true
+			});
+			$('#btnSelected').click(function() {
+				var selected = $("#lstFruits option:selected");
+				var message = "";
+				selected.each(function() {
+					message += $(this).text() + " " + $(this).val() + "\n";
+				});
+				alert(message);
+			});
+		});
+	$('form').submit(function(){
+		return confirm('Confirm Submission?');
+	})
+	</script>
 </body>
 
 </html>
