@@ -47,8 +47,7 @@ h5 {
 			</div>
 			<div class="x_content">
 				<form class="form-horizontal customerForm toggle-disabled"
-					id="form1" method="post" action="customer.add"
-					>
+					id="form1" method="post" action="customer.add">
 					<div class="" role="tabpanel" data-example-id="togglable-tabs">
 						<ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
 							<li><button type="submit" form="form1"
@@ -78,17 +77,18 @@ h5 {
 										<tr>
 											<td>
 												<h5>Member Id</h5> <input type="text"
-												class="form-control memberid" name="pid" value="${pid }" readonly>
+												class="form-control memberid" name="pid" value="${pid }"
+												readonly>
 											</td>
 											<td>
 												<h5>Legacy Member Id</h5> <input type="text"
 												class="form-control memberid" name="memberid" value=""
-												data-validation="number" data-validation-error-msg=" " >
+												data-validation="number" data-validation-error-msg=" ">
 											</td>
 											<td>
 												<h5>Registration Date</h5> <input type="text"
 												class="form-control" name="registrationDate" value=""
-												data-validation="date" data-validation-error-msg=" " >
+												data-validation="date" data-validation-error-msg=" ">
 
 											</td>
 
@@ -112,7 +112,7 @@ h5 {
 													<option value="o">Other</option>
 											</select>
 											</td>
-											
+
 										</tr>
 										<tr>
 											<td>
@@ -133,7 +133,7 @@ h5 {
 											</td>
 										</tr>
 										<tr>
-										
+
 											<td>
 												<h5>Date of birth (DOB)</h5> <input type="text"
 												class="form-control" name="dob" value=""
@@ -234,14 +234,14 @@ h5 {
 													</c:forEach>
 											</select>
 											</td>
-												<td>
-												<h5>Relationship Officer</h5>  <select class="form-control pdistrict"
-												name="pdistid">
+											<td>
+												<h5>Relationship Officer</h5> <select
+												class="form-control pdistrict" name="pdistid">
 													<option value="0">Select Officer</option>
 													<c:forEach items="${agent }" var="agent">
 														<option value="${ agent.agentid}">${agent.agentname }</option>s
 													</c:forEach>
-													
+
 											</select>
 											</td>
 										</tr>
@@ -360,7 +360,7 @@ h5 {
 									class="btn btn-primary adddocumentbtn">
 								<table class="table" id="documenttbl">
 									<tbody>
-									<tr>
+
 										<tr class="tr_clone">
 											<td>
 												<h5>Document Type</h5> <select class="form-control"
@@ -372,46 +372,47 @@ h5 {
 											</select>
 											</td>
 											<td>
-												<h5>Document No</h5> <input type="text"
-												class="form-control" name="documentNumber" value=""
-												data-validation="number" data-validation-error-msg=" "
+												<h5>Document No</h5> <input type="text" class="form-control"
+												name="documentNumber" value="" data-validation="number"
+												data-validation-error-msg=" "
 												data-validation-optional="true">
 											</td>
-												<td>
-												<h5>Issued By</h5> <input type="text"
-												class="form-control" name="issuedBy" value=""
-												data-validation="number" data-validation-error-msg=" "
-												data-validation-optional="true">
-											</td>
-											
-										</tr>
-											<tr>
 											<td>
-												<h5>Issue Date(B.S.)</h5> <input type="text" class="form-control"
-												name="issuedDate" value="" data-validation="birthdate"
+												<h5>Issued By</h5> <input type="text" class="form-control"
+												name="issuedBy" value="" data-validation="number"
 												data-validation-error-msg=" "
 												data-validation-optional="true">
 											</td>
-												<td>
-												<h5>Issue Date(A.D.)</h5> <input type="text" class="form-control"
-												name="issuedDateen" value="" data-validation="birthdate"
-												data-validation-error-msg=" "
-												data-validation-optional="true">
-											</td>
-												<td>
-												<h5>Maturity Date(B.S.)</h5> <input type="text" class="form-control"
-												name="expiryDate" value="" data-validation="birthdate"
-												data-validation-error-msg=" "
-												data-validation-optional="true">
-											</td>
-												<td>
-												<h5>Maturity Date(A.D.)</h5> <input type="text" class="form-control"
-												name="expiryDateen" value="" data-validation="birthdate"
-												data-validation-error-msg=" "
-												data-validation-optional="true">
-											</td>
-											</tr>
+
+										</tr>
 										<tr>
+											<td>
+												<h5>Issue Date(B.S.)</h5> <input type="text"
+												class="form-control" name="issuedDate" value=""
+												data-validation="birthdate" data-validation-error-msg=" "
+												data-validation-optional="true">
+											</td>
+											<td>
+												<h5>Issue Date(A.D.)</h5> <input type="text"
+												class="form-control" name="issuedDateen" value=""
+												data-validation="birthdate" data-validation-error-msg=" "
+												data-validation-optional="true">
+											</td>
+											<td>
+												<h5>Maturity Date(B.S.)</h5> <input type="text"
+												class="form-control" name="expiryDate" value=""
+												data-validation="birthdate" data-validation-error-msg=" "
+												data-validation-optional="true">
+											</td>
+											<td>
+												<h5>Maturity Date(A.D.)</h5> <input type="text"
+												class="form-control" name="expiryDateen" value=""
+												data-validation="birthdate" data-validation-error-msg=" "
+												data-validation-optional="true">
+											</td>
+
+										</tr>
+
 									</tbody>
 								</table>
 							</div>
@@ -440,7 +441,7 @@ h5 {
 
 	<script type="text/javascript" src="template/js/ajaxFunctions.js"></script>
 	<script type="text/javascript" src="template/js/form.js"></script>
-		<!-- <script>
+	<!-- <script>
 		$(document).ready(function(){
   $.validate({
     lang: 'en',
@@ -469,7 +470,7 @@ h5 {
 	<%}%>
 		
 	</script>
-	
+
 
 </body>
 </html>

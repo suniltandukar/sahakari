@@ -5,6 +5,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import com.mysql.jdbc.Connection;
 import com.sahakari.dao.CategoryDao;
 import com.sahakari.dbconnection.DBConnection;
@@ -37,29 +40,27 @@ public class CategoryDaoImpl implements CategoryDao {
 		}
 		return false;
 	}
-	public List<CategoryModel> selectCategories(){
-		List<CategoryModel> list=new ArrayList<CategoryModel>();
-		CategoryModel cm=null;
+	public JSONArray selectCategories(){
 		try{
 			String query="select * from categories";
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
-			while(rs.next()){
-				cm=new CategoryModel();
-				cm.setAccountType(rs.getString("accountType"));
-				cm.setAuthorizer(rs.getString("authorizer"));
-				cm.setCategoryHead(rs.getString("categoryHead"));
-				cm.setCategoryId(rs.getString("categoryId"));
-				cm.setInputter(rs.getString("inputter"));
-				list.add(cm);
-			}
-			if(list.size()>0){
-				con.close();
-				ps=null;
-				rs=null;
-				return list;
-			}
+			if(!rs.next()){
+				 System.out.println("0");
+		        }else{
+		            JSONArray array=new JSONArray();
+		            do{
+		                JSONObject obj = new JSONObject();
+		                obj.put("accountType",rs.getString("accountType"));
+		                obj.put("authorizer",rs.getString("authorizer"));
+		                obj.put("categoryHead",rs.getString("categoryHead"));
+		                obj.put("categoryId",rs.getString("categoryId"));
+		                obj.put("inputter",rs.getString("inputter"));
+		                array.put(obj.toString());
+		            }while(rs.next());
+		           return array;
+		        }
 		}
 		catch(Exception e){
 			System.out.println(e);

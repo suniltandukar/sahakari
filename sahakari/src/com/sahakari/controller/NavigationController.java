@@ -18,6 +18,8 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.sahakari.account.dao.AccountDao;
 import com.sahakari.account.daoImpl.AccountDaoImpl;
@@ -59,12 +61,16 @@ public class NavigationController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String uri=request.getRequestURI();
+		if(uri.endsWith("getCategoriesDetail.click")){
+			PrintWriter out=response.getWriter();
+			 CategoryDao c=new CategoryDaoImpl();
+			JSONArray list=c.selectCategories();
+			out.println(list);
+			 
+		}
 		 if(uri.endsWith("category.click"))
 		{
 			 CategoryDao c=new CategoryDaoImpl();
-			 List<CategoryModel> list=c.selectCategories();
-			 request.setAttribute("categorylist", list);
-			 
 			 List<CategoryModel> accounttype=c.accounttype();
 			 request.setAttribute("accounttype", accounttype);
 			 
@@ -193,6 +199,8 @@ public class NavigationController extends HttpServlet {
 			
 			List<CustomerModel> documentDetailList=v.viewCustomerDocumentDetail(id);
 			request.setAttribute("customerDocumentDetail", documentDetailList);
+			
+			
 			
 			RequestDispatcher rd=request.getRequestDispatcher("view/Customer/customerDetailModal.jsp");
 			rd.forward(request, response);;
@@ -402,6 +410,7 @@ public class NavigationController extends HttpServlet {
 			OtherAction o=new OtherAction();
 			String todayDate=o.getTodayDate();
 			
+			
 			String branchid=(String)session.getAttribute("currentBranchcode");
 			String type=request.getParameter("type");
 			request.setAttribute("type", type);
@@ -410,6 +419,10 @@ public class NavigationController extends HttpServlet {
 			String tellerid=gen.tellertransactionidgenerator(branchid);
 			request.setAttribute("tellerid", tellerid);
 			request.setAttribute("todayDate", todayDate);
+			
+			String todayNepaliDate=dateConverter.DateConverter.englishToNepali(todayDate);
+			request.setAttribute("todayNepaliDate", todayNepaliDate);
+			
 			
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/Teller/insertTeller.jsp");
 			rd.forward(request, response);
@@ -614,6 +627,19 @@ public class NavigationController extends HttpServlet {
 				array=v.viewAccountName(draccount);
 				}
 			out.println(array);
+		}
+		
+		else if(uri.endsWith("nepaliToEnglish.click")){
+			PrintWriter out=response.getWriter();
+			String nepalidate=request.getParameter("nepalidate");
+			String convertedEnglishDate=dateConverter.DateConverter.nepaliToEnglish(nepalidate);
+			out.println(convertedEnglishDate);
+		}
+		else if(uri.endsWith("englishToNepali.click")){
+			PrintWriter out=response.getWriter();
+			String englishdate=request.getParameter("englishdate");
+			String convertedNepaliDate=dateConverter.DateConverter.englishToNepali(englishdate);
+			out.println(convertedNepaliDate);
 		}
 	}
 }

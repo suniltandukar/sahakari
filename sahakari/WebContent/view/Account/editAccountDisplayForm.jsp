@@ -7,7 +7,8 @@
 
 </head>
 
-<body>
+<body class="background">
+
 <div class="panel panel-default " style="width: 95%; margin: auto;">
 		
 		<div class="panel-body">
@@ -24,7 +25,7 @@
 							<tr>
 								<td>
 									<h5>Member Id</h5> <input type="text"
-									class="form-control sharecertmemberid" data-validation="number" name="memberid" value="${accountdetail.memberid }">
+									class="form-control sharecertmemberid" data-validation="number" name="pid" value="${accountdetail.pid }">
 								</td>
 							</tr>
 							<tr>
