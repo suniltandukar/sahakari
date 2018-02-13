@@ -236,7 +236,7 @@ h5 {
 											</td>
 											<td>
 												<h5>Relationship Officer</h5> <select
-												class="form-control pdistrict" name="pdistid">
+												class="form-control " name="agentid">
 													<option value="0">Select Officer</option>
 													<c:forEach items="${agent }" var="agent">
 														<option value="${ agent.agentid}">${agent.agentname }</option>s

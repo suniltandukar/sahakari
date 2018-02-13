@@ -61,6 +61,7 @@ public class NavigationController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String uri=request.getRequestURI();
+	
 		if(uri.endsWith("getCategoriesDetail.click")){
 			PrintWriter out=response.getWriter();
 			 CategoryDao c=new CategoryDaoImpl();
@@ -640,6 +641,19 @@ public class NavigationController extends HttpServlet {
 			String englishdate=request.getParameter("englishdate");
 			String convertedNepaliDate=dateConverter.DateConverter.englishToNepali(englishdate);
 			out.println(convertedNepaliDate);
+		}
+		else if(uri.endsWith("datatable.click")){
+			PrintWriter out=response.getWriter();
+			JSONObject obj = new JSONObject();
+
+		    try {
+				obj.put("memberid", "12300");
+				obj.put("legacy", "shishir");
+				obj.put("name", "shishir karki");
+				out.println(obj);
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }

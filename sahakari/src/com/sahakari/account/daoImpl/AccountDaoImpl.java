@@ -101,18 +101,17 @@ public class AccountDaoImpl implements AccountDao{
 	}
 	public boolean insertAccount(AccountModel am){
 		try{
-		String query="insert into accountsTbl (accountNumber, pid, memberid, alternativeAccountId, categoryId, accountType, accountName, limitRef, inputter) values (?,?,?,?,?,?,?,?,?)";
+		String query="insert into accountsTbl (accountNumber, pid, alternativeAccountId, categoryId, accountType, accountName, limitRef, inputter) values (?,?,?,?,?,?,?,?)";
 		con=DBConnection.getConnection();
 		ps=con.prepareStatement(query);
 		ps.setString(1, am.getAccountNumber());
 		ps.setString(2, am.getPid());
-		ps.setString(3, am.getMemberid());
-		ps.setString(4, am.getAlternativeAccounId());
-		ps.setString(5, am.getCategoryId());
-		ps.setString(6, am.getAccountType());
-		ps.setString(7, am.getAccountName());
-		ps.setString(8, am.getLimitRef());
-		ps.setString(9,am.getInputter());
+		ps.setString(3, am.getAlternativeAccounId());
+		ps.setString(4, am.getCategoryId());
+		ps.setString(5, am.getAccountType());
+		ps.setString(6, am.getAccountName());
+		ps.setString(7, am.getLimitRef());
+		ps.setString(8,am.getInputter());
 		i=ps.executeUpdate();
 		if(i>0){
 			con.close();
@@ -135,7 +134,6 @@ public class AccountDaoImpl implements AccountDao{
 			rs=ps.executeQuery();
 			while(rs.next()){
 				am=new AccountModel();
-				am.setPid(rs.getString("pid"));
 				am.setOpeningBal(rs.getString("openingBal"));
 				am.setAccountNumber(rs.getString("accountNumber"));
 				am.setPid(rs.getString("pid"));

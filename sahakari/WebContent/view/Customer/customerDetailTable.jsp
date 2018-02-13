@@ -13,7 +13,7 @@
 				<th>Gender</th>
 				<th>Date of Birth</th>
 				<th>Address</th>
-				<th><i class="fa fa-cog" aria-hidden="true"></i></th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -46,15 +46,9 @@
 </div>
 <script>
 $(document).ready(function() {
-    var data = [];
-    for ( var i=0 ; i<5000 ; i++ ) {
-        data.push( [ i, i, i, i, i ,i,i,i] );
-    }
-     
     $('#datatableaa').DataTable( {
-       
         deferRender:    true,
-        scrollY:        200,
+        scrollY:        800,
         scrollCollapse: true,
         scroller:       true
     } );

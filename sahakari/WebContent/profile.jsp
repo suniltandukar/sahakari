@@ -57,7 +57,7 @@ display:block;}
 			<div class="col-md-3 left_col">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
-						<a href="#" class="site_title"><i class="fa fa-desktop"
+						<a href="pageNotFound.jsp" class="site_title"><i class="fa fa-desktop"
 							aria-hidden="true"></i> <span class="account">Digi Nepal</span></a>
 					</div>
 
@@ -97,7 +97,7 @@ display:block;}
 											<ul class="nav child_menu">
 												<li><a href="customerinsert.click" target="iframe_a">
 														Member</a></li>
-												<li><a href="#" target="iframe_a">Corporate
+												<li><a href="pageNotFound.jsp" target="iframe_a">Corporate
 														member</a></li>
 											</ul></li>
 										<li id="v"><a><span class="fa fa-chevron-down"></span>Ammendment
@@ -105,10 +105,10 @@ display:block;}
 											<ul class="nav child_menu">
 												<li><a href="viewcustomer.click" target="iframe_a">
 														Member</a></li>
-												<!-- <li><a href="#" target="iframe_a">Corporate member</a> -->
+												<!-- <li><a href="pageNotFound.jsp" target="iframe_a">Corporate member</a> -->
 
 											</ul></li>
-										<li id="a"><a href="#" target="iframe_a">Authorization of
+										<li id="a"><a href="pageNotFound.jsp" target="iframe_a">Authorization of
 												member</a></li>
 										<li id="i"><a href="memberdocument.click" target="iframe_a">Member Documents</a></li>
 
@@ -129,49 +129,49 @@ display:block;}
 											<ul class="nav child_menu">
 												<li id="i"><a href="insertaccount.click" target="iframe_a">Open
 														New member Account</a></li>
-												<!-- 	<li><a href="#" target="iframe_a">Open New
+												<!-- 	<li><a href="pageNotFound.jsp" target="iframe_a">Open New
 														Shareholder Account</a> -->
 												<li id="v"><a href="viewaccount.click" target="iframe_a">Amendment
 														of member Account</a></li>
 												<li id="i"><a href="insertfinancialaccount.click"
 													target="iframe_a">Open Financial Account</a>
-												<li id="v"><a href="#" target="iframe_a">Amendment of
+												<li id="v"><a href="pageNotFound.jsp" target="iframe_a">Amendment of
 														Financial Account</a></li>
-												<li id="a"><a href="#" target="iframe_a">Authorization of
+												<li id="a"><a href="pageNotFound.jsp" target="iframe_a">Authorization of
 														Account</a>
-												<li id="i"><a href="#" target="iframe_a">Account
+												<li id="i"><a href="pageNotFound.jsp" target="iframe_a">Account
 														maintenance</a></li>
-												<li id="i"><a href="#" target="iframe_a">Account Closure</a></li>
+												<li id="i"><a href="pageNotFound.jsp" target="iframe_a">Account Closure</a></li>
 											</ul></li>
 										<li id="cheque"><a><span class="fa fa-chevron-down"></span>Cheque</a>
 											<ul class="nav child_menu">
-												<li id="i"><a href="#" target="iframe_a">Issue Cheque</a></li>
-												<li id="r"><a href="#" target="iframe_a">Reversal of
+												<li id="i"><a href="pageNotFound.jsp" target="iframe_a">Issue Cheque</a></li>
+												<li id="r"><a href="pageNotFound.jsp" target="iframe_a">Reversal of
 														issued cheque</a></li>
-												<li id="v"><a href="#" target="iframe_a">List issued
+												<li id="v"><a href="pageNotFound.jsp" target="iframe_a">List issued
 														chequese</a></li>
-												<li id="v"><a href="#" target="iframe_a">List reversed
+												<li id="v"><a href="pageNotFound.jsp" target="iframe_a">List reversed
 														cheques</a></li>
-												<li id="a"><a href="#" target="iframe_a">Authorization of
+												<li id="a"><a href="pageNotFound.jsp" target="iframe_a">Authorization of
 														Issued Cheques</a></li>
 											</ul></li>
 										<li id="signature"><a><span class="fa fa-chevron-down"></span>Signature</a>
 											<ul class="nav child_menu">
-												<li id="i"><a href="#" target="iframe_a">Upload Signature
+												<li id="i"><a href="pageNotFound.jsp" target="iframe_a">Upload Signature
 												</a></li>
-												<li id="r"><a href="#" target="iframe_a">Reverse Signature</a>
+												<li id="r"><a href="pageNotFound.jsp" target="iframe_a">Reverse Signature</a>
 												</li>
-												<li id="a"><a href="#" target="iframe_a">Authorization of
+												<li id="a"><a href="pageNotFound.jsp" target="iframe_a">Authorization of
 														signature upload</a></li>
 											</ul></li>
 										<li><a><span class="fa fa-chevron-down"></span>Certificate
 												of deposits(Time Deposits)</a>
 											<ul class="nav child_menu">
-												<li id="i"><a href="#" target="iframe_a">New Deposit
+												<li id="i"><a href="pageNotFound.jsp" target="iframe_a">New Deposit
 														Account </a></li>
-												<li id="e"><a href="#" target="iframe_a">Amend Deposit
+												<li id="e"><a href="pageNotFound.jsp" target="iframe_a">Amend Deposit
 														Account</a></li>
-												<li id="a"><a href="#" target="iframe_a">Authorization of
+												<li id="a"><a href="pageNotFound.jsp" target="iframe_a">Authorization of
 														Deposit Account</a></li>
 											</ul></li>
 										<li><a><span class="fa fa-chevron-down"></span>Teller
@@ -181,9 +181,9 @@ display:block;}
 														Deposit </a></li>
 												<li id="i"><a href="insertTeller.click?type=cashWithdraw" target="iframe_a">Cash
 														Withdraw</a></li>
-												<li id="i"><a href="#" target="iframe_a">Cash Withdraw
+												<li id="i"><a href="pageNotFound.jsp" target="iframe_a">Cash Withdraw
 														without cheque</a></li>
-												<li id="a"><a href="#" target="iframe_a">Authorization of
+												<li id="a"><a href="pageNotFound.jsp" target="iframe_a">Authorization of
 														teller operation</a></li>
 											</ul></li>
 
@@ -209,7 +209,7 @@ display:block;}
 														Journal Entry </a></li>
 												<li id="v"><a href="viewMultiTxn.click" target="iframe_a">Amend
 														Journal Entry </a></li>
-												<li id="a"><a href="#" target="iframe_a"> Authorize
+												<li id="a"><a href="pageNotFound.jsp" target="iframe_a"> Authorize
 														Journal Entry </a></li>
 
 											</ul></li>
@@ -220,34 +220,34 @@ display:block;}
 									<ul class="nav child_menu">
 										<li><a><span class="fa fa-chevron-down"></span>Loan</a>
 											<ul class="nav child_menu">
-												<li id="i"><a href="#" target="iframe_a"> Create New Loan
+												<li id="i"><a href="pageNotFound.jsp" target="iframe_a"> Create New Loan
 												</a></li>
-												<li id="v"><a href="#" target="iframe_a">Amendment of Loan
+												<li id="v"><a href="pageNotFound.jsp" target="iframe_a">Amendment of Loan
 												</a></li>
-												<li id="a"><a href="#" target="iframe_a">Authorization of
+												<li id="a"><a href="pageNotFound.jsp" target="iframe_a">Authorization of
 														Loan </a></li>
 
 											</ul></li>
-										<li><a href="#" target="iframe_a">Past Due Loan </a></li>
-										<li><a href="#" target="iframe_a">Collateral </a></li>
-										<li><a href="#" target="iframe_a">Limit </a></li>
-										<li><a href="#" target="iframe_a">Guarantor </a></li>
-										<li><a href="#" target="iframe_a">Valuator </a></li>
+										<li><a href="pageNotFound.jsp" target="iframe_a">Past Due Loan </a></li>
+										<li><a href="pageNotFound.jsp" target="iframe_a">Collateral </a></li>
+										<li><a href="pageNotFound.jsp" target="iframe_a">Limit </a></li>
+										<li><a href="pageNotFound.jsp" target="iframe_a">Guarantor </a></li>
+										<li><a href="pageNotFound.jsp" target="iframe_a">Valuator </a></li>
 										<li><a href="emi.click" target="iframe_a">EMI </a></li>
 									</ul></li>
 								<li id="nonfundbusiness"><a><i class="fa fa-briefcase" aria-hidden="true"></i> Non-fund business
 										<span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 
-										<li><a href="#" target="iframe_a">Guarantee </a></li>
-										<li><a href="#" target="iframe_a"> Letter of Credit </a></li>
+										<li><a href="pageNotFound.jsp" target="iframe_a">Guarantee </a></li>
+										<li><a href="pageNotFound.jsp" target="iframe_a"> Letter of Credit </a></li>
 									</ul></li>
 								<li id="otherutilities"><a><i class="fa fa-list" aria-hidden="true"></i> Other utilities <span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 
-										<li><a href="#" target="iframe_a">Clearing </a></li>
-										<li><a href="#" target="iframe_a"> Reconciliation </a></li>
+										<li><a href="pageNotFound.jsp" target="iframe_a">Clearing </a></li>
+										<li><a href="pageNotFound.jsp" target="iframe_a"> Reconciliation </a></li>
 									</ul></li>
 								<li id="reports"><a><i class="fa fa-book" aria-hidden="true"></i> Reports <span
 										class="fa fa-chevron-down"></span></a>
@@ -256,20 +256,20 @@ display:block;}
 										<li><a><span class="fa fa-chevron-down"></span> Daily Reports </a>
 											<ul class="nav child_menu">
 
-												<li><a href="#" target="iframe_a">User Transaction List  </a></li>
-												<li><a href="#" target="iframe_a">Daily Cash income and expenses  </a></li>
-												<li><a href="#" target="iframe_a"> Daily Voucher 
+												<li><a href="pageNotFound.jsp" target="iframe_a">User Transaction List  </a></li>
+												<li><a href="pageNotFound.jsp" target="iframe_a">Daily Cash income and expenses  </a></li>
+												<li><a href="pageNotFound.jsp" target="iframe_a"> Daily Voucher 
 												</a></li>
-												<li><a href="#" target="iframe_a">  Trial Balance  </a></li>
-												<li><a href="#" target="iframe_a">  Search Account and Balance  </a></li>
+												<li><a href="pageNotFound.jsp" target="iframe_a">  Trial Balance  </a></li>
+												<li><a href="pageNotFound.jsp" target="iframe_a">  Search Account and Balance  </a></li>
 											</ul></li>
 										<li><a><span class="fa fa-chevron-down"></span> Services Reports </a>
 											<ul class="nav child_menu">
 
-												<li><a href="#" target="iframe_a">  Loan outstanding  </a></li>
-												<li><a href="#" target="iframe_a"> Overdue Loans 
+												<li><a href="pageNotFound.jsp" target="iframe_a">  Loan outstanding  </a></li>
+												<li><a href="pageNotFound.jsp" target="iframe_a"> Overdue Loans 
 														 </a></li>
-												<li><a href="#" target="iframe_a"> Search Loan accounts
+												<li><a href="pageNotFound.jsp" target="iframe_a"> Search Loan accounts
 												</a></li>
 											</ul></li>
 										<li><a><span class="fa fa-chevron-down"></span>Financial Reports</a>
@@ -277,15 +277,15 @@ display:block;}
 
 												<li><a href="adduser.user" target="iframe_a">
 														 Balance Sheet  </a></li>
-												<li><a href="#" target="iframe_a">  Profit and Loss Account </a></li>
-												<li><a href="#" target="iframe_a">  Movement sheet </a></li>
-												<li><a href="#" target="iframe_a">  Cash-flow statement </a></li>
+												<li><a href="pageNotFound.jsp" target="iframe_a">  Profit and Loss Account </a></li>
+												<li><a href="pageNotFound.jsp" target="iframe_a">  Movement sheet </a></li>
+												<li><a href="pageNotFound.jsp" target="iframe_a">  Cash-flow statement </a></li>
 											</ul></li>
 										<li><a><span class="fa fa-chevron-down"></span> MIS Report </a>
 											<ul class="nav child_menu">
 
 												<li><a href="adduser.user" target="iframe_a">  Management Report </a></li>
-												<li><a href="#" target="iframe_a">  CAMEL
+												<li><a href="pageNotFound.jsp" target="iframe_a">  CAMEL
  </a></li>
 											</ul></li>
 									</ul></li>
@@ -303,32 +303,32 @@ display:block;}
 										<li id="i"><a href="branch.click" target="iframe_a">Branch/Company
 												setup </a></li>
 												
-										<li><a href="#" target="iframe_a">
+										<li><a href="pageNotFound.jsp" target="iframe_a">
 												ChartOfAccount(COA) </a></li>
-										<li><a href="#" target="iframe_a"> MigrationtoolSetup
+										<li><a href="pageNotFound.jsp" target="iframe_a"> MigrationtoolSetup
 										</a></li>
 										<li><a><span class="fa fa-chevron-down"></span>Calender
 												Setting</a>
 											<ul class="nav child_menu">
 
-												<li><a href="#" target="iframe_a">Nepali Calendar </a></li>
+												<li><a href="pageNotFound.jsp" target="iframe_a">Nepali Calendar </a></li>
 												<li><a href="dateConverter.jsp" target="iframe_a">Date Converter </a></li>
-												<li><a href="#" target="iframe_a">Fiscal Year </a></li>
-												<li><a href="#" target="iframe_a"> Holiday Setting
+												<li><a href="pageNotFound.jsp" target="iframe_a">Fiscal Year </a></li>
+												<li><a href="pageNotFound.jsp" target="iframe_a"> Holiday Setting
 												</a></li>
-												<li><a href="#" target="iframe_a"> Month End </a></li>
-												<li><a href="#" target="iframe_a"> Quarter End </a></li>
-												<li><a href="#" target="iframe_a"> Year End </a></li>
+												<li><a href="pageNotFound.jsp" target="iframe_a"> Month End </a></li>
+												<li><a href="pageNotFound.jsp" target="iframe_a"> Quarter End </a></li>
+												<li><a href="pageNotFound.jsp" target="iframe_a"> Year End </a></li>
 											</ul></li>
 										<li><a><span class="fa fa-chevron-down"></span>Interest
 												Rate</a>
 											<ul class="nav child_menu">
 
-												<li><a href="#" target="iframe_a"> Loan Interest
+												<li><a href="pageNotFound.jsp" target="iframe_a"> Loan Interest
 														Rate </a></li>
-												<li><a href="#" target="iframe_a">Deposit Interest
+												<li><a href="pageNotFound.jsp" target="iframe_a">Deposit Interest
 														Rate </a></li>
-												<li><a href="#" target="iframe_a"> Commission Rate
+												<li><a href="pageNotFound.jsp" target="iframe_a"> Commission Rate
 												</a></li>
 											</ul></li>
 										<li><a><span class="fa fa-chevron-down"></span>User</a>
@@ -338,18 +338,18 @@ display:block;}
 														Create New user </a></li>
 												<li id="i"><a href="addusergroup.user" target="iframe_a">
 														Create user Group</a></li>
-												<li id="i"><a href="#" target="iframe_a"> Amendment of
+												<li id="i"><a href="pageNotFound.jsp" target="iframe_a"> Amendment of
 														user </a></li>
-												<li id="a"><a href="#" target="iframe_a"> Authorize user </a></li>
+												<li id="a"><a href="pageNotFound.jsp" target="iframe_a"> Authorize user </a></li>
 											</ul></li>
 										<li><a><span class="fa fa-chevron-down"></span>Closing</a>
 											<ul class="nav child_menu">
 
 												<li><a href="adduser.user" target="iframe_a"> Day
 														End </a></li>
-												<li><a href="#" target="iframe_a"> Month End </a></li>
-												<li><a href="#" target="iframe_a"> Quarter End </a></li>
-												<li><a href="#" target="iframe_a"> Year End </a></li>
+												<li><a href="pageNotFound.jsp" target="iframe_a"> Month End </a></li>
+												<li><a href="pageNotFound.jsp" target="iframe_a"> Quarter End </a></li>
+												<li><a href="pageNotFound.jsp" target="iframe_a"> Year End </a></li>
 											</ul></li>
 									</ul></li>
 							</ul>

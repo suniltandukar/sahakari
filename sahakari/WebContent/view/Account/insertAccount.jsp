@@ -50,7 +50,7 @@ h5 {
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Member Id</label>
 						<div class="col-md-2 col-sm-2 col-xs-12">
 							 <input type="text" id="memberid"
-									class="form-control sharecertmemberid memberid" name="memberid"
+									class="form-control sharecertmemberid memberid" name="pid"
 									value="" data-validation="number" data-validation-error-msg=" ">
 						</div>
 						<div class="col-md-8 col-sm-8 col-xs-12 ">
@@ -64,7 +64,7 @@ h5 {
 							 <input type="text"
 									class="form-control accountNumber" name="accountNumber"
 									value="${accountno }" data-validation="number"
-									data-validation-error-msg=" " required>
+									data-validation-error-msg=" " required readonly>
 						</div>
 					</div>
 					<div class="form-group" id="cashWithdraw">

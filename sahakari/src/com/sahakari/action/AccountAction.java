@@ -21,8 +21,8 @@ public class AccountAction {
 		UserModel userDetail=(UserModel)session.getAttribute("userDetail");
 		String inputter=userDetail.getUsername();
 		
-		String pid, memberid,accountNumber, alternativeAccounId, categoryId, accountType, accountName, limitRef;
-		pid=request.getParameter("memberid");
+		String pid,accountNumber, alternativeAccounId, categoryId, accountType, accountName, limitRef;
+		pid=request.getParameter("pid");
 		accountNumber=request.getParameter("accountNumber");
 		alternativeAccounId=request.getParameter("alternativeAccounId");
 		categoryId=request.getParameter("categoryId");
