@@ -27,73 +27,111 @@ h5 {
 	</div>
 	<div class="col-md-12 col-sm-12 col-xs-12">
 
+		
+			
+			<div class="col-md-8 col-xs-12">
 		<div class="x_panel">
-			<div class="x_title">
-				<h4><strong>ADD NEW ACCOUNT</strong></h4>
-				<input type="text" id="membername"
+			<form class="form-horizontal form-label-left input_mask"
+				method="post" action="account.add">
+
+				<div class="x_title">
+					<h2>Add New Account</h2>
+					<div class="col-md-4 col-sm-4 col-xs-12 pull-right">
+						<input type="text" id="membername"
 									class="form-control" name="membername"
-									value="" readonly style="width:30%;">
-			</div>
-			<div class="x_content">
-				<form class="form-horizontal shareCertForm toggle-disabled"
-					id="form1" method="post" action="account.add">
-					<table class="table">
-						<tbody>
-							<tr>
-								<td><input type="submit" class="btn btn-success"
-									value="Save"></td>
-							</tr>
-							<tr>
-								<td>
-									<h5>Member Id</h5> <input type="text" id="memberid"
+									value="" readonly >
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="x_content">
+					<br />
+
+					<div class="form-group">
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">Member Id</label>
+						<div class="col-md-2 col-sm-2 col-xs-12">
+							 <input type="text" id="memberid"
 									class="form-control sharecertmemberid memberid" name="memberid"
 									value="" data-validation="number" data-validation-error-msg=" ">
-								</td>
-								<td>
-									<h5>Account No</h5> <input type="text"
+						</div>
+						<div class="col-md-8 col-sm-8 col-xs-12 ">
+							<span id="customername"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">Account 
+							No</label>
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							 <input type="text"
 									class="form-control accountNumber" name="accountNumber"
 									value="${accountno }" data-validation="number"
 									data-validation-error-msg=" " required>
-								</td>
-								<td>
-									<h5>Alternative Account ID</h5> <input type="text"
+						</div>
+					</div>
+					<div class="form-group" id="cashWithdraw">
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">Alternate
+							Account No</label>
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<input type="text"
 									class="form-control" name="alternativeAccounId" value=""
 									data-validation="number" data-validation-error-msg=" ">
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h5>Category</h5> <select class="form-control categoryid"
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-12 ">
+							<span class="accountName"></span>
+						</div>
+					</div>
+					<div class="form-group" id="cashDeposit">
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">
+							Account Type</label>
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<select class="form-control categoryid"
 									name="categoryId" id="categories">
 										<option value="">Select Category</option>
 										<c:forEach items="${categorylist }" var="c">
 											<option value="${c.categoryId }">${c.categoryHead }</option>
 										</c:forEach>
 								</select>
-								</td>
-								<td>
-									<h5>Account Type</h5> <select class="form-control accounttype"
-									name="accountType" id="accounttype">
-										<option value="">Select Account Type</option>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h5>Account Name</h5> <input type="text"
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-12 ">
+							<span class="accountName"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">Account Name
+						</label>
+						<div class="col-md-3 col-sm-3 col-xs-12">
+							<input type="text"
 									class="form-control memberid" name="accountName" id="accountname" value=""
 									data-validation="letternumeric" data-validation-error-msg=" ">
-
-								</td>
-								<td>
-									<h5>Limit Reference</h5> <input type="text"
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">Limit Reference </label>
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<input type="text"
 									class="form-control" name="limitRef" value="">
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</form>
-			</div>
+						</div>
+					</div>
+				
+					<div class="ln_solid"></div>
+					<div class="form-group">
+						<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+							<button class="btn btn-info" type="button" id="validate">Validate</button>
+							<button class="btn btn-primary" type="reset">Reset</button>
+							<input type="submit" class="btn btn-success" value="Submit">
+						</div>
+					</div>
+
+
+				</div>
+			</form>
+		</div>
+
+									
+									
+							</div>
+							
+
+	</div>
 
 			<div id="1" class="tab-pane fade in active"></div>
 		</div>
@@ -130,9 +168,9 @@ h5 {
     });
 </script> -->
 <script>
-$(".memberid").blur(function()
+$("#validate").click(function()
 		{
-		var id=$(this).val();
+		var id=$('.memberid').val();
 		var dataString = 'id='+ id;
 		$.ajax
 		({
@@ -156,6 +194,7 @@ $("#categories").change(function()
 		({
 		type: "POST",
 		url: "showaccounttype.click",
+		
 		data: dataString,
 		cache: false,
 		success: function(html)
@@ -165,11 +204,11 @@ $("#categories").change(function()
 		});
 
 		});
-$(".memberid").blur(function()
+$("#validate").click(function()
 		 
         {
 
- var id=$(this).val();
+ var id=$('.memberid').val();
  var dataString = 'memberid='+ id;
  $.ajax
     ({

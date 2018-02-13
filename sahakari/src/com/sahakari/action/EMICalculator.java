@@ -25,22 +25,24 @@ public class EMICalculator {
 
             return e;
     }
-
+      //(amount, irate, no,repayment,emistarten,occurence,loanmaturitydate);
     public List<EMImodel> calcEmiAllMonths(double p, double r, double n,int re,String emistarten,int occurence,Date loanmaturitydate ) {
 
             double R = r /(re*100);
             double P = p;
             double e = calcEmi(P, r, n,re);
+            System.out.println(e+"e is thsis");
+            
             double totalInt = (e * n) - p;
             double totalAmt =(e * n);
-         /*   System.out.println("***************************");
+         System.out.println("***************************");
             System.out.println(" Principal-> " + P);
             System.out.println(" Rate of Interest-> " + r);
             System.out.println(" Number of Months-> " + n);
             System.out.println(" EMI -> " + e);
             System.out.println(" Total Interest -> " + totalInt);
             System.out.println(" Total Amount -> " + totalAmt);
-            System.out.println("***************************");*/
+            System.out.println("***************************");
             double intPerMonth = totalInt / n;
             
             
