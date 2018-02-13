@@ -1,8 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="/includefile"></jsp:include>
 <div>
-	<table id="datatable"
-		class="table jambo_table table-striped table-bordered resulttable"
+	<table id="datatableaa"
+		class="table jambo_table table-striped table-bordered resulttable display nowrap"
 		style="font-size: 100%;">
 		<thead>
 			<tr>
@@ -45,7 +45,21 @@
 	</div>
 </div>
 <script>
-$('#datatable').each(function() 
+$(document).ready(function() {
+    var data = [];
+    for ( var i=0 ; i<5000 ; i++ ) {
+        data.push( [ i, i, i, i, i ,i,i,i] );
+    }
+     
+    $('#datatableaa').DataTable( {
+       
+        deferRender:    true,
+        scrollY:        200,
+        scrollCollapse: true,
+        scroller:       true
+    } );
+} );
+$('#datatableaa').each(function() 
 		{
 	$(".resulttable").show();
 			$(".loader").hide();

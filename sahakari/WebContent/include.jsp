@@ -26,6 +26,8 @@
     <!-- Custom Theme Style -->
     <link href="template/css/custom.min.css" rel="stylesheet">
     <link href="template/css/jquery.tagsinput.css" rel="stylesheet">
+        <link href="https://cdn.datatables.net/scroller/1.4.4/css/scroller.dataTables.min.css" rel="stylesheet">
+    
     <style>
     	.background{
     	background-color:#F7F7F7;}
@@ -57,6 +59,8 @@
     <script src="template/js/vfs_fonts.js"></script>
       <script src="template/js/switchery.min.js"></script>
          <script src="template/js/bootstrap-tagsinput.js"></script>
+     
+            <script src="https://cdn.datatables.net/scroller/1.4.4/js/dataTables.scroller.min.js"></script>
     
     <!-- FastClick -->
     <script src="template/js/fastclick.js"></script>
