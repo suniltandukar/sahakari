@@ -203,40 +203,39 @@ public class CustomerDaoImpl implements CustomerDao {
 
     }
 	public boolean insertCustomer(CustomerModel cm){
-		String query="insert into customertbl(memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity,ttole, pid,agentid,telno, mobno,fatherName,dob,typeid,statusid,inputter,authorizer,insertStatus, updateStatus, delStatus, address) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+		String query="insert into customertbl(pid, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity,ttole, telno, mobno,fatherName,dob,typeid,statusid,inputter,authorizer,insertStatus, updateStatus, delStatus, address, agentid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
 		try{
 			int i=0;
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
-			ps.setString(1, cm.getMemberid());
-			ps.setString(2, cm.getRegistrationDate());
-			ps.setString(3, cm.getName());
-			ps.setString(4, cm.getGender());
-			ps.setString(5, cm.getPdistid());
-			ps.setString(6, cm.getPvdcmunid());
-			ps.setString(7, cm.getPwardno());
-			ps.setString(8, cm.getPcity());
-			ps.setString(9, cm.getPtole());
-			ps.setString(10, cm.getTdistid());
-			ps.setString(11, cm.getTvdcmunid());
-			ps.setString(12, cm.getTwardno());
-			ps.setString(13, cm.getTcity());
-			ps.setString(14, cm.getTtole());
-			ps.setString(15, cm.getPid());
-			ps.setString(16, cm.getAgentid());
-			ps.setString(17, cm.getTelno());
-			ps.setString(18, cm.getMobno());
-			ps.setString(19, cm.getFatherName());
-			ps.setString(20, cm.getAgentid());
-			ps.setString(21, cm.getDob());
-			ps.setString(22, cm.getTypeid());
-			ps.setString(23, cm.getStatusid());
-			ps.setString(24, cm.getInputter());
-			ps.setString(25, cm.getAuthorizer());
-			ps.setString(26, cm.getInsertStatus());
-			ps.setString(27, cm.getUpdateStatus());
-			ps.setString(28, cm.getDelStatus());
-			ps.setString(29, cm.getAddress());
+			ps.setString(1, cm.getPid());
+			ps.setString(2, cm.getMemberid());
+			ps.setString(3, cm.getRegistrationDate());
+			ps.setString(4, cm.getName());
+			ps.setString(5, cm.getGender());
+			ps.setString(6, cm.getPdistid());
+			ps.setString(7, cm.getPvdcmunid());
+			ps.setString(8, cm.getPwardno());
+			ps.setString(9, cm.getPcity());
+			ps.setString(10, cm.getPtole());
+			ps.setString(11, cm.getTdistid());
+			ps.setString(12, cm.getTvdcmunid());
+			ps.setString(13, cm.getTwardno());
+			ps.setString(14, cm.getTcity());
+			ps.setString(15, cm.getTtole());
+			ps.setString(16, cm.getTelno());
+			ps.setString(17, cm.getMobno());
+			ps.setString(18, cm.getFatherName());
+			ps.setString(19, cm.getDob());
+			ps.setString(20, cm.getTypeid());
+			ps.setString(21, cm.getStatusid());
+			ps.setString(22, cm.getInputter());
+			ps.setString(23, cm.getAuthorizer());
+			ps.setString(24, cm.getInsertStatus());
+			ps.setString(25, cm.getUpdateStatus());
+			ps.setString(26, cm.getDelStatus());
+			ps.setString(27, cm.getAddress());
+			ps.setString(28, cm.getAgentid());
 			
 			i=ps.executeUpdate();
 			if(i>0){

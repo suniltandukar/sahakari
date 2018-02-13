@@ -138,7 +138,6 @@ public class AccountDaoImpl implements AccountDao{
 				am.setPid(rs.getString("pid"));
 				am.setOpeningBal(rs.getString("openingBal"));
 				am.setAccountNumber(rs.getString("accountNumber"));
-				am.setMemberid(rs.getString("memberid"));
 				am.setPid(rs.getString("pid"));
 				am.setAlternativeAccounId(rs.getString("alternativeAccountId"));
 				am.setAccountType(rs.getString("accountType"));
@@ -184,7 +183,7 @@ public class AccountDaoImpl implements AccountDao{
 			if(rs.next()){
 				am=new AccountModel();
 				am.setAccountNumber(rs.getString("accountNumber"));
-				am.setMemberid(rs.getString("memberid"));
+				am.setPid(rs.getString("pid"));
 				am.setAlternativeAccounId(rs.getString("alternativeAccountId"));
 				am.setCategoryId(rs.getString("categoryId"));
 				am.setAccountType(rs.getString("accountType"));
@@ -200,18 +199,17 @@ public class AccountDaoImpl implements AccountDao{
 	}
 	public boolean updateAccount(AccountModel am){
 		try{
-			String query="update accountstbl set accountNumber=?,pid=?,memberid=?,alternativeAccountId=?,categoryId=?,accountType=?,accountName=?,limitRef=? where accountNumber=?";
+			String query="update accountstbl set accountNumber=?,pid=?,alternativeAccountId=?,categoryId=?,accountType=?,accountName=?,limitRef=? where accountNumber=?";
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			ps.setString(1, am.getAccountNumber());
 			ps.setString(2, am.getPid());
-			ps.setString(3, am.getMemberid());
-			ps.setString(4, am.getAlternativeAccounId());
-			ps.setString(5, am.getCategoryId());
-			ps.setString(6, am.getAccountType());
-			ps.setString(7, am.getAccountName());
-			ps.setString(8, am.getLimitRef());
-			ps.setString(9, am.getPreviousAccountNumber());
+			ps.setString(3, am.getAlternativeAccounId());
+			ps.setString(4, am.getCategoryId());
+			ps.setString(5, am.getAccountType());
+			ps.setString(6, am.getAccountName());
+			ps.setString(7, am.getLimitRef());
+			ps.setString(8, am.getPreviousAccountNumber());
 			i=ps.executeUpdate();
 			if(i>0){
 				con.close();

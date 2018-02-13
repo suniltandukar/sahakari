@@ -90,6 +90,7 @@ h5 {
 											<option value="${c.categoryId }">${c.categoryHead }</option>
 										</c:forEach>
 								</select>
+
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-12 ">
 							<span class="accountName"></span>
@@ -100,8 +101,10 @@ h5 {
 						</label>
 						<div class="col-md-3 col-sm-3 col-xs-12">
 							<input type="text"
-									class="form-control memberid" name="accountName" id="accountname" value=""
-									data-validation="letternumeric" data-validation-error-msg=" ">
+									class="form-control memberid" name="accountName" id="accountname" value="">
+
+							
+							
 						</div>
 					</div>
 					<div class="form-group">

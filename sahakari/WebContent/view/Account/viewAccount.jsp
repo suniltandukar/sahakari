@@ -42,7 +42,6 @@ display:none;}
 					<thead>
 						<tr>
 							<th>Member Id</th>
-							<th>Legacy Member Id</th>
 							<th>Account Number</th>
 							<th>Account Type</th>
 							<th>Account Name</th>
@@ -54,7 +53,6 @@ display:none;}
 						<c:forEach items="${accountlist }" var="list">
 							<tr>
 								<td>${list.pid }</td>
-								<td>${list.memberid }</td>
 								<td>${list.accountNumber }</td>
 								<td>${list.accountType }</td>
 								<td>${list.accountName }</td>

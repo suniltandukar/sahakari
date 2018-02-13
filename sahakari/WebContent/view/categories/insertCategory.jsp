@@ -1,3 +1,4 @@
+<%@page import="org.json.JSONObject"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -41,10 +42,9 @@ h5 {
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
-				<form class="form-horizontal"  method="post"
-					action="category.add">
+				<form class="form-horizontal" method="post" action="category.add">
 
-					<table class="table borderless" >
+					<table class="table borderless">
 						<tbody>
 							<tr>
 								<td><input type="submit" class="btn btn-success"
@@ -52,24 +52,25 @@ h5 {
 							</tr>
 							<tr>
 								<td>
-									<h5>Category ID</h5> <input type="text"
-									class="form-control" name="categoryId" value="" required>
+									<h5>Category ID</h5> <input type="text" class="form-control"
+									name="categoryId" value="" required>
 								</td>
 								<td>
-									<h5>Category Head</h5> <input type="text"
-									class="form-control " name="categoryHead" value="" required>
+									<h5>Category Head</h5> <input type="text" class="form-control "
+									name="categoryHead" value="" required>
 								</td>
 								<td>
-									<h5>Account Type</h5> <select class="form-control" name="accountType" required >
-										
+									<h5>Account Type</h5> <select class="form-control"
+									name="accountType" required>
+
 										<c:forEach items="${accounttype}" var="at">
-										<option value="${at.accountType }">${at.accountHead }</option>
+											<option value="${at.accountType }">${at.accountHead }</option>
 										</c:forEach>
-									</select>
+								</select>
 								</td>
-								
+
 							</tr>
-							
+
 						</tbody>
 					</table>
 				</form>
@@ -86,40 +87,33 @@ h5 {
 					</li>
 				</ul>
 				<div class="clearfix"></div>
+				<button onclick="fetch();">Fetch Categories</button>
 			</div>
 			<div class="x_content">
-				<table id="datatable" class="table jambo_table table-striped table-bordered"
+				<table id="datatable"
+					class="table jambo_table table-striped table-bordered"
 					style="font-size: 95%;">
-				<thead>
-					<tr>
+					<thead>
+						<tr>
+
+							<th>Category Id</th>
+							<th>Category Head</th>
+							<th>Account Type</th>
+							<th>Action</th>
+
+						</tr>
+					</thead>
+					<tbody id="content">
 						
-						<th>Category Id</th>
-						<th>Category Head</th>
-						<th>Account Type</th>
-						
-					</tr>
-				</thead>
-				<tbody>
-	
-				<c:forEach items="${categorylist}" var="list">
-											
-					<tr class="categories">
-						
-						<td class="categoryid">${list.categoryId }</td>
-						<td>${list.categoryHead }</td>
-						<td>${list.accountType }</td>
-					</tr>
-					
-					</c:forEach>
-				</tbody>
-			</table>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
-<div class="categorymodal"></div>
-	
+	<div class="categorymodal"></div>
+
 	<jsp:include page="/msgmodal"></jsp:include>
-	<script type="text/javascript" src="template/js/form.js"></script> 
+	<script type="text/javascript" src="template/js/form.js"></script>
 	<script type="text/javascript">
 		
 	<%if (request.getAttribute("msg") != null) {%>
@@ -142,6 +136,25 @@ h5 {
 		} 
 		});
 	});
+	function fetch(){
+		$.ajax({
+			url:"getCategoriesDetail.click",
+			dataType:"json",
+			success: function(res){
+				var data="";
+				for(i=0;i<res.length;i++){
+					var p=JSON.parse(res[i]);
+					data+="<tr><td>"+p.categoryId+"</td><td>"+p.categoryHead+"</td><td>"+p.accountType+"</td><td><a href='editcategory.update?categoryId='"+p.categoryId+">Edit</a></td></tr>";
+					
+				}
+				$("#content").html(data);
+			},
+		error:function(){
+			alert("error occured");
+		}
+		
+		})
+	}
 	</script>
 </body>
 </html>
