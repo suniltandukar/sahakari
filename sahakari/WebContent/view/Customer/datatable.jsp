@@ -10,20 +10,14 @@
             <tr>
                 <th>First name</th>
                 <th>Last name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Start date</th>
-                <th>Salary</th>
+               
             </tr>
         </thead>
         <tfoot>
             <tr>
                 <th>First name</th>
                 <th>Last name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Start date</th>
-                <th>Salary</th>
+               
             </tr>
         </tfoot>
     </table>
@@ -35,7 +29,7 @@ $(document).ready(function() {
     $('#example').DataTable( {
         "processing": true,
         "serverSide": true,
-        "ajax": "datas.txt",
+        "ajax": "datatable.click",
         scrollY:        200,
         scroller:       true
     } );
