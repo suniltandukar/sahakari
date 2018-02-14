@@ -1,10 +1,15 @@
 package com.sahakari.daoimpl;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,6 +28,8 @@ public class ViewDaoImpl implements ViewDao{
 	
 	public List<CustomerModel> viewCustomerDetail()
 	{
+
+		HttpServletResponse response = null;
 		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl left join typetbl on typetbl.typeid=customertbl.typeid left join statustbl on statustbl.statusid=customertbl.statusid ";
 		List<CustomerModel> list=new ArrayList<CustomerModel>();
 		CustomerModel cust=null;
@@ -30,8 +37,49 @@ public class ViewDaoImpl implements ViewDao{
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
+			JSONArray jsonArray=new JSONArray();
+			 
+			
+				
+			 
+			
+			
 			while(rs.next())
 			{
+				JSONObject jobj = new JSONObject();
+				String  type_json=rs.getString("name");
+			    String name_json=rs.getString("gender");
+			    String id_json=rs.getString("pid");
+			   
+			   
+					jobj.put("id", id_json);
+					jobj.put("type", type_json);
+				    jobj.put("name", name_json);
+				    jsonArray.put(jobj);
+				    
+				    System.out.println("Json is "+ jobj);
+				
+			   
+			  
+			    	 JSONObject jObjDevice = new JSONObject();
+					    jObjDevice.put("data", jsonArray);
+					    JSONObject jObjDeviceList = new JSONObject();
+					jObjDeviceList.put("memberlist", jObjDevice );
+			
+					  // Writing to a file  
+		            File file=new File("C:/Users/Sunil/Desktop/data.json");  
+		            file.createNewFile();  
+		            FileWriter fileWriter = new FileWriter(file);  
+		            System.out.println("Writing JSON object to file");  
+		            System.out.println("-----------------------");  
+		            System.out.print(jObjDevice);  
+
+		            fileWriter.write(jObjDevice.toString());  
+		            fileWriter.flush();  
+		            fileWriter.close();  
+
+				
+			    
 				
 				cust=new CustomerModel();
 				cust.setPid(rs.getString("pid"));
@@ -53,7 +101,7 @@ public class ViewDaoImpl implements ViewDao{
 				ps=null;
 				return list;
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("viewCustomerDetail");
 			e.printStackTrace();
 		}

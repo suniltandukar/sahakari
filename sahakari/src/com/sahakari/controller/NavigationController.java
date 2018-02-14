@@ -2,10 +2,11 @@ package com.sahakari.controller;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -654,12 +655,31 @@ public class NavigationController extends HttpServlet {
 					.englishToNepali(englishdate);
 			out.println(convertedNepaliDate);
 		} else if (uri.endsWith("datatable.click")) {
-			PrintWriter out = response.getWriter();
-			/*CategoryDao c = new CategoryDaoImpl();
+			
+			JSONObject o=new JSONObject();
+			CategoryDao c = new CategoryDaoImpl();
 			JSONArray list = c.selectCategories();
-			System.out.println(list);
-			out.println(list);*/
-			JSONObject obj = new JSONObject();
+			try {
+				o.put("categorylist", list);
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			response.setContentType("application/json");
+			response.getWriter().println(list);
+			
+			/*File file=new File("C:/Users/Sunil/git/sahakari/sahakari/WebContent/view/Customer/category.json");  
+	            file.createNewFile();  
+	            FileWriter fileWriter = new FileWriter(file);  
+	            System.out.println("Writing JSON object to file");  
+	            System.out.println("-----------------------");  
+	            System.out.print(o);  
+
+	            fileWriter.write(o.toString());  
+	            fileWriter.flush();  
+	            fileWriter.close();*/
+	            
+	            
+			/*JSONObject obj = new JSONObject();
 			JSONArray jsonArray=new JSONArray();
 
 			try {
@@ -672,7 +692,7 @@ public class NavigationController extends HttpServlet {
 				out.println(jsonText);
 			} catch (JSONException e) {
 				e.printStackTrace();
-			}
+			}*/
 
 		}
 	}

@@ -5,21 +5,16 @@
 	</head>
 	<body>
 	
-	<table id="example" class="display" cellspacing="0" width="100%">
+	<table id="example" class="display" >
         <thead>
             <tr>
-                <th>First name</th>
-                <th>Last name</th>
+               <th>Name</th>
+                <th>Id</th>
+                <th>Type</th>
                
             </tr>
         </thead>
-        <tfoot>
-            <tr>
-                <th>First name</th>
-                <th>Last name</th>
-               
-            </tr>
-        </tfoot>
+     
     </table>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -28,13 +23,15 @@
 $(document).ready(function() {
     $('#example').DataTable( {
         
-        "ajax": "datas.json",
-        "columns": [
-                    {"data":"firstname"},
-                    {"data":"lastname"}
-                    ],
-        scrollY:        200,
-        scroller:       true
+        "ajax": "data.json",
+        "columns":[
+        	{"data":"name"},
+        	{"data":"id"},
+        	{"data":"type"}
+        		
+        	
+        ]
+      
     } );
 } );
 
