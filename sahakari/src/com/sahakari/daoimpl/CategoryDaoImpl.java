@@ -58,6 +58,7 @@ public class CategoryDaoImpl implements CategoryDao {
 		                obj.put("categoryId",rs.getString("categoryId"));
 		                obj.put("inputter",rs.getString("inputter"));
 		                array.put(obj.toString());
+		              
 		            }while(rs.next());
 		           return array;
 		        }
