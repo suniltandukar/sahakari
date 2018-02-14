@@ -17,6 +17,8 @@
     <link href="template/css/scroller.bootstrap.min.css" rel="stylesheet">
     <link href="template/css/switchery.min.css" rel="stylesheet">
     <link href="template/css/bootstrap-tagsinput.css" rel="stylesheet">
+     <link href="template/css/jquery.dynatable.css" rel="stylesheet">
+    
     
     <!-- Font Awesome -->
     <link href="template/css/font-awesome.min.css" rel="stylesheet">
@@ -59,6 +61,7 @@
     <script src="template/js/vfs_fonts.js"></script>
       <script src="template/js/switchery.min.js"></script>
          <script src="template/js/bootstrap-tagsinput.js"></script>
+            <script src="template/js/jquery.dynatable.js"></script>
      
             <script src="https://cdn.datatables.net/scroller/1.4.4/js/dataTables.scroller.min.js"></script>
     

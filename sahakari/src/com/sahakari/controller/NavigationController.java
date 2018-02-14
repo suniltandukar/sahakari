@@ -655,12 +655,20 @@ public class NavigationController extends HttpServlet {
 			out.println(convertedNepaliDate);
 		} else if (uri.endsWith("datatable.click")) {
 			PrintWriter out = response.getWriter();
+			/*CategoryDao c = new CategoryDaoImpl();
+			JSONArray list = c.selectCategories();
+			System.out.println(list);
+			out.println(list);*/
 			JSONObject obj = new JSONObject();
+			JSONArray jsonArray=new JSONArray();
 
 			try {
 				obj.put("firstname", "shishir");
 				obj.put("lastname", "karki");
+				jsonArray.put(obj);
 				String jsonText = obj.toString();
+				System.out.println(jsonArray);
+				
 				out.println(jsonText);
 			} catch (JSONException e) {
 				e.printStackTrace();

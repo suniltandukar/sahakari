@@ -27,9 +27,12 @@
 <script>
 $(document).ready(function() {
     $('#example').DataTable( {
-        "processing": true,
-        "serverSide": true,
-        "ajax": "datatable.click",
+        
+        "ajax": "datas.json",
+        "columns": [
+                    {"data":"firstname"},
+                    {"data":"lastname"}
+                    ],
         scrollY:        200,
         scroller:       true
     } );
