@@ -23,7 +23,7 @@
 $(document).ready(function() {
     $('#example').DataTable( {
         
-        "ajax": "data.json",
+        "ajax": "customerdetailjson.click",
         "columns":[
         	{"data":"name"},
         	{"data":"id"},

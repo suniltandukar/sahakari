@@ -170,11 +170,16 @@ public class NavigationController extends HttpServlet {
 
 			}
 
-		} else if (uri.endsWith("viewAllCustomers.click")) {
+		}
+		else if(uri.endsWith("customerdetailjson.click")){
+			System.out.println("reached");
+			PrintWriter out=response.getWriter();
 			ViewDao view = new ViewDaoImpl();
-			List<CustomerModel> list = view.viewCustomerDetail();
-			request.setAttribute("list", list);
-
+			JSONObject list = view.viewCustomerDetail();
+			out.println(list.toString());
+			
+		}
+		else if (uri.endsWith("viewAllCustomers.click")) {
 			RequestDispatcher rd = request
 					.getRequestDispatcher("view/Customer/Customer_View.jsp");
 			rd.forward(request, response);
@@ -258,7 +263,7 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 		} else if (uri.endsWith("sharecertificateinsert.click")) {
 			ViewDao view = new ViewDaoImpl();
-			List<CustomerModel> list = view.viewCustomerDetail();
+			JSONObject list = view.viewCustomerDetail();
 			request.setAttribute("list", list);
 
 			List<CustomerModel> slist = view.viewShareCertificate();

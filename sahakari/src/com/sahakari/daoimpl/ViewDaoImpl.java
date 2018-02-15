@@ -1,8 +1,5 @@
 package com.sahakari.daoimpl;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,48 +23,50 @@ public class ViewDaoImpl implements ViewDao{
 	List<CustomerModel> list=null;
 	CustomerModel cust=null;
 	
-	public List<CustomerModel> viewCustomerDetail()
+	public JSONObject viewCustomerDetail()
 	{
 
-		HttpServletResponse response = null;
+		//HttpServletResponse response = null;
 		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl left join typetbl on typetbl.typeid=customertbl.typeid left join statustbl on statustbl.statusid=customertbl.statusid ";
-		List<CustomerModel> list=new ArrayList<CustomerModel>();
-		CustomerModel cust=null;
+		//List<CustomerModel> list=new ArrayList<CustomerModel>();
+		JSONObject jObjDevice=null;
+		//CustomerModel cust=null;
 		try {
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
 			JSONArray jsonArray=new JSONArray();
-			 
-			
-				
-			 
-			
 			
 			while(rs.next())
 			{
 				JSONObject jobj = new JSONObject();
-				String  type_json=rs.getString("name");
-			    String name_json=rs.getString("gender");
-			    String id_json=rs.getString("pid");
+				String  memberid_json=rs.getString("pid");
+			    String legacyid_json=rs.getString("memberid");
+			    String name_json=rs.getString("name");
+			    //String registrationdate_json=rs.getString("registrationDate");
+			    String gender_json=rs.getString("gender");
+			    //String dob_json=rs.getString("dob");
+			    String address_json=rs.getString("address");
 			   
 			   
-					jobj.put("id", id_json);
-					jobj.put("type", type_json);
-				    jobj.put("name", name_json);
+					jobj.put("pid", memberid_json);
+					jobj.put("memberid", legacyid_json);
+					jobj.put("name", name_json);
+				    //jobj.put("registrationdate", registrationdate_json);
+				    jobj.put("gender", gender_json);
+				    //jobj.put("dob", dob_json);
+				    jobj.put("address", address_json);
 				    jsonArray.put(jobj);
 				    
 				    System.out.println("Json is "+ jobj);
-				
-			   
 			  
-			    	 JSONObject jObjDevice = new JSONObject();
+			    	 jObjDevice = new JSONObject();
 					    jObjDevice.put("data", jsonArray);
-					    JSONObject jObjDeviceList = new JSONObject();
-					jObjDeviceList.put("memberlist", jObjDevice );
+					    /*JSONObject jObjDeviceList = new JSONObject();
+					jObjDeviceList.put("memberlist", jObjDevice );*/
 			
 					  // Writing to a file  
-		            File file=new File("C:/Users/Sunil/Desktop/data.json");  
+		         /*   File file=new File("C:/Users/Sunil/Desktop/data.json");  
 		            file.createNewFile();  
 		            FileWriter fileWriter = new FileWriter(file);  
 		            System.out.println("Writing JSON object to file");  
@@ -78,37 +77,18 @@ public class ViewDaoImpl implements ViewDao{
 		            fileWriter.flush();  
 		            fileWriter.close();  
 
-				
-			    
-				
-				cust=new CustomerModel();
-				cust.setPid(rs.getString("pid"));
-				cust.setMemberid(rs.getString("memberid"));
-				cust.setRegistrationDate(rs.getString("registrationDate"));
-				cust.setAddress(rs.getString("address"));
-				cust.setName(rs.getString("Name"));
-				cust.setGender(rs.getString("Gender"));
-				cust.setDob(rs.getString("Dob"));
-				cust.setTypeName(rs.getString("TypeName"));
-				cust.setStatusName(rs.getString("StatusName"));
-				cust.setPid(rs.getString("pid"));
-				cust.setAddress(rs.getString("address"));
-				list.add(cust);
+			*/
 			}
-			if(list.size()>0){
-				con.close();
-				rs=null;
-				ps=null;
-				return list;
-			}
+			
 		} catch (Exception e) {
 			System.out.println("viewCustomerDetail");
 			e.printStackTrace();
 		}
 		
 		
-		return null;
+		return jObjDevice;
 	}
+	
 	public List<CustomerModel> viewSearchedCustomerDetail(String searchingby){
 		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl left join typetbl on typetbl.typeid=customertbl.typeid left join statustbl on statustbl.statusid=customertbl.statusid where concat(customertbl.pid, customertbl.name) like '%"+searchingby+"%' ";
 		List<CustomerModel> list=new ArrayList<CustomerModel>();

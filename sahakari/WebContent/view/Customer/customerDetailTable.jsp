@@ -9,31 +9,11 @@
 				<th>Member Id</th>
 				<th>Legacy Member Id</th>
 				<th>Name</th>
-				<th>Registration Date</th>
 				<th>Gender</th>
-				<th>Date of Birth</th>
 				<th>Address</th>
-				<th>Action</th>
 			</tr>
 		</thead>
-		<tbody>
-			<c:forEach items="${list}" var="list">
-
-				<tr>
-					<td>${list.pid }</td>
-					<td>${list.memberid }</td>
-					<td>${list.name }</td>
-					<td>${list.registrationDate }</td>
-					<td>${list.gender }</td>
-					<td>${list.dob }</td>
-					<td>${list.address }</td>
-
-					<td><a data-value="${list.pid}"
-						class="viewmemberdetail btn btn-primary btn-xs"
-						style="color: white;">View </a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				</tr>
-			</c:forEach>
-		</tbody>
+		
 	</table>
 </div>
 <div class="modal fade bs-example-modal-lg" id="detailModal"
@@ -46,12 +26,19 @@
 </div>
 <script>
 $(document).ready(function() {
-    $('#datatableaa').DataTable( {
-        deferRender:    true,
-        scrollY:        800,
-        scrollCollapse: true,
-        scroller:       true
-    } );
+	 $('#datatableaa').DataTable( {
+	        
+	        "ajax": "customerdetailjson.click",
+	        "columns":[
+	        	{"data":"pid"},
+	        	{"data":"memberid"},
+	        	{"data":"name"},
+	        	
+	        	{"data":"gender"},
+	        	
+	        	{"data":"address"},
+	        ]
+	    } );
 } );
 $('#datatableaa').each(function() 
 		{
