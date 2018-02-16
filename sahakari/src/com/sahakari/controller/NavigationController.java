@@ -647,6 +647,12 @@ public class NavigationController extends HttpServlet {
 			out.println(array);
 		}
 
+		else if(uri.endsWith("createLoan.click"))
+		{
+			RequestDispatcher rd = request.getRequestDispatcher("view/LoanModule/Loan/createLoan.jsp");
+			rd.forward(request, response);
+		}
+			
 		else if (uri.endsWith("nepaliToEnglish.click")) {
 			PrintWriter out = response.getWriter();
 			String nepalidate = request.getParameter("nepalidate");
