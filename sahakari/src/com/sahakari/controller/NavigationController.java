@@ -700,11 +700,24 @@ public class NavigationController extends HttpServlet {
 			}*/
 
 		}
-		if (uri.endsWith("insertCollateral.click")) {
+		else if (uri.endsWith("insertCollateral.click")) {
 			
 			RequestDispatcher rd = request
 					.getRequestDispatcher("view/LoanModule/collateral/insert.jsp");
 			rd.forward(request, response);
 		}
+		else if (uri.endsWith("insertLimit.click")) {
+			
+			RequestDispatcher rd = request
+					.getRequestDispatcher("view/LoanModule/limit/insert.jsp");
+			rd.forward(request, response);
+		}
+else if (uri.endsWith("insertTermDeposits.click")) {
+	
+	RequestDispatcher rd = request
+			.getRequestDispatcher("view/LoanModule/termDeposits/insert.jsp");
+	rd.forward(request, response);
+}
 	}
+	
 }

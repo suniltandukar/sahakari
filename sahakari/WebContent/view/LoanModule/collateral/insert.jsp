@@ -65,70 +65,151 @@ h5 {
 							<div role="tabpanel" class="tab-pane fade active in"
 								id="tab_content1" aria-labelledby="home-tab">
 								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Customer</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Customer
+										ID</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" readonly>
+										<input type="text" class="form-control " name="customerid"
+											placeholder="" value="">
 									</div>
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Customer</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Collateral
+										Code</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" readonly>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Customer</label>
-									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" readonly>
-									</div>
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Customer</label>
-									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" readonly>
+										<input type="text" class="form-control" name="collateralCode"
+											placeholder="" value="">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Customer</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Valuation
+										Amount</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" readonly>
+										<input type="text" class="form-control" name="valuationAmount"
+											placeholder="" value="">
 									</div>
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Customer</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Loan
+										to Value Ratio(%)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" readonly>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Customer</label>
-									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" readonly>
-									</div>
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Customer</label>
-									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" readonly>
+										<input type="text" class="form-control "
+											name="loanToValueRatio" placeholder="" value="">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Customer</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Execution
+										Value</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" readonly>
+										<input type="text" class="form-control" name="executionValue"
+											placeholder="" value="">
 									</div>
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Customer</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Limit
+										Reference</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" readonly>
+										<input type="text" class="form-control" name="limitReference"
+											placeholder="" value="">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Valuation
+										Date(B.S.)</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control"
+											name="valuationDate" placeholder="" value="">
+									</div>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Valuation
+										Date(A.D.)</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control" name="valuationDateen"
+											placeholder="" value="">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Maturity
+										Date(B.S.)</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control" name="maturityDate"
+											placeholder="" value="">
+									</div>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Maturity
+										Date(A.D.)</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control" name="maturityDateen"
+											placeholder="" value="">
 									</div>
 								</div>
 
 							</div>
+							
 							<div role="tabpanel" class="tab-pane fade" id="tab_content2"
-								aria-labelledby="profile-tab"></div>
-
+								aria-labelledby="profile-tab">
+							<div class="form-group">
+								<label class="control-label col-md-2 col-sm-2 col-xs-12">Owner Name</label>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<input type="text" class="form-control" name="ownerName"
+										placeholder="" value="">
+								</div>
+								<label class="control-label col-md-2 col-sm-2 col-xs-12">Collateral Unit
+									</label>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<select class="form-control" name="collateralUnit">
+										<option value="">Select Collateral Unit</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2 col-sm-2 col-xs-12">Auantity/Area</label>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<input type="text" class="form-control" name="area"
+										placeholder="" value="">
+								</div>
+								
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2 col-sm-2 col-xs-12">Address</label>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<input type="text" class="form-control" name="address"
+										placeholder="" value="">
+								</div>
+								<label class="control-label col-md-2 col-sm-2 col-xs-12">Mortgage amount
+									</label>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<input type="text" class="form-control" name="mortgageAmount"
+										placeholder="" value="">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2 col-sm-2 col-xs-12">Mortgage Ref No</label>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<input type="text" class="form-control" name="mortgageRefNo"
+										placeholder="" value="">
+								</div>
+								
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2 col-sm-2 col-xs-12">Mortgage Date(B.S.)
+									</label>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<input type="text" class="form-control" name="mortgageDate"
+										placeholder="" value="">
+								</div>
+								<label class="control-label col-md-2 col-sm-2 col-xs-12">Mortgage Date(A.D.)
+									</label>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<input type="text" class="form-control" name="mortgageDateen"
+										placeholder="" value="">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2 col-sm-2 col-xs-12">Mortgage Office</label>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<input type="text" class="form-control" name="mortgageOffice"
+										placeholder="" value="">
+								</div>
+								<label class="control-label col-md-2 col-sm-2 col-xs-12">Collateral Status
+									</label>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<input type="text" class="form-control" name="collateralStatus"
+										placeholder="" value="">
+								</div>
+							</div>
+							</div>
 						</div>
 					</div>
 				</form>
