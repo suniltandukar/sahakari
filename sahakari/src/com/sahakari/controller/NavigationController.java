@@ -78,7 +78,7 @@ public class NavigationController extends HttpServlet {
 			out.println(list);
 
 		}
-		if (uri.endsWith("category.click")) {
+		else if (uri.endsWith("category.click")) {
 			CategoryDao c = new CategoryDaoImpl();
 			List<CategoryModel> accounttype = c.accounttype();
 			request.setAttribute("accounttype", accounttype);
@@ -705,6 +705,12 @@ public class NavigationController extends HttpServlet {
 				e.printStackTrace();
 			}*/
 
+		}
+		if (uri.endsWith("insertCollateral.click")) {
+			
+			RequestDispatcher rd = request
+					.getRequestDispatcher("view/LoanModule/collateral/insert.jsp");
+			rd.forward(request, response);
 		}
 	}
 }

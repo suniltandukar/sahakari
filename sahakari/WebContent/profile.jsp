@@ -229,7 +229,7 @@ display:block;}
 
 											</ul></li>
 										<li><a href="pageNotFound.jsp" target="iframe_a">Past Due Loan </a></li>
-										<li><a href="pageNotFound.jsp" target="iframe_a">Collateral </a></li>
+										<li><a href="insertCollateral.click" target="iframe_a">Collateral </a></li>
 										<li><a href="pageNotFound.jsp" target="iframe_a">Limit </a></li>
 										<li><a href="pageNotFound.jsp" target="iframe_a">Guarantor </a></li>
 										<li><a href="pageNotFound.jsp" target="iframe_a">Valuator </a></li>
