@@ -39,6 +39,7 @@ public class ViewDaoImpl implements ViewDao{
 			
 			while(rs.next())
 			{
+				
 				JSONObject jobj = new JSONObject();
 				String  memberid_json=rs.getString("pid");
 			    String legacyid_json=rs.getString("memberid");
