@@ -220,7 +220,7 @@ display:block;}
 									<ul class="nav child_menu">
 										<li><a><span class="fa fa-chevron-down"></span>Loan</a>
 											<ul class="nav child_menu">
-												<li id="i"><a href="createLoan.jsp" target="iframe_a"> Create New Loan
+												<li id="i"><a href="createLoan.click" target="iframe_a"> Create New Loan
 												</a></li>
 												<li id="v"><a href="pageNotFound.jsp" target="iframe_a">Amendment of Loan
 												</a></li>

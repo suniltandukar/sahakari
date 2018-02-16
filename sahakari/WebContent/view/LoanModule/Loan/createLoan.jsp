@@ -1,462 +1,249 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="java.sql.*"%>
 <jsp:include page="/includefile"></jsp:include>
 <html>
 <head>
+<style type="text/css">
+/* Add ajax preloader when server is being requested */
+.validating-server-side {
+	background: url(img/ajax-preloader.gif) no-repeat center right;
+	opacity: 0.6
+}
+</style>
+
+
 <style>
 h5 {
 	font-size: 80%;
 	font-weight: bold;
 }
 </style>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 </head>
-<body class="background">
+<body class="hiddenscroll background">
+
 	<div class="breadcrumb-line">
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><i class="fa fa-home"
 					aria-hidden="true"></i>&nbsp;<a href="#">Home</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Account</li>
-				<li class="breadcrumb-item active" aria-current="page">Add
-					Account</li>
+				<li class="breadcrumb-item active" aria-current="page">Loan
+					Module</li>
+				<li class="breadcrumb-item active" aria-current="page">New Loan
+				</li>
 			</ol>
 		</nav>
 	</div>
 	<div class="col-md-12 col-sm-12 col-xs-12">
 
-		
-			
-			<div class="col-md-8 col-xs-12">
 		<div class="x_panel">
-			<form class="form-horizontal form-label-left input_mask"
-				method="post" action="account.add">
+			<div class="x_title">
+				<h2>CREATE NEW LOAN</h2>
+				<ul class="nav navbar-right panel_toolbox">
+					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+				<form class="form-horizontal customerForm toggle-disabled"
+					id="form1" method="post" action="customer.add">
+					<div class="" role="tabpanel" data-example-id="togglable-tabs">
+						<ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+							<li><button type="submit" form="form1"
+									class="btn btn-success form">Save</button></li>
+							<li role="presentation" class="active"><a
+								href="#tab_content1" id="home-tab" role="tab" data-toggle="tab"
+								aria-expanded="true">Loan(Single Value)</a></li>
+							<li role="presentation" class=""><a href="#tab_content2"
+								role="tab" id="profile-tab" data-toggle="tab"
+								aria-expanded="false">Charges(Multi Value)</a></li>
+								<li role="presentation" class=""><a href="#tab_content3"
+								role="tab" id="profile-tab" data-toggle="tab"
+								aria-expanded="false">Limit</a></li>
 
-				<div class="x_title">
-					<h2>Add New Account</h2>
-					<div class="col-md-4 col-sm-4 col-xs-12 pull-right">
-						<input type="text" id="membername"
-									class="form-control" name="membername"
-									value="" readonly >
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="x_content">
-					<br />
+						</ul>
+						<div id="myTabContent" class="tab-content">
+							<div role="tabpanel" class="tab-pane fade active in"
+								id="tab_content1" aria-labelledby="home-tab">
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Customer ID</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="customerId">
+									</div>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Account Number</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="accountNumber" >
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Interest Type</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="interestType" >
+									</div>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Variable</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="variable">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Interest Rate</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="interestRate">
+									</div>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Principal Amount</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="principalAmount">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Start Date(B.S.)</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="startDate">
+									</div>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Start Date(A.D.)</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="startdateen" >
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Maturity Date(B.S.)</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="maturityDate" >
+									</div>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Maturity Date(A.D.)</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="maturityDateen" >
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Repayment Date(B.S)</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="repaymentDate" >
+									</div>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Repayment Date(A.D.)</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="repaymentDateen" >
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Loan Drawdown Account</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="loanDrawdownAccount" >
+									</div>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Principal Liq Account</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="principalLiqAccount" >
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Interest Liq Account</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="interestLiqAccount" >
+									</div>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Frequency</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="frequency" >
+									</div>
+								</div>
 
-					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Member Id</label>
-						<div class="col-md-2 col-sm-2 col-xs-12">
-							 <input type="text" id="memberid"
-									class="form-control sharecertmemberid memberid" name="pid"
-									value="" data-validation="number" data-validation-error-msg=" ">
-						</div>
-						<div class="col-md-8 col-sm-8 col-xs-12 ">
-							<span id="customername"></span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Account 
-							No</label>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							 <input type="text"
-									class="form-control accountNumber" name="accountNumber"
-									value="${accountno }" data-validation="number"
-									data-validation-error-msg=" " required readonly>
-						</div>
-					</div>
-					<div class="form-group" id="cashWithdraw">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Alternate
-							Account No</label>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<input type="text"
-									class="form-control" name="alternativeAccounId" value=""
-									data-validation="number" data-validation-error-msg=" ">
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-12 ">
-							<span class="accountName"></span>
-						</div>
-					</div>
-					<div class="form-group" id="cashDeposit">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">
-							Account Type</label>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<select class="form-control categoryid"
-									name="categoryId" id="categories">
-										<option value="">Select Category</option>
-										<c:forEach items="${categorylist }" var="c">
-											<option value="${c.categoryId }">${c.categoryHead }</option>
-										</c:forEach>
-								</select>
-
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-12 ">
-							<span class="accountName"></span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Account Name
-						</label>
-						<div class="col-md-3 col-sm-3 col-xs-12">
-							<input type="text"
-									class="form-control memberid" name="accountName" id="accountname" value="">
-
-							
-							
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Limit Reference </label>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<input type="text"
-									class="form-control" name="limitRef" value="">
-						</div>
-					</div>
-				
-					<div class="ln_solid"></div>
-					<div class="form-group">
-						<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-							<button class="btn btn-info" type="button" id="validate">Validate</button>
-							<button class="btn btn-primary" type="reset">Reset</button>
-							<input type="submit" class="btn btn-success" value="Submit">
-						</div>
-					</div>
-
-
-				</div>
-			</form>
-		</div>
-
-									
-									
 							</div>
-							
+							<div role="tabpanel" class="tab-pane fade" id="tab_content2"
+								aria-labelledby="profile-tab">
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge Debit Amount</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="chargeDebitAmount">
+									</div>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge Amount</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="chargeAmount" >
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge Payment Date(B.S.)</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="chargePaymentDate" >
+									</div>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge Payment Date(A.D.)</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="chargeDebitAmount">
+									</div>
+								</div>
+								
+									
+									
+									
+									
+								</div>
+								
+								
+									<div role="tabpanel" class="tab-pane fade" id="tab_content3"
+								aria-labelledby="profile-tab">
+									
+										<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Limit Reference Number</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="limitReferenceNumber">
+									</div>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Limit Amount</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="LimitAmount" >
+									</div>
+								</div>
+									<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Maximum Withdrawal Amount</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="maximumWithdrawalAmount">
+									</div>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Utilized Amount</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="utilizedAmount" >
+									</div>
+								</div>
+									<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Balance Amount</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="balanceAmount">
+									</div>
+									
+								</div>
+								
+								</div>
+								
 
-	</div>
-
-			<div id="1" class="tab-pane fade in active"></div>
-		</div>
-	</div>
-	<jsp:include page="/msgmodal"></jsp:include>
-	<div class="modal fade" id="memberidmsgmodal" role="dialog">
-		<div class="modal-dialog modal-sm">
-			<div class="modal-content">
-				<div class="modal-body">
-					<p id="modalmsg"></p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
-	<input type="hidden" class="memberidstatus" value="">
-	<script type="text/javascript" src="assets/js/autoSelection.js"></script>
-	<script type="text/javascript" src="assets/js/form.js"></script>
-	<script>
-	<%if(request.getAttribute("msg")!=null){%>
-	   $('#myModal').modal('show');
-	   <%}%>
-	  
-</script>
-	<!-- <script>
-  $.validate({
-    lang: 'en',
-    modules : 'date,toggleDisabled',
-	  disabledFormFilter : 'form.toggle-disabled',
-	 showErrorDialogs : false
 
-    });
-</script> -->
-<script>
-$("#validate").click(function()
-		{
-		var id=$('.memberid').val();
-		var dataString = 'id='+ id;
-		$.ajax
-		({
-		type: "POST",
-		url: "getmembername.click",
-		data: dataString,
-		cache: false,
-		success: function(html)
-		{
-		$("#membername").val(html);
-		$("#accountname").val(html);
-		} 
-		});
-		});
-$("#categories").change(function()
-		{
-		var id=$(this).val();
-		var dataString = 'id='+ id;
-
-		$.ajax
-		({
-		type: "POST",
-		url: "showaccounttype.click",
-		
-		data: dataString,
-		cache: false,
-		success: function(html)
-		{
-		$("#accounttype").html(html);
-		} 
-		});
-
-		});
-$("#validate").click(function()
-		 
-        {
-
- var id=$('.memberid').val();
- var dataString = 'memberid='+ id;
- $.ajax
-    ({
-    type: "POST",
-    url: "generateaccountno.click",
-    data: dataString,
-    cache: false,
-    success: function(html)
-    {
-    $(".accountNumber").val(html);
-    } 
-    });
- 
-});
-</script>
-</body>
-</html>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<jsp:include page="/includefile"></jsp:include>
-<html>
-<head>
-<style>
-h5 {
-	font-size: 80%;
-	font-weight: bold;
-}
-</style>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
-</head>
-<body class="background">
-	<div class="breadcrumb-line">
-		<nav aria-label="breadcrumb" role="navigation">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><i class="fa fa-home"
-					aria-hidden="true"></i>&nbsp;<a href="#">Home</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Account</li>
-				<li class="breadcrumb-item active" aria-current="page">Add
-					Account</li>
-			</ol>
-		</nav>
-	</div>
-	<div class="col-md-12 col-sm-12 col-xs-12">
-
-		
-			
-			<div class="col-md-8 col-xs-12">
-		<div class="x_panel">
-			<form class="form-horizontal form-label-left input_mask"
-				method="post" action="account.add">
-
-				<div class="x_title">
-					<h2>Add New Account</h2>
-					<div class="col-md-4 col-sm-4 col-xs-12 pull-right">
-						<input type="text" id="membername"
-									class="form-control" name="membername"
-									value="" readonly >
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="x_content">
-					<br />
-
-					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Member Id</label>
-						<div class="col-md-2 col-sm-2 col-xs-12">
-							 <input type="text" id="memberid"
-									class="form-control sharecertmemberid memberid" name="pid"
-									value="" data-validation="number" data-validation-error-msg=" ">
-						</div>
-						<div class="col-md-8 col-sm-8 col-xs-12 ">
-							<span id="customername"></span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Account 
-							No</label>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							 <input type="text"
-									class="form-control accountNumber" name="accountNumber"
-									value="${accountno }" data-validation="number"
-									data-validation-error-msg=" " required readonly>
-						</div>
-					</div>
-					<div class="form-group" id="cashWithdraw">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Alternate
-							Account No</label>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<input type="text"
-									class="form-control" name="alternativeAccounId" value=""
-									data-validation="number" data-validation-error-msg=" ">
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-12 ">
-							<span class="accountName"></span>
-						</div>
-					</div>
-					<div class="form-group" id="cashDeposit">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">
-							Account Type</label>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<select class="form-control categoryid"
-									name="categoryId" id="categories">
-										<option value="">Select Category</option>
-										<c:forEach items="${categorylist }" var="c">
-											<option value="${c.categoryId }">${c.categoryHead }</option>
-										</c:forEach>
-								</select>
-
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-12 ">
-							<span class="accountName"></span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Account Name
-						</label>
-						<div class="col-md-3 col-sm-3 col-xs-12">
-							<input type="text"
-									class="form-control memberid" name="accountName" id="accountname" value="">
-
-							
-							
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Limit Reference </label>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<input type="text"
-									class="form-control" name="limitRef" value="">
-						</div>
-					</div>
-				
-					<div class="ln_solid"></div>
-					<div class="form-group">
-						<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-							<button class="btn btn-info" type="button" id="validate">Validate</button>
-							<button class="btn btn-primary" type="reset">Reset</button>
-							<input type="submit" class="btn btn-success" value="Submit">
-						</div>
-					</div>
-
-
-				</div>
-			</form>
-		</div>
-
-									
-									
-							</div>
-							
-
-	</div>
-
-			<div id="1" class="tab-pane fade in active"></div>
-		</div>
-	</div>
-	<jsp:include page="/msgmodal"></jsp:include>
-	<div class="modal fade" id="memberidmsgmodal" role="dialog">
-		<div class="modal-dialog modal-sm">
-			<div class="modal-content">
-				<div class="modal-body">
-					<p id="modalmsg"></p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<input type="hidden" class="memberidstatus" value="">
-	<script type="text/javascript" src="assets/js/autoSelection.js"></script>
-	<script type="text/javascript" src="assets/js/form.js"></script>
-	<script>
-	<%if(request.getAttribute("msg")!=null){%>
-	   $('#myModal').modal('show');
-	   <%}%>
-	  
-</script>
-	<!-- <script>
-  $.validate({
-    lang: 'en',
-    modules : 'date,toggleDisabled',
-	  disabledFormFilter : 'form.toggle-disabled',
-	 showErrorDialogs : false
-
-    });
-</script> -->
-<script>
-$("#validate").click(function()
-		{
-		var id=$('.memberid').val();
-		var dataString = 'id='+ id;
-		$.ajax
-		({
-		type: "POST",
-		url: "getmembername.click",
-		data: dataString,
-		cache: false,
-		success: function(html)
-		{
-		$("#membername").val(html);
-		$("#accountname").val(html);
-		} 
-		});
-		});
-$("#categories").change(function()
-		{
-		var id=$(this).val();
-		var dataString = 'id='+ id;
-
-		$.ajax
-		({
-		type: "POST",
-		url: "showaccounttype.click",
-		
-		data: dataString,
-		cache: false,
-		success: function(html)
-		{
-		$("#accounttype").html(html);
-		} 
-		});
-
-		});
-$("#validate").click(function()
-		 
-        {
-
- var id=$('.memberid').val();
- var dataString = 'memberid='+ id;
- $.ajax
-    ({
-    type: "POST",
-    url: "generateaccountno.click",
-    data: dataString,
-    cache: false,
-    success: function(html)
-    {
-    $(".accountNumber").val(html);
-    } 
-    });
- 
-});
-</script>
 </body>
 </html>
