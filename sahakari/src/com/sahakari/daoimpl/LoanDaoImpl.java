@@ -15,7 +15,7 @@ public class LoanDaoImpl implements LoanDao{
 		try{
 			String query="update accountstbl set interestType=?,interestRate=?,principalAmount double(16,2),startDateNP=?,startDateEn=?,maturityDateNP=?,maturityDateEn=?,repaymentStartDateNp=?,repaymentStartDateEn=?,repaymentFrequency=?,loanDrawdownAc=?,chargeDebitAc=?,chargeAmount=?,chargePaymentDate=?,interestLiqAccount=? where accountNumber=?";
 			con=DBConnection.getConnection();
-			ps=con.prepareStatement("query");
+			ps=con.prepareStatement(query);
 			ps.setString(1,am.getInterestType() );
 			ps.setString(2,am.getInterestRate() );
 			ps.setString(3,am.getPrincipalAmount() );
