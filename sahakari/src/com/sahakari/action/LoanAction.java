@@ -34,7 +34,7 @@ public class LoanAction {
 		String chargeDebitAccount=request.getParameter("chargeDebitAccount");
 		String chargeAmount=request.getParameter("chargeAmount");
 		String chargePaymentDate=request.getParameter("chargePaymentDate");
-		String chargePaymentDateen=request.getParameter("chargePaymentDateen");
+		String chargePaymentDateen=request.getParameter("chargePaymentDate");
 		
 		String limitReferenceNumber=request.getParameter("limitReferenceNumber");
 		String limitAmount=request.getParameter("limitAmount");

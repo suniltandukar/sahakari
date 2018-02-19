@@ -170,24 +170,24 @@ h5 {
 								<div class="form-group">
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge Debit Amount</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="chargeDebitAmount">
+										<input type="text" class="form-control "
+											placeholder="" value="" name="chargeDebitAccount">
 									</div>
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge Amount</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
+										<input type="text" class="form-control "
 											placeholder="" value="" name="chargeAmount" >
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge Payment Date(B.S.)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
+										<input type="text" class="form-control"
 											placeholder="" value="" name="chargePaymentDate" >
 									</div>
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge Payment Date(A.D.)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
+										<input type="text" class="form-control"
 											placeholder="" value="" name="chargeDebitAmount">
 									</div>
 								</div>

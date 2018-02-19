@@ -42,7 +42,7 @@ public class LimitDaoImpl implements LimitDao{
 			ps.setString(23, l.getLimitTransferFromcus());
 			ps.setString(24, l.getInputter());
 			ps.setString(25, l.getAuthorizer());
-			ps.setString(26, l.getLimitStatus);
+			ps.setString(26, l.getLimitStatus());
 			int i=ps.executeUpdate();
 			if(i>0){
 				return true;

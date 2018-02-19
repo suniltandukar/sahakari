@@ -12,7 +12,15 @@ limitAvailableAmount , reducingLimit ,
 approvedAmount , maximumwithdrawlAmount ,
 utilizedAmount , balanceAmount ,
 limitTransferTocus , limitTransferFromcus ,
-Inputter , authorizer ;
+Inputter , authorizer ,limitStatus;
+
+public String getLimitStatus() {
+	return limitStatus;
+}
+
+public void setLimitStatus(String limitStatus) {
+	this.limitStatus = limitStatus;
+}
 
 public String getPID() {
 	return PID;
