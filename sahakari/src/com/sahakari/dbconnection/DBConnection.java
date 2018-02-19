@@ -6,6 +6,7 @@ import com.mysql.jdbc.Connection;
 
 public class DBConnection {
 	private static Connection con=null;
+	
     static{//instantiation block-called before constructor static-once work is done remains constant
         try{
             Class.forName("com.mysql.jdbc.Driver");

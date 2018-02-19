@@ -106,25 +106,25 @@ h5 {
 								<div class="form-group">
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Start Date(B.S.)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="startDate">
+										<input type="text" class="form-control startdatenep"
+											placeholder="" value="" name="startDate" onblur="nepaliToEnglish('.startdatenep','.startdateen')">
 									</div>
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Start Date(A.D.)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="startdateen" >
+										<input type="text" class="form-control startdateen"
+											placeholder="" value="" name="startdateen" onblur="englishToNepali('.startdatenep','startdateen')">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Maturity Date(B.S.)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="maturityDate" >
+										<input type="text" class="form-control maturityDatenep"
+											placeholder="" value="" name="maturityDate" onblur="nepaliToEnglish('.maturityDatenep','.maturityDateen')">
 									</div>
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Maturity Date(A.D.)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="maturityDateen" >
+										<input type="text" class="form-control maturityDateen"
+											placeholder="" value="" name="maturityDateen" onblur="englishToNepali('.maturityDatenep','.maturityDateen')">
 									</div>
 								</div>
 								<div class="form-group">

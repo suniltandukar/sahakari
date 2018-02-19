@@ -17,6 +17,8 @@
     <link href="template/css/scroller.bootstrap.min.css" rel="stylesheet">
     <link href="template/css/switchery.min.css" rel="stylesheet">
     <link href="template/css/bootstrap-tagsinput.css" rel="stylesheet">
+    <!-- Jtable -->
+    <link href="template/css/jtable.min.css" rel="stylesheet">
     
     
     <!-- Font Awesome -->
@@ -77,6 +79,9 @@
 	<script type="text/javascript" src="template/js/selector.js"></script>  
 	<!-- jQuery Tags Input -->
     <script type="text/javascript" src="template/js/jquery.tagsinput.js"></script>
+    <!-- Jtable -->
+    <script src="template/js/jquery.jtable.min.js"></script>
+    <script type="text/javascript" src="template/js/dateconverter.js"></script>
 	<script>
 	
   $.validate({
