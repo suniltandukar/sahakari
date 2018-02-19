@@ -4,7 +4,15 @@ public class AccountModel {
 	String pid, memberid, accountNumber,alternativeAccounId, accountName, limitRef, inputter, openingBal;
 	String interestType,
 	interestRate,principalAmount, startDateNP, startDateEn, maturityDateNP, maturityDateEn, repaymentStartDateNp, repaymentStartDateEn,
-	repaymentFrequency, loanDrawdownAc,chargeDebitAc,chargeAmount,chargePaymentDate;
+	repaymentFrequency, loanDrawdownAc,chargeDebitAc,chargeAmount,chargePaymentDate,interestLiqAccount;
+	public String getInterestLiqAccount() {
+		return interestLiqAccount;
+	}
+
+	public void setInterestLiqAccount(String interestLiqAccount) {
+		this.interestLiqAccount = interestLiqAccount;
+	}
+
 	public String getInterestType() {
 		return interestType;
 	}
