@@ -1,8 +1,14 @@
 package com.sahakari.action;
 
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sahakari.dao.LimitDao;
+import com.sahakari.daoimpl.LimitDaoImpl;
 import com.sahakari.model.LimitModel;
 
 public class LimitAccount {
@@ -59,6 +65,22 @@ public class LimitAccount {
 		lm.setLimitTransferTocus(limitTransferredTo);
 		lm.setLimitTransferFromcus(limitTransferredFrom);
 		lm.setLimitStatus(limitStatus);
+		
+		LimitDao l=new LimitDaoImpl();
+		boolean status=l.insertLimit(lm);
+		if(status){
+			request.setAttribute("msg", "Successful!");
+		}
+		else{
+			request.setAttribute("msg", "Unsuccessful!");
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("insertLimit.click");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
+		
 		
 		
 		
