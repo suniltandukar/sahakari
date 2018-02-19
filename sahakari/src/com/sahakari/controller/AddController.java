@@ -16,11 +16,8 @@ import com.sahakari.action.BranchAction;
 import com.sahakari.action.CategoryAction;
 import com.sahakari.action.CustomerAction;
 import com.sahakari.action.EMICalculator;
-import com.sahakari.action.GetFormOptions;
+import com.sahakari.action.LoanAction;
 import com.sahakari.action.TransactionAction;
-import com.sahakari.dao.ViewDao;
-import com.sahakari.daoimpl.ViewDaoImpl;
-import com.sahakari.model.CustomerModel;
 import com.sahakari.model.EMImodel;
 /**
  * Servlet implementation class AddController
@@ -105,6 +102,12 @@ public class AddController extends HttpServlet {
 		if(uri.endsWith("branch.add")){
 			BranchAction b=new BranchAction();
 			b.addBranch(request,response);
+		}
+		
+		if(uri.endsWith("loan.add"))
+		{
+			LoanAction laction=new LoanAction();
+			laction.addLoan(request,response);
 		}
 	}
 

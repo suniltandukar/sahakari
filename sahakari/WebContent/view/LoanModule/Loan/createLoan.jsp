@@ -48,7 +48,7 @@ h5 {
 			</div>
 			<div class="x_content">
 				<form class="form-horizontal customerForm toggle-disabled"
-					id="form1" method="post" action="customer.add">
+					id="form1" method="post" action="loan.add">
 					<div class="" role="tabpanel" data-example-id="togglable-tabs">
 						<ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
 							<li><button type="submit" form="form1"
