@@ -2,6 +2,121 @@ package com.sahakari.model;
 
 public class AccountModel {
 	String pid, memberid, accountNumber,alternativeAccounId, accountName, limitRef, inputter, openingBal;
+	String interestType,
+	interestRate,principalAmount, startDateNP, startDateEn, maturityDateNP, maturityDateEn, repaymentStartDateNp, repaymentStartDateEn,
+	repaymentFrequency, loanDrawdownAc,chargeDebitAc,chargeAmount,chargePaymentDate;
+	public String getInterestType() {
+		return interestType;
+	}
+
+	public void setInterestType(String interestType) {
+		this.interestType = interestType;
+	}
+
+	public String getInterestRate() {
+		return interestRate;
+	}
+
+	public void setInterestRate(String interestRate) {
+		this.interestRate = interestRate;
+	}
+
+	public String getPrincipalAmount() {
+		return principalAmount;
+	}
+
+	public void setPrincipalAmount(String principalAmount) {
+		this.principalAmount = principalAmount;
+	}
+
+	public String getStartDateNP() {
+		return startDateNP;
+	}
+
+	public void setStartDateNP(String startDateNP) {
+		this.startDateNP = startDateNP;
+	}
+
+	public String getStartDateEn() {
+		return startDateEn;
+	}
+
+	public void setStartDateEn(String startDateEn) {
+		this.startDateEn = startDateEn;
+	}
+
+	public String getMaturityDateNP() {
+		return maturityDateNP;
+	}
+
+	public void setMaturityDateNP(String maturityDateNP) {
+		this.maturityDateNP = maturityDateNP;
+	}
+
+	public String getMaturityDateEn() {
+		return maturityDateEn;
+	}
+
+	public void setMaturityDateEn(String maturityDateEn) {
+		this.maturityDateEn = maturityDateEn;
+	}
+
+	public String getRepaymentStartDateNp() {
+		return repaymentStartDateNp;
+	}
+
+	public void setRepaymentStartDateNp(String repaymentStartDateNp) {
+		this.repaymentStartDateNp = repaymentStartDateNp;
+	}
+
+	public String getRepaymentStartDateEn() {
+		return repaymentStartDateEn;
+	}
+
+	public void setRepaymentStartDateEn(String repaymentStartDateEn) {
+		this.repaymentStartDateEn = repaymentStartDateEn;
+	}
+
+	public String getRepaymentFrequency() {
+		return repaymentFrequency;
+	}
+
+	public void setRepaymentFrequency(String repaymentFrequency) {
+		this.repaymentFrequency = repaymentFrequency;
+	}
+
+	public String getLoanDrawdownAc() {
+		return loanDrawdownAc;
+	}
+
+	public void setLoanDrawdownAc(String loanDrawdownAc) {
+		this.loanDrawdownAc = loanDrawdownAc;
+	}
+
+	public String getChargeDebitAc() {
+		return chargeDebitAc;
+	}
+
+	public void setChargeDebitAc(String chargeDebitAc) {
+		this.chargeDebitAc = chargeDebitAc;
+	}
+
+	public String getChargeAmount() {
+		return chargeAmount;
+	}
+
+	public void setChargeAmount(String chargeAmount) {
+		this.chargeAmount = chargeAmount;
+	}
+
+	public String getChargePaymentDate() {
+		return chargePaymentDate;
+	}
+
+	public void setChargePaymentDate(String chargePaymentDate) {
+		this.chargePaymentDate = chargePaymentDate;
+	}
+
 	public String getOpeningBal() {
 		return openingBal;
 	}
