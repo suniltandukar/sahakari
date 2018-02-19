@@ -13,7 +13,7 @@ public class LoanDaoImpl implements LoanDao{
 	
 	public boolean insertLoan(AccountModel am){
 		try{
-			String query="update accountstbl set interestType=?,interestRate=?,principalAmount double(16,2),startDateNP=?,startDateEn=?,maturityDateNP=?,maturityDateEn=?,repaymentStartDateNp=?,repaymentStartDateEn=?,repaymentFrequency=?,loanDrawdownAc=?,chargeDebitAc=?,chargeAmount=?,chargePaymentDate=?,interestLiqAccount=? where accountNumber=?";
+			String query="update accountstbl set interestType=?,interestRate=?,principalAmount=?,startDateNP=?,startDateEn=?,maturityDateNP=?,maturityDateEn=?,repaymentStartDateNp=?,repaymentStartDateEn=?,repaymentFrequency=?,loanDrawdownAc=?,chargeDebitAc=?,chargeAmount=?,chargePaymentDate=?,interestLiqAccount=? where accountNumber=?";
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			ps.setString(1,am.getInterestType() );
