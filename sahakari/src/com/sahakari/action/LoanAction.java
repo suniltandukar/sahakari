@@ -31,6 +31,7 @@ public class LoanAction {
 		String interestLiqAccount=request.getParameter("interestLiqAccount");
 		String frequency=request.getParameter("frequency");
 		
+		
 		String chargeDebitAccount=request.getParameter("chargeDebitAccount");
 		String chargeAmount=request.getParameter("chargeAmount");
 		String chargePaymentDate=request.getParameter("chargePaymentDate");

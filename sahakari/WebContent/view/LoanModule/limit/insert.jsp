@@ -90,7 +90,7 @@ display
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Secured/Unsecured</label>
 						<div class="col-md-3 col-sm-3 col-xs-12">
-							<select class="form-control" name="limitAvailable">
+							<select class="form-control" name="limitType">
 								<option value="y">Secured</option>
 								<option value="n">Unsecured</option>
 							</select>
@@ -171,15 +171,13 @@ display
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Limit
 							Available</label>
 						<div class="col-md-3 col-sm-3 col-xs-12">
-							<select class="form-control" name="limitAvailable">
-								<option value="y">Yes</option>
-								<option value="n">No</option>
-							</select>
-						</div>
+							<input type="text" class="form-control" name="limitAvailable" placeholder=""
+								>
+											</div>
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Reducing
 							Limit</label>
 						<div class="col-md-3 col-sm-3 col-xs-12">
-							<select class="form-control" name="limitAvailable">
+							<select class="form-control" name="reducingLimit">
 								<option value="y">Yes</option>
 								<option value="n">No</option>
 							</select>

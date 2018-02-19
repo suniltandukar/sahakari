@@ -6,15 +6,19 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sahakari.dao.LimitDao;
 import com.sahakari.daoimpl.LimitDaoImpl;
 import com.sahakari.model.LimitModel;
+import com.sahakari.model.UserModel;
 
 public class LimitAccount {
 
 	public void addLimit(HttpServletRequest request, HttpServletResponse response) {
-
+HttpSession session=request.getSession(true);
+UserModel u=(UserModel)session.getAttribute("userDetail");
+String inputter=u.getUsername();
 		String customerId=request.getParameter("pid");
 		String productCode=request.getParameter("loanProduct");
 		String seriesNumber=request.getParameter("seriesNumber");
@@ -28,8 +32,8 @@ public class LimitAccount {
 		String maturityDateen=request.getParameter("maturityDateen");
 		String reviewDate=request.getParameter("reviewDate");
 		String reviewDateen=request.getParameter("reviewDateen");
-		String lastDrawDate=request.getParameter("lastDrawdate");
-		String lastDrawDateen=request.getParameter("lastDrawdateen");
+		String lastDrawDate=request.getParameter("lastDrawDate");
+		String lastDrawDateen=request.getParameter("lastDrawDateen");
 		String limitAvailableAmount=request.getParameter("limitAvailable");
 		String reducingLimit=request.getParameter("reducingLimit");
 		String approvedAmount=request.getParameter("approvedAmount");
@@ -65,6 +69,12 @@ public class LimitAccount {
 		lm.setLimitTransferTocus(limitTransferredTo);
 		lm.setLimitTransferFromcus(limitTransferredFrom);
 		lm.setLimitStatus(limitStatus);
+		lm.setApprovedDateEn(approvedDateen);
+		lm.setApprovedDateNp(approvedDate);
+		lm.setLastdrawDateEn(lastDrawDateen);
+		lm.setLastdrawDateNp(lastDrawDate);
+		lm.setInputter(inputter);
+		
 		
 		LimitDao l=new LimitDaoImpl();
 		boolean status=l.insertLimit(lm);
