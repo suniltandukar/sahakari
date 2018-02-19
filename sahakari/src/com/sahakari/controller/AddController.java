@@ -16,6 +16,7 @@ import com.sahakari.action.BranchAction;
 import com.sahakari.action.CategoryAction;
 import com.sahakari.action.CustomerAction;
 import com.sahakari.action.EMICalculator;
+import com.sahakari.action.LimitAccount;
 import com.sahakari.action.LoanAction;
 import com.sahakari.action.TransactionAction;
 import com.sahakari.model.EMImodel;
@@ -108,6 +109,11 @@ public class AddController extends HttpServlet {
 		{
 			LoanAction laction=new LoanAction();
 			laction.addLoan(request,response);
+		}
+		if(uri.endsWith("limit.add"))
+		{
+			LimitAccount laccount=new LimitAccount();
+			laccount.addLimit(request,response);
 		}
 	}
 
