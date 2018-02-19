@@ -14,7 +14,7 @@ public class LimitDaoImpl implements LimitDao{
 	ResultSet rs=null;
 	public boolean insertLimit(LimitModel l){
 		try{
-			String query="insert into securedLimitTbl (PID , productCode ,limitSerial ,limitReference , limitType ,applicationDateNp , applicationDateEn ,approvedDateNp , approvedDateEn ,maturityDateNp , maturityDateEn ,reviewDateNp ,reviewDateEn ,lastdrawDateNp , lastdrawDateEn ,limitAvailableAmount , reducingLimit ,approvedAmount , maximumwithdrawlAmount ,utilizedAmount , balanceAmount ,limitTransferTocus , limitTransferFromcus ,Inputter ,authorizer)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String query="insert into securedLimitTbl (PID , productCode ,limitSerial ,limitReference , limitType ,applicationDateNp , applicationDateEn ,approvedDateNp , approvedDateEn ,maturityDateNp , maturityDateEn ,reviewDateNp ,reviewDateEn ,lastdrawDateNp , lastdrawDateEn ,limitAvailableAmount , reducingLimit ,approvedAmount , maximumwithdrawlAmount ,utilizedAmount , balanceAmount ,limitTransferTocus , limitTransferFromcus ,Inputter ,authorizer, limitStatus)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			ps.setString(1,l.getPID() );
@@ -42,6 +42,7 @@ public class LimitDaoImpl implements LimitDao{
 			ps.setString(23, l.getLimitTransferFromcus());
 			ps.setString(24, l.getInputter());
 			ps.setString(25, l.getAuthorizer());
+			ps.setString(26, l.getLimitStatus);
 			int i=ps.executeUpdate();
 			if(i>0){
 				return true;
