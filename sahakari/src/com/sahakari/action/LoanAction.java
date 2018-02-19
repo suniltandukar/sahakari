@@ -1,8 +1,14 @@
 package com.sahakari.action;
 
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sahakari.dao.LoanDao;
+import com.sahakari.daoimpl.LoanDaoImpl;
 import com.sahakari.model.AccountModel;
 
 public class LoanAction {
@@ -58,6 +64,22 @@ public class LoanAction {
 		ac.setChargePaymentDate(chargePaymentDateen);
 	
 		ac.setLimitRef(limitReferenceNumber);
+		
+		LoanDao l=new LoanDaoImpl();
+		boolean status=l.insertLoan(ac);
+		if(status){
+			request.setAttribute("msg", "Successful!");
+		}
+		else{
+			request.setAttribute("msg", "Unsuccessful!");
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("createLoan.click");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
+		
 	
 		
 		
