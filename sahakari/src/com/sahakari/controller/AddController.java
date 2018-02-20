@@ -115,6 +115,11 @@ public class AddController extends HttpServlet {
 			LimitAccount laccount=new LimitAccount();
 			laccount.addLimit(request,response);
 		}
+		else if(uri.endsWith("updateLoan.add"))
+		{
+			LoanAction laction=new LoanAction();
+			laction.updateLoan(request,response);
+		}
 	}
 
 }

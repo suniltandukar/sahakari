@@ -222,7 +222,7 @@ display:block;}
 											<ul class="nav child_menu">
 												<li id="i"><a href="createLoan.click" target="iframe_a"> Create New Loan
 												</a></li>
-												<li id="v"><a href="pageNotFound.jsp" target="iframe_a">Amendment of Loan
+												<li id="v"><a href="editLoan.click" target="iframe_a">Amendment of Loan
 												</a></li>
 												<li id="a"><a href="pageNotFound.jsp" target="iframe_a">Authorization of
 														Loan </a></li>

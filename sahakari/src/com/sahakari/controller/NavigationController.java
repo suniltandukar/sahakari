@@ -715,6 +715,12 @@ public class NavigationController extends HttpServlet {
 					.getRequestDispatcher("view/LoanModule/collateral/insert.jsp");
 			rd.forward(request, response);
 		}
+		else if(uri.endsWith("editLoan.click"))
+		{
+			RequestDispatcher rd = request
+					.getRequestDispatcher("view/LoanModule/Loan/editLoan.jsp");
+			rd.forward(request, response);
+		}
 		else if (uri.endsWith("insertLimit.click")) {
 			
 			RequestDispatcher rd = request

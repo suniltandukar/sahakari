@@ -2,7 +2,6 @@ package com.sahakari.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sahakari.action.AccountAction;
 import com.sahakari.action.CategoryAction;
 import com.sahakari.action.CustomerAction;
+import com.sahakari.action.LoanAction;
 import com.sahakari.action.TransactionAction;
 @WebServlet("/UpdateController")
 public class UpdateController extends HttpServlet {
@@ -55,6 +55,11 @@ public class UpdateController extends HttpServlet {
 		if(uri.endsWith("category.update")){
 			CategoryAction ca=new CategoryAction();
 			ca.updateCategory(request,response);
+		}
+		else if(uri.endsWith("editLoan.update"))
+		{
+			LoanAction la=new LoanAction();
+			la.editLoan(request,response);
 		}
 		
 	}
