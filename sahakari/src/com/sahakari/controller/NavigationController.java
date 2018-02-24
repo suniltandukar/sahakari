@@ -222,7 +222,11 @@ public class NavigationController extends HttpServlet {
 			;
 
 		}
-
+		else if(uri.endsWith("editcustomersearch.click")){
+			RequestDispatcher rd = request
+					.getRequestDispatcher("view/Customer/editCustomerSearch.jsp");
+			rd.forward(request, response);
+		}
 		else if (uri.endsWith("customereditdisplayform.click")) {
 			GetFormOptions g = new GetFormOptions();
 			List<AgentModel> agentdetail = g.getagent();
@@ -234,7 +238,7 @@ public class NavigationController extends HttpServlet {
 			request.setAttribute("typelist", typelist);
 			request.setAttribute("districtlist", districtlist);
 
-			String id = request.getParameter("id");
+			String id = request.getParameter("pid");
 			List<FamilyRelationModel> familyrelationlist = g
 					.getfamilyRelationNames();
 			request.setAttribute("familyrelationlist", familyrelationlist);

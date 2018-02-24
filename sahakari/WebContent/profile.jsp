@@ -104,7 +104,9 @@ display:block;}
 												of Member</a>
 											<ul class="nav child_menu">
 												<li><a href="viewcustomer.click" target="iframe_a">
-														Member</a></li>
+														View Member</a></li>
+												<li><a href="editcustomersearch.click" target="iframe_a">
+														Ammend Member</a></li>
 												<!-- <li><a href="pageNotFound.jsp" target="iframe_a">Corporate member</a> -->
 
 											</ul></li>

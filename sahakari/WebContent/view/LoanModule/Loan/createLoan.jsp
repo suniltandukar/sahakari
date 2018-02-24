@@ -55,11 +55,11 @@ h5 {
 									class="btn btn-success form">Save</button></li>
 							<li role="presentation" class="active"><a
 								href="#tab_content1" id="home-tab" role="tab" data-toggle="tab"
-								aria-expanded="true">Loan(Single Value)</a></li>
+								aria-expanded="true">Loan</a></li>
 							<li role="presentation" class=""><a href="#tab_content2"
 								role="tab" id="profile-tab" data-toggle="tab"
-								aria-expanded="false">Charges(Multi Value)</a></li>
-								<li role="presentation" class=""><a href="#tab_content3"
+								aria-expanded="false">Charges</a></li>
+							<li role="presentation" class=""><a href="#tab_content3"
 								role="tab" id="profile-tab" data-toggle="tab"
 								aria-expanded="false">Limit</a></li>
 
@@ -68,175 +68,202 @@ h5 {
 							<div role="tabpanel" class="tab-pane fade active in"
 								id="tab_content1" aria-labelledby="home-tab">
 								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Customer ID</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Customer
+										ID</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control memberid"
 											placeholder="" value="" name="customerId">
 									</div>
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Account Number</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Account
+										Number</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="accountNumber" >
+											placeholder="" value="" name="accountNumber">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Interest Type</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Interest
+										Type</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="interestType" >
+										<select class="form-control" name="interestType">
+											<option value="fixed">Fixed</option>
+											<option value="variable">Variable</option>
+										</select>
 									</div>
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Variable</label>
-									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="variable">
-									</div>
+
 								</div>
 								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Interest Rate</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Interest
+										Rate</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control memberid"
 											placeholder="" value="" name="interestRate">
 									</div>
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Principal Amount</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Principal
+										Amount</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control memberid"
 											placeholder="" value="" name="principalAmount">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Start Date(B.S.)</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Start
+										Date(B.S.)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control startdatenep"
-											placeholder="" value="" name="startDate" onblur="nepaliToEnglish('.startdatenep','.startdateen')">
+											placeholder="" value="" name="startDate"
+											onblur="nepaliToEnglish('.startdatenep','.startdateen')">
 									</div>
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Start Date(A.D.)</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Start
+										Date(A.D.)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control startdateen"
-											placeholder="" value="" name="startdateen" onblur="englishToNepali('.startdatenep','startdateen')">
+											placeholder="" value="" name="startdateen"
+											onblur="englishToNepali('.startdatenep','startdateen')">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Maturity Date(B.S.)</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Maturity
+										Date(B.S.)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control maturityDatenep"
-											placeholder="" value="" name="maturityDate" onblur="nepaliToEnglish('.maturityDatenep','.maturityDateen')">
+											placeholder="" value="" name="maturityDate"
+											onblur="nepaliToEnglish('.maturityDatenep','.maturityDateen')">
 									</div>
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Maturity Date(A.D.)</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Maturity
+										Date(A.D.)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control maturityDateen"
-											placeholder="" value="" name="maturityDateen" onblur="englishToNepali('.maturityDatenep','.maturityDateen')">
+											placeholder="" value="" name="maturityDateen"
+											onblur="englishToNepali('.maturityDatenep','.maturityDateen')">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Repayment Date(B.S)</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Repayment
+										Date(B.S)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="repaymentDate" >
+											placeholder="" value="" name="repaymentDate">
 									</div>
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Repayment Date(A.D.)</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Repayment
+										Date(A.D.)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="repaymentDateen" >
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Loan Drawdown Account</label>
-									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="loanDrawdownAccount" >
-									</div>
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Principal Liq Account</label>
-									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="principalLiqAccount" >
+											placeholder="" value="" name="repaymentDateen">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Interest Liq Account</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Loan
+										Drawdown Account</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="interestLiqAccount" >
+											placeholder="" value="" name="loanDrawdownAccount">
+									</div>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Principal
+										Liq Account</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="principalLiqAccount">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Interest
+										Liq Account</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<input type="text" class="form-control memberid"
+											placeholder="" value="" name="interestLiqAccount">
 									</div>
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Frequency</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="frequency" >
+											placeholder="" value="" name="frequency">
 									</div>
 								</div>
 
 							</div>
 							<div role="tabpanel" class="tab-pane fade" id="tab_content2"
 								aria-labelledby="profile-tab">
-								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge Debit Amount</label>
-									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control "
-											placeholder="" value="" name="chargeDebitAccount">
-									</div>
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge Amount</label>
-									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control "
-											placeholder="" value="" name="chargeAmount" >
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge Payment Date(B.S.)</label>
-									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control"
-											placeholder="" value="" name="chargePaymentDate" >
-									</div>
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge Payment Date(A.D.)</label>
-									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control"
-											placeholder="" value="" name="chargeDebitAmount">
-									</div>
-								</div>
-								
-									
-									
-									
-									
-								</div>
-								
-								
-									<div role="tabpanel" class="tab-pane fade" id="tab_content3"
-								aria-labelledby="profile-tab">
-									
+
+								<div class="clonediv">
+									<input type="button" name="button" value="+ Add Charge"
+										class="btn btn-primary copy">
+									<div class="chargesdiv">
 										<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Limit Reference Number</label>
+											<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge
+												Debit Amount</label>
+											<div class="col-md-3 col-sm-3 col-xs-12">
+												<input type="text" class="form-control " placeholder=""
+													value="" name="chargeDebitAccount">
+											</div>
+											<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge
+												Amount</label>
+											<div class="col-md-3 col-sm-3 col-xs-12">
+												<input type="text" class="form-control " placeholder=""
+													value="" name="chargeAmount">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge
+												Payment Date(B.S.)</label>
+											<div class="col-md-3 col-sm-3 col-xs-12">
+												<input type="text" class="form-control" placeholder=""
+													value="" name="chargePaymentDate">
+											</div>
+											<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge
+												Payment Date(A.D.)</label>
+											<div class="col-md-3 col-sm-3 col-xs-12">
+												<input type="text" class="form-control" placeholder=""
+													value="" name="chargeDebitAmount">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<div role="tabpanel" class="tab-pane fade" id="tab_content3"
+								aria-labelledby="profile-tab">
+
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Limit
+										Reference Number</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control memberid"
 											placeholder="" value="" name="limitReferenceNumber">
 									</div>
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Limit Amount</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Limit
+										Amount</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="LimitAmount" >
+											placeholder="" value="" name="LimitAmount">
 									</div>
 								</div>
-									<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Maximum Withdrawal Amount</label>
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Maximum
+										Withdrawal Amount</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control memberid"
 											placeholder="" value="" name="maximumWithdrawalAmount">
 									</div>
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Utilized Amount</label>
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Utilized
+										Amount</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="utilizedAmount" >
+											placeholder="" value="" name="utilizedAmount">
 									</div>
 								</div>
-									<div class="form-group">
-									<label class="control-label col-md-2 col-sm-2 col-xs-12">Balance Amount</label>
+								<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Balance
+										Amount</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control memberid"
 											placeholder="" value="" name="balanceAmount">
 									</div>
-									
+
 								</div>
-								
-								</div>
-								
+
+							</div>
+
 
 						</div>
 					</div>
@@ -244,6 +271,12 @@ h5 {
 			</div>
 		</div>
 	</div>
-
+	<script>
+		$(document).ready(function() {
+			$('.copy').click(function() {
+				$('.clonediv').append($('.chargesdiv').html())
+			})
+		})
+	</script>
 </body>
 </html>

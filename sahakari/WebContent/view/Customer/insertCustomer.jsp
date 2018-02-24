@@ -12,8 +12,6 @@
 	opacity: 0.6
 }
 </style>
-
-
 <style>
 h5 {
 	font-size: 80%;
@@ -35,7 +33,6 @@ h5 {
 		</nav>
 	</div>
 	<div class="col-md-12 col-sm-12 col-xs-12">
-
 		<div class="x_panel">
 			<div class="x_title">
 				<h2>ADD NEW MEMBER</h2>
@@ -67,7 +64,6 @@ h5 {
 							<li role="presentation" class=""><a href="#tab_content5"
 								role="tab" id="profile-tab4" data-toggle="tab"
 								aria-expanded="false">Proof Document</a></li>
-
 						</ul>
 						<div id="myTabContent" class="tab-content">
 							<div role="tabpanel" class="tab-pane fade active in"
@@ -89,9 +85,7 @@ h5 {
 												<h5>Registration Date</h5> <input type="text"
 												class="form-control" name="registrationDate" value=""
 												data-validation="date" data-validation-error-msg=" ">
-
 											</td>
-
 										</tr>
 										<tr>
 											<td>
