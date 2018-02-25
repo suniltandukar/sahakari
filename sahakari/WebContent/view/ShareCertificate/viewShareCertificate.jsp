@@ -34,10 +34,7 @@ display:none;}
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
-				<div class="loader">
-					<p>Loading Please Wait......</p>
-				</div>
-				<table id="datatable" class="table jambo_table table-striped table-bordered resulttable"
+				<table id="sharecerttable" class="table jambo_table table-striped table-bordered resulttable"
 					style="font-size: 100%;">
 				<thead>
 					<tr>
@@ -52,29 +49,7 @@ display:none;}
 						<th><i class="fa fa-cog" aria-hidden="true"></i></th>
 					</tr>
 				</thead>
-				<tbody>
-
-					<c:forEach items="${shareCert}" var="list">
-						<tr>
-							<td>${list.pid }</td>
-							<td>${list.memberid }</td>
-							<td>${list.totalShareNos }</td>
-							<td>${list.shareAmount }</td>
-							<td>${list.shareCertNo }</td>
-							<td>${list.shareFrom }</td>
-							<td>${list.shareTo }</td>
-							<td>${list.shareDate }</td>
-							<td><a class="clickbtn btn btn-primary btn-xs"
-											href="editsharecertificate.click?id=${list.shareCertificateId}"
-											><i class="fa fa-eye"
-												aria-hidden="true"></i> View</a>&nbsp;&nbsp;&nbsp;&nbsp;
-												<a class="clickbtn btn btn-danger btn-xs"
-											href="sharecertificate.del?id=${list.shareCertificateId }"
-											><i class="fa fa-trash-o"
-												aria-hidden="true"></i> Delete</a></td>
-						</tr>
-					</c:forEach>
-				</tbody>
+				
 			</table>
 			</div>
 		</div>
@@ -92,20 +67,24 @@ display:none;}
 		</div>
 	</div>
 	<script type="text/javascript">
-	$('#datatable').each(function() 
-			{
-		$(".resulttable").show();
-				$(".loader").hide();
-			});
-		$(document).ready(function() {
-			
+	$(document).ready(function() {
+		$('#sharecerttable').DataTable( {
+	        
+	        "ajax": "customerdetailjson.click",
+	        "columns":[
+	        	{"data":"pid"},
+	        	{"data":"shareid"},
+	        	{"data":"sharecertno"},
+	        	{"data":"sharefrom"},
+	        	{"data":"shareto"},
+	        	{"data":"sharedate"},
+	        ]
+	    } );
+	} );
+	
 	<%if (request.getAttribute("msg") != null) {%>
 		$('#myModal').modal('show');
 	<%}%>
-		});
-		$('.clickbtn').click(function() {
-			return confirm('CONFIRM?');
-		});
 	</script>
 </body>
 </html>

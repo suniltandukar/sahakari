@@ -104,47 +104,6 @@ h5 {
 
 		<div class="x_panel">
 			<div class="x_title">
-				<h2>MEMBER DETAILS</h2>
-				<ul class="nav navbar-right panel_toolbox">
-					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-					</li>
-				</ul>
-				<div class="clearfix"></div>
-			</div>
-			<div class="x_content">
-				<table id="datatable" class="table jambo_table table-striped table-bordered"
-					style="font-size: 95%;">
-				<thead>
-					<tr>
-						<th>S. No.</th>
-						<th>Member Id</th>
-						<th>Name</th>
-						<th>Address</th>
-						
-					</tr>
-				</thead>
-				<tbody>
-	<%int sno=1; %>
-				<c:forEach items="${list}" var="list">
-											
-					<tr>
-						<td><%=sno %></td>
-						<td>${list.memberid }</td>
-						<td>${list.name }</td>
-						<td>${list.address }</td>
-					</tr>
-					<%sno++; %>
-					</c:forEach>
-				</tbody>
-			</table>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-md-12 col-sm-12 col-xs-12">
-
-		<div class="x_panel">
-			<div class="x_title">
 				<h2>SHARE CERTIFICATE DETAIL</h2>
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -153,11 +112,10 @@ h5 {
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
-				<table id="sharetable" class="table jambo_table table-striped table-bordered"
+				<table id="sharecerttable" class="table jambo_table table-striped table-bordered"
 					style="font-size: 95%;">
 				<thead>
 					<tr>
-						<th>S. No.</th>
 						<th>Member ID</th>
 						<th>Share ID</th>
 						<th>Share Certificate No</th>
@@ -166,21 +124,6 @@ h5 {
 						<th>Date</th>
 					</tr>
 				</thead>
-				<tbody>
-				<%int sn=1; %>
-				<c:forEach items="${shareCert}" var="list">
-					<tr>
-						<td><%=sno %></td>
-						<td>${list.memberid }</td>
-						<td>${list.shareid }</td>
-						<td>${list.shareCertNo }</td>
-						<td>${list.shareFrom }</td>
-						<td>${list.shareTo }</td>
-						<td>${list.shareDate }</td>
-					</tr>
-					<%sn++; %>
-				</c:forEach>
-				</tbody>
 			</table>
 			</div>
 		</div>
@@ -206,9 +149,23 @@ h5 {
 	<%if (request.getAttribute("msg") != null) {%>
 		$('#myModal').modal('show');
 	<%}%>
-	$('#sharetable').DataTable();
+	
 	</script>
 	<script>
+	$(document).ready(function() {
+	$('#sharecerttable').DataTable( {
+        
+        "ajax": "customerdetailjson.click",
+        "columns":[
+        	{"data":"pid"},
+        	{"data":"shareid"},
+        	{"data":"sharecertno"},
+        	{"data":"sharefrom"},
+        	{"data":"shareto"},
+        	{"data":"sharedate"},
+        ]
+    } );
+} );
   $.validate({
     lang: 'en',
     modules : 'date,toggleDisabled',

@@ -23,72 +23,7 @@ public class ViewDaoImpl implements ViewDao{
 	List<CustomerModel> list=null;
 	CustomerModel cust=null;
 	
-	public JSONObject viewCustomerDetail()
-	{
-
-		//HttpServletResponse response = null;
-		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl left join typetbl on typetbl.typeid=customertbl.typeid left join statustbl on statustbl.statusid=customertbl.statusid ";
-		//List<CustomerModel> list=new ArrayList<CustomerModel>();
-		JSONObject jObjDevice=null;
-		//CustomerModel cust=null;
-		try {
-			con=DBConnection.getConnection();
-			ps=con.prepareStatement(query);
-			rs=ps.executeQuery();
-			JSONArray jsonArray=new JSONArray();
-			
-			while(rs.next())
-			{
-				
-				JSONObject jobj = new JSONObject();
-				String  memberid_json=rs.getString("pid");
-			    String legacyid_json=rs.getString("memberid");
-			    String name_json=rs.getString("name");
-			    //String registrationdate_json=rs.getString("registrationDate");
-			    String gender_json=rs.getString("gender");
-			    //String dob_json=rs.getString("dob");
-			    String address_json=rs.getString("address");
-			   
-			   
-					jobj.put("pid", memberid_json);
-					jobj.put("memberid", legacyid_json);
-					jobj.put("name", name_json);
-				    //jobj.put("registrationdate", registrationdate_json);
-				    jobj.put("gender", gender_json);
-				    //jobj.put("dob", dob_json);
-				    jobj.put("address", address_json);
-				    jsonArray.put(jobj);
-				    
-				    System.out.println("Json is "+ jobj);
-			  
-			    	 jObjDevice = new JSONObject();
-					    jObjDevice.put("data", jsonArray);
-					    /*JSONObject jObjDeviceList = new JSONObject();
-					jObjDeviceList.put("memberlist", jObjDevice );*/
-			
-					  // Writing to a file  
-		         /*   File file=new File("C:/Users/Sunil/Desktop/data.json");  
-		            file.createNewFile();  
-		            FileWriter fileWriter = new FileWriter(file);  
-		            System.out.println("Writing JSON object to file");  
-		            System.out.println("-----------------------");  
-		            System.out.print(jObjDevice);  
-
-		            fileWriter.write(jObjDevice.toString());  
-		            fileWriter.flush();  
-		            fileWriter.close();  
-
-			*/
-			}
-			
-		} catch (Exception e) {
-			System.out.println("viewCustomerDetail");
-			e.printStackTrace();
-		}
-		
-		
-		return jObjDevice;
-	}
+	
 	
 	public List<CustomerModel> viewSearchedCustomerDetail(String searchingby){
 		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl left join typetbl on typetbl.typeid=customertbl.typeid left join statustbl on statustbl.statusid=customertbl.statusid where concat(customertbl.pid, customertbl.name) like '%"+searchingby+"%' ";
@@ -274,44 +209,7 @@ public class ViewDaoImpl implements ViewDao{
 		}
 		return null;
 	}
-	public List<CustomerModel> viewShareCertificate()
-	{
-		String query="SELECT sharecertificate.*, customertbl.memberid from sharecertificate left JOIN customertbl on sharecertificate.pid=customertbl.pid";
-		List<CustomerModel> list=new ArrayList<CustomerModel>();
-		CustomerModel cust=null;
-		try {
-			con=DBConnection.getConnection();
-			ps=con.prepareStatement(query);
-			rs=ps.executeQuery();
-			while(rs.next())
-			{
-				cust=new CustomerModel();
-				cust.setMemberid(rs.getString("memberid"));
-				cust.setPid(rs.getString("pid"));
-				cust.setShareid(rs.getString("shareid"));
-				cust.setShareCertificateId(rs.getString("id"));
-				cust.setShareCertNo(rs.getString("shareCertNo"));
-				cust.setShareFrom(rs.getString("shareFrom"));
-				cust.setShareTo(rs.getString("shareTo"));
-				cust.setTotalShareNos(rs.getString("totalShareNos"));
-				cust.setShareRate(rs.getString("shareRate"));
-				cust.setShareAmount(rs.getString("shareAmount"));
-				cust.setShareDate(rs.getString("shareDate"));
-				cust.setInputter(rs.getString("inputter"));
-				list.add(cust);
-			}
-			if(list.size()>0){
-				con.close();
-				ps=null;
-				rs=null;
-				return list;
-			}
-		}
-		catch(Exception e){
-			System.out.println(e);
-		}
-		return null;
-	}
+	
 	public CustomerModel viewSpecificShareCertificate(String id){
 		String query="SELECT sharecertificate.*, customertbl.memberid from sharecertificate left JOIN customertbl on sharecertificate.pid=customertbl.pid where sharecertificate.id=?";
 		CustomerModel cust=null;
@@ -404,5 +302,124 @@ public class ViewDaoImpl implements ViewDao{
 		return null;
 	}
 	
+	//Json datas
+	public JSONObject viewCustomerDetail()
+	{
 
+		//HttpServletResponse response = null;
+		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl left join typetbl on typetbl.typeid=customertbl.typeid left join statustbl on statustbl.statusid=customertbl.statusid ";
+		//List<CustomerModel> list=new ArrayList<CustomerModel>();
+		JSONObject jObjDevice=null;
+		//CustomerModel cust=null;
+		try {
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			JSONArray jsonArray=new JSONArray();
+			
+			while(rs.next())
+			{
+				
+				JSONObject jobj = new JSONObject();
+				String  memberid_json=rs.getString("pid");
+			    String legacyid_json=rs.getString("memberid");
+			    String name_json=rs.getString("name");
+			    //String registrationdate_json=rs.getString("registrationDate");
+			    String gender_json=rs.getString("gender");
+			    //String dob_json=rs.getString("dob");
+			    String address_json=rs.getString("address");
+			   
+			   
+					jobj.put("pid", memberid_json);
+					jobj.put("memberid", legacyid_json);
+					jobj.put("name", name_json);
+				    //jobj.put("registrationdate", registrationdate_json);
+				    jobj.put("gender", gender_json);
+				    //jobj.put("dob", dob_json);
+				    jobj.put("address", address_json);
+				    jsonArray.put(jobj);
+				    
+				    System.out.println("Json is "+ jobj);
+			  
+			    	 jObjDevice = new JSONObject();
+					    jObjDevice.put("data", jsonArray);
+					    /*JSONObject jObjDeviceList = new JSONObject();
+					jObjDeviceList.put("memberlist", jObjDevice );*/
+			
+					  // Writing to a file  
+		         /*   File file=new File("C:/Users/Sunil/Desktop/data.json");  
+		            file.createNewFile();  
+		            FileWriter fileWriter = new FileWriter(file);  
+		            System.out.println("Writing JSON object to file");  
+		            System.out.println("-----------------------");  
+		            System.out.print(jObjDevice);  
+
+		            fileWriter.write(jObjDevice.toString());  
+		            fileWriter.flush();  
+		            fileWriter.close();  
+
+			*/
+			}
+			
+		} catch (Exception e) {
+			System.out.println("viewCustomerDetail");
+			e.printStackTrace();
+		}
+		
+		
+		return jObjDevice;
+	}
+	public JSONObject viewShareCertificate()
+	{
+		String query="SELECT sharecertificate.*, customertbl.memberid from sharecertificate left JOIN customertbl on sharecertificate.pid=customertbl.pid";
+		JSONObject jObjDevice=null;
+		List<CustomerModel> list=new ArrayList<CustomerModel>();
+		CustomerModel cust=null;
+		try {
+			JSONArray jsonArray=new JSONArray();
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			while(rs.next())
+			{
+				
+				JSONObject jobj = new JSONObject();
+				String  memberid_json=rs.getString("memberid"),
+						pid_json=rs.getString("pid"),
+						shareid_json=rs.getString("shareid"),
+						sharecertificateid_json=rs.getString("id"),
+						sharecertno_json=rs.getString("shareCertNo"),
+						sharefrom_json=rs.getString("shareFrom"),
+						shareto_json=rs.getString("shareTo"),
+						totalsharenos_json=rs.getString("totalShareNos"),
+				sharerate_json=rs.getString("shareRate"),
+				shareamount_json=rs.getString("shareAmount"),
+				sharedate_json=rs.getString("shareDate"),
+				inputter_json=rs.getString("inputter");
+
+				jobj.put("memberid", memberid_json);
+				jobj.put("pid",pid_json);
+				jobj.put("shareid",shareid_json);
+				jobj.put("sharecertificateid",sharecertificateid_json);
+				jobj.put("sharecertno",sharecertno_json);
+				jobj.put("sharefrom",sharefrom_json);
+				jobj.put("shareto",shareto_json);
+				jobj.put("totalsharenos",totalsharenos_json);
+				jobj.put("sharerate",sharerate_json);
+				jobj.put("shareamount",shareamount_json);
+				jobj.put("sharedate",sharedate_json);
+				jobj.put("inputter",inputter_json);
+				
+				 jsonArray.put(jobj);
+				 
+				 jObjDevice = new JSONObject();
+				 jObjDevice.put("data", jsonArray);
+			}
+			
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return jObjDevice;
+	}
 }
