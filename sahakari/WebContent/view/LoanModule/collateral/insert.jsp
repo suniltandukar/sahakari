@@ -82,14 +82,14 @@ h5 {
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Valuation
 										Amount</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control" name="valuationAmount"
-											placeholder="" value="">
+										<input type="text" class="form-control " name="valuationAmount"
+											placeholder="" value="" >
 									</div>
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Loan
 										to Value Ratio(%)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control "
-											name="loanToValueRatio" placeholder="" value="">
+											name="loanToValueRatio" placeholder="" value="" >
 									</div>
 								</div>
 								<div class="form-group">
@@ -110,28 +110,28 @@ h5 {
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Valuation
 										Date(B.S.)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control"
-											name="valuationDate" placeholder="" value="">
+										<input type="text" class="form-control valuationdatenep"
+											name="valuationDate" placeholder="" value="" onblur="nepaliToEnglish('.valuationdatenep','.valuationdateen')">
 									</div>
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Valuation
 										Date(A.D.)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control" name="valuationDateen"
-											placeholder="" value="">
+										<input type="text" class="form-control valuationdateen" name="valuationDateen"
+											placeholder="" value="" onblur="englishToNepali('.valuationdatenep','.valuationdateen')">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Maturity
 										Date(B.S.)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control" name="maturityDate"
-											placeholder="" value="">
+										<input type="text" class="form-control maturitydatenep" name="maturityDate"
+											placeholder="" value="" onblur="nepaliToEnglish('.maturitydatenep','.maturitydateen')">
 									</div>
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Maturity
 										Date(A.D.)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control" name="maturityDateen"
-											placeholder="" value="">
+										<input type="text" class="form-control maturitydateen" name="maturityDateen"
+											placeholder="" value="" onblur="englishToNepali('.maturitydatenep','.maturitydateen')">
 									</div>
 								</div>
 

@@ -119,7 +119,7 @@ h5 {
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control startdateen"
 											placeholder="" value="" name="startdateen"
-											onblur="englishToNepali('.startdatenep','startdateen')">
+											onblur="englishToNepali('.startdatenep','.startdateen')">
 									</div>
 								</div>
 								<div class="form-group">
@@ -142,14 +142,14 @@ h5 {
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Repayment
 										Date(B.S)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="repaymentDate">
+										<input type="text" class="form-control repaymentdatenep"
+											placeholder="" value="" name="repaymentDate" onblur="nepaliToEnglish('.repaymentdatenep','.repaymentdateen')">
 									</div>
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Repayment
 										Date(A.D.)</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="repaymentDateen">
+										<input type="text" class="form-control repaymentdateen"
+											placeholder="" value="" name="repaymentDateen" onblur="englishToNepali('.repaymentdatenep','.repaymentdateen')">
 									</div>
 								</div>
 								<div class="form-group">

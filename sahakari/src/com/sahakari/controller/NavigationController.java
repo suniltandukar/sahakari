@@ -720,9 +720,9 @@ public class NavigationController extends HttpServlet {
 		}
 		else if (uri.endsWith("sharecertificatejson.click")) {
 			ViewDao view = new ViewDaoImpl();
-			JSONObject list = view.viewShareCertificate();
-			PrintWriter out = response.getWriter();
-			out.println(list.toString());
+			JSONArray list = view.viewShareCertificate();
+			response.setContentType("application/json");
+			response.getWriter().print(list);
 		}
 	}
 
