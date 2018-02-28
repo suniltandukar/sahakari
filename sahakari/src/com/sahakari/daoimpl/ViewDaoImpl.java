@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.google.gson.Gson;
 import com.mysql.jdbc.Connection;
 import com.sahakari.dao.ViewDao;
 import com.sahakari.dbconnection.DBConnection;
@@ -338,6 +339,14 @@ public class ViewDaoImpl implements ViewDao{
 				    //jobj.put("dob", dob_json);
 				    jobj.put("address", address_json);
 				    jsonArray.put(jobj);
+				    
+				    String jsonString=jobj.toString();
+				    Gson gson=new Gson();
+					CustomerModel cumo=gson.fromJson(jsonString, CustomerModel.class);
+					cumo.getAccountNumber();
+					System.out.println("ysl"+cumo.toString());
+					System.out.println(jsonString);
+					
 				    
 				    System.out.println("Json is "+ jobj);
 			  

@@ -122,6 +122,7 @@ h5 {
 						<th>From</th>
 						<th>To</th>
 						<th>Date</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 			</table>
@@ -155,7 +156,7 @@ h5 {
 	$(document).ready(function() {
 	$('#sharecerttable').DataTable( {
         
-        "ajax": "customerdetailjson.click",
+        "ajax": "sharecertificatejson.click",
         "columns":[
         	{"data":"pid"},
         	{"data":"shareid"},
@@ -163,8 +164,16 @@ h5 {
         	{"data":"sharefrom"},
         	{"data":"shareto"},
         	{"data":"sharedate"},
+        	{"data":null,
+        	 defaultContent: "<button id='deletebtn'>Delete</button>"}
         ]
     } );
+	$( "#deletebtn" ).on('click','tr button', function() {
+		alert("hello");
+	      var tr = $(this).closest('tr');
+	      var data = t.row(tr).data();
+	     alert(data);
+	});
 } );
   $.validate({
     lang: 'en',
