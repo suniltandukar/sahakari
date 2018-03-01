@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -714,6 +715,10 @@ public class NavigationController extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			ViewDao view = new ViewDaoImpl();
 			JSONObject list = view.viewCustomerDetail();
+			String jsonString=list.toString();
+			
+			
+			
 			out.println(list.toString());
 
 		}
@@ -723,6 +728,27 @@ public class NavigationController extends HttpServlet {
 			
 			response.setContentType("application/json");
 			response.getWriter().print(list);
+			String jsonString=list.toString();
+			
+			Gson gson=new Gson();
+			CustomerModel cumo=gson.fromJson(jsonString, CustomerModel.class);
+			cumo.getAccountNumber();
+			System.out.println("ysl+cumo.toString()");
+			System.out.println(jsonString);
+			/*
+			ObjectMapper ob=new ObjectMapper();
+			CustomerModel cus=ob.readValue(jsonString, CustomerModel.class);*/
+			
+			JSONObject jo=new JSONObject();
+			try {
+				
+				jo.put("data", list);
+				response.setContentType("application/json");
+				response.getWriter().print(jo.toString());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		}
 	}
 
