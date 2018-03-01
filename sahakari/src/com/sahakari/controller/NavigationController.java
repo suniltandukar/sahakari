@@ -2,9 +2,7 @@ package com.sahakari.controller;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -24,6 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.google.gson.Gson;
 import com.sahakari.account.dao.AccountDao;
 import com.sahakari.account.daoImpl.AccountDaoImpl;
 import com.sahakari.action.Generator;
@@ -721,6 +720,7 @@ public class NavigationController extends HttpServlet {
 		else if (uri.endsWith("sharecertificatejson.click")) {
 			ViewDao view = new ViewDaoImpl();
 			JSONArray list = view.viewShareCertificate();
+			
 			response.setContentType("application/json");
 			response.getWriter().print(list);
 		}
