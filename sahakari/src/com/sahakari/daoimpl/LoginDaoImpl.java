@@ -17,12 +17,13 @@ public class LoginDaoImpl implements LoginDao {
 	Connection con=null;
 	int i=0;
 	public boolean checkuser(UserModel u){
-		String query="Select * from usertbl where username=? and password=?";
+		String query="Select * from usertbl where username=? and password=? and staffCode=?";
 		try{
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			ps.setString(1, u.getUsername());
 			ps.setString(2, u.getPassword());
+			ps.setString(3, u.getStaffCode());
 			rs=ps.executeQuery();
 		while(rs.next()){
 				if(rs.getString("status").equals("1")){
@@ -39,17 +40,19 @@ public class LoginDaoImpl implements LoginDao {
 	}
 	public UserModel getUserDetail(UserModel u){
 		UserModel um=null;
-		String query="Select * from usertbl where username=? and password=?";
+		String query="Select * from usertbl where username=? and password=? and staffCode=?";
 		try{
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			ps.setString(1, u.getUsername());
 			ps.setString(2, u.getPassword());
+			ps.setString(3, u.getStaffCode());
 			rs=ps.executeQuery();
 			while(rs.next()){
 				um=new UserModel();
 				um.setUsername(rs.getString("username"));
 				um.setPassword(rs.getString("password"));
+				um.setStaffCode(rs.getString("staffCode"));
 				um.setStatus(rs.getString("status"));
 				um.setGivenrole(rs.getString("givenrole"));
 				um.setFunctionAllowed(rs.getString("functionAllowed"));

@@ -10,7 +10,9 @@
     		<form class="login-form" action="login.log" method="post">
     		<p style="color:red;">${msg}</p>
     		<br>
-    		<br>
+    		<label>Staff Code&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="staffCode" 
+								placeholder="Staff-Code" required="" /></label><br>
+    		
 	   			<label >Username&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="username" 
 								placeholder="Username" required="" /></label><br>
 	   			

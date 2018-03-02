@@ -4,7 +4,7 @@
 <jsp:include page="/includefile"></jsp:include>
 <html>
 <head>
-
+    
 <style>
 h5 {
 	font-size: 80%;
@@ -100,14 +100,14 @@ display
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Application
 							Date(B.S.)</label>
 						<div class="col-md-3 col-sm-3 col-xs-12">
-							<input type="text" class="form-control" placeholder=""
-								name="applicationDate" value="">
+							<input type="text" class="form-control applicationdatenep" placeholder=""
+								name="applicationDate" value="" onblur="nepaliToEnglish('.applicationdatenep','.applicationdateen')">
 						</div>
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Application
 							Date(A.D.)</label>
 						<div class="col-md-3 col-sm-3 col-xs-12">
-							<input type="text" class="form-control" placeholder=""
-								name="applicationDateen" value="">
+							<input type="text" class="form-control applicationdateen" placeholder=""
+								name="applicationDateen" value="" onblur="englishToNepali('.applicationdatenep','.applicationdateen')">
 						</div>
 					</div>
 
@@ -115,56 +115,56 @@ display
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Approved
 							Date(B.S.)</label>
 						<div class="col-md-3 col-sm-3 col-xs-12">
-							<input type="text" class="form-control" placeholder=""
-								name="approvedDate" value="">
+							<input type="text" class="form-control approveddatenep" placeholder=""
+								name="approvedDate" value="" onblur="nepaliToEnglish('.approveddatenep','.approveddateen')">
 						</div>
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Approved
 							Date(A.D.)</label>
 						<div class="col-md-3 col-sm-3 col-xs-12">
-							<input type="text" class="form-control" placeholder=""
-								name="approvedDateen" value="">
+							<input type="text" class="form-control approveddateen" placeholder=""
+								name="approvedDateen" value="" onblur="englishToNepali('.approveddatenep','.approveddateen')">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Maturity
 							Date(B.S.)</label>
 						<div class="col-md-3 col-sm-3 col-xs-12">
-							<input type="text" class="form-control" placeholder=""
-								name="maturityDate" value="">
+							<input type="text" class="form-control maturitydatenep" placeholder=""
+								name="maturityDate" value="" onblur="nepaliToEnglish('.maturitydatenep','.maturitydateen')">
 						</div>
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Maturity
 							Date(A.D.)</label>
 						<div class="col-md-3 col-sm-3 col-xs-12">
-							<input type="text" class="form-control" placeholder=""
-								name="maturityDateen" value="">
+							<input type="text" class="form-control maturitydateen" placeholder=""
+								name="maturityDateen" value="" onblur="englishToNepali('.maturitydatenep','.maturitydateen')">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Review
 							Date(B.S.)</label>
 						<div class="col-md-3 col-sm-3 col-xs-12">
-							<input type="text" class="form-control" placeholder=""
-								name="reviewDate" value="">
+							<input type="text" class="form-control reviewdatenep" placeholder=""
+								name="reviewDate" value="" onblur="nepaliToEnglish('.reviewdatenep','.reviewdateen')">
 						</div>
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Review
 							Date(A.D.)</label>
 						<div class="col-md-3 col-sm-3 col-xs-12">
-							<input type="text" class="form-control" placeholder=""
-								name="reviewDateen" value="">
+							<input type="text" class="form-control reviewdateen" placeholder=""
+								name="reviewDateen" value="" onblur="englishToNepali('.reviewdatenep','.reviewdateen')">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Last
 							Draw Date(B.S.)</label>
 						<div class="col-md-3 col-sm-3 col-xs-12">
-							<input type="text" class="form-control" placeholder=""
-								name="lastDrawDate" value="">
+							<input type="text" class="form-control lastdrawdatenep" placeholder=""
+								name="lastDrawDate" value="" onblur="nepaliToEnglish('.lastdrawdatenep','.lastdrawdateen')">
 						</div>
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Last
 							Draw Date(A.D.)</label>
 						<div class="col-md-3 col-sm-3 col-xs-12">
-							<input type="text" class="form-control" placeholder=""
-								name="lastDrawDateen" value="">
+							<input type="text" class="form-control lastdrawdateen" placeholder=""
+								name="lastDrawDateen" value="" onblur="englishToNepali('.lastdrawdatenep','.lastdrawdateen')">
 						</div>
 					</div>
 					<div class="form-group">
@@ -260,6 +260,5 @@ display
 			</form>
 		</div>
 	</div>
-
 </body>
 </html>

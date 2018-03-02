@@ -38,14 +38,16 @@ public class LoginAction extends HttpServlet {
 	public void userlogin(HttpServletRequest request,
 			HttpServletResponse response) {
 		UserModel u=new UserModel();
-		
+		u.setStaffCode(request.getParameter("staffCode"));
 		u.setUsername(request.getParameter("username"));
 		u.setPassword(request.getParameter("password"));
 		LoginDao l=new LoginDaoImpl();
 		
 			UserModel userDetail=l.getUserDetail(u);
+		
 			HttpSession session=request.getSession(true);
 			session.setAttribute("userDetail", userDetail);
+		
 			String currentBranchcode=userDetail.getBranchCode();
 			session.setAttribute("currentBranchcode", currentBranchcode);
 			
@@ -66,6 +68,7 @@ public class LoginAction extends HttpServlet {
 			} catch (ServletException | IOException e) {
 				e.printStackTrace();
 			}
+			
 		}
 		
 		

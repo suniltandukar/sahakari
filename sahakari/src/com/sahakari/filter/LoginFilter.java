@@ -36,7 +36,7 @@ public class LoginFilter implements Filter {
 		if(userDetail==null){*/
 		
 		UserModel u=new UserModel();
-		
+		u.setStaffCode(request.getParameter("staffCode"));
 		u.setUsername(request.getParameter("username"));
 		u.setPassword(request.getParameter("password"));
 		LoginDao l=new LoginDaoImpl();

@@ -30,7 +30,7 @@
     <link href="template/css/custom.min.css" rel="stylesheet">
     <link href="template/css/jquery.tagsinput.css" rel="stylesheet">
         <link href="https://cdn.datatables.net/scroller/1.4.4/css/scroller.dataTables.min.css" rel="stylesheet">
-    
+      <link href="template/nepaliDatePicker/nepali.datepicker.v2.2.min.css">
     <style>
     	.background{
     	background-color:#F7F7F7;}
@@ -82,6 +82,7 @@
     <!-- Jtable -->
     <script src="template/js/jquery.jtable.min.js"></script>
     <script type="text/javascript" src="template/js/dateconverter.js"></script>
+   
 	<script>
 	
   $.validate({
