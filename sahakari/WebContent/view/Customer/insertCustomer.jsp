@@ -82,23 +82,27 @@ h5 {
 												data-validation="number" data-validation-error-msg=" ">
 											</td>
 											<td>
-												<h5>Registration Date</h5> <input type="text"
-												class="form-control" name="registrationDate" value=""
-												data-validation="date" data-validation-error-msg=" ">
-											</td>
-										</tr>
-										<tr>
-											<td>
 												<h5>Name</h5> <input type="text" class="form-control"
 												name="name" value="" data-validation="alphanumeric"
 												data-validation-error-msg=" ">
 											</td>
-											<td>
-												<h5>Address</h5> <input type="text" class="form-control"
-												name="address" value="">
-											</td>
+											
 										</tr>
 										<tr>
+											
+											<td>
+												<h5>Registration Date(B.S.)</h5> <input type="text"
+												class="form-control registrationDate" name="registrationDateNp" value=""
+												data-validation="date" data-validation-error-msg=" " 
+												onblur="nepaliToEnglish('.registrationDate','.registrationDateen')">
+											</td>
+											<td>
+												<h5>Registration Date(A.D.)</h5> <input type="text"
+												class="form-control registrationDateen" name="registrationDate" value=""
+												data-validation="date" data-validation-error-msg=" "
+												onblur="englishToNepali('.registrationDate','.registrationDateen')">
+											</td>
+											
 											<td>
 												<h5>Gender</h5> <select class="form-control" name="gender">
 													<option value="m">Male</option>
@@ -106,8 +110,8 @@ h5 {
 													<option value="o">Other</option>
 											</select>
 											</td>
-
 										</tr>
+										
 										<tr>
 											<td>
 												<h5>Telephone No</h5> <input type="text"
@@ -122,17 +126,28 @@ h5 {
 												data-validation-optional="true">
 											</td>
 											<td>
-												<h5>VAT/PAN</h5> <input type="text" class="form-control"
-												name="fatherName">
+												<h5>Address</h5> <input type="text" class="form-control"
+												name="address" value="">
 											</td>
+											
 										</tr>
 										<tr>
 
 											<td>
-												<h5>Date of birth (DOB)</h5> <input type="text"
-												class="form-control" name="dob" value=""
+												<h5>Date of birth (B.S.)</h5> <input type="text"
+												class="form-control dob" name="dobNp" value=""
 												data-validation="birthdate" data-validation-error-msg=" "
-												data-validation-optional="true">
+												data-validation-optional="true" onblur="nepaliToEnglish('.dob','.doben')">
+											</td>
+											<td>
+												<h5>Date of birth (A.D.)</h5> <input type="text"
+												class="form-control doben" name="dob" value=""
+												data-validation="birthdate" data-validation-error-msg=" "
+												data-validation-optional="true" onblur="englishToNepali('.dob','.doben')">
+											</td>
+											<td>
+												<h5>VAT/PAN</h5> <input type="text" class="form-control"
+												name="fatherName">
 											</td>
 										</tr>
 									</tbody>
@@ -140,6 +155,7 @@ h5 {
 								<table class="table" id="permanentAddress">
 									<caption>Permanent Address</caption>
 									<tbody>
+									
 										<tr>
 											<td>
 												<h5>District</h5> <select class="form-control pdistrict"
@@ -259,7 +275,7 @@ h5 {
 											</select>
 											</td>
 											<td>
-												<h5>Relation Name</h5> <input type="text"
+												<h5>Name</h5> <input type="text"
 												class="form-control" name="cusRelName" value="">
 											</td>
 											<td>
