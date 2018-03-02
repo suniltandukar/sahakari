@@ -749,6 +749,11 @@ public class NavigationController extends HttpServlet {
 			}
 			
 		}
+		else if(uri.endsWith("typestatus.click"))
+		{
+			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
+			rd.forward(request, response);
+		}
 	}
 
 }

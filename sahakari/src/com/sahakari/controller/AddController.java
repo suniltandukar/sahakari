@@ -120,6 +120,21 @@ public class AddController extends HttpServlet {
 			LoanAction laction=new LoanAction();
 			laction.updateLoan(request,response);
 		}
+		else if(uri.endsWith("customerStatus.add"))
+		{
+			CustomerAction action=new CustomerAction();
+			action.addCustomerStatus(request,response);
+		}
+		else if(uri.endsWith("customerType.add"))
+		{
+			CustomerAction action=new CustomerAction();
+			action.addCustomerType(request,response);
+		}
+		else if(uri.endsWith("customerAgent.add"))
+		{
+			CustomerAction action =new CustomerAction();
+			action.addCustomerAgent(request,response);
+		}
 	}
 
 }

@@ -481,6 +481,98 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 			e.printStackTrace();
 		}
 	}
+
+	public void addCustomerStatus(HttpServletRequest request, HttpServletResponse response) {
+
+		String statusName=request.getParameter("statusName");
+		CustomerDao dao=new CustomerDaoImpl();
+		boolean status=dao.addCustomerStatus(statusName);
+		if(status)
+		{
+			System.out.println("Status inserted successfully");
+			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
+			try {
+				rd.forward(request, response);
+			} catch (ServletException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else
+		{
+			System.out.println("Status insert failure");
+			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
+			try {
+				rd.forward(request, response);
+			} catch (ServletException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void addCustomerType(HttpServletRequest request, HttpServletResponse response) {
+
+		String typeName=request.getParameter("typeName");
+		CustomerDao dao=new CustomerDaoImpl();
+		boolean status=dao.addCustomerType(typeName);
+		if(status)
+		{
+			System.out.println("Type insert successfull");
+			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
+			try {
+				rd.forward(request, response);
+			} catch (ServletException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else
+		{
+			System.out.println(" Type insert failure");
+			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
+			try {
+				rd.forward(request, response);
+			} catch (ServletException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void addCustomerAgent(HttpServletRequest request, HttpServletResponse response) {
+
+		String agentName=request.getParameter("agentname");
+		String agentAddress=request.getParameter("agentaddress");
+		String agentPhone=request.getParameter("agentphone");
+		String staffCode=request.getParameter("staffcode");
+		
+		CustomerDao dao=new CustomerDaoImpl();
+		boolean status=dao.addCustomerAgent(agentName,agentAddress,agentPhone,staffCode);
+		
+		if(status)
+		{
+			System.out.println("Agent insert successfull");
+			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
+			try {
+				rd.forward(request, response);
+			} catch (ServletException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else
+		{
+			System.out.println(" Agent insert failure");
+			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
+			try {
+				rd.forward(request, response);
+			} catch (ServletException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 	
 
 }
