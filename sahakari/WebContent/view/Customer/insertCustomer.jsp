@@ -478,7 +478,11 @@ h5 {
 
 		$('#myModal').modal('show');
 	<%}%>
+$('.addjobbtn').click(function () {
 		
+	    $('#jobtable tbody').find("input:text").val("").end().append($('#jobtable tbody tr:last').clone())find("input").val("").end();
+	    
+   });
 	</script>
 
 

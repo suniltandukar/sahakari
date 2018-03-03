@@ -68,23 +68,23 @@ h5 {
 													data-validation="number" data-validation-error-msg=" ">
 												</td>
 												<td>
-													<h5>Registration Date</h5> <input type="text"
-													class="form-control" name="registrationDate"
-													value="${cdetail.registrationDate}">
-												</td>
-
-											</tr>
-											<tr>
-												<td>
 													<h5>Name</h5> <input type="text" class="form-control"
 													name="name" value="${cdetail.name }">
 												</td>
-												<td>
-													<h5>Address</h5> <input type="text" class="form-control"
-													name="address" value="${cdetail.address }">
-												</td>
+												
+
 											</tr>
 											<tr>
+											<td>
+													<h5>Registration Date (B.S.)</h5> <input type="text"
+													class="form-control"  name="registrationDateNp"
+													value="${cdetail.registrationDate}">
+												</td>
+												<td>
+													<h5>Registration Date (A.D.))</h5> <input type="text"
+													class="form-control" name="registrationDate"
+													value="${cdetail.registrationDate}">
+												</td>
 												<td>
 													<h5>Gender</h5> <select class="form-control" name="gender">
 
@@ -95,7 +95,12 @@ h5 {
 												</select>
 												</td>
 												
-												</td>
+												
+											</tr>
+											<tr>
+												
+												
+												
 											</tr>
 											<tr>
 												<td>
@@ -108,15 +113,24 @@ h5 {
 													name="mobno" maxlength="10" value="${cdetail.mobno }">
 												</td>
 												<td>
-													<h5>VAT/PAN</h5> <input type="text" class="form-control"
-													name="fatherName" value="${cdetail.fatherName }">
+													<h5>Address</h5> <input type="text" class="form-control"
+													name="address" value="${cdetail.address }">
 												</td>
+												
 											</tr>
 											<tr>
 												
 												<td>
-													<h5>Date of birth (DOB)</h5> <input type="text"
+													<h5>Date of birth (B.S.)</h5> <input type="text"
+													class="form-control" name="dobNp" value="${cdetail.dob }">
+												</td>
+												<td>
+													<h5>Date of birth (A.D.)</h5> <input type="text"
 													class="form-control" name="dob" value="${cdetail.dob }">
+												</td>
+												<td>
+													<h5>VAT/PAN</h5> <input type="text" class="form-control"
+													name="fatherName" value="${cdetail.fatherName }">
 												</td>
 											</tr>
 											<tr>
@@ -143,6 +157,16 @@ h5 {
 														</c:forEach>
 												</select>
 												</td>
+												<td>
+												<h5>Relationship Officer</h5>  <select class="form-control pdistrict"
+												name="pdistid">
+													<option value="${cdetail.agentid }">${cdetail.agentid }</option>
+													<c:forEach items="${agent }" var="agent">
+														<option value="${ agent.agentid}">${agent.agentname }</option>s
+													</c:forEach>
+													
+											</select>
+											</td>
 											</tr>
 										</tbody>
 									</table>
@@ -239,18 +263,7 @@ h5 {
 													name="ttole" value="${cdetail.ttole }">
 												</td>
 											</tr>
-											<tr>
-													<td>
-												<h5>Relationship Officer</h5>  <select class="form-control pdistrict"
-												name="pdistid">
-													<option value="${cdetail.agentid }">${cdetail.agentid }</option>
-													<c:forEach items="${agent }" var="agent">
-														<option value="${ agent.agentid}">${agent.agentname }</option>s
-													</c:forEach>
-													
-											</select>
-											</td>
-											</tr>
+											
 										</tbody>
 									</table>
 								</div>

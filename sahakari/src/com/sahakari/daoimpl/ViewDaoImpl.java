@@ -24,8 +24,6 @@ public class ViewDaoImpl implements ViewDao{
 	List<CustomerModel> list=null;
 	CustomerModel cust=null;
 	
-	
-	
 	public JSONObject viewSearchedCustomerDetail(String memberid, String membername){
 		String query="";
 		String condition="";
@@ -76,6 +74,7 @@ public class ViewDaoImpl implements ViewDao{
 			  
 			    	 jObjDevice = new JSONObject();
 					    jObjDevice.put("data", jsonArray);
+
 			}
 			
 		} catch (Exception e) {
@@ -123,6 +122,7 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setFatherName(rs.getString("fatherName"));
 				//cust.setSpouseName(rs.getString("spouseName"));
 				cust.setAgentid(rs.getString("agentid"));
+				cust.setAgentName(rs.getString("agentName"));
 				cust.setDob(rs.getString("dob"));
 				cust.setTypeid(rs.getString("typeid"));
 				cust.setTypeName(rs.getString("typeName"));

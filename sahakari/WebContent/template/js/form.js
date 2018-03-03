@@ -1,21 +1,17 @@
- $('.addjobbtn').click(function () {
-			
-		    $('#jobtable tbody').append($('#jobtable tbody tr:last').clone());
-		    
-	   }); 
+ 
 $('.addrealtionbtn').click(function () {
 			
-		    $('#relationtable tbody').append($('#relationtable tbody tr:last').clone());
+		    $('#relationtable tbody').find("input:text").val("").end().append($('#relationtable tbody tr:last').clone());
 		    
 	   });
 $('.adddocumentbtn').click(function () {
 	
-    $('#tab_content5').append($('#documenttbl  ').clone());
+    $('#tab_content5').find("input:text").val("").end().append($('#documenttbl  ').clone());
     
 });
 	   $('.addbankbtn').click(function () {
 
-		    $('#bankdetailtable tbody').append($('#bankdetailtable tbody tr:last').clone());
+		    $('#bankdetailtable tbody').find("input:text").val("").end().append($('#bankdetailtable tbody tr:last').clone());
 		    
 	   });
 		$('table').on('click','tr a',function(e){
