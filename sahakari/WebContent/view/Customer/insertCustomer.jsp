@@ -262,9 +262,9 @@ h5 {
 								aria-labelledby="profile-tab">
 								<input type="button" name="button" value="+ Add Relation"
 									class="btn btn-primary addrealtionbtn">
-								<table class="table" id="relationtable">
+								<table class="table relationtable" id="">
 									<tbody>
-										<tr class="tr_clone">
+										<tr class="relationrow">
 											<td>
 												<h5>Relation</h5> <select class="form-control"
 												name="cusRelation">
@@ -304,9 +304,9 @@ h5 {
 								aria-labelledby="profile-tab">
 								<input type="button" name="button" value="+ Add Job"
 									class="btn btn-primary addjobbtn">
-								<table class="table" id="jobtable">
+								<table class="table jobtable" id="">
 									<tbody>
-										<tr>
+										<tr id="jobrow">
 											<td>
 												<h5>Job Name</h5> <input type="text" class="form-control"
 												name="cusJob" value="">
@@ -338,9 +338,10 @@ h5 {
 								aria-labelledby="profile-tab">
 								<input type="button" name="button" value="+ Add Bank"
 									class="btn btn-primary addbankbtn">
-								<table class="table" id="bankdetailtable">
+								<table class="table bankdetailtable" id="">
 									<tbody>
-										<tr>
+										<tr id="bankrow">
+										
 											<td>
 												<h5>Bank Name</h5> <input type="text" class="form-control"
 												name="bankName" value="">
@@ -368,10 +369,10 @@ h5 {
 								aria-labelledby="profile-tab">
 								<input type="button" name="button" value="New Document"
 									class="btn btn-primary adddocumentbtn">
-								<table class="table" id="documenttbl">
+								<table class="table documenttbl" id="">
 									<tbody>
 
-										<tr class="tr_clone">
+										<tr class="documentrow">
 											<td>
 												<h5>Document Type</h5> <select class="form-control"
 												name="documentType">
@@ -478,11 +479,7 @@ h5 {
 
 		$('#myModal').modal('show');
 	<%}%>
-$('.addjobbtn').click(function () {
-		
-	    $('#jobtable tbody').find("input:text").val("").end().append($('#jobtable tbody tr:last').clone())find("input").val("").end();
-	    
-   });
+	
 	</script>
 
 
