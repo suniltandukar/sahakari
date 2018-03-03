@@ -148,27 +148,7 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd = request
 					.getRequestDispatcher("view/Customer/searchCustomer.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("customerSearchResult.click")) {
-			PrintWriter out = response.getWriter();
-			String memberid = request.getParameter("memberid"), membername = request
-					.getParameter("membername");
-			String searchingby = memberid + membername;
-
-			if (memberid.equals("") && membername.equals("")) {
-				out.println("No Inputs Found! ");
-			} else {
-				ViewDao view = new ViewDaoImpl();
-				List<CustomerModel> list = view
-						.viewSearchedCustomerDetail(searchingby);
-				request.setAttribute("list", list);
-
-				RequestDispatcher rd = request
-						.getRequestDispatcher("view/Customer/customerDetailTable.jsp");
-				rd.forward(request, response);
-
-			}
-
-		}
+		} 
 
 		else if (uri.endsWith("viewAllCustomers.click")) {
 			RequestDispatcher rd = request
@@ -715,11 +695,35 @@ public class NavigationController extends HttpServlet {
 			ViewDao view = new ViewDaoImpl();
 			JSONObject list = view.viewCustomerDetail();
 			String jsonString=list.toString();
-			
-			
-			
-			out.println(list.toString());
+			out.println(jsonString);
+		}
+		else if (uri.endsWith("customerSearchResult.click")) {
+			PrintWriter out = response.getWriter();
+			String memberid = request.getParameter("memberid"), membername = request
+					.getParameter("membername");
 
+			if (memberid.equals("") && membername.equals("")) {
+				out.println("No Inputs Found! ");
+			} else {
+				request.setAttribute("memberid", memberid);
+				request.setAttribute("membername", membername);
+				RequestDispatcher rd = request
+						.getRequestDispatcher("view/Customer/searchedCustomerList.jsp");
+				rd.forward(request, response);
+
+			}
+
+		}
+		else if(uri.endsWith("customerSearchResultList.click")){
+			System.out.println("reached cust");
+			PrintWriter out = response.getWriter();
+			String memberid = request.getParameter("memberid"), membername = request
+					.getParameter("membername");
+			/*String searchingby = memberid + membername;*/
+			ViewDao view = new ViewDaoImpl();
+			JSONObject list = view
+					.viewSearchedCustomerDetail(memberid, membername);
+			out.println(list.toString());
 		}
 		else if (uri.endsWith("sharecertificatejson.click")) {
 			ViewDao view = new ViewDaoImpl();

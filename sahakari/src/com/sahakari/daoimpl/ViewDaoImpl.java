@@ -26,43 +26,65 @@ public class ViewDaoImpl implements ViewDao{
 	
 	
 	
-	public List<CustomerModel> viewSearchedCustomerDetail(String searchingby){
-		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl left join typetbl on typetbl.typeid=customertbl.typeid left join statustbl on statustbl.statusid=customertbl.statusid where concat(customertbl.pid, customertbl.name) like '%"+searchingby+"%' ";
-		List<CustomerModel> list=new ArrayList<CustomerModel>();
-		CustomerModel cust=null;
+	public JSONObject viewSearchedCustomerDetail(String memberid, String membername){
+		String query="";
+		String condition="";
+		if(membername.equals("")){
+			condition="customertbl.pid='"+memberid+"'";
+			
+		}
+		else if(memberid.equals("")){
+			condition="customertbl.name='"+membername+"'";
+		}
+		else{
+			condition="concat(pid,name) like  '"+memberid+"%"+membername+"%'";
+		}
+		query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl left join typetbl on typetbl.typeid=customertbl.typeid left join statustbl on statustbl.statusid=customertbl.statusid where "+condition;
+		JSONObject jObjDevice=null;
 		try {
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
+			JSONArray jsonArray=new JSONArray();
+			
 			while(rs.next())
 			{
 				
-				cust=new CustomerModel();
-				cust.setPid(rs.getString("pid"));
-				cust.setMemberid(rs.getString("memberid"));
-				cust.setRegistrationDate(rs.getString("registrationDate"));
-				cust.setAddress(rs.getString("address"));
-				cust.setName(rs.getString("Name"));
-				cust.setGender(rs.getString("Gender"));
-				cust.setDob(rs.getString("Dob"));
-				cust.setTypeName(rs.getString("TypeName"));
-				cust.setStatusName(rs.getString("StatusName"));
-				cust.setPid(rs.getString("pid"));
-				cust.setAddress(rs.getString("address"));
-				list.add(cust);
+				JSONObject jobj = new JSONObject();
+				String  memberid_json=rs.getString("pid");
+			    String legacyid_json=rs.getString("memberid");
+			    String name_json=rs.getString("name");
+			    String gender_json=rs.getString("gender");
+			    String address_json=rs.getString("address");
+			   
+			   
+					jobj.put("pid", memberid_json);
+					jobj.put("memberid", legacyid_json);
+					jobj.put("name", name_json);
+				    jobj.put("gender", gender_json);
+				    jobj.put("address", address_json);
+				    jsonArray.put(jobj);
+				    
+				    String jsonString=jobj.toString();
+				    Gson gson=new Gson();
+					CustomerModel cumo=gson.fromJson(jsonString, CustomerModel.class);
+					cumo.getAccountNumber();
+					System.out.println("ysl"+cumo.toString());
+					System.out.println(jsonString);
+				    
+				    System.out.println("Json is "+ jobj);
+			  
+			    	 jObjDevice = new JSONObject();
+					    jObjDevice.put("data", jsonArray);
 			}
-			if(list.size()>0){
-				con.close();
-				rs=null;
-				ps=null;
-				return list;
-			}
-		} catch (SQLException e) {
+			
+		} catch (Exception e) {
 			System.out.println("viewCustomerDetail");
 			e.printStackTrace();
 		}
 		
-		return null;
+		
+		return jObjDevice;
 	}
 	public CustomerModel viewSpecificCustomerDetail(String id)
 	{

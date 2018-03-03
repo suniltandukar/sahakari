@@ -10,7 +10,7 @@ import com.sahakari.model.CustomerModel;
 public interface ViewDao {
 
 	public JSONObject viewCustomerDetail();
-	public List<CustomerModel> viewSearchedCustomerDetail(String searchingby);
+	public JSONObject viewSearchedCustomerDetail(String memberid, String membername);
 	public CustomerModel viewSpecificCustomerDetail(String id);
 	public List<CustomerModel> viewCustomerFamilyDetail(String id);
 	public List<CustomerModel> viewCustomerJobDetail(String id);
