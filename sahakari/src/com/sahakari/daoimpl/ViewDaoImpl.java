@@ -366,11 +366,6 @@ public class ViewDaoImpl implements ViewDao{
 				    Gson gson=new Gson();
 					CustomerModel cumo=gson.fromJson(jsonString, CustomerModel.class);
 					cumo.getAccountNumber();
-					System.out.println("ysl"+cumo.toString());
-					System.out.println(jsonString);
-					
-				    
-				    System.out.println("Json is "+ jobj);
 			  
 			    	 jObjDevice = new JSONObject();
 					    jObjDevice.put("data", jsonArray);
@@ -393,7 +388,6 @@ public class ViewDaoImpl implements ViewDao{
 			}
 			
 		} catch (Exception e) {
-			System.out.println("viewCustomerDetail");
 			e.printStackTrace();
 		}
 		
