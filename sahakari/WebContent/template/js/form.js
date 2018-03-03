@@ -1,36 +1,3 @@
-$(".addjobbtn").on(
-			"click",
-			function() {
-				$(".jobtable").append(
-						$(".jobtable").find("#jobrow").clone().removeAttr("id")
-								.find("input").val("").end());
-			});
-
-$(".addrealtionbtn").on(
-		"click",
-		function() {
-			$(".relationtable").append(
-					$(".relationtable").find("#relationrow").clone()
-							.removeAttr("id").find("input").val("").end());
-		});
-
-$(".adddocumentbtn").on(
-		"click",
-		function() {
-			$(".documenttbl").append(
-					$(".documenttbl").find("#documentrow").clone().removeAttr("id")
-							.find("input").val("").end());
-		});
-
-
-$(".addbankbtn").on(
-		"click",
-		function() {
-			$(".bankdetailtable").append(
-					$(".bankdetailtable").find("#bankrow").clone().removeAttr("id")
-							.find("input").val("").end());
-		});
-
 
 $('table').on('click', 'tr a', function(e) {
 	e.preventDefault();

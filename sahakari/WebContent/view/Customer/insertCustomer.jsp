@@ -264,7 +264,7 @@ h5 {
 									class="btn btn-primary addrealtionbtn">
 								<table class="table relationtable" id="">
 									<tbody>
-										<tr class="relationrow">
+										<tr id="relationrow">
 											<td>
 												<h5>Relation</h5> <select class="form-control"
 												name="cusRelation">
@@ -370,9 +370,9 @@ h5 {
 								<input type="button" name="button" value="New Document"
 									class="btn btn-primary adddocumentbtn">
 								<table class="table documenttbl" id="">
-									<tbody>
-
-										<tr class="documentrow">
+									<tbody id="documentrow">
+								
+										<tr >
 											<td>
 												<h5>Document Type</h5> <select class="form-control"
 												name="documentType">
@@ -479,7 +479,24 @@ h5 {
 
 		$('#myModal').modal('show');
 	<%}%>
-	
+	$(".addjobbtn").on("click",function() {
+				$(".jobtable").append(
+						$(".jobtable").find("#jobrow").clone().removeAttr("id").find("input").val("").end());
+			});
+
+$(".addrealtionbtn").on("click",function() {
+			$(".relationtable").append($(".relationtable").find("#relationrow").clone().removeAttr("id").find("input").val("").end());
+		});
+
+$(".adddocumentbtn").on("click",function() {
+			$(".documenttbl").append($(".documenttbl").find("#documentrow").clone().removeAttr("id").find("input").val("").end());
+		});
+
+
+$(".addbankbtn").on("click",function() {
+			$(".bankdetailtable").append(
+					$(".bankdetailtable").find("#bankrow").clone().removeAttr("id").find("input").val("").end());
+		});
 	</script>
 
 

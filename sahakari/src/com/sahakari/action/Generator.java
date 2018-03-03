@@ -213,15 +213,18 @@ public class Generator {
 	public String customeridGenerator() {
 		
 		con=DBConnection.getConnection();
-		String query="select max(pid)+1 as pid from customertbl ";
+		String query="select max(pid) as pid from customertbl ";
 		try {
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
 			
 			if(rs.next())
 			{
-				String custid=rs.getString("pid");
-				return custid;
+				int custid=Integer.parseInt(rs.getString("pid"))+1;
+				System.out.println(custid);
+				String id=Integer.toString(custid);
+				System.out.println(id);
+				return id;
 			}
 			
 		} catch (SQLException e) {
