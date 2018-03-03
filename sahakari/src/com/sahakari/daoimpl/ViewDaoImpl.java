@@ -27,7 +27,7 @@ public class ViewDaoImpl implements ViewDao{
 	
 	
 	public List<CustomerModel> viewSearchedCustomerDetail(String searchingby){
-		String query="Select customertbl.*, typetbl.typeName, statustbl.statusName from customertbl left join typetbl on typetbl.typeid=customertbl.typeid left join statustbl on statustbl.statusid=customertbl.statusid where concat(customertbl.pid, customertbl.name) like '%"+searchingby+"%' ";
+		String query="Select customertbl.*,tblagent.*, typetbl.typeName, statustbl.statusName from customertbl left join typetbl on typetbl.typeid=customertbl.typeid left join statustbl on statustbl.statusid=customertbl.statusid left join tblagent on tblagent.agentid=customertbl.agentid where concat(customertbl.pid, customertbl.name) like '%"+searchingby+"%' ";
 		List<CustomerModel> list=new ArrayList<CustomerModel>();
 		CustomerModel cust=null;
 		try {
@@ -49,6 +49,8 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setStatusName(rs.getString("StatusName"));
 				cust.setPid(rs.getString("pid"));
 				cust.setAddress(rs.getString("address"));
+				cust.setAgentid(rs.getString("agentid"));
+				cust.setAgentName(rs.getString("agentName"));
 				list.add(cust);
 			}
 			if(list.size()>0){
@@ -101,6 +103,7 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setFatherName(rs.getString("fatherName"));
 				//cust.setSpouseName(rs.getString("spouseName"));
 				cust.setAgentid(rs.getString("agentid"));
+				cust.setAgentName(rs.getString("agentName"));
 				cust.setDob(rs.getString("dob"));
 				cust.setTypeid(rs.getString("typeid"));
 				cust.setTypeName(rs.getString("typeName"));

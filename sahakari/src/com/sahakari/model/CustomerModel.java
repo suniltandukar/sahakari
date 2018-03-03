@@ -9,8 +9,16 @@ public class CustomerModel {
 	telno, mobno, fatherName, dob, typeid,typeName, statusid, statusName, inputter, authorizer,
 	insertStatus, updateStatus, delStatus, address, agentid;
 	//document details
-	String documentType, documentNumber, issuedDate,issuedDateen,issuedBy,expiryDate,expiryDateen;
+	String documentType, documentNumber, issuedDate,issuedDateen,issuedBy,expiryDate,expiryDateen,agentName;
 	
+	public String getAgentName() {
+		return agentName;
+	}
+
+	public void setAgentName(String agentName) {
+		this.agentName = agentName;
+	}
+
 	@Override
 	public String toString() {
 		return "CustomerModel [districtCode=" + districtCode + ", districtName=" + districtName + ", pid=" + pid
