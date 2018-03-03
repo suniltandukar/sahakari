@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.tomcat.dbcp.dbcp.DbcpException;
+
 import com.mysql.jdbc.Connection;
 import com.sahakari.dao.CustomerDao;
 import com.sahakari.dbconnection.DBConnection;
@@ -678,4 +680,67 @@ public class CustomerDaoImpl implements CustomerDao {
 		}
 		return false;
 	}
+	public boolean addCustomerStatus(String statusName)
+	{
+		String query="insert into statustbl(statusName) values(?)";
+		int rs=0;
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(query);
+			ps.setString(1, statusName);
+			rs=ps.executeUpdate();
+			if(rs>0)
+			{
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public boolean addCustomerType(String typeName)
+	{
+		String query="insert into typetbl(typeName) values(?)";
+		int rs=0;
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(query);
+			ps.setString(1, typeName);
+			rs=ps.executeUpdate();
+			if(rs>0)
+			{
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public boolean addCustomerAgent(String agentName, String agentAddress, String agentPhone, String staffCode)
+	{
+		int rs=0;
+		String query="insert into tblagent(agentname,agentaddress,agentphone,staffcode) values(?,?,?,?)";
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(query);
+			ps.setString(1, agentName);
+			ps.setString(2, agentAddress);
+			ps.setString(3, agentPhone);
+			ps.setString(4, staffCode);
+			
+			rs=ps.executeUpdate();
+			
+			if(rs>0){
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+		
+	}
+
+	
+	
 }

@@ -42,6 +42,12 @@ public interface CustomerDao {
 	public boolean addMemberDocumentDetails(CustomerModel cm);
 
 	public boolean updateDocuments(CustomerModel cm);
+
+	public boolean addCustomerStatus(String statusName);
+
+	public boolean addCustomerType(String typeName);
+
+	public boolean addCustomerAgent(String agentName, String agentAddress, String agentPhone, String staffCode);
 	
 	
 }
