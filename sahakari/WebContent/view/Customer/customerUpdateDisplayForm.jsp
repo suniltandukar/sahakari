@@ -89,9 +89,9 @@ h5 {
 													<h5>Gender</h5> <select class="form-control" name="gender">
 
 														<option value="${cdetail.gender }">${cdetail.gender }</option>
-														<option value="m">Male</option>
-														<option value="f">Female</option>
-														<option value="o">Other</option>
+														<option value="Male">Male</option>
+														<option value="Female">Female</option>
+														<option value="Other">Other</option>
 												</select>
 												</td>
 												
@@ -133,6 +133,102 @@ h5 {
 													name="fatherName" value="${cdetail.fatherName }">
 												</td>
 											</tr>
+											
+										</tbody>
+									</table>
+									<table class="table" id="permanentAddress">
+										<caption>Permanent Address</caption>
+										<tbody>
+											<tr>
+												<td>
+													<h5>District</h5> <select class="form-control pdistrict"
+													name="pdistid">
+														
+															<option value="0">Select District</option>
+													
+														<option value="${cdetail.pdistid }" <c:if test="${cdetail.pdistid!=0}">selected</c:if>>${cdetail.pdistName }</option>
+														<c:forEach items="${districtlist}" var="district">
+															<option value="${district.districtCode }">${district.districtName }</option>
+														</c:forEach>
+												</select>
+												</td>
+												<td>
+													<h5>VDC/Muncipality</h5> <select type="text"
+													class="form-control pvdcmun" name="pvdcmunid">
+														
+															<option value="0">Select VDC/Muncipality</option>
+														
+														<option value="${cdetail.pvdcmunid }" <c:if test="${cdetail.pvdcmunid!=0}">selected</c:if>>${cdetail.pvdcName }</option>
+												</select>
+												</td>
+												<td>
+													<h5>Ward No.</h5> <select type="text"
+													class="form-control pwardno" name="pwardno">
+														
+															<option value="0">Select Ward No.</option>
+														
+														<option value="${cdetail.pwardno }" <c:if test="${cdetail.pwardno!=0}">selected</c:if>>${cdetail.pwardno }</option>
+												</select>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<h5>City</h5> <input type="text" class="form-control"
+													name="pcity" value="${cdetail.pcity }">
+												</td>
+												<td>
+													<h5>Tole</h5> <input type="text" class="form-control"
+													name="ptole" value="${cdetail.ptole }">
+												</td>
+												
+											</tr>
+										</tbody>
+									</table>
+									<table class="table" id="temporaryAddress">
+										<caption>Temporary Address</caption>
+										<tbody>
+											<tr>
+												<td>
+													<h5>District</h5> <select class="form-control tdistrict"
+													name="tdistid">
+														
+															<option value="0">Select District</option>
+														
+														<option value="${cdetail.tdistid }" <c:if test="${cdetail.tdistid!=0}">selected</c:if>>${cdetail.tdistName }</option>
+														<c:forEach items="${districtlist}" var="district">
+															<option value="${district.districtCode }">${district.districtName }</option>
+														</c:forEach>
+												</select>
+												</td>
+												<td>
+													<h5>VDC/Muncipality</h5> <select type="text"
+													class="form-control tvdcmun" name="tvdcmunid">
+													
+															<option value="0">Select VDC/Muncipality</option>
+														
+														<option value="${cdetail.tvdcmunid }" <c:if test="${cdetail.tvdcmunid!=0}">selected</c:if>>${cdetail.tvdcName }</option>
+												</select>
+												</td>
+												<td>
+													<h5>Ward No.</h5> <select type="text"
+													class="form-control twardno" name="twardno">
+													
+															<option value="0">Select Ward No.</option>
+														
+														<option value="${cdetail.twardno }" <c:if test="${cdetail.twardno!=0}">selected</c:if>>${cdetail.twardno }</option>
+												</select>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<h5>City</h5> <input type="text" class="form-control"
+													name="tcity" value="${cdetail.tcity }">
+												</td>
+												<td>
+													<h5>Tole</h5> <input type="text" class="form-control"
+													name="ttole" value="${cdetail.ttole }">
+												</td>
+											</tr>
 											<tr>
 												<td>
 													<h5>Type</h5> <select class="form-control" name="typeid">
@@ -167,101 +263,6 @@ h5 {
 													
 											</select>
 											</td>
-											</tr>
-										</tbody>
-									</table>
-									<table class="table" id="permanentAddress">
-										<caption>Permanent Address</caption>
-										<tbody>
-											<tr>
-												<td>
-													<h5>District</h5> <select class="form-control pdistrict"
-													name="pdistid">
-														<c:if test="${cdetail.pdistid==null }">
-															<option value="0">Select District</option>
-														</c:if>
-														<option value="${cdetail.pdistid }">${cdetail.pdistName }</option>
-														<c:forEach items="${districtlist}" var="district">
-															<option value="${district.districtCode }">${district.districtName }</option>
-														</c:forEach>
-												</select>
-												</td>
-												<td>
-													<h5>VDC/Muncipality</h5> <select type="text"
-													class="form-control pvdcmun" name="pvdcmunid">
-														<c:if test="${cdetail.pvdcmunid==null }">
-															<option value="0">Select VDC/Muncipality</option>
-														</c:if>
-														<option value="${cdetail.pvdcmunid }">${cdetail.pvdcName }</option>
-												</select>
-												</td>
-												<td>
-													<h5>Ward No.</h5> <select type="text"
-													class="form-control pwardno" name="pwardno">
-														<c:if test="${cdetail.pwardno==null }">
-															<option value="0">Select Ward No.</option>
-														</c:if>
-														<option value="${cdetail.pwardno }">${cdetail.pwardno }</option>
-												</select>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<h5>City</h5> <input type="text" class="form-control"
-													name="pcity" value="${cdetail.pcity }">
-												</td>
-												<td>
-													<h5>Tole</h5> <input type="text" class="form-control"
-													name="ptole" value="${cdetail.ptole }">
-												</td>
-												
-											</tr>
-										</tbody>
-									</table>
-									<table class="table" id="temporaryAddress">
-										<caption>Temporary Address</caption>
-										<tbody>
-											<tr>
-												<td>
-													<h5>District</h5> <select class="form-control tdistrict"
-													name="tdistid">
-														<c:if test="${cdetail.tdistid==null }">
-															<option value="0">Select District</option>
-														</c:if>
-														<option value="${cdetail.tdistid }">${cdetail.tdistName }</option>
-														<c:forEach items="${districtlist}" var="district">
-															<option value="${district.districtCode }">${district.districtName }</option>
-														</c:forEach>
-												</select>
-												</td>
-												<td>
-													<h5>VDC/Muncipality</h5> <select type="text"
-													class="form-control tvdcmun" name="tvdcmunid">
-														<c:if test="${cdetail.tvdcmunid==null }">
-															<option value="0">Select VDC/Muncipality</option>
-														</c:if>
-														<option value="${cdetail.tvdcmunid }">${cdetail.tvdcName }</option>
-												</select>
-												</td>
-												<td>
-													<h5>Ward No.</h5> <select type="text"
-													class="form-control twardno" name="twardno">
-														<c:if test="${cdetail.twardno==null }">
-															<option value="0">Select Ward No.</option>
-														</c:if>
-														<option value="${cdetail.twardno }">${cdetail.twardno }</option>
-												</select>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<h5>City</h5> <input type="text" class="form-control"
-													name="tcity" value="${cdetail.tcity }">
-												</td>
-												<td>
-													<h5>Tole</h5> <input type="text" class="form-control"
-													name="ttole" value="${cdetail.ttole }">
-												</td>
 											</tr>
 											
 										</tbody>

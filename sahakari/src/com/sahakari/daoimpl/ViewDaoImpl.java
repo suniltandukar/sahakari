@@ -122,7 +122,7 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setFatherName(rs.getString("fatherName"));
 				//cust.setSpouseName(rs.getString("spouseName"));
 				cust.setAgentid(rs.getString("agentid"));
-				cust.setAgentName(rs.getString("agentName"));
+				cust.setAgentName(rs.getString("agentname"));
 				cust.setDob(rs.getString("dob"));
 				cust.setTypeid(rs.getString("typeid"));
 				cust.setTypeName(rs.getString("typeName"));
