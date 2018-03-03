@@ -139,7 +139,7 @@ h5 {
 											</td>
 											<td>
 												<h5>Agent Phone</h5> <input type="text"
-												class="form-control" name="accountType" value="">
+												class="form-control" name="accountphone" value="">
 											</td>
 											<td>
 												<h5>Staff Code</h5> <input type="text" class="form-control"
