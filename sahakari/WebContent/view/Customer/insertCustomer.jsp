@@ -105,9 +105,9 @@ h5 {
 											
 											<td>
 												<h5>Gender</h5> <select class="form-control" name="gender">
-													<option value="m">Male</option>
-													<option value="f">Female</option>
-													<option value="o">Other</option>
+													<option value="Male">Male</option>
+													<option value="Female">Female</option>
+													<option value="Other">Other</option>
 											</select>
 											</td>
 										</tr>
