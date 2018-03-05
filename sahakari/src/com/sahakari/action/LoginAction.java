@@ -1,6 +1,7 @@
 package com.sahakari.action;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -10,6 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.sahakari.dao.LoginDao;
 import com.sahakari.daoimpl.LoginDaoImpl;
@@ -37,6 +42,7 @@ public class LoginAction extends HttpServlet {
 
 	public void userlogin(HttpServletRequest request,
 			HttpServletResponse response) {
+		
 		UserModel u=new UserModel();
 		u.setStaffCode(request.getParameter("staffCode"));
 		u.setUsername(request.getParameter("username"));
