@@ -763,6 +763,17 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/teller.jsp");
 			rd.forward(request, response);
 		}
+		//staff settings
+		else if(uri.endsWith("staffinsert.click"))
+		{
+			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/insertStaff.jsp");
+			rd.forward(request, response);
+		}
+		else if(uri.endsWith("basicInterestInsert.click"))
+		{
+			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/insertBasicInterest.jsp");
+			rd.forward(request, response);
+		}
 	}
 
 }

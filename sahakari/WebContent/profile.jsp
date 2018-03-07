@@ -308,11 +308,11 @@ display:block;}
 												
 										<li id="i"><a href="typestatus.click" target="iframe_a">Type/Status</a></li>
 										
-												
 										<li><a href="pageNotFound.jsp" target="iframe_a">
 												ChartOfAccount(COA) </a></li>
 										<li><a href="pageNotFound.jsp" target="iframe_a"> MigrationtoolSetup
 										</a></li>
+										<li><a href="basicInterestInsert.click" target="iframe_a">Basic Interest Setting</a></li>
 										<li><a><span class="fa fa-chevron-down"></span>Calender
 												Setting</a>
 											<ul class="nav child_menu">
@@ -326,6 +326,7 @@ display:block;}
 												<li><a href="pageNotFound.jsp" target="iframe_a"> Quarter End </a></li>
 												<li><a href="pageNotFound.jsp" target="iframe_a"> Year End </a></li>
 											</ul></li>
+											
 										<li><a><span class="fa fa-chevron-down"></span>Interest
 												Rate</a>
 											<ul class="nav child_menu">
@@ -356,6 +357,10 @@ display:block;}
 												<li><a href="pageNotFound.jsp" target="iframe_a"> Month End </a></li>
 												<li><a href="pageNotFound.jsp" target="iframe_a"> Quarter End </a></li>
 												<li><a href="pageNotFound.jsp" target="iframe_a"> Year End </a></li>
+											</ul></li>
+											<li><a><span class="fa fa-chevron-down"></span>Staff Settings</a>
+											<ul class="nav child_menu">
+												<li><a href="staffinsert.click" target="iframe_a">Staff Setting </a></li>
 											</ul></li>
 									</ul></li>
 							</ul>

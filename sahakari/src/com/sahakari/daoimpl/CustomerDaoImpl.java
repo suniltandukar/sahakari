@@ -5,8 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.apache.tomcat.dbcp.dbcp.DbcpException;
-
 import com.mysql.jdbc.Connection;
 import com.sahakari.dao.CustomerDao;
 import com.sahakari.dbconnection.DBConnection;
