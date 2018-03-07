@@ -758,7 +758,7 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
 			rd.forward(request, response);
 		}
-		else if(uri.endsWith("teller.click"))
+		else if(uri.endsWith("shishir.click"))
 		{
 			RequestDispatcher rd=request.getRequestDispatcher("view/teller.jsp");
 			rd.forward(request, response);
