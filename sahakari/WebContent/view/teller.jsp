@@ -43,7 +43,7 @@ display
 	<div class="col-md-8 col-xs-12">
 		<div class="x_panel">
 			<form class="form-horizontal form-label-left input_mask"
-				method="post" action="teller.add">
+				method="post" action=" ">
 
 				<div class="x_title">
 					<h2>Teller Operation</h2>
@@ -58,7 +58,7 @@ display
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Teller Id</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<input type="text" class="form-control" name="tellerId"
-								placeholder="" value="" readonly>
+								placeholder="" value="" >
 						</div>
 						
 						
@@ -67,28 +67,28 @@ display
 						<div class="col-md-4 col-sm-4 col-xs-12">
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">User Id</label>
 							<input type="text" class="form-control" name="userId"
-								placeholder="" value="" readonly>
+								placeholder="" value="" >
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-md-4 col-sm-4 col-xs-12">
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Account Number</label>
 							<input type="text" class="form-control" name="accountNumber"
-								placeholder="" value="" readonly>
+								placeholder="" value="" >
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-md-4 col-sm-4 col-xs-12">
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Open Date(B.S.)</label>
 							<input type="text" class="form-control" name="openDateN"
-								placeholder="" value="" readonly>
+								placeholder="" value="" >
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-md-4 col-sm-4 col-xs-12">
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Open Date(A.D.)</label>
 							<input type="text" class="form-control" name="openDate"
-								placeholder="" value="" readonly>
+								placeholder="" value="" >
 						</div>
 					</div>
 					<div class="ln_solid"></div>

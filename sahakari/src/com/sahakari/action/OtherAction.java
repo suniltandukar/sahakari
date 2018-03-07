@@ -1,12 +1,15 @@
 package com.sahakari.action;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import javax.servlet.RequestDispatcher;import javax.servlet.http.HttpServletRequest;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 import com.sahakari.dao.OtherActionDAO;
 import com.sahakari.daoimpl.OtherActionDaoImpl;
 import com.sahakari.model.Document;
@@ -54,6 +57,38 @@ public class OtherAction {
 		
 		return todayDate;
 		
+	}
+	public void addNewTeller(HttpServletRequest request, HttpServletResponse response) {
+
+		String tellerId=request.getParameter("tellerId");
+		String userId=request.getParameter("userId");
+		String accountNumber=request.getParameter("accountNumber");
+		String openDateN=request.getParameter("openDateN");
+		
+		OtherActionDAO dao=new OtherActionDaoImpl();
+		boolean status=dao.saveNewTeller(tellerId,userId,accountNumber,openDateN);
+		
+		if(status)
+		{
+			request.setAttribute("msg", "New Teller Inserted");
+			RequestDispatcher rd=request.getRequestDispatcher("view/teller.jsp");
+			try {
+				rd.forward(request, response);
+			} catch (ServletException | IOException e) {
+				e.printStackTrace();
+			}
+		}
+		else
+		{
+			request.setAttribute("msg", "New Teller Insertion Failed");
+			RequestDispatcher rd=request.getRequestDispatcher("view/teller.jsp");
+			try {
+				rd.forward(request, response);
+			} catch (ServletException | IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
 	}
 	
 		
