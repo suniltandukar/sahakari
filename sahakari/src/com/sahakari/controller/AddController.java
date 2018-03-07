@@ -18,6 +18,7 @@ import com.sahakari.action.CustomerAction;
 import com.sahakari.action.EMICalculator;
 import com.sahakari.action.LimitAccount;
 import com.sahakari.action.LoanAction;
+import com.sahakari.action.OtherAction;
 import com.sahakari.action.TransactionAction;
 import com.sahakari.model.EMImodel;
 /**
@@ -134,6 +135,12 @@ public class AddController extends HttpServlet {
 		{
 			CustomerAction action =new CustomerAction();
 			action.addCustomerAgent(request,response);
+		}
+		else if(uri.endsWith("tellernew.add"))
+		{
+			OtherAction action=new OtherAction();
+			action.addNewTeller(request,response);
+			
 		}
 	}
 

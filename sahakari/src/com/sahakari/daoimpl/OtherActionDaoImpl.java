@@ -110,4 +110,27 @@ public class OtherActionDaoImpl implements OtherActionDAO {
 		return null;
 		
 	}
+	public boolean saveNewTeller(String tellerId, String userId, String accountNumber, String openDateN)
+	{
+		String query="insert into teller(tellerId,userId,accountNumber,openDateN) values(?,?,?,?))";
+		
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(query);
+			ps.setString(1, tellerId);
+			ps.setString(2, userId);
+			ps.setString(3, accountNumber);
+			ps.setString(4, openDateN);
+			int rs=0;
+			rs=ps.executeUpdate();
+			
+			if(rs>0)
+			{
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }
