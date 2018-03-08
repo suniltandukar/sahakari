@@ -360,7 +360,7 @@ display:block;}
 											</ul></li>
 											<li><a><span class="fa fa-chevron-down"></span>Staff Settings</a>
 											<ul class="nav child_menu">
-												<li><a href="staffinsert.click" target="iframe_a">Staff Setting </a></li>
+												<li><a href="staffinsert.click" target="iframe_a">New Staff</a></li>
 											</ul></li>
 									</ul></li>
 							</ul>

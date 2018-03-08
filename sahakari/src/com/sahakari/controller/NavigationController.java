@@ -763,6 +763,7 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/teller.jsp");
 			rd.forward(request, response);
 		}
+		//admin settings
 		//staff settings
 		else if(uri.endsWith("staffinsert.click"))
 		{

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sahakari.action.AccountAction;
+import com.sahakari.action.AdminSettingAction;
 import com.sahakari.action.BranchAction;
 import com.sahakari.action.CategoryAction;
 import com.sahakari.action.CustomerAction;
@@ -141,6 +142,11 @@ public class AddController extends HttpServlet {
 			OtherAction action=new OtherAction();
 			action.addNewTeller(request,response);
 			
+		}
+		//Admin settings
+		else if(uri.endsWith("newstaff.add")){
+			AdminSettingAction action=new AdminSettingAction();
+			action.addNewStaff(request,response);
 		}
 	}
 

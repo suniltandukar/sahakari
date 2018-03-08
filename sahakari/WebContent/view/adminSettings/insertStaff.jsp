@@ -28,7 +28,7 @@ h5 {
 	<div class="col-md-8 col-xs-12">
 		<div class="x_panel">
 			<form class="form-horizontal form-label-left input_mask"
-				method="post" action="staff.add">
+				method="post" action="newstaff.add">
 
 				<div class="x_title">
 					<h2>New Staff</h2>
