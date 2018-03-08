@@ -50,7 +50,7 @@ h5 {
 							Code</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<input type="text" class="form-control" name="staffCode"
-								placeholder="" value="">
+								placeholder="" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
@@ -58,7 +58,7 @@ h5 {
 							Name</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<input type="text" class="form-control" name="staffName"
-								placeholder="" value="">
+								placeholder="" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
@@ -79,8 +79,8 @@ h5 {
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Branch
 							Code</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
-							<input type="text" class="form-control" name="branchCode"
-								placeholder="" value="">
+							<input type="text" class="form-control" name="branchCode" minlength="4" maxlength="4"
+								placeholder="" value="" required>
 						</div>
 					</div>
 					<div class="form-group">
