@@ -178,7 +178,9 @@ public class Generator {
 			}
 			else{
 				tellerId= "FIN"+companyId+branchid+categoryid+"0001";
+				
 			}
+			con.close();
 		}
 		catch(Exception e){
 			System.out.println("get tellertransaction id error"+e);

@@ -137,7 +137,7 @@ public class AddController extends HttpServlet {
 			CustomerAction action =new CustomerAction();
 			action.addCustomerAgent(request,response);
 		}
-		else if(uri.endsWith("newteller.add"))
+		else if(uri.endsWith("newtel.add"))
 		{
 			OtherAction action=new OtherAction();
 			action.addNewTeller(request,response);

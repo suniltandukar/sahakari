@@ -43,7 +43,7 @@ display
 	<div class="col-md-8 col-xs-12">
 		<div class="x_panel">
 			<form class="form-horizontal form-label-left input_mask"
-				method="post" action="newteller.add ">
+				method="post" action="newtel.add ">
 
 				<div class="x_title">
 					<h2>Teller Operation</h2>

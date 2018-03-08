@@ -79,7 +79,7 @@ public class OtherAction {
 		{
 			request.setAttribute("msg", "New Teller Insertion Failed");
 		}
-		RequestDispatcher rd=request.getRequestDispatcher("insertNewTeller.click");
+		RequestDispatcher rd=request.getRequestDispatcher("newtel.click");
 		try {
 			rd.forward(request, response);
 		} catch (ServletException | IOException e) {
