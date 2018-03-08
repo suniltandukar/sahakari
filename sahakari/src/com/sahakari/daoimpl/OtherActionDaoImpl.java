@@ -110,9 +110,9 @@ public class OtherActionDaoImpl implements OtherActionDAO {
 		return null;
 		
 	}
-	public boolean saveNewTeller(String tellerId, String userId, String accountNumber, String openDateN)
+	public boolean saveNewTeller(String tellerId, String userId, String accountNumber, String openDateN,String openDate,String accountName)
 	{
-		String query="insert into teller(tellerId,userId,accountNumber,openDateN) values(?,?,?,?))";
+		String query="insert into teller(tellerId,userId,accountNumber,openDateN,openDate,accountName) values(?,?,?,?,?,?)";
 		
 		con=DBConnection.getConnection();
 		try {
@@ -121,6 +121,8 @@ public class OtherActionDaoImpl implements OtherActionDAO {
 			ps.setString(2, userId);
 			ps.setString(3, accountNumber);
 			ps.setString(4, openDateN);
+			ps.setString(5, openDate);
+			ps.setString(6, accountName);
 			int rs=0;
 			rs=ps.executeUpdate();
 			

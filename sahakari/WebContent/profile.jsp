@@ -88,7 +88,7 @@ display:block;}
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 										<li id="nav1"><a href="view/dashboard.jsp" target="iframe_a">Dashboard</a></li>
-										<li id="nav1"><a href="insertNewTeller.click" target="iframe_a">Teller</a></li>
+										
 									</ul></li>
 								<li id="member"><a><i class="fa fa-users" aria-hidden="true"></i> Member(With KYC)
 										<span class="fa fa-chevron-down"></span></a>
@@ -180,6 +180,7 @@ display:block;}
 										<li><a><span class="fa fa-chevron-down"></span>Teller
 												Operation</a>
 											<ul class="nav child_menu">
+												<li id="nav1"><a href="newtel.click" target="iframe_a">Open New Teller</a></li>
 												<li id="i"><a href="insertTeller.click?type=cashDeposit" target="iframe_a">Cash
 														Deposit </a></li>
 												<li id="i"><a href="insertTeller.click?type=cashWithdraw" target="iframe_a">Cash

@@ -13,5 +13,5 @@ public interface OtherActionDAO {
 	public boolean uploaddocumentDao(Document document);
 	public List<Document> getDocumentDetails();
 	public String getDocumentLocation(String documentName);
-	public boolean saveNewTeller(String tellerId, String userId, String accountNumber, String openDateN);
+	public boolean saveNewTeller(String tellerId, String userId, String accountNumber, String openDateN,String openDate, String accountName);
 }

@@ -43,7 +43,7 @@ display
 	<div class="col-md-8 col-xs-12">
 		<div class="x_panel">
 			<form class="form-horizontal form-label-left input_mask"
-				method="post" action=" ">
+				method="post" action="newteller.add ">
 
 				<div class="x_title">
 					<h2>Teller Operation</h2>
@@ -58,7 +58,7 @@ display
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Teller Id</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<input type="text" class="form-control" name="tellerId"
-								placeholder="" value="" >
+								placeholder="" value="${tellerid}" >
 						</div>
 						
 						
@@ -67,6 +67,13 @@ display
 						<div class="col-md-4 col-sm-4 col-xs-12">
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">User Id</label>
 							<input type="text" class="form-control" name="userId"
+								placeholder="" value="" >
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-4 col-sm-4 col-xs-12">
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">Account Name</label>
+							<input type="text" class="form-control" name="accountName"
 								placeholder="" value="" >
 						</div>
 					</div>
@@ -91,6 +98,7 @@ display
 								placeholder="" value="" >
 						</div>
 					</div>
+					
 					<div class="ln_solid"></div>
 					<div class="form-group">
 						<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">

@@ -4,6 +4,15 @@ public class UserModel {
 	String username, password, status,userid,givenrole,fullName,post,staffCode,endDate,startDate,roleName,functionAllowed,functionRestriction,branchAllowed,branchAllowedFunctions,additionalFunctions;
 	
 	String branchCode,branchName;
+	String companyId;
+	public String getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(String companyId) {
+		this.companyId = companyId;
+	}
+
 	public String getBranchName() {
 		return branchName;
 	}

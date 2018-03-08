@@ -148,6 +148,43 @@ public class Generator {
 		}
 		return transactionid;
 	}
+
+	public String newTelleridgenerator(String branchid,String companyId,String categoryId) {
+		con=DBConnection.getConnection();
+		String tellerId="";
+		String categoryid="21104";
+		
+		
+		
+		try{
+			String query="select * from teller where tellerId LIKE '%FIN"+companyId+branchid+categoryid+"%' order by tellerId DESC;";
+			ps=con.prepareStatement(query);
+			 rs=ps.executeQuery();
+			
+			if(rs.next()) {
+				int tillid=0;
+				tellerId = rs.getString("tellerId");
+				String till=tellerId.substring(15,19);
+				 tillid=Integer.parseInt(till);
+				tillid++;
+				String tillId=Integer.toString(tillid);
+				if(tillId.length()<4){
+					while(tillId.length()<4){
+						tillId="0"+tillId;
+					}
+				}
+				tellerId = "FIN"+companyId+branchid+categoryid+tillId;
+				
+			}
+			else{
+				tellerId= "FIN"+companyId+branchid+categoryid+"0001";
+			}
+		}
+		catch(Exception e){
+			System.out.println("get tellertransaction id error"+e);
+		}
+		return tellerId;
+	}
 	public String multitransactionidgenerator(String branchid) {
 		con=DBConnection.getConnection();
 		String transactionid="";

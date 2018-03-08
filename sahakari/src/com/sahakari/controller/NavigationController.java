@@ -406,7 +406,8 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd = request
 					.getRequestDispatcher("view/Transaction/Teller/insertTeller.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("viewteller.click")) {
+		} 
+		else if (uri.endsWith("viewteller.click")) {
 			TransactionDao td = new TransactionDaoImpl();
 			List<TellerTransactionModel> list = td.gettellertransactions();
 			request.setAttribute("transactionlist", list);
@@ -758,8 +759,15 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
 			rd.forward(request, response);
 		}
-		else if(uri.endsWith("insertNewTeller.click"))
+		else if(uri.endsWith("newtel.click"))
 		{
+			HttpSession session=request.getSession(true);
+			UserModel usermodel=(UserModel)session.getAttribute("userDetail");
+			String categoryid="21104";
+			Generator g=new Generator();
+			String tellerid=g.newTelleridgenerator(usermodel.getBranchCode(),usermodel.getCompanyId(),categoryid);
+			
+			request.setAttribute("tellerid", tellerid);
 			RequestDispatcher rd=request.getRequestDispatcher("view/teller.jsp");
 			rd.forward(request, response);
 		}

@@ -64,30 +64,26 @@ public class OtherAction {
 		String userId=request.getParameter("userId");
 		String accountNumber=request.getParameter("accountNumber");
 		String openDateN=request.getParameter("openDateN");
+		String openDate=request.getParameter("openDate");
+		String accountName=request.getParameter("accountName");
+				
 		
 		OtherActionDAO dao=new OtherActionDaoImpl();
-		boolean status=dao.saveNewTeller(tellerId,userId,accountNumber,openDateN);
-		
+		boolean status=dao.saveNewTeller(tellerId,userId,accountNumber,openDateN,openDate,accountName);
+		System.out.println(status);
 		if(status)
 		{
 			request.setAttribute("msg", "New Teller Inserted");
-			RequestDispatcher rd=request.getRequestDispatcher("view/teller.jsp");
-			try {
-				rd.forward(request, response);
-			} catch (ServletException | IOException e) {
-				e.printStackTrace();
-			}
 		}
 		else
 		{
 			request.setAttribute("msg", "New Teller Insertion Failed");
-			RequestDispatcher rd=request.getRequestDispatcher("view/teller.jsp");
-			try {
-				rd.forward(request, response);
-			} catch (ServletException | IOException e) {
-				e.printStackTrace();
-			}
-			
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("insertNewTeller.click");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
 		}
 	}
 	
