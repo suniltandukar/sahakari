@@ -10,20 +10,6 @@ h5 {
 	font-size: 80%;
 	font-weight: bold;
 }
-#${
-type
-
-
-}
-{
-display
-
-
-:none
-
-
-;
-}
 </style>
 </head>
 <body class="hiddenscroll bgcolor background">
@@ -51,7 +37,16 @@ display
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content">
-					<br />
+					
+					<div class="form-group">
+						<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+							<button class="btn btn-info" type="button" id="validate">Validate</button>
+							<button class="btn btn-primary" type="reset">Reset</button>
+							<input type="submit" class="btn btn-success" value="Submit">
+						</div>
+					</div>
+					<div class="ln_solid"></div>
+
 
 					
 					<div class="form-group">
@@ -64,50 +59,47 @@ display
 						
 					</div>
 					<div class="form-group">
-						<div class="col-md-4 col-sm-4 col-xs-12">
+						
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">User Id</label>
+						<div class="col-md-4 col-sm-4 col-xs-12">
 							<input type="text" class="form-control" name="userId"
 								placeholder="" value="" >
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-md-4 col-sm-4 col-xs-12">
+						
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Account Name</label>
+						<div class="col-md-4 col-sm-4 col-xs-12">
 							<input type="text" class="form-control" name="accountName"
 								placeholder="" value="" >
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-md-4 col-sm-4 col-xs-12">
+						
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Account Number</label>
+						<div class="col-md-4 col-sm-4 col-xs-12">
 							<input type="text" class="form-control" name="accountNumber"
 								placeholder="" value="" >
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-md-4 col-sm-4 col-xs-12">
+						
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Open Date(B.S.)</label>
-							<input type="text" class="form-control" name="openDateN"
-								placeholder="" value="" >
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<input type="text" class="form-control openDateNep" name="openDateN"
+								placeholder="" value="" onblur="nepaliToEnglish('.openDateNep','.openDateen')">
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-md-4 col-sm-4 col-xs-12">
+						
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Open Date(A.D.)</label>
-							<input type="text" class="form-control" name="openDate"
-								placeholder="" value="" >
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<input type="text" class="form-control openDateen" name="openDate"
+								placeholder="" value="" onblur="englishToNepali('.openDateNep','.openDateen')" >
 						</div>
 					</div>
 					
-					<div class="ln_solid"></div>
-					<div class="form-group">
-						<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-							<button class="btn btn-info" type="button" id="validate">Validate</button>
-							<button class="btn btn-primary" type="reset">Reset</button>
-							<input type="submit" class="btn btn-success" value="Submit">
-						</div>
-					</div>
-
+					
 
 				</div>
 			</form>

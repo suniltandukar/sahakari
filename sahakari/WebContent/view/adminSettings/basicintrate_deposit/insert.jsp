@@ -61,7 +61,7 @@ h5 {
 								required>
 								<option value="">Select Category</option>
 								<c:forEach items="${categories }" var="cat">
-									<option value="${categoryId }">${categoryHead }</option>
+									<option value="${cat.categoryId }">${cat.categoryHead }</option>
 								</c:forEach>
 							</select>
 						</div>
