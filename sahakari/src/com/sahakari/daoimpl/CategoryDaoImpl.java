@@ -2,6 +2,7 @@ package com.sahakari.daoimpl;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class CategoryDaoImpl implements CategoryDao {
 				 System.out.println("0");
 		        }else{
 		            JSONArray array=new JSONArray();
-		            do{
+		            while(rs.next()){
 		                JSONObject obj = new JSONObject();
 		                obj.put("accountType",rs.getString("accountType"));
 		                obj.put("authorizer",rs.getString("authorizer"));
@@ -58,9 +59,9 @@ public class CategoryDaoImpl implements CategoryDao {
 		                obj.put("categoryId",rs.getString("categoryId"));
 		                obj.put("inputter",rs.getString("inputter"));
 		                array.put(obj.toString());
-		              
-		            }while(rs.next());
-		           return array;
+		              System.out.println(obj.toString());
+		            }
+		            return array;
 		        }
 		}
 		catch(Exception e){
@@ -68,6 +69,28 @@ public class CategoryDaoImpl implements CategoryDao {
 		}
 		
 		return null;
+	}
+	public List<CategoryModel> getCategories(){
+		String query="select * from categories";
+		List<CategoryModel> list=new ArrayList<CategoryModel>();
+		CategoryModel c=null;
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			while(rs.next()){
+				c=new CategoryModel();
+				c.setCategoryId(rs.getString("categoryId"));
+				c.setCategoryHead(rs.getString("categoryHead"));
+				list.add(c);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return list;
 	}
 	public List<CategoryModel> accounttype(){
 		List<CategoryModel> list=new ArrayList<CategoryModel>();

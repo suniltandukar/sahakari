@@ -10,6 +10,7 @@ public interface CategoryDao {
 	public List<CategoryModel> accounttype();
 	public boolean insertCategory(CategoryModel cm);
 	public JSONArray selectCategories();
+	public List<CategoryModel> getCategories();
 	public CategoryModel getSpecificCategoryDetail(String id);
 	public boolean deleteCategory(String id);
 	public boolean updateCategory(CategoryModel cm, String previousid);

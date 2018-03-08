@@ -778,9 +778,14 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/insertStaff.jsp");
 			rd.forward(request, response);
 		}
+		//basic interest rate
 		else if(uri.endsWith("basicInterestInsert.click"))
 		{
-			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/insertBasicInterest.jsp");
+			CategoryDao cat=new CategoryDaoImpl();
+		List<CategoryModel> list=cat.getCategories();
+		
+			request.setAttribute("categories", list);
+			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/basicintrate_deposit/insert.jsp");
 			rd.forward(request, response);
 		}
 	}
