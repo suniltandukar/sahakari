@@ -20,7 +20,9 @@ h5 {
 				<li class="breadcrumb-item"><i class="fa fa-home"
 					aria-hidden="true"></i>&nbsp;<a href="#">Home</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Settings</li>
-				<li class="breadcrumb-item active" aria-current="page">Basic Interest Settings</li>
+				<li class="breadcrumb-item active" aria-current="page">Basic
+					Interest rate</li>
+				<li class="breadcrumb-item active" aria-current="page">New</li>
 			</ol>
 		</nav>
 	</div>
@@ -28,10 +30,10 @@ h5 {
 	<div class="col-md-8 col-xs-12">
 		<div class="x_panel">
 			<form class="form-horizontal form-label-left input_mask"
-				method="post" action="basicInterest.add">
+				method="post" action="basicinterestrate.add">
 
 				<div class="x_title">
-					<h2>Basic Interest</h2>
+					<h2>New Basic Interest Rate</h2>
 
 					<div class="clearfix"></div>
 				</div>
@@ -46,33 +48,51 @@ h5 {
 
 					<div class="ln_solid"></div>
 					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Category Id</label>
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">ID</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
-							<input type="text" class="form-control" name="categoryId"
+							<input type="text" class="form-control" name="Id" placeholder=""
+								value="" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">Category</label>
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<select class="form-control" name="categoryId" id="categories"
+								required>
+								<option value="">Select Category</option>
+								<c:forEach items="${categories }" var="cat">
+									<option value="${categoryId }">${categoryHead }</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">Interest
+							Rate</label>
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<input type="text" class="form-control" name="intRate"
 								placeholder="" value="">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Interest Rate</label>
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">Effective
+							Date(B.S.)</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
-							<input type="text" class="form-control" name="interestRate"
-								placeholder="" value="">
+							<input type="text" class="form-control effectiveDateNp"
+								name="effectiveDateNp" placeholder="" value=""
+								onblur="nepaliToEnglish('.effectiveDateNp','.effectiveDateen')">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Effective Date(B.S.)</label>
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">Effective
+							Date(A.D.)</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
-							<input type="text" class="form-control effectiveDateNep" name="effectiveDateNp"
-								placeholder="" value="" onblur="nepaliToEnglish('.effectiveDateNep','.effectiveDateEn')">
+							<input type="text" class="form-control effectiveDateen"
+								name="effectiveDateEn" placeholder="" value=""
+								onblur="englishToNepali('.effectiveDateNp','.effectiveDateen')">
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Effective Date(A.D.)</label>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<input type="text" class="form-control effectiveDateEn" name="effectiveDateEn"
-								placeholder="" value="" onblur="englishToNepali('.effectiveDateNep','.effectiveDateEn')">
-						</div>
-					</div>
+
 				</div>
 			</form>
 		</div>
@@ -89,7 +109,6 @@ h5 {
 	<%if (request.getAttribute("msg") != null) {%>
 		$('#myModal').modal('show');
 	<%}%>
-		
 	</script>
 </body>
 </html>

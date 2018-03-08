@@ -148,6 +148,10 @@ public class AddController extends HttpServlet {
 			AdminSettingAction action=new AdminSettingAction();
 			action.addNewStaff(request,response);
 		}
+		else if(uri.endsWith("basicinterestrate.add")){
+			AdminSettingAction action=new AdminSettingAction();
+			action.addBasicInterestRate(request,response);
+		}
 	}
 
 }

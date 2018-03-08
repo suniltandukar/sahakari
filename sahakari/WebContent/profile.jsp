@@ -312,7 +312,6 @@ display:block;}
 												ChartOfAccount(COA) </a></li>
 										<li><a href="pageNotFound.jsp" target="iframe_a"> MigrationtoolSetup
 										</a></li>
-										<li><a href="basicInterestInsert.click" target="iframe_a">Basic Interest Setting</a></li>
 										<li><a><span class="fa fa-chevron-down"></span>Calender
 												Setting</a>
 											<ul class="nav child_menu">
@@ -337,6 +336,8 @@ display:block;}
 														Rate </a></li>
 												<li><a href="pageNotFound.jsp" target="iframe_a"> Commission Rate
 												</a></li>
+												
+												
 											</ul></li>
 										<li><a><span class="fa fa-chevron-down"></span>User</a>
 											<ul class="nav child_menu">
@@ -348,6 +349,14 @@ display:block;}
 												<li id="i"><a href="pageNotFound.jsp" target="iframe_a"> Amendment of
 														user </a></li>
 												<li id="a"><a href="pageNotFound.jsp" target="iframe_a"> Authorize user </a></li>
+											</ul></li>
+											<li><a><span class="fa fa-chevron-down"></span>Basic Interest Rate</a>
+											<ul class="nav child_menu">
+
+												<li id="i"><a href="basicInterestInsert.click" target="iframe_a">New Basic Interest</a></li>
+											
+												<li id="i"><a href="pageNotFound.jsp" target="iframe_a"> Amendment of
+														Basic Interest Rate </a></li>
 											</ul></li>
 										<li><a><span class="fa fa-chevron-down"></span>Closing</a>
 											<ul class="nav child_menu">
