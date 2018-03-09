@@ -32,11 +32,13 @@ import com.sahakari.dao.CategoryDao;
 import com.sahakari.dao.CustomerDao;
 import com.sahakari.dao.ListDao;
 import com.sahakari.dao.OtherActionDAO;
+import com.sahakari.dao.StaffDao;
 import com.sahakari.dao.ViewDao;
 import com.sahakari.daoimpl.CategoryDaoImpl;
 import com.sahakari.daoimpl.CustomerDaoImpl;
 import com.sahakari.daoimpl.ListDaoImpl;
 import com.sahakari.daoimpl.OtherActionDaoImpl;
+import com.sahakari.daoimpl.StaffDaoImpl;
 import com.sahakari.daoimpl.ViewDaoImpl;
 import com.sahakari.model.AccountModel;
 import com.sahakari.model.AgentModel;
@@ -45,6 +47,8 @@ import com.sahakari.model.CategoryModel;
 import com.sahakari.model.CustomerModel;
 import com.sahakari.model.Document;
 import com.sahakari.model.FamilyRelationModel;
+import com.sahakari.model.StaffModel;
+import com.sahakari.model.TellerModel;
 import com.sahakari.model.TellerTransactionModel;
 import com.sahakari.model.TransactionModel;
 import com.sahakari.model.UserModel;
@@ -771,6 +775,14 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/teller.jsp");
 			rd.forward(request, response);
 		}
+		else if(uri.endsWith("viewTel.click"))
+		{
+			OtherActionDAO dao=new OtherActionDaoImpl();
+			List<TellerModel>list=dao.viewTeller();
+			request.setAttribute("list", list);
+			RequestDispatcher rd=request.getRequestDispatcher("view/viewTel.jsp");
+			rd.forward(request, response);
+		}
 		//admin settings
 		//staff settings
 		else if(uri.endsWith("staffinsert.click"))
@@ -788,6 +800,17 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/basicintrate_deposit/insert.jsp");
 			rd.forward(request, response);
 		}
+		else if(uri.endsWith("viewStaff.click"))
+		{
+			StaffDao dao=new StaffDaoImpl();
+			List<StaffModel> staff=dao.getStaff();
+			System.out.println(staff);
+			request.setAttribute("staff", staff);
+			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/viewStaff.jsp");
+			rd.forward(request, response);
+		}
+		
+		
 	}
 
 }

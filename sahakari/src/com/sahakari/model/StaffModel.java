@@ -1,7 +1,17 @@
 package com.sahakari.model;
 
 public class StaffModel {
-	private String staffCode, staffName, staffAddress, Post, branchCode, Pid;
+	private String staffCode, staffName, staffAddress, Post, branchCode, pid;
+
+	
+
+	public String getPid() {
+		return pid;
+	}
+
+	public void setPid(String pid) {
+		this.pid = pid;
+	}
 
 	public String getStaffCode() {
 		return staffCode;
@@ -43,12 +53,6 @@ public class StaffModel {
 		this.branchCode = branchCode;
 	}
 
-	public String getPid() {
-		return Pid;
-	}
-
-	public void setPid(String pid) {
-		Pid = pid;
-	}
+	
 
 }

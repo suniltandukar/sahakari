@@ -181,6 +181,7 @@ display:block;}
 												Operation</a>
 											<ul class="nav child_menu">
 												<li id="nav1"><a href="newtel.click" target="iframe_a">Open New Teller</a></li>
+												<li id="nav1"><a href="viewTel.click" target="iframe_a">View Teller</a></li>
 												<li id="i"><a href="insertTeller.click?type=cashDeposit" target="iframe_a">Cash
 														Deposit </a></li>
 												<li id="i"><a href="insertTeller.click?type=cashWithdraw" target="iframe_a">Cash
@@ -371,6 +372,7 @@ display:block;}
 											<li><a><span class="fa fa-chevron-down"></span>Staff Settings</a>
 											<ul class="nav child_menu">
 												<li><a href="staffinsert.click" target="iframe_a">New Staff</a></li>
+												<li><a href="viewStaff.click" target="iframe_a">View Staff</a></li>
 											</ul></li>
 									</ul></li>
 							</ul>

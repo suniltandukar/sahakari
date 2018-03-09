@@ -10,6 +10,7 @@ import java.util.List;
 import com.sahakari.dbconnection.DBConnection;
 import com.sahakari.dao.OtherActionDAO;
 import com.sahakari.model.Document;
+import com.sahakari.model.TellerModel;
 
 public class OtherActionDaoImpl implements OtherActionDAO {
 	PreparedStatement ps=null;
@@ -134,5 +135,32 @@ public class OtherActionDaoImpl implements OtherActionDAO {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	public List<TellerModel> viewTeller()
+	{
+		List<TellerModel> list=new ArrayList<TellerModel>();
+		String query="select * from teller";
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			while(rs.next())
+			{
+				TellerModel tm=new TellerModel();
+				tm.setAccountName(rs.getString("accountName"));
+				tm.setAccountNumber(rs.getString("accountNumber"));
+				tm.setOpenDate(rs.getString("openDate"));
+				tm.setOpenDateN(rs.getString("openDateN"));
+				tm.setTellerId(rs.getString("tellerId"));
+				tm.setUserId(rs.getString("userId"));
+				list.add(tm);
+			}
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+		
 	}
 }
