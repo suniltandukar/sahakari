@@ -266,7 +266,7 @@ h5 {
 					<tbody>
 
 
-						<c:forEach items="agentlist" var="r">
+						<c:forEach items="${ agentlist}" var="r">
 							<tr>
 								<td>${r.agentname}</td>
 								<td>${r.agentaddress}</td>
