@@ -489,25 +489,19 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 		boolean status=dao.addCustomerStatus(statusName);
 		if(status)
 		{
-			System.out.println("Status inserted successfully");
-			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
-			try {
-				rd.forward(request, response);
-			} catch (ServletException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			request.setAttribute("msg","Status insert successful!");
 		}
 		else
 		{
-			System.out.println("Status insert failure");
-			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
-			try {
-				rd.forward(request, response);
-			} catch (ServletException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			request.setAttribute("msg","Status insert failure!");
+			
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("initialdetails.click");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
@@ -518,25 +512,18 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 		boolean status=dao.addCustomerType(typeName);
 		if(status)
 		{
-			System.out.println("Type insert successfull");
-			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
-			try {
-				rd.forward(request, response);
-			} catch (ServletException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			request.setAttribute("msg", "Customer Type Add Successful!");
 		}
 		else
 		{
-			System.out.println(" Type insert failure");
-			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
-			try {
-				rd.forward(request, response);
-			} catch (ServletException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			request.setAttribute("msg", "Customer Type Add Failed!");
+			
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("initialdetails.click");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -552,25 +539,18 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 		
 		if(status)
 		{
-			System.out.println("Agent insert successfull");
-			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
-			try {
-				rd.forward(request, response);
-			} catch (ServletException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			request.setAttribute("msg", "Relationship Officer Add Failed!");
 		}
 		else
 		{
-			System.out.println(" Agent insert failure");
-			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
-			try {
-				rd.forward(request, response);
-			} catch (ServletException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			request.setAttribute("msg", "Relationship Officer Add Successful!");
+			
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("initialdetails.click");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
 		}
 	}
 	

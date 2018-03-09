@@ -308,7 +308,7 @@ display:block;}
 										<li id="i"><a href="branch.click" target="iframe_a">Branch/Company
 												setup </a></li>
 												
-										<li id="i"><a href="typestatus.click" target="iframe_a">Type/Status</a></li>
+										<li id="i"><a href="initialdetails.click" target="iframe_a">Type/Status</a></li>
 										
 										<li><a href="pageNotFound.jsp" target="iframe_a">
 												ChartOfAccount(COA) </a></li>

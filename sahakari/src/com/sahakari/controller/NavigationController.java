@@ -762,15 +762,18 @@ public class NavigationController extends HttpServlet {
 			}
 			
 		}
-		else if(uri.endsWith("typestatus.click"))
+		else if(uri.endsWith("initialdetails.click"))
 		{
+			
 			GetFormOptions g = new GetFormOptions();
 			List<AgentModel> agentdetail = g.getagent();
 			List<CustomerModel> statuslist = g.getStatus();
 			List<CustomerModel> typelist = g.getType();
+			List<CustomerModel> docType=g.getDocumentType();
 			request.setAttribute("agentdetail", agentdetail);
 			request.setAttribute("statuslist", statuslist);
 			request.setAttribute("typelist", typelist);
+			request.setAttribute("doctype", docType);
 			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
 			rd.forward(request, response);
 		}

@@ -199,7 +199,7 @@ h5 {
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		<div class="x_panel">
 			<div class="x_title">
-				<h2>Available Status/Type</h2>
+				<h2>Available Initial Details</h2>
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
@@ -207,14 +207,14 @@ h5 {
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
-				<table id="datatableaa"
+				<table
 					class="table jambo_table table-striped table-bordered resulttable display nowrap"
 					style="font-size: 100%;">
 					<thead>
 						<tr>
 							<th>Status</th>
 							<th>Type</th>
-							<th>Document Type</th>
+							<th>Document Type(Id/Name)</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -231,9 +231,9 @@ h5 {
 									</c:if>
 
 								</c:forEach></td>
-							<td>
-								Doctype/DocName
-							</td>
+							<td><c:forEach items="${doctype }" var="dlist">
+									<h6>${dlist.doctypeId }/${dlist.doctypeName }</h6>
+								</c:forEach></td>
 
 						</tr>
 
@@ -241,8 +241,40 @@ h5 {
 
 				</table>
 			</div>
+
+			<div class="x_title">
+				<h4>Relationship Officer</h4>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+				<table
+					class="table jambo_table table-striped table-bordered resulttable display nowrap"
+					style="font-size: 100%;">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Address</th>
+							<th>Phone</th>
+							<th>Staff Code</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+						<c:forEach items="agentdetail" var="rofficer">
+							<td>${ agentname}</td>
+							<td>${agentaddress }</td>
+							<td>${ agentphone}</td>
+							<td>${ staffcode}</td>
+						</c:forEach>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
 		</div>
 	</div>
+
 	<div class="modal fade" id="memberidmsgmodal" role="dialog">
 		<div class="modal-dialog modal-sm">
 			<div class="modal-content">

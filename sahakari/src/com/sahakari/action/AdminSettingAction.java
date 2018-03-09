@@ -80,7 +80,7 @@ public class AdminSettingAction {
 			request.setAttribute("msg", "Document Type Failed Adding");
 		}
 			
-		RequestDispatcher rd = request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("initialdetails.click");
 		try {
 			rd.forward(request, response);
 		} catch (ServletException | IOException e) {
