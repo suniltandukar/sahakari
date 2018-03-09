@@ -164,7 +164,7 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 			 finalstatus=true;
 		}
 		if(finalstatus){
-			request.setAttribute("msg", "Customer Insert Successful!");
+			request.setAttribute("msg", "Customer Insert Successful!"+" Member ID ="+cm.getPid()+" Name="+cm.getName());
 		}
 		else{
 			request.setAttribute("msg", "Customer Insert Failed!");
@@ -347,7 +347,7 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 			customerUpdateStatus=true;
 			}
 			if(customerUpdateStatus){
-			request.setAttribute("msg", "Update Successful!");
+			request.setAttribute("msg", "Update Successful!"+" Member ID ="+cm.getPid());
 			}
 			
 		}

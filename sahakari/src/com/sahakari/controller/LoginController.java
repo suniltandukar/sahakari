@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sahakari.action.LoginAction;
+import com.sahakari.dao.ViewDao;
+import com.sahakari.daoimpl.ViewDaoImpl;
 
 @WebServlet("/LoginController")
 public class LoginController extends HttpServlet {
@@ -28,6 +30,8 @@ public class LoginController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri=request.getRequestURI();
 		if(uri.endsWith("login.log")){
+			ViewDao v=new ViewDaoImpl();
+			System.out.println(v.convertToJSON());
 			LoginAction l=new LoginAction();
 			l.userlogin(request,response);
 		}

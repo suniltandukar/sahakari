@@ -448,4 +448,27 @@ public class ViewDaoImpl implements ViewDao{
 		}
 		return jsonArray;
 	}
+	public JSONArray convertToJSON()
+           {
+        JSONArray jsonArray = new JSONArray();
+        String query="select * from staff";
+        try{
+        	con=DBConnection.getConnection();
+        	ps=con.prepareStatement(query);
+        	rs=ps.executeQuery();
+        	while (rs.next()) {
+                int total_rows = rs.getMetaData().getColumnCount();
+                for (int i = 0; i < total_rows; i++) {
+                    JSONObject obj = new JSONObject();
+                    obj.put(rs.getMetaData().getColumnLabel(i + 1)
+                            .toLowerCase(), rs.getObject(i + 1));
+                    jsonArray.put(obj);
+                }
+            }
+        }catch(Exception e){
+        	System.out.println(e);
+        }
+        System.out.println(jsonArray);
+        return jsonArray;
+    }
 }

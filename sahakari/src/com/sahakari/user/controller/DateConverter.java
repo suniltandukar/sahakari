@@ -30,7 +30,6 @@ public class DateConverter extends HttpServlet {
 		if(uri.endsWith("englishToNepali.convertDate"))
 		{
 			String englishDate=request.getParameter("date");
-			System.out.println(dateConverter.DateConverter.englishToNepali(englishDate));
 			out.println(dateConverter.DateConverter.englishToNepali(englishDate));
 		}
 		else if(uri.endsWith("nepaliToEnglish.convertDate"))

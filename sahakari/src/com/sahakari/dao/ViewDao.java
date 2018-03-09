@@ -19,5 +19,6 @@ public interface ViewDao {
 	public CustomerModel viewSpecificShareCertificate(String id);
 	public List<CustomerModel> viewCustomerDocumentDetail(String id);
 	public JSONArray viewAccountName(String accountNumber);
+	public JSONArray convertToJSON();
 	
 }

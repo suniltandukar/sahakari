@@ -101,7 +101,7 @@ public class AccountDaoImpl implements AccountDao{
 	}
 	public boolean insertAccount(AccountModel am){
 		try{
-		String query="insert into accountsTbl (accountNumber, pid, alternativeAccountId, categoryId, accountType, accountName, limitRef, inputter) values (?,?,?,?,?,?,?,?)";
+		String query="insert into accountstbl (accountNumber, pid, alternativeAccountId, categoryId, accountType, accountName, limitRef, inputter) values (?,?,?,?,?,?,?,?)";
 		con=DBConnection.getConnection();
 		ps=con.prepareStatement(query);
 		ps.setString(1, am.getAccountNumber());
