@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.tomcat.dbcp.dbcp.DbcpException;
+
 import com.mysql.jdbc.Connection;
 import com.sahakari.dao.CustomerDao;
 import com.sahakari.dbconnection.DBConnection;
@@ -737,6 +739,30 @@ public class CustomerDaoImpl implements CustomerDao {
 		}
 		return false;
 		
+	}
+	
+	public boolean addDocumentType(String typeId,String typeName ){
+		String query="insert into documenttype(typeId,typeName) values(?,?)";
+		int rs=0;
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(query);
+			ps.setString(1, typeId);
+			ps.setString(2, typeName);
+			rs=ps.executeUpdate();
+			
+			if(rs>0)
+			{
+				return true;
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+		
+				
 	}
 
 	

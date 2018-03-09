@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sahakari.dao.AdminSettingDao;
+import com.sahakari.dao.CustomerDao;
 import com.sahakari.dao.StaffDao;
 import com.sahakari.daoimpl.AdminSettingDaoImpl;
+import com.sahakari.daoimpl.CustomerDaoImpl;
 import com.sahakari.daoimpl.StaffDaoImpl;
 import com.sahakari.model.BasicInterestRateModel;
 import com.sahakari.model.StaffModel;
@@ -62,6 +64,28 @@ public class AdminSettingAction {
 			e.printStackTrace();
 		}
 		
+	}
+
+	
+	public void addDocumentType(HttpServletRequest request, HttpServletResponse response) {
+		
+		String typeName=request.getParameter("typeName");
+		String typeId=request.getParameter("typeId");
+		
+		CustomerDao dao=new CustomerDaoImpl();
+		boolean status=dao.addDocumentType(typeId,typeName);
+		if (status) {
+			request.setAttribute("msg", "Document Type Added");
+		} else {
+			request.setAttribute("msg", "Document Type Failed Adding");
+		}
+			
+		RequestDispatcher rd = request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

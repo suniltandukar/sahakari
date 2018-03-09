@@ -48,6 +48,8 @@ public interface CustomerDao {
 	public boolean addCustomerType(String typeName);
 
 	public boolean addCustomerAgent(String agentName, String agentAddress, String agentPhone, String staffCode);
+
+	public boolean addDocumentType(String typeId,String typeName);
 	
 	
 }

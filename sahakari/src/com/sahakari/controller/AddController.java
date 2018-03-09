@@ -22,6 +22,7 @@ import com.sahakari.action.LoanAction;
 import com.sahakari.action.OtherAction;
 import com.sahakari.action.TransactionAction;
 import com.sahakari.model.EMImodel;
+import com.sun.xml.internal.ws.resources.AddressingMessages;
 /**
  * Servlet implementation class AddController
  */
@@ -151,6 +152,11 @@ public class AddController extends HttpServlet {
 		else if(uri.endsWith("basicinterestrate.add")){
 			AdminSettingAction action=new AdminSettingAction();
 			action.addBasicInterestRate(request,response);
+		}
+		else if(uri.endsWith("documentType.add"))
+		{
+			AdminSettingAction action=new AdminSettingAction();
+			action.addDocumentType(request,response);
 		}
 	}
 

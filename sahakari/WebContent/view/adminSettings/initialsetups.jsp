@@ -58,6 +58,9 @@ h5 {
 							<li role="presentation" class=""><a href="#tab_content4"
 								role="tab" id="profile-tab3" data-toggle="tab"
 								aria-expanded="false">Relationship Officer</a></li>
+							<li role="presentation" class=""><a href="#tab_content5"
+								role="tab" id="profile-tab4" data-toggle="tab"
+								aria-expanded="false">Document Type</a></li>
 							
 						</ul>
 						<div id="myTabContent" class="tab-content">
@@ -78,6 +81,36 @@ h5 {
 											<td>
 											<h5>Status</h5> <input type="text"
 												class="form-control" name="statusName" value="">
+											</td>
+											
+											
+										</tr>
+											</tbody>
+								</table>
+									</form>
+					
+								
+							</div>
+							<div role="tabpanel" class="tab-pane fade active in" id="tab_content5"
+								aria-labelledby="profile-tab">
+								<form class="form-horizontal customerForm toggle-disabled"
+								id="form4" method="post" action="documentType.add">
+								<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+								
+							<button class="btn btn-info" type="button" id="validate" form="form4">Validate</button>
+							<button class="btn btn-primary" type="reset" form="form4">Reset</button>
+							<input type="submit" class="btn btn-success" form="form4" value="Submit">
+								</div>
+								<table class="table" id="relationtable" style="width:20%">
+									<tbody>
+										<tr>
+											<td>
+											<h5> Type Id</h5> <input type="text"
+												class="form-control" name="typeId" value="">
+											</td>
+											<td>
+											<h5>Type Name</h5> <input type="text"
+												class="form-control" name="typeName" value="">
 											</td>
 											
 											
