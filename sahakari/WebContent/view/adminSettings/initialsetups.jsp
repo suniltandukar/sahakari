@@ -242,6 +242,11 @@ h5 {
 				</table>
 			</div>
 
+
+		</div>
+	</div>
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="x_panel">
 			<div class="x_title">
 				<h4>Relationship Officer</h4>
 				<div class="clearfix"></div>
