@@ -149,6 +149,29 @@ public class GetFormOptions {
 
 	public List<CustomerModel> getDocumentType() {
 		
+		List<CustomerModel> list=new ArrayList<CustomerModel>();
+		String query="select * from documenttype";
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			
+			while(rs.next())
+			{
+				CustomerModel model=new CustomerModel();
+				model.setDoctypeId(rs.getString("typeId"));
+				model.setDoctypeName(rs.getString("typeName"));
+				list.add(model);
+			}
+			
+			if(list.size()>0)
+			{
+				return list;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 
