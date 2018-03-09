@@ -250,7 +250,8 @@ public class Generator {
 		return null;
 	}
 	public String customeridGenerator() {
-		
+		int custid;
+		String id;
 		con=DBConnection.getConnection();
 		String query="select max(pid) as pid from customertbl ";
 		try {
@@ -259,13 +260,14 @@ public class Generator {
 			
 			if(rs.next())
 			{
-				int custid=Integer.parseInt(rs.getString("pid"))+1;
-				System.out.println(custid);
-				String id=Integer.toString(custid);
+				if(rs.getString("pid")!=null){
+				 custid=Integer.parseInt(rs.getString("pid"))+1;
+				 id=Integer.toString(custid);
 				System.out.println(id);
 				return id;
+				}
+				
 			}
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

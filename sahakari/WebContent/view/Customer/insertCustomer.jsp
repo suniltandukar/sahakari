@@ -399,27 +399,27 @@ h5 {
 										<tr>
 											<td>
 												<h5>Issue Date(B.S.)</h5> <input type="text"
-												class="form-control" name="issuedDate" value=""
+												class="form-control docissuedateNp" name="issuedDate" value=""
 												data-validation="birthdate" data-validation-error-msg=" "
-												data-validation-optional="true">
+												data-validation-optional="true" onblur="nepaliToEnglish('.docissuedateNp','.docissuedateen')">
 											</td>
 											<td>
 												<h5>Issue Date(A.D.)</h5> <input type="text"
-												class="form-control" name="issuedDateen" value=""
+												class="form-control docissuedateen" name="issuedDateen" value=""
 												data-validation="birthdate" data-validation-error-msg=" "
-												data-validation-optional="true">
+												data-validation-optional="true" onblur="englishToNepali('.docissuedateNp','.docissuedateen')">
 											</td>
 											<td>
 												<h5>Maturity Date(B.S.)</h5> <input type="text"
-												class="form-control" name="expiryDate" value=""
+												class="form-control docmaturitydateNp" name="expiryDate" value=""
 												data-validation="birthdate" data-validation-error-msg=" "
-												data-validation-optional="true">
+												data-validation-optional="true" onblur="nepaliToEnglish('.docmaturitydateNp','.docmaturitydateen')">
 											</td>
 											<td>
 												<h5>Maturity Date(A.D.)</h5> <input type="text"
-												class="form-control" name="expiryDateen" value=""
+												class="form-control docmaturitydateen" name="expiryDateen" value=""
 												data-validation="birthdate" data-validation-error-msg=" "
-												data-validation-optional="true">
+												data-validation-optional="true" onblur="englishToNepali('.docmaturitydateNp','.docmaturitydateen')">
 											</td>
 
 										</tr>
