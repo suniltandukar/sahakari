@@ -539,11 +539,11 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 		
 		if(status)
 		{
-			request.setAttribute("msg", "Relationship Officer Add Failed!");
+			request.setAttribute("msg", "Relationship Officer Add Successfull!");
 		}
 		else
 		{
-			request.setAttribute("msg", "Relationship Officer Add Successful!");
+			request.setAttribute("msg", "Relationship Officer Add Failed!");
 			
 		}
 		RequestDispatcher rd=request.getRequestDispatcher("initialdetails.click");

@@ -129,6 +129,7 @@ public class GetFormOptions {
 				agent.setStaffcode(rs.getString("staffcode"));
 				agent.setComissionBasis(rs.getString("comissionBasis"));
 				list.add(agent);
+			}
 				
 				if(list.size()>0)
 				{
@@ -137,7 +138,7 @@ public class GetFormOptions {
 				}
 				
 				
-			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
