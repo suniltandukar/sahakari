@@ -259,15 +259,17 @@ h5 {
 						</tr>
 					</thead>
 					<tbody>
-					
-						<tr>
-						<c:forEach items="agentdetail" var="rofficer">
-							<td>${ agentname}</td>
-							<td>${agentaddress }</td>
-							<td>${ agentphone}</td>
-							<td>${ staffcode}</td>
+
+
+						<c:forEach items="agentlist" var="r">
+							<tr>
+								<td>${r.agentname}</td>
+								<td>${r.agentaddress}</td>
+								<td>${r.agentphone}</td>
+								<td>${r.staffcode}</td>
+							</tr>
 						</c:forEach>
-						</tr>
+
 					</tbody>
 				</table>
 

@@ -770,7 +770,8 @@ public class NavigationController extends HttpServlet {
 			List<CustomerModel> statuslist = g.getStatus();
 			List<CustomerModel> typelist = g.getType();
 			List<CustomerModel> docType=g.getDocumentType();
-			request.setAttribute("agentdetail", agentdetail);
+			
+			request.setAttribute("agentlist", agentdetail);
 			request.setAttribute("statuslist", statuslist);
 			request.setAttribute("typelist", typelist);
 			request.setAttribute("doctype", docType);

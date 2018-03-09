@@ -471,7 +471,7 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 			request.setAttribute("msg", "Update Successful!");
 		}
 		else{
-			request.setAttribute("msg", "Update Successful!");
+			request.setAttribute("msg", "Update Failed!");
 		}
 		
 		RequestDispatcher rd=request.getRequestDispatcher("viewsharecertificate.click");
@@ -500,7 +500,6 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 		try {
 			rd.forward(request, response);
 		} catch (ServletException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

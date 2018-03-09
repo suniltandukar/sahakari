@@ -130,21 +130,14 @@ public class GetFormOptions {
 				agent.setComissionBasis(rs.getString("comissionBasis"));
 				list.add(agent);
 			}
-				
 				if(list.size()>0)
 				{
 					return list;
 					
 				}
-				
-				
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 		return null;
 	}
 
