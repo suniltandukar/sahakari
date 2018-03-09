@@ -43,122 +43,130 @@ h5 {
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
-				
-					<div class="" role="tabpanel" data-example-id="togglable-tabs">
-					
-						<ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-							
-							
-							<li role="presentation" class="active"><a href="#tab_content2"
-								role="tab" id="profile-tab" data-toggle="tab"
-								aria-expanded="false" >Status</a></li>
-							<li role="presentation" class=""><a href="#tab_content3"
-								role="tab" id="profile-tab2" data-toggle="tab"
-								aria-expanded="false">Type</a></li>
-							<li role="presentation" class=""><a href="#tab_content4"
-								role="tab" id="profile-tab3" data-toggle="tab"
-								aria-expanded="false">Relationship Officer</a></li>
-							<li role="presentation" class=""><a href="#tab_content5"
-								role="tab" id="profile-tab4" data-toggle="tab"
-								aria-expanded="false">Document Type</a></li>
-							
-						</ul>
-						<div id="myTabContent" class="tab-content">
-							
-							<div role="tabpanel" class="tab-pane fade active in" id="tab_content2"
-								aria-labelledby="profile-tab">
-								<form class="form-horizontal customerForm toggle-disabled"
+
+				<div class="" role="tabpanel" data-example-id="togglable-tabs">
+
+					<ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+
+
+						<li role="presentation" class="active"><a
+							href="#tab_content2" role="tab" id="profile-tab"
+							data-toggle="tab" aria-expanded="false">Status</a></li>
+						<li role="presentation" class=""><a href="#tab_content3"
+							role="tab" id="profile-tab2" data-toggle="tab"
+							aria-expanded="false">Type</a></li>
+						<li role="presentation" class=""><a href="#tab_content4"
+							role="tab" id="profile-tab3" data-toggle="tab"
+							aria-expanded="false">Relationship Officer</a></li>
+						<li role="presentation" class=""><a href="#tab_content5"
+							role="tab" id="profile-tab4" data-toggle="tab"
+							aria-expanded="false">Document Type</a></li>
+
+					</ul>
+					<div id="myTabContent" class="tab-content">
+
+						<div role="tabpanel" class="tab-pane fade active in"
+							id="tab_content2" aria-labelledby="profile-tab">
+							<form class="form-horizontal customerForm toggle-disabled"
 								id="form1" method="post" action="customerStatus.add">
 								<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-								
-							<button class="btn btn-info" type="button" id="validate" form="form1">Validate</button>
-							<button class="btn btn-primary" type="reset" form="form1">Reset</button>
-							<input type="submit" class="btn btn-success" form="form1" value="Submit">
+
+									<button class="btn btn-info" type="button" id="validate"
+										form="form1">Validate</button>
+									<button class="btn btn-primary" type="reset" form="form1">Reset</button>
+									<input type="submit" class="btn btn-success" form="form1"
+										value="Submit">
 								</div>
-								<table class="table" id="relationtable" style="width:20%">
+								<table class="table" id="relationtable" style="width: 20%">
 									<tbody>
 										<tr>
 											<td>
-											<h5>Status</h5> <input type="text"
-												class="form-control" name="statusName" value="">
+												<h5>Status</h5> <input type="text" class="form-control"
+												name="statusName" value="">
 											</td>
-											
-											
+
+
 										</tr>
-											</tbody>
+									</tbody>
 								</table>
-									</form>
-					
-								
-							</div>
-							<div role="tabpanel" class="tab-pane fade active in" id="tab_content5"
-								aria-labelledby="profile-tab">
-								<form class="form-horizontal customerForm toggle-disabled"
+							</form>
+
+
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="tab_content5"
+							aria-labelledby="profile-tab">
+							<form class="form-horizontal customerForm toggle-disabled"
 								id="form4" method="post" action="documentType.add">
 								<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-								
-							<button class="btn btn-info" type="button" id="validate" form="form4">Validate</button>
-							<button class="btn btn-primary" type="reset" form="form4">Reset</button>
-							<input type="submit" class="btn btn-success" form="form4" value="Submit">
+
+									<button class="btn btn-info" type="button" id="validate"
+										form="form4">Validate</button>
+									<button class="btn btn-primary" type="reset" form="form4">Reset</button>
+									<input type="submit" class="btn btn-success" form="form4"
+										value="Submit">
 								</div>
-								<table class="table" id="relationtable" style="width:20%">
+								<table class="table" id="relationtable" style="width: 50%">
 									<tbody>
 										<tr>
 											<td>
-											<h5> Type Id</h5> <input type="text"
-												class="form-control" name="typeId" value="">
+												<h5>Type Id</h5> <input type="text" class="form-control"
+												name="typeId" value="">
 											</td>
 											<td>
-											<h5>Type Name</h5> <input type="text"
-												class="form-control" name="typeName" value="">
+												<h5>Type Name</h5> <input type="text" class="form-control"
+												name="typeName" value="">
 											</td>
-											
-											
+
+
 										</tr>
-											</tbody>
+									</tbody>
 								</table>
-									</form>
-					
-								
-							</div>
-							<div role="tabpanel" class="tab-pane fade" id="tab_content3"
-								aria-labelledby="profile-tab">
-								<form class="form-horizontal customerForm toggle-disabled"
+							</form>
+
+
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="tab_content3"
+							aria-labelledby="profile-tab">
+							<form class="form-horizontal customerForm toggle-disabled"
 								id="form2" method="post" action="customerType.add">
 								<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-								
-							<button class="btn btn-info" type="button" id="validate" form="form2">Validate</button>
-							<button class="btn btn-primary" type="reset" form="form2">Reset</button>
-							<input type="submit" class="btn btn-success" form="form2" value="Submit">
+
+									<button class="btn btn-info" type="button" id="validate"
+										form="form2">Validate</button>
+									<button class="btn btn-primary" type="reset" form="form2">Reset</button>
+									<input type="submit" class="btn btn-success" form="form2"
+										value="Submit">
 								</div>
-								<table class="table" id="relationtable" style="width:20%">
+								<table class="table" id="relationtable" style="width: 20%">
 									<tbody>
 										<tr>
 											<td>
-											<h5>Type</h5> <input type="text"
-												class="form-control" name="typeName" value="" form="form2">
+												<h5>Type</h5> <input type="text" class="form-control"
+												name="typeName" value="" form="form2">
 											</td>
-											
-											
+
+
 										</tr>
-											</tbody>
+									</tbody>
 								</table>
-									</form>
-									</div>
-									
-					
-							<div role="tabpanel" class="tab-pane fade" id="tab_content4"
-								aria-labelledby="profile-tab">
-								
-								<form class="form-horizontal customerForm toggle-disabled"
+							</form>
+						</div>
+
+
+						<div role="tabpanel" class="tab-pane fade" id="tab_content4"
+							aria-labelledby="profile-tab">
+
+							<form class="form-horizontal customerForm toggle-disabled"
 								id="form3" method="post" action="customerAgent.add">
 								<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-								
-							<button class="btn btn-info" type="button" id="validate" form="form3">Validate</button>
-							<button class="btn btn-primary" type="reset" form="form3">Reset</button>
-							<input type="submit" class="btn btn-success" form="form3" value="Submit">
+
+									<button class="btn btn-info" type="button" id="validate"
+										form="form3">Validate</button>
+									<button class="btn btn-primary" type="reset" form="form3">Reset</button>
+									<input type="submit" class="btn btn-success" form="form3"
+										value="Submit">
 								</div>
-								<table class="table" id="relationtable" >
+								<table class="table" id="relationtable">
 									<tbody>
 										<tr>
 											<td>
@@ -171,86 +179,67 @@ h5 {
 												class="form-control" name="agentaddress" value="">
 											</td>
 											<td>
-												<h5>Agent Phone</h5> <input type="text"
-												class="form-control" name="accountphone" value="">
+												<h5>Agent Phone</h5> <input type="text" class="form-control"
+												name="accountphone" value="">
 											</td>
 											<td>
 												<h5>Staff Code</h5> <input type="text" class="form-control"
 												name="staffcode" value="">
 											</td>
-											
 										</tr>
 									</tbody>
 								</table>
-									</form>
-									</div>
-							
-							
-							<div role="tabpanel" class="tab-pane fade" id="tab_content5"
-								aria-labelledby="profile-tab">
-								<input type="button" name="button" value="New Document"
-									class="btn btn-primary adddocumentbtn">
-								<table class="table" id="documenttbl">
-									<tbody>
-
-										<tr class="tr_clone">
-											<td>
-												<h5>Document Type</h5> <select class="form-control"
-												name="documentType">
-													<option value="">Select Document Type</option>
-													<c:forEach items="${document}" var="relation">
-														<option value="${document}">${document}</option>
-													</c:forEach>
-											</select>
-											</td>
-											<td>
-												<h5>Document No</h5> <input type="text" class="form-control"
-												name="documentNumber" value="" data-validation="number"
-												data-validation-error-msg=" "
-												data-validation-optional="true">
-											</td>
-											<td>
-												<h5>Issued By</h5> <input type="text" class="form-control"
-												name="issuedBy" value="" data-validation="number"
-												data-validation-error-msg=" "
-												data-validation-optional="true">
-											</td>
-
-										</tr>
-										<tr>
-											<td>
-												<h5>Issue Date(B.S.)</h5> <input type="text"
-												class="form-control" name="issuedDate" value=""
-												data-validation="birthdate" data-validation-error-msg=" "
-												data-validation-optional="true">
-											</td>
-											<td>
-												<h5>Issue Date(A.D.)</h5> <input type="text"
-												class="form-control" name="issuedDateen" value=""
-												data-validation="birthdate" data-validation-error-msg=" "
-												data-validation-optional="true">
-											</td>
-											<td>
-												<h5>Maturity Date(B.S.)</h5> <input type="text"
-												class="form-control" name="expiryDate" value=""
-												data-validation="birthdate" data-validation-error-msg=" "
-												data-validation-optional="true">
-											</td>
-											<td>
-												<h5>Maturity Date(A.D.)</h5> <input type="text"
-												class="form-control" name="expiryDateen" value=""
-												data-validation="birthdate" data-validation-error-msg=" "
-												data-validation-optional="true">
-											</td>
-
-										</tr>
-
-									</tbody>
-								</table>
-							</div>
+							</form>
 						</div>
 					</div>
-				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="x_panel">
+			<div class="x_title">
+				<h2>Available Status/Type</h2>
+				<ul class="nav navbar-right panel_toolbox">
+					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+				<table id="datatableaa"
+					class="table jambo_table table-striped table-bordered resulttable display nowrap"
+					style="font-size: 100%;">
+					<thead>
+						<tr>
+							<th>Status</th>
+							<th>Type</th>
+							<th>Document Type</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><c:forEach items="${typelist }" var="tlist">
+									<c:if test="${tlist.typeName!='none' }">
+										<h6>${tlist.typeName }</h6>
+									</c:if>
+
+								</c:forEach></td>
+							<td><c:forEach items="${statuslist }" var="slist">
+									<c:if test="${slist.statusName!='none' }">
+										<h6>${slist.statusName }</h6>
+									</c:if>
+
+								</c:forEach></td>
+							<td>
+								Doctype/DocName
+							</td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
 			</div>
 		</div>
 	</div>
@@ -297,7 +286,6 @@ h5 {
 	<script>
 		
 	<%if (request.getAttribute("msg") != null) {%>
-
 		$('#myModal').modal('show');
 	<%}%>
 		
