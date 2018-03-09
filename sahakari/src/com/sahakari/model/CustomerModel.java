@@ -10,7 +10,26 @@ public class CustomerModel {
 	insertStatus, updateStatus, delStatus, address, agentid;
 	//document details
 	String documentType, documentNumber, issuedDate,issuedDateen,issuedBy,expiryDate,expiryDateen,agentName;
+	String doctypeId,doctypeName;
 	
+	
+
+	public String getDoctypeId() {
+		return doctypeId;
+	}
+
+	public void setDoctypeId(String doctypeId) {
+		this.doctypeId = doctypeId;
+	}
+
+	public String getDoctypeName() {
+		return doctypeName;
+	}
+
+	public void setDoctypeName(String doctypeName) {
+		this.doctypeName = doctypeName;
+	}
+
 	public String getAgentName() {
 		return agentName;
 	}

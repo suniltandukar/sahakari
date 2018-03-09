@@ -139,6 +139,8 @@ public class NavigationController extends HttpServlet {
 			List<CustomerModel> districtlist = g.getDistrict();
 			List<FamilyRelationModel> familyrelationlist = g
 					.getfamilyRelationNames();
+			List<CustomerModel> docType=g.getDocumentType();
+			
 
 			request.setAttribute("agent", agentdetail);
 			request.setAttribute("statuslist", statuslist);

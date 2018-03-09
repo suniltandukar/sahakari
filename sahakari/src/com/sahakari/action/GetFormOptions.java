@@ -147,4 +147,9 @@ public class GetFormOptions {
 		return null;
 	}
 
+	public List<CustomerModel> getDocumentType() {
+		
+		return null;
+	}
+
 }
