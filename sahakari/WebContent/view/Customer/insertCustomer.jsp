@@ -377,8 +377,8 @@ h5 {
 												<h5>Document Type</h5> <select class="form-control"
 												name="documentType">
 													<option value="">Select Document Type</option>
-													<c:forEach items="${document}" var="relation">
-														<option value="${document}">${document}</option>
+													<c:forEach items="${docType}" var="doc">
+														<option value="${doc.doctypeId}">${doc.doctypeName}</option>
 													</c:forEach>
 											</select>
 											</td>
