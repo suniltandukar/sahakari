@@ -86,8 +86,8 @@ h5 {
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">
 							Account No</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
-							<input type="text" class="form-control accountNumber"
-								name="accountNo" value="" data-validation="number"
+							<input type="text" class="form-control accountNo"
+								name="shareCertNo" value="" data-validation="number"
 								data-validation-error-msg=" ">
 						</div>
 					</div>
@@ -96,26 +96,10 @@ h5 {
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Legacy
 							Account Number </label>
 						<div class="col-md-3 col-sm-3 col-xs-12">
-							<input type="text" class="form-control memberid"
+							<input type="text" class="form-control"
 								name="accountName" id="alternateAccountNo" value="">
-
-
-
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Limit
-							Reference </label>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<input type="text" class="form-control" name="limitRef" value="">
-						</div>
-					</div>
-
-
-
-
-
-
 				</form>
 			</div>
 		</div>
