@@ -244,7 +244,15 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 		} else if (uri.endsWith("sharecertificateinsert.click")) {
 			
-			
+			String memberId=request.getParameter("pid");
+			memberId="0000001";
+			HttpSession session=request.getSession(true);
+			UserModel user=(UserModel)session.getAttribute("userDetail");
+			String branchid=user.getBranchCode();
+			String companyId=user.getCompanyId();
+			Generator gen=new Generator();
+			String id=gen.ShareCertificateIdGenerator(branchid, companyId, memberId);
+			System.out.println(id);
 			RequestDispatcher rd = request
 					.getRequestDispatcher("view/ShareCertificate/insertShareCertificate.jsp");
 			rd.forward(request, response);
