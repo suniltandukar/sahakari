@@ -202,7 +202,7 @@ h5 {
 					var acn=split[1];
 					var memname=split[0]; 
 					var memaddress=split[2];
-					$(".accountNumber").val(acn);
+					$(".accountNo").val(acn);
 					$("#membername").html(memname); 
 					$("#memberaddress").val(memaddress);
 				}
