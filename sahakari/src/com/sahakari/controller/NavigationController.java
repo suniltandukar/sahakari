@@ -243,6 +243,7 @@ public class NavigationController extends HttpServlet {
 					.getRequestDispatcher("view/Customer/customerUpdateDisplayForm.jsp");
 			rd.forward(request, response);
 		} else if (uri.endsWith("sharecertificateinsert.click")) {
+
 			
 			String memberId=request.getParameter("pid");
 			memberId="0000001";
@@ -253,6 +254,12 @@ public class NavigationController extends HttpServlet {
 			Generator gen=new Generator();
 			String id=gen.ShareCertificateIdGenerator(branchid, companyId, memberId);
 			System.out.println(id);
+
+			AccountDao a = new AccountDaoImpl();
+			List<AccountModel> categorylist = a.getCategories();
+			request.setAttribute("categorylist", categorylist);
+			
+
 			RequestDispatcher rd = request
 					.getRequestDispatcher("view/ShareCertificate/insertShareCertificate.jsp");
 			rd.forward(request, response);

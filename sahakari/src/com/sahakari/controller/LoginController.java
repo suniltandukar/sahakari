@@ -30,8 +30,7 @@ public class LoginController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri=request.getRequestURI();
 		if(uri.endsWith("login.log")){
-			ViewDao v=new ViewDaoImpl();
-			System.out.println(v.convertToJSON());
+			
 			LoginAction l=new LoginAction();
 			l.userlogin(request,response);
 		}

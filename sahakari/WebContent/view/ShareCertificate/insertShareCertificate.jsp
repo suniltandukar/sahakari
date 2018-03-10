@@ -38,10 +38,176 @@ h5 {
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
-				<form class="form-horizontal shareCertForm toggle-disabled" id="form1" method="post"
-					action="shareCertificate.add">
+				<form class="form-horizontal shareCertForm toggle-disabled"
+					id="form1" method="post" action="shareCertificate.add">
+					<div class="form-group">
+						<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+							<button class="btn btn-info" type="button" id="validate">Validate</button>
+							<button class="btn btn-primary" type="reset">Reset</button>
+							<input type="submit" class="btn btn-success" value="Submit">
+						</div>
+					</div>
+					<div class="ln_solid"></div>
 
-					<table class="table">
+					<div class="form-group">
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">Member
+							Id</label>
+						<div class="col-md-2 col-sm-2 col-xs-12">
+							<input type="text" id="memberid"
+								class="form-control sharecertmemberid memberid" name="memberid"
+								value="" data-validation="number" data-validation-error-msg=" ">
+						</div>
+						<div class="col-md-8 col-sm-8 col-xs-12 ">
+							<span id="customername"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">Member Address</label>
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<input type="text" class="form-control"
+								name="memberAddress" value=""
+								data-validation="number" data-validation-error-msg=" " 
+								>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">
+							Category</label>
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<select class="form-control categoryid" name="categoryId"
+								id="categories">
+								<option value="">Select Category</option>
+								<c:forEach items="${categorylist }" var="c">
+									<option value="${c.categoryId }">${c.categoryId }-${c.categoryHead }</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					<div class="form-group" id="cashWithdraw">
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">
+							Account No</label>
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<input type="text" class="form-control"
+								name="accountNo" value="" data-validation="number"
+								data-validation-error-msg=" ">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">Legacy Account
+							Number </label>
+						<div class="col-md-3 col-sm-3 col-xs-12">
+							<input type="text" class="form-control memberid"
+								name="accountName" id="alternateAccountNo" value="">
+
+
+
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">Limit
+							Reference </label>
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<input type="text" class="form-control" name="limitRef" value="">
+						</div>
+					</div>
+
+
+
+
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12 col-sm-12 col-xs-12">
+
+		<div class="x_panel">
+			<div class="x_title">
+				<h2>SHARE CERTIFICATE DETAIL</h2>
+				<ul class="nav navbar-right panel_toolbox">
+					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+				<table id="sharecerttable"
+					class="table jambo_table table-striped table-bordered"
+					style="font-size: 95%;">
+					<thead>
+						<tr>
+							<th>Member ID</th>
+							<th>Share ID</th>
+							<th>Share Certificate No</th>
+							<th>From</th>
+							<th>To</th>
+							<th>Date</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<jsp:include page="/msgmodal"></jsp:include>
+	<div class="modal fade" id="memberidmsgmodal" role="dialog">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-body">
+					<p id="modalmsg"></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<input type="hidden" class="memberidstatus" value="">
+	<script type="text/javascript" src="template/js/form.js"></script>
+	<script type="text/javascript">
+		
+	<%if (request.getAttribute("msg") != null) {%>
+		$('#myModal').modal('show');
+	<%}%>
+		
+	</script>
+	<script>
+		$(document).ready(function() {
+			$('#sharecerttable').DataTable({
+
+				"ajax" : "sharecertificatejson.click",
+				"columns" : [ {
+					"data" : "pid"
+				}, {
+					"data" : "shareid"
+				}, {
+					"data" : "sharecertno"
+				}, {
+					"data" : "sharefrom"
+				}, {
+					"data" : "shareto"
+				}, {
+					"data" : "sharedate"
+				}, {
+					"data" : null,
+					defaultContent : "<button id='deletebtn'>Delete</button>"
+				} ]
+			});
+			$("#deletebtn").on('click', 'tr button', function() {
+				alert("hello");
+				var tr = $(this).closest('tr');
+				var data = t.row(tr).data();
+				alert(data);
+			});
+		});
+		
+	</script>
+</body>
+</html>
+<!-- <table class="table">
 						<tbody>
 							<tr>
 								<td><input type="submit" class="btn btn-success"
@@ -95,93 +261,4 @@ h5 {
 
 							</tr>
 						</tbody>
-					</table>
-				</form>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-12 col-sm-12 col-xs-12">
-
-		<div class="x_panel">
-			<div class="x_title">
-				<h2>SHARE CERTIFICATE DETAIL</h2>
-				<ul class="nav navbar-right panel_toolbox">
-					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-					</li>
-				</ul>
-				<div class="clearfix"></div>
-			</div>
-			<div class="x_content">
-				<table id="sharecerttable" class="table jambo_table table-striped table-bordered"
-					style="font-size: 95%;">
-				<thead>
-					<tr>
-						<th>Member ID</th>
-						<th>Share ID</th>
-						<th>Share Certificate No</th>
-						<th>From</th>
-						<th>To</th>
-						<th>Date</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-			</table>
-			</div>
-		</div>
-	</div>
-	
-	<jsp:include page="/msgmodal"></jsp:include>
-	<div class="modal fade" id="memberidmsgmodal" role="dialog">
-		<div class="modal-dialog modal-sm">
-			<div class="modal-content">
-				<div class="modal-body">
-					<p id="modalmsg"></p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<input type="hidden" class="memberidstatus" value="">
-	<script type="text/javascript" src="template/js/form.js"></script> 
-	<script type="text/javascript">
-		
-	<%if (request.getAttribute("msg") != null) {%>
-		$('#myModal').modal('show');
-	<%}%>
-	
-	</script>
-	<script>
-	$(document).ready(function() {
-	$('#sharecerttable').DataTable( {
-        
-        "ajax": "sharecertificatejson.click",
-        "columns":[
-        	{"data":"pid"},
-        	{"data":"shareid"},
-        	{"data":"sharecertno"},
-        	{"data":"sharefrom"},
-        	{"data":"shareto"},
-        	{"data":"sharedate"},
-        	{"data":null,
-        	 defaultContent: "<button id='deletebtn'>Delete</button>"}
-        ]
-    } );
-	$( "#deletebtn" ).on('click','tr button', function() {
-		alert("hello");
-	      var tr = $(this).closest('tr');
-	      var data = t.row(tr).data();
-	     alert(data);
-	});
-} );
-  $.validate({
-    lang: 'en',
-    modules : 'date,toggleDisabled',
-	  disabledFormFilter : 'form.toggle-disabled',
-	 showErrorDialogs : false
-
-    });
-</script>
-</body>
-</html>
+					</table> -->
