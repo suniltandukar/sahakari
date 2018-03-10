@@ -164,7 +164,7 @@ public class Generator {
 			if(rs.next()) {
 				int tillid=0;
 				tellerId = rs.getString("tellerId");
-				String till=tellerId.substring(15,19);
+				String till=tellerId.substring(14,18);
 				 tillid=Integer.parseInt(till);
 				tillid++;
 				String tillId=Integer.toString(tillid);
@@ -273,6 +273,45 @@ public class Generator {
 		}
 		return null;
 		
+	}
+	
+	public String ShareCertificateIdGenerator(String branchid,String companyId,String memberId) {
+		con=DBConnection.getConnection();
+		String shareCertNo="";
+		
+		
+		
+		try{
+			String query="select * from sharecertificate where shareCertNo LIKE '%SHA"+companyId+branchid+memberId+"%' order by shareCertNo DESC;";
+			ps=con.prepareStatement(query);
+			 rs=ps.executeQuery();
+			
+			if(rs.next()) {
+				int tillid=0;
+				shareCertNo = rs.getString("shareCertNo");
+				
+				String till=shareCertNo.substring(15,18);
+				 tillid=Integer.parseInt(till);
+				tillid++;
+				String tillId=Integer.toString(tillid);
+				if(tillId.length()<3){
+					while(tillId.length()<3){
+						tillId="0"+tillId;
+					}
+				}
+				shareCertNo = "SHA"+companyId+branchid+memberId+tillId;
+				
+			}
+			else{
+				shareCertNo= "SHA"+companyId+branchid+memberId+"001";
+				
+			}
+			con.close();
+		}
+		catch(Exception e){
+			System.out.println("get tellertransaction id error"+e);
+		}
+		return shareCertNo;
 	}
 	
 }

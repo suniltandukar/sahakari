@@ -243,6 +243,8 @@ public class NavigationController extends HttpServlet {
 					.getRequestDispatcher("view/Customer/customerUpdateDisplayForm.jsp");
 			rd.forward(request, response);
 		} else if (uri.endsWith("sharecertificateinsert.click")) {
+			
+			
 			RequestDispatcher rd = request
 					.getRequestDispatcher("view/ShareCertificate/insertShareCertificate.jsp");
 			rd.forward(request, response);
