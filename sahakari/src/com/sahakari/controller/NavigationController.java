@@ -245,15 +245,7 @@ public class NavigationController extends HttpServlet {
 		} else if (uri.endsWith("sharecertificateinsert.click")) {
 
 			
-			String memberId=request.getParameter("pid");
-			memberId="0000001";
-			HttpSession session=request.getSession(true);
-			UserModel user=(UserModel)session.getAttribute("userDetail");
-			String branchid=user.getBranchCode();
-			String companyId=user.getCompanyId();
-			Generator gen=new Generator();
-			String id=gen.ShareCertificateIdGenerator(branchid, companyId, memberId);
-			System.out.println(id);
+		
 
 			AccountDao a = new AccountDaoImpl();
 			List<AccountModel> categorylist = a.getCategories();
@@ -840,6 +832,43 @@ public class NavigationController extends HttpServlet {
 			request.setAttribute("staff", staff);
 			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/viewStaff.jsp");
 			rd.forward(request, response);
+		}
+		
+		else if(uri.endsWith("generateShareCertificateId.click"))
+		{
+			PrintWriter out=response.getWriter();
+			
+			System.out.println("reached");
+			String memberid=request.getParameter("memberid");
+			System.out.println(memberid);
+			
+			CustomerDao  dao=new CustomerDaoImpl();
+			boolean status=
+					dao.checkMemberId(memberid);
+			if(status)
+			{
+			
+			HttpSession session=request.getSession(true);
+			UserModel user=(UserModel)session.getAttribute("userDetail");
+			String branchid=user.getBranchCode();
+			String companyId=user.getCompanyId();
+			System.out.println(branchid+" "+companyId);
+			Generator gen=new Generator();
+			String id=gen.ShareCertificateIdGenerator(branchid, companyId, memberid);
+			
+			
+			ViewDao v = new ViewDaoImpl();
+			CustomerModel c = v.viewSpecificCustomerDetail(memberid);
+			String membername=c.getName();
+			String memaddress=c.getAddress();
+
+			out.println(membername+"*"+id+"*"+memaddress);
+			
+			}
+			else 
+			{
+				out.println("Member Not Found!!!");
+			}
 		}
 		
 		

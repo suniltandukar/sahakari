@@ -58,16 +58,15 @@ h5 {
 								value="" data-validation="number" data-validation-error-msg=" ">
 						</div>
 						<div class="col-md-8 col-sm-8 col-xs-12 ">
-							<span id="customername"></span>
+							<p id="membername"></p>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Member Address</label>
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">Member
+							Address</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
-							<input type="text" class="form-control"
-								name="memberAddress" value=""
-								data-validation="number" data-validation-error-msg=" " 
-								>
+							<input type="text" class="form-control" id="memberaddress" name="memberAddress"
+								value="" data-validation="number" data-validation-error-msg=" ">
 						</div>
 					</div>
 					<div class="form-group">
@@ -87,15 +86,15 @@ h5 {
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">
 							Account No</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
-							<input type="text" class="form-control"
+							<input type="text" class="form-control accountNumber"
 								name="accountNo" value="" data-validation="number"
 								data-validation-error-msg=" ">
 						</div>
 					</div>
-					
+
 					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Legacy Account
-							Number </label>
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">Legacy
+							Account Number </label>
 						<div class="col-md-3 col-sm-3 col-xs-12">
 							<input type="text" class="form-control memberid"
 								name="accountName" id="alternateAccountNo" value="">
@@ -203,7 +202,46 @@ h5 {
 				alert(data);
 			});
 		});
-		
+		$("#validate").click(function()
+
+		{
+			var id = $('.memberid').val();
+			var dataString = 'memberid=' + id;
+			$.ajax({
+				type : "POST",
+				url : "generateShareCertificateId.click",
+				data : dataString,
+				cache : false,
+				success : function(html) {
+					
+					  var split=html.split("*");
+					var acn=split[1];
+					var memname=split[0]; 
+					var memaddress=split[2];
+					$(".accountNumber").val(acn);
+					$("#membername").html(memname); 
+					$("#memberaddress").val(memaddress);
+				}
+			});
+
+		});
+		/* $("#validate").click(function()
+				{
+				var id=$('.memberid').val();
+				var dataString = 'id='+ id;
+				$.ajax
+				({
+				type: "POST",
+				url: "getmembername.click",
+				data: dataString,
+				cache: false,
+				success: function(html)
+				{
+				$("#membername").html(html);
+				
+				} 
+				});
+				}); */
 	</script>
 </body>
 </html>
