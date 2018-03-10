@@ -243,7 +243,9 @@ public class NavigationController extends HttpServlet {
 					.getRequestDispatcher("view/Customer/customerUpdateDisplayForm.jsp");
 			rd.forward(request, response);
 		} else if (uri.endsWith("sharecertificateinsert.click")) {
-			
+			AccountDao a = new AccountDaoImpl();
+			List<AccountModel> categorylist = a.getCategories();
+			request.setAttribute("categorylist", categorylist);
 			
 			RequestDispatcher rd = request
 					.getRequestDispatcher("view/ShareCertificate/insertShareCertificate.jsp");
