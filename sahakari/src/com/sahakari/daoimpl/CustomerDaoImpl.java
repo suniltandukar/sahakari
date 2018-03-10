@@ -533,7 +533,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 	public boolean addShareCertificate(CustomerModel cm){
 		int i=0;
-		String query="insert into shareCertificate (pid,shareCertNo,shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate,inputter,shareid)values(?,?,?,?,?,?,?,?,?,?)";
+		String query="insert into shareCertificate (pid,shareCertNo,shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate,inputter,shareid, categoryId, alternateAccountNo)values(?,?,?,?,?,?,?,?,?,?,?,?)";
 		try{
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
@@ -547,10 +547,12 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(8, cm.getShareDate());
 			ps.setString(9, cm.getInputter());
 			ps.setString(10,cm.getShareid());
+			ps.setString(11, cm.getCategoryId());
+			ps.setString(12, cm.getAlternateAccountNo());
 			i=ps.executeUpdate();
 			if(i>0){
 				con.close();
-				ps=null;
+				ps.close();
 				return true;
 			}
 		}

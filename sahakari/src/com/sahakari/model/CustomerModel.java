@@ -11,8 +11,25 @@ public class CustomerModel {
 	//document details
 	String documentType, documentNumber, issuedDate,issuedDateen,issuedBy,expiryDate,expiryDateen,agentName;
 	String doctypeId,doctypeName;
+	String alternateAccountNo, categoryId;
 	
 	
+
+	public String getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getAlternateAccountNo() {
+		return alternateAccountNo;
+	}
+
+	public void setAlternateAccountNo(String alternateAccountNo) {
+		this.alternateAccountNo = alternateAccountNo;
+	}
 
 	public String getDoctypeId() {
 		return doctypeId;
