@@ -2,11 +2,13 @@ package com.sahakari.transaction.daoImpl;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.mysql.jdbc.Connection;
 import com.sahakari.dbconnection.DBConnection;
+import com.sahakari.model.ShareAccountLedger;
 import com.sahakari.model.TellerTransactionModel;
 import com.sahakari.model.TransactionModel;
 import com.sahakari.transaction.dao.TransactionDao;
@@ -513,4 +515,38 @@ public class TransactionDaoImpl implements TransactionDao{
 		return false;
 	}
 
+	public boolean addShareAccountLedger(ShareAccountLedger l)
+	{
+		int rs=0;
+		String query="insert into shareAcLedger(accountNo,legacyAccountNo,pid,date,narration,drQuantity,crQuantity,balanceQuantity,drAmount,crAmount,balanceAmount,inputter,time) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(query);
+			ps.setString(1, l.getAccountNo());
+			ps.setString(2,l.getLegacyAccountNo());
+			ps.setString(3,l.getPid());
+			ps.setString(4,l.getDate());
+			ps.setString(5,l.getNarration());
+			ps.setString(6,l.getDrQuantity());
+			ps.setString(7,l.getCrQuantity());
+			ps.setString(8,l.getBalanceQuantity());
+			ps.setString(9,l.getDrAmount());
+			ps.setString(10,l.getCrAmount());
+			ps.setString(11,l.getBalanceAmount());
+			ps.setString(12,l.getInputter());
+			ps.setString(13,l.getAuthorizer());
+			ps.setString(14,l.getTime());
+
+			rs=ps.executeUpdate();
+			
+			if(rs>0)
+			{
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 }

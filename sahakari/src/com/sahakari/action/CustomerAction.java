@@ -371,6 +371,9 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 		
 		CustomerModel cm=new CustomerModel();
 		String shareid,shareCertNo, shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate, memberid;
+		String categoryId,alternateAccountNo;
+		categoryId=request.getParameter("categoryId");
+		alternateAccountNo=request.getParameter("alternateAccountNo");
 		shareCertNo=request.getParameter("shareCertNo");
 		shareFrom=request.getParameter("shareFrom");
 		shareTo=request.getParameter("shareTo");
@@ -390,11 +393,12 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 		cm.setShareAmount(shareAmount);
 		cm.setShareDate(shareDate);
 		cm.setInputter(inputter);
+		cm.setAlternateAccountNo(alternateAccountNo);
+		cm.setCategoryId(categoryId);
+		cm.setPid(memberid);
+		
 		
 		CustomerDao c=new CustomerDaoImpl();
-		
-		String pid=c.selectPid(memberid);
-		cm.setPid(pid);
 		
 		boolean status=c.addShareCertificate(cm);
 		if(status){

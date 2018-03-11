@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sahakari.model.ShareAccountLedger;
 import com.sahakari.model.TellerTransactionModel;
 import com.sahakari.model.TransactionModel;
 
@@ -31,6 +32,7 @@ public interface TransactionDao {
 	public boolean deleteMultiTransaction(String id);
 
 	public boolean updateTellerTransaction(TellerTransactionModel tm);
+	public boolean addShareAccountLedger(ShareAccountLedger l);
 
 	
 
