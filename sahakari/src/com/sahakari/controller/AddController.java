@@ -158,6 +158,12 @@ public class AddController extends HttpServlet {
 			AdminSettingAction action=new AdminSettingAction();
 			action.addDocumentType(request,response);
 		}
+		
+		else if(uri.endsWith("shareAccountLedger.add"))
+		{
+			AccountAction action=new AccountAction();
+			action.addShareAccountLedger(request,response);
+		}
 	}
 
 }

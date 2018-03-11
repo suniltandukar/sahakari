@@ -11,7 +11,10 @@ import javax.servlet.http.HttpSession;
 import com.sahakari.account.dao.AccountDao;
 import com.sahakari.account.daoImpl.AccountDaoImpl;
 import com.sahakari.model.AccountModel;
+import com.sahakari.model.ShareAccountLedger;
 import com.sahakari.model.UserModel;
+import com.sahakari.transaction.dao.TransactionDao;
+import com.sahakari.transaction.daoImpl.TransactionDaoImpl;
 
 public class AccountAction {
 
@@ -116,6 +119,46 @@ public class AccountAction {
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void addShareAccountLedger(HttpServletRequest request, HttpServletResponse response) {
+
+		String accountNo=request.getParameter("accountNo");
+		String     legacyAccountNo = request.getParameter("legacyAccountNo");
+		String    pid  = request.getParameter("pid");
+		String     date = request.getParameter("date");
+		String    narration  = request.getParameter("narration");
+		String    drQuantity  = request.getParameter("drQuantity");
+		String    crQuantity  = request.getParameter("crQuantity");
+		String     balanceQuantity = request.getParameter("balanceQuantity");
+		String     drAmount = request.getParameter("drAmount");
+		String     crAmount = request.getParameter("crAmount");
+		String     balanceAmount = request.getParameter("balanceAmount");
+		String     inputter = request.getParameter("inputter");
+		String      authorizer= request.getParameter("authorizer");
+		String 		dateen=request.getParameter("dateen");
+		String 		time=request.getParameter("time");
+
+		ShareAccountLedger l=new ShareAccountLedger();
+		l.setAccountNo(accountNo);
+		l.setLegacyAccountNo(legacyAccountNo);
+		l.setPid(pid);
+		l.setDate(date);
+		l.setNarration(narration);
+		l.setDrQuantity(drQuantity);
+		l.setCrQuantity(crQuantity);
+		l.setBalanceQuantity(balanceQuantity);
+		l.setDrAmount(drAmount);
+		l.setCrAmount(crAmount);
+		l.setBalanceAmount(balanceAmount);
+		l.setInputter(inputter);
+		l.setAuthorizer(authorizer);
+		l.setTime(time);
+		
+		TransactionDao dao=new TransactionDaoImpl();
+		boolean status=dao.addShareAccountLedger(l);
+		
+
 	}
 
 }
