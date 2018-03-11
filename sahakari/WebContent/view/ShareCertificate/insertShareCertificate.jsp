@@ -22,7 +22,7 @@ h5 {
 					aria-hidden="true"></i>&nbsp;<a href="#">Home</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Share
 					Certificate</li>
-				<li class="breadcrumb-item active" aria-current="page">Add</li>
+				<li class="breadcrumb-item active" aria-current="page">Open Share Account</li>
 			</ol>
 		</nav>
 	</div>
@@ -30,7 +30,7 @@ h5 {
 
 		<div class="x_panel">
 			<div class="x_title">
-				<h2>ADD MEMBER SHARE CERTIFICATE</h2>
+				<h2>OPEN SHARE ACCOUNT</h2>
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>

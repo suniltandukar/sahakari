@@ -870,7 +870,11 @@ public class NavigationController extends HttpServlet {
 				out.println("Member Not Found!!!");
 			}
 		}
-		
+		else if(uri.endsWith("shareAccountLedger.click"))
+		{
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/shareAccountLedger/insert.jsp");
+			rd.forward(request, response);
+		}
 		
 	}
 
