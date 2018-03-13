@@ -518,7 +518,7 @@ public class TransactionDaoImpl implements TransactionDao{
 	public boolean addShareAccountLedger(ShareAccountLedger l)
 	{
 		int rs=0;
-		String query="insert into shareAcLedger(accountNo,legacyAccountNo,pid,date,narration,drQuantity,crQuantity,balanceQuantity,drAmount,crAmount,balanceAmount,inputter,time) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String query="insert into shareacledgertbl(accountNo,legacyAccountNo,pid,date,narration,drQuantity,crQuantity,balanceQuantity,drAmount,crAmount,balanceAmount,inputter,authorizer,inputDate) values(?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
 		con=DBConnection.getConnection();
 		try {
 			ps=con.prepareStatement(query);
@@ -535,7 +535,6 @@ public class TransactionDaoImpl implements TransactionDao{
 			ps.setString(11,l.getBalanceAmount());
 			ps.setString(12,l.getInputter());
 			ps.setString(13,l.getAuthorizer());
-			ps.setString(14,l.getTime());
 
 			rs=ps.executeUpdate();
 			

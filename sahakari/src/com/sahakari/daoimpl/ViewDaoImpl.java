@@ -394,13 +394,12 @@ public class ViewDaoImpl implements ViewDao{
 		
 		return jObjDevice;
 	}
-	public JSONArray viewShareCertificate()
+	public JSONObject viewShareCertificate()
 	{
 		String query="SELECT sharecertificate.*, customertbl.memberid from sharecertificate left JOIN customertbl on sharecertificate.pid=customertbl.pid";
-		JSONObject jObjDevice=null;
-		List<CustomerModel> list=new ArrayList<CustomerModel>();
-		CustomerModel cust=null;
+		
 		JSONArray jsonArray=new JSONArray();
+		JSONObject jObjDevice=null;
 		try {
 			
 			con=DBConnection.getConnection();
@@ -438,15 +437,16 @@ public class ViewDaoImpl implements ViewDao{
 				
 				 jsonArray.put(jobj);
 				 
-				 /*jObjDevice = new JSONObject();
-				 jObjDevice.put("data", jsonArray);*/
+				 
+				  jObjDevice = new JSONObject();
+				 jObjDevice.put("data", jsonArray);
 			}
 			
 		}
 		catch(Exception e){
 			System.out.println(e);
 		}
-		return jsonArray;
+		return jObjDevice;
 	}
 	public JSONArray convertToJSON()
            {

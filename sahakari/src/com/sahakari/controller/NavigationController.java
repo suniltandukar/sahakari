@@ -743,34 +743,7 @@ public class NavigationController extends HttpServlet {
 					.viewSearchedCustomerDetail(memberid, membername);
 			out.println(list.toString());
 		}
-		else if (uri.endsWith("sharecertificatejson.click")) {
-			ViewDao view = new ViewDaoImpl();
-			JSONArray list = view.viewShareCertificate();
-			
-			response.setContentType("application/json");
-			response.getWriter().print(list);
-			String jsonString=list.toString();
-			
-			Gson gson=new Gson();
-			CustomerModel cumo=gson.fromJson(jsonString, CustomerModel.class);
-			cumo.getAccountNumber();
-			System.out.println("ysl+cumo.toString()");
-			System.out.println(jsonString);
-			/*
-			ObjectMapper ob=new ObjectMapper();
-			CustomerModel cus=ob.readValue(jsonString, CustomerModel.class);*/
-			
-			JSONObject jo=new JSONObject();
-			try {
-				
-				jo.put("data", list);
-				response.setContentType("application/json");
-				response.getWriter().print(jo.toString());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-		}
+		
 		else if(uri.endsWith("initialdetails.click"))
 		{
 			

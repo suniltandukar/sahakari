@@ -134,11 +134,14 @@ public class AccountAction {
 		String     drAmount = request.getParameter("drAmount");
 		String     crAmount = request.getParameter("crAmount");
 		String     balanceAmount = request.getParameter("balanceAmount");
-		String     inputter = request.getParameter("inputter");
+		
 		String      authorizer= request.getParameter("authorizer");
-		String 		dateen=request.getParameter("dateen");
 		String 		time=request.getParameter("time");
-
+		
+		HttpSession session=request.getSession();
+		UserModel userDetail=(UserModel)session.getAttribute("userDetail");
+		String     inputter = userDetail.getUsername();
+		
 		ShareAccountLedger l=new ShareAccountLedger();
 		l.setAccountNo(accountNo);
 		l.setLegacyAccountNo(legacyAccountNo);
@@ -157,6 +160,18 @@ public class AccountAction {
 		
 		TransactionDao dao=new TransactionDaoImpl();
 		boolean status=dao.addShareAccountLedger(l);
+		if(status){
+			request.setAttribute("msg", "Add Successful!");
+		}
+		else{
+			request.setAttribute("msg", "Add Successful!");
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("shareAccountLedger.click");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
 		
 
 	}
