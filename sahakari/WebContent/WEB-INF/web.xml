@@ -100,6 +100,16 @@
     <servlet-name>UploaderController</servlet-name>
     <url-pattern>*.upload</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Reports</display-name>
+    <servlet-name>Reports</servlet-name>
+    <servlet-class>com.sahakari.controller.Reports</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Reports</servlet-name>
+    <url-pattern>*.report</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>LoginFilter</filter-name>
     <filter-class>com.sahakari.filter.LoginFilter</filter-class>

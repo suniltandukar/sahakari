@@ -207,6 +207,13 @@ display:block;}
 														Transfer</a></li>
 
 											</ul></li>
+											<li><a><span class="fa fa-chevron-down"></span>Share Account Ledger</a>
+											<ul class="nav child_menu">
+												<li id="i"><a href="shareAccountLedger.click" target="iframe_a">New
+														Account Legder </a></li>
+
+											</ul></li>
+											
 										<li><a><span class="fa fa-chevron-down"></span>
 												Journal Entry (Multiple Debit - Multiple Credit) </a>
 											<ul class="nav child_menu">

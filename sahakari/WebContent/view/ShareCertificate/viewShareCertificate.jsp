@@ -70,7 +70,7 @@ display:none;}
 	$(document).ready(function() {
 		$('#sharecerttable').DataTable( {
 	        
-	        "ajax": "customerdetailjson.click",
+	        "ajax": "sharecertificate.report",
 	        "columns":[
 	        	{"data":"pid"},
 	        	{"data":"shareid"},

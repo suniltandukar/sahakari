@@ -15,7 +15,7 @@ public interface ViewDao {
 	public List<CustomerModel> viewCustomerFamilyDetail(String id);
 	public List<CustomerModel> viewCustomerJobDetail(String id);
 	public List<CustomerModel> viewCustomerBankDetail(String id);
-	public JSONArray viewShareCertificate();
+	public JSONObject viewShareCertificate();
 	public CustomerModel viewSpecificShareCertificate(String id);
 	public List<CustomerModel> viewCustomerDocumentDetail(String id);
 	public JSONArray viewAccountName(String accountNumber);
