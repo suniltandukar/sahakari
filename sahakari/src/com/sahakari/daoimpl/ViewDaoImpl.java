@@ -234,7 +234,7 @@ public class ViewDaoImpl implements ViewDao{
 	}
 	
 	public CustomerModel viewSpecificShareCertificate(String id){
-		String query="SELECT sharecertificate.*, customertbl.memberid from sharecertificate left JOIN customertbl on sharecertificate.pid=customertbl.pid where sharecertificate.id=?";
+		String query="SELECT * from sharecertificate where sharecertificate.id=?";
 		CustomerModel cust=null;
 		try {
 			con=DBConnection.getConnection();
@@ -244,9 +244,8 @@ public class ViewDaoImpl implements ViewDao{
 			while(rs.next())
 			{
 				cust=new CustomerModel();
-				cust.setMemberid(rs.getString("memberid"));
 				cust.setPid(rs.getString("pid"));
-				cust.setShareCertificateId(rs.getString("id"));
+				cust.setShareCertificateId(rs.getString("shareid"));
 				cust.setShareCertNo(rs.getString("shareCertNo"));
 				cust.setShareFrom(rs.getString("shareFrom"));
 				cust.setShareTo(rs.getString("shareTo"));
@@ -254,7 +253,10 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setShareRate(rs.getString("shareRate"));
 				cust.setShareAmount(rs.getString("shareAmount"));
 				cust.setShareDate(rs.getString("shareDate"));
+				cust.setAuthorizer(rs.getString("authorizer"));
 				cust.setInputter(rs.getString("inputter"));
+				cust.setCategoryId(rs.getString("categoryId"));
+				cust.setAlternateAccountNo(rs.getString("alternateAccountNo"));
 				con.close();
 				ps=null;
 				rs=null;

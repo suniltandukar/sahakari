@@ -581,20 +581,22 @@ public class CustomerDaoImpl implements CustomerDao {
 		return false;
 	}
 	public boolean updateShareCertificate(CustomerModel cm){
-		String query="update sharecertificate set shareCertNo=?,shareFrom=?,shareTo=?,totalShareNos=?,shareRate=?,shareAmount=?,shareDate=?, shareid=? where id=? ";
+		String query="update sharecertificate set pid=?,shareCertNo=?,shareFrom=?,shareTo=?,totalShareNos=?,shareRate=?,shareAmount=?,shareDate=?,shareid=?, categoryId=?, alternateAccountNo=? where id=? ";
 		int i;
 		try{
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
-			ps.setString(1, cm.getShareCertNo());
-			ps.setString(2, cm.getShareFrom());
-			ps.setString(3, cm.getShareTo());
-			ps.setString(4, cm.getTotalShareNos());
-			ps.setString(5, cm.getShareRate());
-			ps.setString(6, cm.getShareAmount());
-			ps.setString(7, cm.getShareDate());
+			ps.setString(1, cm.getPid());
+			ps.setString(2, cm.getShareCertNo());
+			ps.setString(3, cm.getShareFrom());
+			ps.setString(4, cm.getShareTo());
+			ps.setString(5, cm.getTotalShareNos());
+			ps.setString(6, cm.getShareRate());
+			ps.setString(7, cm.getShareAmount());
 			ps.setString(8, cm.getShareid());
-			ps.setString(9, cm.getShareCertificateId());
+			ps.setString(9, cm.getCategoryId());
+			ps.setString(10, cm.getAlternateAccountNo());
+			ps.setString(11, cm.getId());
 			i=ps.executeUpdate();
 			if(i>0){
 				con.close();
