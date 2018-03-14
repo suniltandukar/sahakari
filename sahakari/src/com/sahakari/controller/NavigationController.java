@@ -22,7 +22,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.google.gson.Gson;
 import com.sahakari.account.dao.AccountDao;
 import com.sahakari.account.daoImpl.AccountDaoImpl;
 import com.sahakari.action.Generator;
@@ -47,6 +46,7 @@ import com.sahakari.model.CategoryModel;
 import com.sahakari.model.CustomerModel;
 import com.sahakari.model.Document;
 import com.sahakari.model.FamilyRelationModel;
+import com.sahakari.model.ShareAccountLedger;
 import com.sahakari.model.StaffModel;
 import com.sahakari.model.TellerModel;
 import com.sahakari.model.TellerTransactionModel;
@@ -848,7 +848,15 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/shareAccountLedger/insert.jsp");
 			rd.forward(request, response);
 		}
-		
+		else if(uri.endsWith("viewShareAccountLedger.click"))
+		{
+			TransactionDao dao=new TransactionDaoImpl();
+			List<ShareAccountLedger> list=dao.viewShareAccountLedger();
+			request.setAttribute("list", list);
+			
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/shareAccountLedger/viewShareLedger.jsp");
+			rd.forward(request, response);
+		}
 	}
 
 }
