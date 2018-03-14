@@ -39,14 +39,12 @@ display:none;}
 				<thead>
 					<tr>
 						<th>Member Id</th>
-						<th>Legacy Member Id</th>
-						<th>Total Shares</th>
-						<th>Share Amount</th>
 						<th>Share Certificate No</th>
 						<th>From</th>
 						<th>To</th>
 						<th>Date</th>
-						<th><i class="fa fa-cog" aria-hidden="true"></i></th>
+						<th>Total Shares</th>
+						<th>Share Amount</th>
 					</tr>
 				</thead>
 				
@@ -73,11 +71,12 @@ display:none;}
 	        "ajax": "sharecertificate.report",
 	        "columns":[
 	        	{"data":"pid"},
-	        	{"data":"shareid"},
 	        	{"data":"sharecertno"},
 	        	{"data":"sharefrom"},
 	        	{"data":"shareto"},
 	        	{"data":"sharedate"},
+	        	{"data":"totalsharenos"},
+	        	{"data":"shareAmount"},
 	        ]
 	    } );
 	} );

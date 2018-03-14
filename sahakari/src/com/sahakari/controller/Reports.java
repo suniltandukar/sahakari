@@ -38,8 +38,7 @@ PrintWriter out=response.getWriter();
 			JSONObject list = view.viewShareCertificate();
 			
 			String jsonString=list.toString();
-			System.out.println("data"+jsonString);
-			out.println(jsonString);
+			out.println(list);
 			
 			
 		}
