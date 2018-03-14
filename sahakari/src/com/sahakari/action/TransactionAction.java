@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sahakari.model.ShareAccountLedger;
 import com.sahakari.model.TellerTransactionModel;
 import com.sahakari.model.TransactionModel;
 import com.sahakari.model.UserModel;
@@ -427,5 +428,49 @@ public class TransactionAction {
 		
 
 	}
+
+	public void updateShareAccountLedger(HttpServletRequest request, HttpServletResponse response) {
+
+		String accountNo=request.getParameter("accountNo");
+		String     legacyAccountNo = request.getParameter("legacyAccountNo");
+		String    pid  = request.getParameter("pid");
+		String     date = request.getParameter("date");
+		String    narration  = request.getParameter("narration");
+		String    drQuantity  = request.getParameter("drQuantity");
+		String    crQuantity  = request.getParameter("crQuantity");
+		String     balanceQuantity = request.getParameter("balanceQuantity");
+		String     drAmount = request.getParameter("drAmount");
+		String     crAmount = request.getParameter("crAmount");
+		String     balanceAmount = request.getParameter("balanceAmount");
+		
+		String      authorizer= request.getParameter("authorizer");
+		String 		time=request.getParameter("time");
+		
+		HttpSession session=request.getSession();
+		UserModel userDetail=(UserModel)session.getAttribute("userDetail");
+		String     inputter = userDetail.getUsername();
+		
+		ShareAccountLedger l=new ShareAccountLedger();
+		l.setAccountNo(accountNo);
+		l.setLegacyAccountNo(legacyAccountNo);
+		l.setPid(pid);
+		l.setDate(date);
+		l.setNarration(narration);
+		l.setDrQuantity(drQuantity);
+		l.setCrQuantity(crQuantity);
+		l.setBalanceQuantity(balanceQuantity);
+		l.setDrAmount(drAmount);
+		l.setCrAmount(crAmount);
+		l.setBalanceAmount(balanceAmount);
+		l.setInputter(inputter);
+		l.setAuthorizer(authorizer);
+		l.setTime(time);
+		
+		TransactionDao dao=new TransactionDaoImpl();
+		boolean status=dao.updateShareLedgerDao(l);
+		
+	}
+
+	
 
 }

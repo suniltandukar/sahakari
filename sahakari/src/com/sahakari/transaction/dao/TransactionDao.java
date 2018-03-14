@@ -34,6 +34,8 @@ public interface TransactionDao {
 	public boolean updateTellerTransaction(TellerTransactionModel tm);
 	public boolean addShareAccountLedger(ShareAccountLedger l);
 	public List<ShareAccountLedger> viewShareAccountLedger();
+	public ShareAccountLedger editShareAcDisplay(String pid);
+	public boolean updateShareLedgerDao(ShareAccountLedger l);
 
 	
 

@@ -213,6 +213,8 @@ display:block;}
 														Account Legder </a></li>
 												<li id="i"><a href="viewShareAccountLedger.click" target="iframe_a">View
 														Account Legder </a></li>
+												<li id="i"><a href="editshareAccountLedgerDisplay.click" target="iframe_a">Amend
+														Account Legder </a></li>
 
 											</ul></li>
 											

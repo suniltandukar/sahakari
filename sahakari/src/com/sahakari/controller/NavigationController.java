@@ -847,6 +847,24 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/shareAccountLedger/viewShareLedger.jsp");
 			rd.forward(request, response);
 		}
+		else if(uri.endsWith("editshareAccountLedgerDisplay.click"))
+		{
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/shareAccountLedger/editShareLedger.jsp");
+			rd.forward(request, response);
+		}
+		
+		else if(uri.endsWith("shareAccountLedgerDisplay.click"))
+		{
+			String pid=request.getParameter("pid");
+			TransactionDao dao=new TransactionDaoImpl();
+			ShareAccountLedger model=dao.editShareAcDisplay(pid);
+			
+			String datenep=dateConverter.DateConverter.englishToNepali(model.getDate());
+			request.setAttribute("datenep", datenep);
+			request.setAttribute("list", model);
+			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/shareAccountLedger/editShareLedgerDisplayForm.jsp");
+			rd.forward(request, response);
+		}
 	}
 
 }

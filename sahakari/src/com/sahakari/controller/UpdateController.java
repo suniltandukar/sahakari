@@ -61,6 +61,12 @@ public class UpdateController extends HttpServlet {
 			LoanAction la=new LoanAction();
 			la.editLoan(request,response);
 		}
+		else if(uri.endsWith("shareAccountLedger.update"))
+		{
+			TransactionAction ta=new TransactionAction();
+			ta.updateShareAccountLedger(request,response);
+	
+		}
 		
 	}
 

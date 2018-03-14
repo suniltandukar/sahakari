@@ -569,14 +569,13 @@ public class TransactionDaoImpl implements TransactionDao{
 				s.setCrAmount(rs.getString("crAmount"));
 				s.setCrQuantity(rs.getString("crQuantity"));
 				s.setDate(rs.getString("date"));
-				s.setDateen(rs.getString("dateen"));
 				s.setDrAmount(rs.getString("drAmount"));
 				s.setDrQuantity(rs.getString("drQuantity"));
 				s.setInputter(rs.getString("inputter"));
 				s.setLegacyAccountNo(rs.getString("legacyAccountNo"));
 				s.setNarration(rs.getString("narration"));
 				s.setPid(rs.getString("pid"));
-				s.setTime(rs.getString("time"));
+				s.setTime(rs.getString("inputDate"));
 				list.add(s);
 			}
 			if(list.size()>0)
@@ -591,4 +590,59 @@ public class TransactionDaoImpl implements TransactionDao{
 		
 		return null;
 	}
+	public ShareAccountLedger editShareAcDisplay(String pid)
+	{
+		ShareAccountLedger s=new ShareAccountLedger();
+		String query="select * from shareacledgertbl where pid=?";
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(query);
+			ps.setString(1, pid);
+			rs=ps.executeQuery();
+			
+			if(rs.next())
+			{
+				s=new ShareAccountLedger();
+				s.setAccountNo(rs.getString("accountNo"));
+				s.setAuthorizer(rs.getString("authorizer"));
+				s.setBalanceAmount(rs.getString("balanceAmount"));
+				s.setBalanceQuantity(rs.getString("balanceQuantity"));
+				s.setCrAmount(rs.getString("crAmount"));
+				s.setCrQuantity(rs.getString("crQuantity"));
+				s.setDate(rs.getString("date"));
+				s.setDrAmount(rs.getString("drAmount"));
+				s.setDrQuantity(rs.getString("drQuantity"));
+				s.setInputter(rs.getString("inputter"));
+				s.setLegacyAccountNo(rs.getString("legacyAccountNo"));
+				s.setNarration(rs.getString("narration"));
+				s.setPid(rs.getString("pid"));
+				s.setTime(rs.getString("inputDate"));
+				return s;
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+		
+	}
+	
+	public boolean updateShareLedgerDao(ShareAccountLedger l)
+	{
+		int rs=0;
+		String query="";
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(query);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return false;
+	}
+
 }
