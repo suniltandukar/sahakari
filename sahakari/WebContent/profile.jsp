@@ -211,6 +211,8 @@ display:block;}
 											<ul class="nav child_menu">
 												<li id="i"><a href="shareAccountLedger.click" target="iframe_a">New
 														Account Legder </a></li>
+												<li id="i"><a href="viewShareAccountLedger.click" target="iframe_a">View
+														Account Legder </a></li>
 
 											</ul></li>
 											

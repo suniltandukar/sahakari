@@ -549,4 +549,46 @@ public class TransactionDaoImpl implements TransactionDao{
 		
 		return false;
 	}
+	public List<ShareAccountLedger> viewShareAccountLedger()
+	{
+		List<ShareAccountLedger> list=new ArrayList<ShareAccountLedger>();
+		String query="select * from shareacledgertbl";
+		ShareAccountLedger s=null;
+		con=DBConnection.getConnection();
+		try {
+			
+			ps=con.prepareStatement(query);
+			rs=ps.executeQuery();
+			while(rs.next())
+			{
+				s=new ShareAccountLedger();
+				s.setAccountNo(rs.getString("accountNo"));
+				s.setAuthorizer(rs.getString("authorizer"));
+				s.setBalanceAmount(rs.getString("balanceAmount"));
+				s.setBalanceQuantity(rs.getString("balanceQuantity"));
+				s.setCrAmount(rs.getString("crAmount"));
+				s.setCrQuantity(rs.getString("crQuantity"));
+				s.setDate(rs.getString("date"));
+				s.setDateen(rs.getString("dateen"));
+				s.setDrAmount(rs.getString("drAmount"));
+				s.setDrQuantity(rs.getString("drQuantity"));
+				s.setInputter(rs.getString("inputter"));
+				s.setLegacyAccountNo(rs.getString("legacyAccountNo"));
+				s.setNarration(rs.getString("narration"));
+				s.setPid(rs.getString("pid"));
+				s.setTime(rs.getString("time"));
+				list.add(s);
+			}
+			if(list.size()>0)
+			{
+				return list;
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 }
