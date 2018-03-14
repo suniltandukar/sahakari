@@ -121,14 +121,14 @@ h5 {
 					style="font-size: 95%;">
 					<thead>
 						<tr>
-							<th>Member ID</th>
-							<th>Share ID</th>
-							<th>Share Certificate No</th>
-							<th>From</th>
-							<th>To</th>
-							<th>Date</th>
-							<th>Action</th>
-						</tr>
+						<th>Member Id</th>
+						<th>Share Certificate No</th>
+						<th>From</th>
+						<th>To</th>
+						<th>Date</th>
+						<th>Total Shares</th>
+						<th>Share Amount</th>
+					</tr>
 					</thead>
 				</table>
 			</div>
@@ -159,26 +159,19 @@ h5 {
 	</script>
 	<script>
 		$(document).ready(function() {
-			$('#sharecerttable').DataTable({
-
-				"ajax" : "sharecertificatejson.click",
-				"columns" : [ {
-					"data" : "pid"
-				}, {
-					"data" : "shareid"
-				}, {
-					"data" : "sharecertno"
-				}, {
-					"data" : "sharefrom"
-				}, {
-					"data" : "shareto"
-				}, {
-					"data" : "sharedate"
-				}, {
-					"data" : null,
-					defaultContent : "<button id='deletebtn'>Delete</button>"
-				} ]
-			});
+			$('#sharecerttable').DataTable( {
+		        
+		        "ajax": "sharecertificate.report",
+		        "columns":[
+		        	{"data":"pid"},
+		        	{"data":"sharecertno"},
+		        	{"data":"sharefrom"},
+		        	{"data":"shareto"},
+		        	{"data":"sharedate"},
+		        	{"data":"totalsharenos"},
+		        	{"data":"shareAmount"},
+		        ]
+		    } );
 			$("#deletebtn").on('click', 'tr button', function() {
 				alert("hello");
 				var tr = $(this).closest('tr');

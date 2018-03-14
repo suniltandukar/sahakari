@@ -396,7 +396,7 @@ public class ViewDaoImpl implements ViewDao{
 	}
 	public JSONObject viewShareCertificate()
 	{
-		String query="SELECT sharecertificate.*, customertbl.memberid from sharecertificate left JOIN customertbl on sharecertificate.pid=customertbl.pid";
+		String query="SELECT * from  sharecertificate";
 		
 		JSONArray jsonArray=new JSONArray();
 		JSONObject jObjDevice=null;
@@ -409,10 +409,9 @@ public class ViewDaoImpl implements ViewDao{
 			{
 				
 				JSONObject jobj = new JSONObject();
-				String  memberid_json=rs.getString("memberid"),
+				String  sharecertificateid_json=rs.getString("id"),
 						pid_json=rs.getString("pid"),
 						shareid_json=rs.getString("shareid"),
-						sharecertificateid_json=rs.getString("id"),
 						sharecertno_json=rs.getString("shareCertNo"),
 						sharefrom_json=rs.getString("shareFrom"),
 						shareto_json=rs.getString("shareTo"),
@@ -420,9 +419,12 @@ public class ViewDaoImpl implements ViewDao{
 				sharerate_json=rs.getString("shareRate"),
 				shareamount_json=rs.getString("shareAmount"),
 				sharedate_json=rs.getString("shareDate"),
-				inputter_json=rs.getString("inputter");
+				inputter_json=rs.getString("inputter"),
+				authorizer_json=rs.getString("authorizer"),
+				categoryId_json=rs.getString("categoryId"),
+				alternateAccountNo_json=rs.getString("alternateAccountNo");
 
-				jobj.put("memberid", memberid_json);
+				
 				jobj.put("pid",pid_json);
 				jobj.put("shareid",shareid_json);
 				jobj.put("sharecertificateid",sharecertificateid_json);
@@ -431,22 +433,28 @@ public class ViewDaoImpl implements ViewDao{
 				jobj.put("shareto",shareto_json);
 				jobj.put("totalsharenos",totalsharenos_json);
 				jobj.put("sharerate",sharerate_json);
-				jobj.put("shareamount",shareamount_json);
+				jobj.put("shareAmount",shareamount_json);
 				jobj.put("sharedate",sharedate_json);
 				jobj.put("inputter",inputter_json);
-				
-				 jsonArray.put(jobj);
+				jobj.put("authorizer", authorizer_json);
+				jobj.put("categoryId", categoryId_json);
+				jobj.put("alternateAccountNo",alternateAccountNo_json);
+				 
+				jsonArray.put(jobj);
 				 
 				 
-				  jObjDevice = new JSONObject();
-				 jObjDevice.put("data", jsonArray);
+				  
 			}
-			
+			jObjDevice = new JSONObject();
+			 jObjDevice.put("data", jsonArray);
+			 System.out.println(jObjDevice+"shso");
+			 
+			 return jObjDevice;
 		}
 		catch(Exception e){
 			System.out.println(e);
 		}
-		return jObjDevice;
+		return null;
 	}
 	public JSONArray convertToJSON()
            {
