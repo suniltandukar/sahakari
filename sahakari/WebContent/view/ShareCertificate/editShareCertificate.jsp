@@ -17,25 +17,25 @@ h5 {
 </style>
 
 </head>
-<body class="hiddenscroll background">
+<body class="background">
 	<div class="breadcrumb-line">
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><i class="fa fa-home"
 					aria-hidden="true"></i>&nbsp;<a href="#">Home</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Account</li>
-				<li class="breadcrumb-item active" aria-current="page">Edit</li>
+				<li class="breadcrumb-item active" aria-current="page">Shareholder</li>
+				<li class="breadcrumb-item active" aria-current="page">Ammendment of Shareholder</li>
 			</ol>
 		</nav>
 	</div>
 	<div class="panel panel-default" style="width: 95%; margin: auto;">
 		<div class="panel-heading">
-		<form method="" action="">
+		<form method="post" action="editsharecertificate.click">
 			<h6>
 				<strong>Insert Sharecertificate No</strong>
 			</h6>
 			
-			<input type="text" class="form-control" data-validation="number" value="${sharecertificateno}" style="width: 20%;">
+			<input type="text" class="form-control" data-validation="number" value="" name="id" style="width: 20%;">
 			
 			<br> <input type="submit" class="btn btn-info searchbtn"
 				value="SEARCH">

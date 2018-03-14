@@ -438,14 +438,12 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 
 	public void updateShareCertificate(HttpServletRequest request,
 			HttpServletResponse response) {
-		HttpSession session=request.getSession();
-		UserModel userDetail=(UserModel)session.getAttribute("userDetail");
-		
-		String inputter=userDetail.getUsername();
-		
 		CustomerModel cm=new CustomerModel();
-		String shareCertificateId,shareid,shareCertNo, shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate, memberid;
-		shareCertificateId=request.getParameter("shareCertificateId");
+		String id,shareid,shareCertNo, shareFrom,shareTo,totalShareNos,shareRate,shareAmount,shareDate, memberid;
+		String categoryId,alternateAccountNo;
+		id=request.getParameter("id");
+		categoryId=request.getParameter("categoryId");
+		alternateAccountNo=request.getParameter("alternateAccountNo");
 		shareCertNo=request.getParameter("shareCertNo");
 		shareFrom=request.getParameter("shareFrom");
 		shareTo=request.getParameter("shareTo");
@@ -456,7 +454,7 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 		memberid=request.getParameter("memberid");
 		shareid=request.getParameter("shareid");
 		
-		cm.setShareCertificateId(shareCertificateId);
+		cm.setId(id);
 		cm.setShareid(shareid);
 		cm.setShareCertNo(shareCertNo);
 		cm.setShareFrom(shareFrom);
@@ -465,11 +463,10 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 		cm.setShareRate(shareRate);
 		cm.setShareAmount(shareAmount);
 		cm.setShareDate(shareDate);
-		cm.setInputter(inputter);
-		
+		cm.setAlternateAccountNo(alternateAccountNo);
+		cm.setCategoryId(categoryId);
+		cm.setPid(memberid);
 		CustomerDao c=new CustomerDaoImpl();
-		
-		String pid=c.selectPid(memberid);
 		boolean status=c.updateShareCertificate(cm);
 		if(status){
 			request.setAttribute("msg", "Update Successful!");

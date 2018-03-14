@@ -251,15 +251,21 @@ public class NavigationController extends HttpServlet {
 					.getRequestDispatcher("view/ShareCertificate/insertShareCertificate.jsp");
 			rd.forward(request, response);
 
-		} else if (uri.endsWith("editsharecertificate.click")) {
+		}
+		else if(uri.endsWith("searchSCSpecific.click")){
+			RequestDispatcher rd = request
+					.getRequestDispatcher("view/ShareCertificate/editShareCertificate.jsp");
+			rd.forward(request, response);
+
+		}
+		else if (uri.endsWith("editsharecertificate.click")) {
 			ViewDao v = new ViewDaoImpl();
 			String id = request.getParameter("id");
 			CustomerModel list = v.viewSpecificShareCertificate(id);
-
 			request.setAttribute("shareCert", list);
 
 			RequestDispatcher rd = request
-					.getRequestDispatcher("view/ShareCertificate/updateShareCertificate.jsp");
+					.getRequestDispatcher("view/ShareCertificate/displayForm.jsp");
 			rd.forward(request, response);
 
 		} else if (uri.endsWith("viewmuncipality.click")) {

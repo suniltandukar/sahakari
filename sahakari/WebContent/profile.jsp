@@ -122,7 +122,7 @@ display:block;}
 
 										<li id="i"><a href="sharecertificateinsert.click"
 											target="iframe_a"> New Shareholder</a></li>
-										<li id="v"><a href="viewsharecertificate.click"
+										<li id="v"><a href="searchSCSpecific.click"
 											target="iframe_a">Amendment of shareholder</a></li>
 									</ul></li>
 								<li id="retailoperation"><a><i class="fa fa-balance-scale" aria-hidden="true"></i>Retail Operation

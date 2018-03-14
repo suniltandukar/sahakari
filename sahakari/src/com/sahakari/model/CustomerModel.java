@@ -1,13 +1,21 @@
 package com.sahakari.model;
 
 public class CustomerModel {
-	String districtCode, districtName, pid, memberid, registrationDate, name,
+	String id,districtCode, districtName, pid, memberid, registrationDate, name,
 	gender, pdistid, pdistName,
 	pvdcmunid, pvdcName, pwardno, pcity, ptole, tdistid, tdistName,
 	tvdcmunid, tvdcName, twardno, tcity,
 	ttole, cusCitizenshipNo, citizenshipIssuedFrom, citidistName,
 	telno, mobno, fatherName, dob, typeid,typeName, statusid, statusName, inputter, authorizer,
 	insertStatus, updateStatus, delStatus, address, agentid;
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	//document details
 	String documentType, documentNumber, issuedDate,issuedDateen,issuedBy,expiryDate,expiryDateen,agentName;
 	String doctypeId,doctypeName;
