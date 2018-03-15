@@ -631,10 +631,29 @@ public class TransactionDaoImpl implements TransactionDao{
 	public boolean updateShareLedgerDao(ShareAccountLedger l)
 	{
 		int rs=0;
-		String query="";
+		String query="update shareacledgertbl set accountNo=?,legacyAccountNo=?,pid=?,date=?,narration=?,drQuantity=?,crQuantity=?,balanceQuantity=?,drAmount=?,crAmount=?,balanceAmount=?,inputDate=now() ,inputter=?";
 		con=DBConnection.getConnection();
 		try {
 			ps=con.prepareStatement(query);
+			ps.setString(1,l.getAccountNo());
+			ps.setString(2,l.getLegacyAccountNo());
+			ps.setString(3,l.getPid());
+			ps.setString(4,l.getDate());
+			ps.setString(5,l.getNarration());
+			ps.setString(6,l.getDrQuantity());
+			ps.setString(7,l.getCrQuantity());
+			ps.setString(8,l.getBalanceQuantity());
+			ps.setString(9,l.getDrAmount());
+			ps.setString(10,l.getCrAmount());
+			ps.setString(11, l.getBalanceAmount());
+			ps.setString(12, l.getInputter());
+			
+			rs=ps.executeUpdate();
+			
+			if(rs>0)
+			{
+				return true;
+			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

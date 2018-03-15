@@ -469,6 +469,19 @@ public class TransactionAction {
 		TransactionDao dao=new TransactionDaoImpl();
 		boolean status=dao.updateShareLedgerDao(l);
 		
+		if(status){
+			request.setAttribute("msg", "Update Successful!");
+		}
+		else{
+			request.setAttribute("msg", "Update Failed!");
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("viewShareAccountLedger.click");
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	
