@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%if ((session.getAttribute("userDetail")) == null) { %>
 <html>
 	<head><title>Sahakari Login</title>
 	<link rel="stylesheet" href="template/css/font-awesome.min.css">
@@ -25,3 +27,8 @@
 	    </div>
     </body>
 </html>
+<%}else{
+	%>
+	<c:redirect url="/profile.jsp"/>
+	<%
+}%>

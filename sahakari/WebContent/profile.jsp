@@ -489,6 +489,7 @@ display:block;}
 	$('#myModal').modal('show');
 	</script>
 </c:if>
+  
 	 <script type="text/javascript">
     function toggleFullscreen(elem) {
     	  elem = elem || document.documentElement;

@@ -26,6 +26,7 @@ public class LoginDaoImpl implements LoginDao {
 			ps.setString(3, u.getStaffCode());
 			rs=ps.executeQuery();
 		while(rs.next()){
+			
 				if(rs.getString("status").equals("1")){
 				con.close();
 				ps.close();
@@ -37,6 +38,47 @@ public class LoginDaoImpl implements LoginDao {
 		}
 		return false;
 		
+	}
+	public boolean checkCurStatus(UserModel u){
+		String query="Select curStatus from usertbl where username=? and password=? and staffCode=?";
+		try{
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			ps.setString(1, u.getUsername());
+			ps.setString(2, u.getPassword());
+			ps.setString(3, u.getStaffCode());
+			rs=ps.executeQuery();
+		while(rs.next()){
+				if(rs.getString("curStatus").equals("1")){
+				con.close();
+				ps.close();
+				return true;
+				}
+			}
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+		
+	}
+	public boolean setCurStatus(UserModel u, int curStatus){
+		String query="update usertbl set curStatus='"+curStatus+"' where username=? and password=? and staffCode=?";
+		try{
+			con=DBConnection.getConnection();
+			ps=con.prepareStatement(query);
+			ps.setString(1, u.getUsername());
+			ps.setString(2, u.getPassword());
+			ps.setString(3, u.getStaffCode());
+		int i=ps.executeUpdate();
+		if(i>0){
+			con.close();
+			ps.close();
+			return true;
+		}
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
 	}
 	public UserModel getUserDetail(UserModel u){
 		UserModel um=null;
@@ -62,8 +104,7 @@ public class LoginDaoImpl implements LoginDao {
 				um.setBranchAllowed(rs.getString("branchAllowed"));
 				um.setBranchAllowedFunctions(rs.getString("branchAllowedFunctions"));
 				um.setCompanyId(rs.getString("companyId"));
-
-				
+				um.setCurStatus(rs.getString("curStatus"));
 				return um;
 			}
 		}catch(Exception e){
