@@ -663,5 +663,28 @@ public class TransactionDaoImpl implements TransactionDao{
 		
 		return false;
 	}
+	public String getTransactionNo(String transactionId){
+		String query="select max(transactionNo)+1 as transactionNo from multipletransactiontbl where transactionid=?";
+		String transactionno;
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(query);
+			ps.setString(1, transactionId);
+			rs=ps.executeQuery();
+			if(rs.next()){
+				transactionno=rs.getString("transactionNo");
+				con.close();
+				ps.close();
+				rs.close();
+				return transactionno;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+		
+	}
 
 }

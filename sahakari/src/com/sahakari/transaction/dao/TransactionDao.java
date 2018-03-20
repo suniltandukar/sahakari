@@ -36,6 +36,7 @@ public interface TransactionDao {
 	public List<ShareAccountLedger> viewShareAccountLedger();
 	public ShareAccountLedger editShareAcDisplay(String pid);
 	public boolean updateShareLedgerDao(ShareAccountLedger l);
+	public String getTransactionNo(String transactionId);
 
 	
 

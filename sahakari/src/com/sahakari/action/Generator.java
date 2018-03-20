@@ -204,13 +204,13 @@ public class Generator {
 		String yr=yy.format(currentDate);
 		
 		try{
-			String query="select * from multipletransactiontbl where Id LIKE '%MT"+yr+month+day+"%' order by Id DESC;";
+			String query="select * from multipletransactiontbl where transactionId LIKE '%MT"+yr+month+day+"%' order by Id DESC;";
 			ps=con.prepareStatement(query);
 			 rs=ps.executeQuery();
 			
 			if(rs.next()) {
 				int number=0;
-				transactionid = rs.getString("Id");
+				transactionid = rs.getString("transactionId");
 				String[] splitCode = transactionid.split(day);
 				System.out.println("tid"+splitCode[1]);
 				number=Integer.parseInt(splitCode[1]);

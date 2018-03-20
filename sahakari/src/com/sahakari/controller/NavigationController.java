@@ -871,6 +871,19 @@ public class NavigationController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/shareAccountLedger/editShareLedgerDisplayForm.jsp");
 			rd.forward(request, response);
 		}
+		else if(uri.endsWith("getreltransactionno.click"))
+		{
+			String transactionId=request.getParameter("transactionid");
+			TransactionDao t=new TransactionDaoImpl();
+			String transactionNo=t.getTransactionNo(transactionId);
+			PrintWriter out=response.getWriter();
+			if(transactionNo!=null){
+			out.println(transactionNo);
+			}
+			else{
+				out.println("1");
+			}
+		}
 	}
 
 }

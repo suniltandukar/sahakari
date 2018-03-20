@@ -43,10 +43,10 @@ h5 {
 							</tr>
 							<tr>
 								<td><h5>Transaction Id</h5> <input type="text"
-									class="form-control" name="transactionid" data-validation="alphanumeric" data-validation-error-msg=" "  value="${mid }">
+									class="form-control transactionid" name="transactionid" data-validation="alphanumeric" data-validation-error-msg=" "  value="${mid }">
 								</td>
 								<td><h5>Transaction Number</h5> <input type="text"
-									class="form-control" name="transactionno" data-validation="number" data-validation-error-msg=" " value="" >
+									class="form-control transactionno" name="transactionno" data-validation="number" data-validation-error-msg=" " value="1" >
 								</td>
 								<td><h5>Booking Date</h5> <input type="text"
 									class="form-control" name="bookingdate"  data-validation="date" data-validation-error-msg=" " value="" data-validation-optional="true">
@@ -94,17 +94,28 @@ h5 {
 		</div>
 	</div>
 	<jsp:include page="/msgmodal"></jsp:include>
-	<script>
-  $.validate({
-    lang: 'en',
-    modules : 'date,toggleDisabled',
-	  disabledFormFilter : 'form.toggle-disabled',
-	 showErrorDialogs : false
-
-    });
-</script>
+	
 	<script type="text/javascript" src="assets/js/form.js"></script>
 	<script>
+	$(".transactionid").blur(function()
+			 
+	        {
+
+	 var id=$(this).val();
+	 var dataString = 'transactionid='+ id;
+	 $.ajax
+	    ({
+	    type: "POST",
+	    url: "getreltransactionno.click",
+	    data: dataString,
+	    cache: false,
+	    success: function(html)
+	    {
+	    $(".transactionno").val(html);
+	    } 
+	    });
+	 
+	});
 	<%if(request.getAttribute("msg")!=null){%>
 	   $('#myModal').modal('show');
 	   <%}%>
