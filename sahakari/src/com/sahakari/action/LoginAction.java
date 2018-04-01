@@ -93,13 +93,13 @@ public class LoginAction extends HttpServlet {
 		UserModel u=(UserModel)session.getAttribute("userDetail");
 		LoginDao l=new LoginDaoImpl();
 		int curStatusValue=0;
-		boolean curStatus=l.setCurStatus(u,curStatusValue);
+		//boolean curStatus=l.setCurStatus(u,curStatusValue);
 		RequestDispatcher rd=null;
-		if(curStatus){
-			System.out.println("curStatus set to 0");
+		//if(curStatus){
+			//System.out.println("curStatus set to 0");
 		session.invalidate();
 		 rd=request.getRequestDispatcher("index.jsp");
-		}
+		/*}
 		else{
 			System.out.println("curStatus cannnot be set to 0");
 			request.setAttribute("msg", "Logout Failed! Please try Again!");
@@ -109,7 +109,7 @@ public class LoginAction extends HttpServlet {
 			rd.forward(request,response);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 		
 		
 	}

@@ -44,10 +44,10 @@ public class LoginFilter implements Filter {
 		u.setPassword(request.getParameter("password"));
 		LoginDao l = new LoginDaoImpl();
 		boolean curStatus = l.checkCurStatus(u);
-		if (curStatus) {
+		/*if (curStatus) {
 			request.setAttribute("msg", "User Already signned in!");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
-		} else {
+		} else {*/
 			boolean status = l.checkuser(u);
 			if (status) {
 				chain.doFilter(request, response);
@@ -57,7 +57,7 @@ public class LoginFilter implements Filter {
 			}
 		}
 
-	}
+	
 
 	public void init(FilterConfig fConfig) throws ServletException {
 	}

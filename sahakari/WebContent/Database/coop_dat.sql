@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2018 at 10:45 AM
+-- Generation Time: Apr 01, 2018 at 02:57 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -13146,19 +13146,16 @@ CREATE TABLE IF NOT EXISTS `usertbl` (
   `branchAllowed` varchar(500) DEFAULT NULL,
   `additionalFunctions` varchar(500) CHARACTER SET utf8 DEFAULT NULL,
   `branchAllowedFunctions` varchar(500) CHARACTER SET utf8 DEFAULT NULL,
-  `reserved4` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  `curStatus` varchar(1) CHARACTER SET utf8 DEFAULT '0',
   `reserved5` varchar(50) CHARACTER SET utf8 DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `usertbl`
 --
 
-INSERT INTO `usertbl` (`userid`, `username`, `password`, `status`, `givenrole`, `fullName`, `post`, `staffCode`, `startDate`, `endDate`, `branchCode`, `roleName`, `functionAllowed`, `functionRestriction`, `branchAllowed`, `additionalFunctions`, `branchAllowedFunctions`, `reserved4`, `reserved5`) VALUES
-(18, 'sunil', 'sunil', '1', 'admin', 'sunil tandukar', 'post', '1', '2017-11-11', '2017-11-11', '001', NULL, '#i,#v,#a,#r,#e', '001', '001-kalimati, 002-kalanki', NULL, '#i', NULL, NULL),
-(28, 'shishir', 'shishir', '1', 'account', 'karki', '', '', '', '', '', NULL, '#e,#v,#i', NULL, 'null', 'null', NULL, NULL, NULL),
-(29, 'hello', 'hello', '1', 'account', '', '', '', '', '', '', NULL, '#kl,#kdk,#hei', NULL, 'null', 'null', NULL, NULL, NULL),
-(30, 'hi', 'hi', '1', 'account', '', '', '', '', '', '', NULL, '#e,#v,#i', '001-Kalimati', '001-Kalimati, 123-Kirtipur', 'null', NULL, NULL, NULL);
+INSERT INTO `usertbl` (`userid`, `username`, `password`, `status`, `givenrole`, `fullName`, `post`, `staffCode`, `startDate`, `endDate`, `branchCode`, `roleName`, `functionAllowed`, `functionRestriction`, `branchAllowed`, `additionalFunctions`, `branchAllowedFunctions`, `curStatus`, `reserved5`) VALUES
+(18, 'sahakari', 'sahakari', '1', 'admin', 'sunil tandukar', 'post', '101', '2017-11-11', '2017-11-11', '001', NULL, '#i,#v,#a,#r,#e', '001', '001-kalimati, 002-kalanki', NULL, '#i', '1', NULL);
 
 -- --------------------------------------------------------
 
@@ -14131,7 +14128,7 @@ ALTER TABLE `tblagent`
 -- AUTO_INCREMENT for table `usertbl`
 --
 ALTER TABLE `usertbl`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
