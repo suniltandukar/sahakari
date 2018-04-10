@@ -32,9 +32,13 @@
 					
 					<form method="post" action="login.log">
 						<h5><strong>LOGIN HERE</strong></h5>
-						<img alt="" src="template/images/sahakarilogo.jpg"  class="img-rounded img-responsive" style="width:40%;margin:auto;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+						<!-- <img alt="" src="template/images/sahakarilogo.jpg"  class="img-rounded img-responsive" style="width:40%;margin:auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"> -->
 						<h5 style="color: red;">${msg }</h5>
+						<div>
+							<input type="password" name="staffCode" class="form-control"
+								placeholder="Staffcode" required="" />
+						</div>
 						<div>
 							<input type="password" name="username" class="form-control"
 								placeholder="Username" required="" />
