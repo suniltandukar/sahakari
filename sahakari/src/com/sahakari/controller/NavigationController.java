@@ -77,7 +77,7 @@ public class NavigationController extends HttpServlet {
 		if (uri.endsWith("getCategoriesDetail.click")) {
 			PrintWriter out = response.getWriter();
 			CategoryDao c = new CategoryDaoImpl();
-			JSONArray list = c.selectCategories();
+			JSONObject list = c.selectCategories();
 			out.println(list);
 
 		} else if (uri.endsWith("category.click")) {
@@ -649,7 +649,7 @@ public class NavigationController extends HttpServlet {
 
 			JSONObject o = new JSONObject();
 			CategoryDao c = new CategoryDaoImpl();
-			JSONArray list = c.selectCategories();
+			JSONObject list = c.selectCategories();
 			try {
 				o.put("categorylist", list);
 			} catch (JSONException e) {

@@ -3,13 +3,14 @@ package com.sahakari.dao;
 import java.util.List;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import com.sahakari.model.CategoryModel;
 
 public interface CategoryDao {
 	public List<CategoryModel> accounttype();
 	public boolean insertCategory(CategoryModel cm);
-	public JSONArray selectCategories();
+	public JSONObject selectCategories();
 	public List<CategoryModel> getCategories();
 	public CategoryModel getSpecificCategoryDetail(String id);
 	public boolean deleteCategory(String id);

@@ -49,9 +49,9 @@ public class LoginAction extends HttpServlet {
 		u.setPassword(request.getParameter("password"));
 		LoginDao l=new LoginDaoImpl();
 		int curStatusValue=1;
-		boolean curStatus=l.setCurStatus(u,curStatusValue);
+		//boolean curStatus=l.setCurStatus(u,curStatusValue);
 		RequestDispatcher rd=null;
-		if(curStatus){
+		//if(curStatus){
 			UserModel userDetail=l.getUserDetail(u);
 		
 			HttpSession session=request.getSession(true);
@@ -71,11 +71,11 @@ public class LoginAction extends HttpServlet {
 			
 			
 			rd=request.getRequestDispatcher("profile.jsp");
-		}
+		/*}
 		else{
 			request.setAttribute("msg", "Login Failed! Please Login Again!");
 			rd=request.getRequestDispatcher("index.jsp");
-		}
+		}*/
 			try {
 				rd.forward(request, response);
 			} catch (ServletException | IOException e) {

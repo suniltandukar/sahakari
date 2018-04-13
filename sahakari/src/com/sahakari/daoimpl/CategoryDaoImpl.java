@@ -41,12 +41,13 @@ public class CategoryDaoImpl implements CategoryDao {
 		}
 		return false;
 	}
-	public JSONArray selectCategories(){
+	public JSONObject selectCategories(){
 		try{
 			String query="select * from categories";
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
+			JSONObject data=new JSONObject();
 			if(!rs.next()){
 				 System.out.println("0");
 		        }else{
@@ -58,10 +59,11 @@ public class CategoryDaoImpl implements CategoryDao {
 		                obj.put("categoryHead",rs.getString("categoryHead"));
 		                obj.put("categoryId",rs.getString("categoryId"));
 		                obj.put("inputter",rs.getString("inputter"));
-		                array.put(obj.toString());
-		              System.out.println(obj.toString());
+		                array.put(obj);
+		             
 		            }
-		            return array;
+		            data.put("data", array);
+		            return data;
 		        }
 		}
 		catch(Exception e){

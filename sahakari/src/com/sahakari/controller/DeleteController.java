@@ -36,28 +36,28 @@ public class DeleteController extends HttpServlet {
 			AccountAction action=new AccountAction();
 			action.deleteAccount(request,response);
 		}
-		if(uri.endsWith("customer.del")){
+		else if(uri.endsWith("customer.del")){
 			CustomerAction action=new CustomerAction();
 			action.deleteCustomer(request,response);
 		}
-		if(uri.endsWith("sharecertificate.del")){
+		else if(uri.endsWith("sharecertificate.del")){
 			CustomerAction action=new CustomerAction();
 			action.deleteShareCertificate(request,response);
 		}
-		if(uri.endsWith("tellertransaction.del")){
+		else if(uri.endsWith("tellertransaction.del")){
 			TransactionAction action=new TransactionAction();
 			action.deleteTellerTransaction(request,response);
 		}
-		if(uri.endsWith("multitransaction.del")){
+		else if(uri.endsWith("multitransaction.del")){
 			TransactionAction action=new TransactionAction();
 			action.deleteMultiTransaction(request,response);
 		}
-		if(uri.endsWith("transaction.del")){
+		else if(uri.endsWith("transaction.del")){
 			TransactionAction ta=new TransactionAction();
 			
 			ta.deTransactionAccount(request,response);
 		}
-		if(uri.endsWith("category.del")){
+		else if(uri.endsWith("category.del")){
 			CategoryAction c=new CategoryAction();
 			c.deleteCategory(request,response);
 		}

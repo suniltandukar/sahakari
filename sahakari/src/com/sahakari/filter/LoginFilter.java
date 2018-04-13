@@ -43,7 +43,7 @@ public class LoginFilter implements Filter {
 		u.setUsername(request.getParameter("username"));
 		u.setPassword(request.getParameter("password"));
 		LoginDao l = new LoginDaoImpl();
-		boolean curStatus = l.checkCurStatus(u);
+		//boolean curStatus = l.checkCurStatus(u);
 		/*if (curStatus) {
 			request.setAttribute("msg", "User Already signned in!");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
