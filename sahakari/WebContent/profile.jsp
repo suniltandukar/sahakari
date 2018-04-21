@@ -276,7 +276,7 @@ display:block;}
 												<li><a href="pageNotFound.jsp" target="iframe_a">Daily Cash income and expenses  </a></li>
 												<li><a href="pageNotFound.jsp" target="iframe_a"> Daily Voucher 
 												</a></li>
-												<li><a href="pageNotFound.jsp" target="iframe_a">  Trial Balance  </a></li>
+												<li><a href="trialbalance.click" target="iframe_a">  Trial Balance  </a></li>
 												<li><a href="pageNotFound.jsp" target="iframe_a">  Search Account and Balance  </a></li>
 											</ul></li>
 										<li><a><span class="fa fa-chevron-down"></span> Services Reports </a>

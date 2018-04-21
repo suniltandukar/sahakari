@@ -133,6 +133,7 @@ public class ViewDaoImpl implements ViewDao{
 				cust.setInsertStatus(rs.getString("insertStatus"));
 				cust.setUpdateStatus(rs.getString("updateStatus"));
 				cust.setDelStatus(rs.getString("delStatus"));
+				cust.setEmail(rs.getString("email"));
 				return cust;
 			}
 		} catch (SQLException e) {

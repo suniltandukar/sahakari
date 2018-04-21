@@ -227,6 +227,12 @@ h5 {
 												name="ttole" value="">
 											</td>
 										</tr>
+										</tbody>
+										</table>
+										<table class="table">
+										<caption>Additional Details</caption>
+										<tbody>
+										
 										<tr>
 											<td>
 												<h5>Type</h5> <select class="form-control" name="typeid">
@@ -255,6 +261,12 @@ h5 {
 											</select>
 											</td>
 										</tr>
+											<tr>
+											<td>
+												<h5>Email</h5> <input type="text" class="form-control"
+												name="email" value="">
+											</td>
+											</tr>
 									</tbody>
 								</table>
 							</div>

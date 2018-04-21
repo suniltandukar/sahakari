@@ -5,6 +5,7 @@ import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -29,14 +30,18 @@ import com.sahakari.action.GetFormOptions;
 import com.sahakari.action.OtherAction;
 import com.sahakari.dao.CategoryDao;
 import com.sahakari.dao.CustomerDao;
+import com.sahakari.dao.JsonServices;
 import com.sahakari.dao.ListDao;
 import com.sahakari.dao.OtherActionDAO;
+import com.sahakari.dao.ReportsDao;
 import com.sahakari.dao.StaffDao;
 import com.sahakari.dao.ViewDao;
 import com.sahakari.daoimpl.CategoryDaoImpl;
 import com.sahakari.daoimpl.CustomerDaoImpl;
+import com.sahakari.daoimpl.JsonServicesImpl;
 import com.sahakari.daoimpl.ListDaoImpl;
 import com.sahakari.daoimpl.OtherActionDaoImpl;
+import com.sahakari.daoimpl.ReportsDaoImpl;
 import com.sahakari.daoimpl.StaffDaoImpl;
 import com.sahakari.daoimpl.ViewDaoImpl;
 import com.sahakari.model.AccountModel;
@@ -882,6 +887,25 @@ public class NavigationController extends HttpServlet {
 			}
 			else{
 				out.println("1");
+			}
+		}
+		else if(uri.endsWith("trialbalance.click"))
+		{
+			RequestDispatcher rd=request.getRequestDispatcher("view/reports/dailyReports/trialBalance.jsp");
+			rd.forward(request, response);
+			
+		}
+		else if(uri.endsWith("tbdatas.click")){
+			PrintWriter out=response.getWriter();
+			ReportsDao r=new ReportsDaoImpl();
+			JsonServices j=new JsonServicesImpl();
+			ResultSet rs=r.getTrialBalanceReport();
+			JSONObject jobj=new JSONObject();
+			try {
+				jobj.put("data", j.getFormattedResultSet(rs));
+				out.println(jobj);
+			} catch (JSONException e) {
+				e.printStackTrace();
 			}
 		}
 	}

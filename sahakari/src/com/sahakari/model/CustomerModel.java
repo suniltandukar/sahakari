@@ -7,7 +7,15 @@ public class CustomerModel {
 	tvdcmunid, tvdcName, twardno, tcity,
 	ttole, cusCitizenshipNo, citizenshipIssuedFrom, citidistName,
 	telno, mobno, fatherName, dob, typeid,typeName, statusid, statusName, inputter, authorizer,
-	insertStatus, updateStatus, delStatus, address, agentid;
+	insertStatus, updateStatus, delStatus, address, agentid, email;
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getId() {
 		return id;
 	}
