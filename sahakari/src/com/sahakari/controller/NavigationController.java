@@ -74,61 +74,96 @@ public class NavigationController extends HttpServlet {
 	public void destroy() {
 	}
 
-	protected void service(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
 
 		String uri = request.getRequestURI();
+		uri = uri.substring(uri.lastIndexOf("/") + 1, uri.length());
+		
+		//variable initialization
+		List<CategoryModel> accounttype =null;
+		List<CustomerModel> docType=null;
 
-		if (uri.endsWith("getCategoriesDetail.click")) {
-			PrintWriter out = response.getWriter();
-			CategoryDao c = new CategoryDaoImpl();
-			JSONObject list = c.selectCategories();
-			out.println(list);
+		// Dao Implementation
+		CategoryDao c = new CategoryDaoImpl();
+		CustomerDao customerDao = new CustomerDaoImpl();
+		ViewDao v = new ViewDaoImpl();
+		AccountDao a = new AccountDaoImpl();
+		TransactionDao transactionDao = new TransactionDaoImpl();
+		ListDao listDao = new ListDaoImpl();
+		OtherActionDAO otherActionDao = new OtherActionDaoImpl();
 
-		} else if (uri.endsWith("category.click")) {
-			CategoryDao c = new CategoryDaoImpl();
-			List<CategoryModel> accounttype = c.accounttype();
+		RequestDispatcher rd = null;
+		String id = "";
+
+		// other classes
+		GetFormOptions g = new GetFormOptions();
+		Generator gen = new Generator();
+
+		List<AgentModel> agentdetail = g.getagent();
+
+		List<CustomerModel> statuslist = g.getStatus();
+		List<CustomerModel> typelist = g.getType();
+		List<CustomerModel> districtlist = g.getDistrict();
+
+		HttpSession session = request.getSession(true);
+
+		UserModel userDetail = (UserModel) session.getAttribute("userDetail");
+
+		switch (uri) {
+		case "getCategoriesDetail.click":
+
+			JSONObject jsonObject = c.selectCategories();
+			out.println(jsonObject);
+			break;
+
+		case "category.click":
+			 accounttype = c.accounttype();
 			request.setAttribute("accounttype", accounttype);
 
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/categories/insertCategory.jsp");
+			rd = request.getRequestDispatcher("view/categories/insertCategory.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("updateCategory.click")) {
-			String id = request.getParameter("id");
-			CategoryDao c = new CategoryDaoImpl();
+			break;
+
+		case "updateCategory.click":
+			id = request.getParameter("id");
 			CategoryModel cm = c.getSpecificCategoryDetail(id);
 			request.setAttribute("categorydetail", cm);
 
-			List<CategoryModel> accounttype = c.accounttype();
 			request.setAttribute("accounttype", accounttype);
 
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/categories/updateCategory.jsp");
+			rd = request.getRequestDispatcher("view/categories/updateCategory.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("specificCategoryDetail.click")) {
-			String id = request.getParameter("id");
-			CategoryDao c = new CategoryDaoImpl();
-			CategoryModel cm = c.getSpecificCategoryDetail(id);
+			break;
+
+		case "specificCategoryDetail.click":
+			id = request.getParameter("id");
+			cm = c.getSpecificCategoryDetail(id);
 			request.setAttribute("categorydetail", cm);
 
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/categories/categoryDetailModal.jsp");
+			rd = request.getRequestDispatcher("view/categories/categoryDetailModal.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("collateralrightinsert.click")) {
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/CollateralRight/Collateral_Right_Form.jsp");
-			rd.forward(request, response);
-		} else if (uri.endsWith("customerincomedetailinsert.click")) {
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/CustomerIncomeDetail/Customer_Income_Detail.jsp");
-			rd.forward(request, response);
-		} else if (uri.endsWith("customerrelationofficerinsert.click")) {
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/CustomerRelationOfficer/Customer_Relation_Officer_Detail.jsp");
-			rd.forward(request, response);
-		} else if (uri.endsWith("customerinsert.click")) {
+			break;
 
-			Generator gen = new Generator();
+		case "collateralrightinsert.click":
+			rd = request.getRequestDispatcher("view/CollateralRight/Collateral_Right_Form.jsp");
+			rd.forward(request, response);
+			break;
+
+		case "customerincomedetailinsert.click":
+			rd = request.getRequestDispatcher("view/CustomerIncomeDetail/Customer_Income_Detail.jsp");
+			rd.forward(request, response);
+			break;
+
+		case "customerrelationofficerinsert.click":
+			rd = request.getRequestDispatcher("view/CustomerRelationOfficer/Customer_Relation_Officer_Detail.jsp");
+			rd.forward(request, response);
+			break;
+
+		case "customerinsert.click":
+			docType = g.getDocumentType();
+
 			String custid = gen.customeridGenerator();
 			if (custid == null) {
 				request.setAttribute("pid", "00000001");
@@ -137,379 +172,334 @@ public class NavigationController extends HttpServlet {
 				request.setAttribute("pid", strI);
 			}
 
-			GetFormOptions g = new GetFormOptions();
-			List<AgentModel> agentdetail = g.getagent();
-			List<CustomerModel> statuslist = g.getStatus();
-			List<CustomerModel> typelist = g.getType();
-			List<CustomerModel> districtlist = g.getDistrict();
-			List<FamilyRelationModel> familyrelationlist = g
-					.getfamilyRelationNames();
-			List<CustomerModel> docType=g.getDocumentType();
+			List<FamilyRelationModel> familyrelationlist = g.getfamilyRelationNames();
 			
 
 			request.setAttribute("docType", docType);
-			
+
 			request.setAttribute("agent", agentdetail);
 			request.setAttribute("statuslist", statuslist);
 			request.setAttribute("typelist", typelist);
 			request.setAttribute("districtlist", districtlist);
 			request.setAttribute("familyrelationlist", familyrelationlist);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Customer/insertCustomer.jsp");
+			rd = request.getRequestDispatcher("view/Customer/insertCustomer.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("viewcustomer.click")) {
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Customer/searchCustomer.jsp");
-			rd.forward(request, response);
-		} 
+			break;
 
-		else if (uri.endsWith("viewAllCustomers.click")) {
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Customer/Customer_View.jsp");
+		case "viewcustomer.click":
+			rd = request.getRequestDispatcher("view/Customer/searchCustomer.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("viewcustomerModal.click")) {
-			GetFormOptions g = new GetFormOptions();
-			List<CustomerModel> statuslist = g.getStatus();
-			List<CustomerModel> typelist = g.getType();
-			List<CustomerModel> districtlist = g.getDistrict();
+			break;
 
+		case "viewAllCustomers.click":
+			rd = request.getRequestDispatcher("view/Customer/Customer_View.jsp");
+			rd.forward(request, response);
+			break;
+
+		case "viewcustomerModal.click":
 			request.setAttribute("statuslist", statuslist);
 			request.setAttribute("typelist", typelist);
 			request.setAttribute("districtlist", districtlist);
-			String id = request.getParameter("id");
-			List<FamilyRelationModel> familyrelationlist = g
-					.getfamilyRelationNames();
+			id = request.getParameter("id");
+			familyrelationlist = g.getfamilyRelationNames();
 			request.setAttribute("familyrelationlist", familyrelationlist);
 
-			ViewDao v = new ViewDaoImpl();
-			CustomerModel c = v.viewSpecificCustomerDetail(id);
-			request.setAttribute("cdetail", c);
+			v = new ViewDaoImpl();
+			CustomerModel cus = v.viewSpecificCustomerDetail(id);
+			request.setAttribute("cdetail", cus);
 
-			List<CustomerModel> customerFamilylist = v
-					.viewCustomerFamilyDetail(id);
+			List<CustomerModel> customerFamilylist = v.viewCustomerFamilyDetail(id);
 			request.setAttribute("cusFamilyDetail", customerFamilylist);
 
 			List<CustomerModel> customerJoblist = v.viewCustomerJobDetail(id);
 			request.setAttribute("cusJobDetail", customerJoblist);
 
-			List<CustomerModel> customerBankDetailList = v
-					.viewCustomerBankDetail(id);
+			List<CustomerModel> customerBankDetailList = v.viewCustomerBankDetail(id);
 			request.setAttribute("customerBankDetail", customerBankDetailList);
 
-			List<CustomerModel> documentDetailList = v
-					.viewCustomerDocumentDetail(id);
+			List<CustomerModel> documentDetailList = v.viewCustomerDocumentDetail(id);
 			request.setAttribute("customerDocumentDetail", documentDetailList);
 
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Customer/customerDetailModal.jsp");
+			rd = request.getRequestDispatcher("view/Customer/customerDetailModal.jsp");
 			rd.forward(request, response);
-			;
 
-		} else if (uri.endsWith("editcustomersearch.click")) {
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Customer/editCustomerSearch.jsp");
+			break;
+
+		case "editcustomersearch.click":
+			rd = request.getRequestDispatcher("view/Customer/editCustomerSearch.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("customereditdisplayform.click")) {
-			GetFormOptions g = new GetFormOptions();
-			List<AgentModel> agentdetail = g.getagent();
-			List<CustomerModel> statuslist = g.getStatus();
-			List<CustomerModel> typelist = g.getType();
-			List<CustomerModel> districtlist = g.getDistrict();
+			break;
+
+		case "customereditdisplayform.click":
+System.out.println("reached here");
 			request.setAttribute("agent", agentdetail);
 			request.setAttribute("statuslist", statuslist);
 			request.setAttribute("typelist", typelist);
 			request.setAttribute("districtlist", districtlist);
 
-			String id = request.getParameter("pid");
-			List<FamilyRelationModel> familyrelationlist = g
-					.getfamilyRelationNames();
+			id = request.getParameter("pid");
+			familyrelationlist = g.getfamilyRelationNames();
 			request.setAttribute("familyrelationlist", familyrelationlist);
 
-			ViewDao v = new ViewDaoImpl();
-			CustomerModel c = v.viewSpecificCustomerDetail(id);
-			request.setAttribute("cdetail", c);
+			cus = v.viewSpecificCustomerDetail(id);
+			request.setAttribute("cdetail", cus);
 
-			List<CustomerModel> customerFamilylist = v
-					.viewCustomerFamilyDetail(id);
+			customerFamilylist = v.viewCustomerFamilyDetail(id);
 			request.setAttribute("cusFamilyDetail", customerFamilylist);
 
-			List<CustomerModel> customerJoblist = v.viewCustomerJobDetail(id);
+			customerJoblist = v.viewCustomerJobDetail(id);
 			request.setAttribute("cusJobDetail", customerJoblist);
 
-			List<CustomerModel> customerBankDetailList = v
-					.viewCustomerBankDetail(id);
+			customerBankDetailList = v.viewCustomerBankDetail(id);
 			request.setAttribute("customerBankDetail", customerBankDetailList);
 
-			List<CustomerModel> documentDetailList = v
-					.viewCustomerDocumentDetail(id);
+			documentDetailList = v.viewCustomerDocumentDetail(id);
 			request.setAttribute("customerDocumentDetail", documentDetailList);
 
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Customer/customerUpdateDisplayForm.jsp");
+			rd = request.getRequestDispatcher("view/Customer/customerUpdateDisplayForm.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("sharecertificateinsert.click")) {
-			AccountDao a = new AccountDaoImpl();
+			break;
+
+		case "sharecertificateinsert.click":
+
 			List<AccountModel> categorylist = a.getCategories();
 			request.setAttribute("categorylist", categorylist);
 
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/ShareCertificate/insertShareCertificate.jsp");
+			rd = request.getRequestDispatcher("view/ShareCertificate/insertShareCertificate.jsp");
 			rd.forward(request, response);
 
-		}
-		else if(uri.endsWith("searchSCSpecific.click")){
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/ShareCertificate/editShareCertificate.jsp");
+			break;
+
+		case "searchSCSpecific.click":
+			rd = request.getRequestDispatcher("view/ShareCertificate/editShareCertificate.jsp");
 			rd.forward(request, response);
+			break;
+		case "editsharecertificate.click":
+			v = new ViewDaoImpl();
+			id = request.getParameter("id");
+			cus = v.viewSpecificShareCertificate(id);
+			request.setAttribute("shareCert", cus);
 
-		}
-		else if (uri.endsWith("editsharecertificate.click")) {
-			ViewDao v = new ViewDaoImpl();
-			String id = request.getParameter("id");
-			CustomerModel list = v.viewSpecificShareCertificate(id);
-			request.setAttribute("shareCert", list);
-
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/ShareCertificate/displayForm.jsp");
+			rd = request.getRequestDispatcher("view/ShareCertificate/displayForm.jsp");
 			rd.forward(request, response);
-
-		} else if (uri.endsWith("viewmuncipality.click")) {
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/onselectpages/viewMuncipality.jsp");
+			break;
+		case "viewmuncipality.click":
+			rd = request.getRequestDispatcher("view/onselectpages/viewMuncipality.jsp");
 			rd.forward(request, response);
-
-		} else if (uri.endsWith("viewwardno.click")) {
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/onselectpages/viewWardNo.jsp");
+			break;
+		case "viewwardno.click":
+			rd = request.getRequestDispatcher("view/onselectpages/viewWardNo.jsp");
 			rd.forward(request, response);
+			break;
 
-		}
+		case "checkmemberid.click":
+			id = request.getParameter("id");
 
-		else if (uri.endsWith("checkmemberid.click")) {
-			PrintWriter out = response.getWriter();
-			String id = request.getParameter("id");
-			CustomerDao c = new CustomerDaoImpl();
-			boolean status = c.checkMemberId(id);
+			boolean status = customerDao.checkMemberId(id);
 			System.out.println(status);
 			if (status) {
 				out.println("1");
 			} else {
 				out.println("0");
 			}
-		} else if (uri.endsWith("sharecertcheckmemberid.click")) {
-			PrintWriter out = response.getWriter();
-			String id = request.getParameter("id");
-			CustomerDao c = new CustomerDaoImpl();
-			boolean status = c.checkMemberId(id);
+			break;
+
+		case "sharecertcheckmemberid.click":
+			id = request.getParameter("id");
+
+			status = customerDao.checkMemberId(id);
 			System.out.println(status);
 			if (status) {
 				out.println("0");
 			} else {
 				out.println("1");
 			}
-		} else if (uri.endsWith("insertfinancialaccount.click")) {
-			AccountDao a = new AccountDaoImpl();
-			List<AccountModel> categorylist = a.getCategories();
+			break;
+
+		case "insertfinancialaccount.click":
+
+			categorylist = a.getCategories();
 			request.setAttribute("categorylist", categorylist);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Account/insertFinancialAccount.jsp");
+			rd = request.getRequestDispatcher("view/Account/insertFinancialAccount.jsp");
 			rd.forward(request, response);
+			break;
 
-		} else if (uri.endsWith("insertaccount.click")) {
-			AccountDao a = new AccountDaoImpl();
-			List<AccountModel> categorylist = a.getCategories();
+		case "insertaccount.click":
+			categorylist = a.getCategories();
 			request.setAttribute("categorylist", categorylist);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Account/insertAccount.jsp");
+			rd = request.getRequestDispatcher("view/Account/insertAccount.jsp");
 			rd.forward(request, response);
+			break;
 
-		} else if (uri.endsWith("viewaccount.click")) {
-			AccountDao a = new AccountDaoImpl();
-			List<AccountModel> list = a.viewAccount();
-			request.setAttribute("accountlist", list);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Account/viewAccount.jsp");
+		case "viewaccount.click":
+			categorylist = a.viewAccount();
+			request.setAttribute("accountlist", categorylist);
+			rd = request.getRequestDispatcher("view/Account/viewAccount.jsp");
 			rd.forward(request, response);
+			break;
 
-		} else if (uri.endsWith("editaccount.click")) {
+		case "editaccount.click":
 			String accountNumber = request.getParameter("accountNumber");
 			request.setAttribute("accountNumber", accountNumber);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Account/editAccount.jsp");
+			rd = request.getRequestDispatcher("view/Account/editAccount.jsp");
 			rd.forward(request, response);
+			break;
 
-		} else if (uri.endsWith("accounteditdisplayform.click")) {
-			String accountNumber = request.getParameter("id");
-			AccountDao a = new AccountDaoImpl();
-
-			List<AccountModel> categorylist = a.getCategories();
+		case "accounteditdisplayform.click":
+			accountNumber = request.getParameter("id");
+			categorylist = a.getCategories();
 			request.setAttribute("categorylist", categorylist);
 
-			AccountModel list = a.getAccountDetail(accountNumber);
-			request.setAttribute("accountdetail", list);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Account/editAccountDisplayForm.jsp");
+			AccountModel accountModel = a.getAccountDetail(accountNumber);
+			request.setAttribute("accountdetail", accountModel);
+			rd = request.getRequestDispatcher("view/Account/editAccountDisplayForm.jsp");
 			rd.forward(request, response);
+			break;
 
-		} else if (uri.endsWith("showaccounttype.click")) {
-			PrintWriter out = response.getWriter();
+		case "showaccounttype.click":
 			String categoryId = request.getParameter("id");
 			if (categoryId != null) {
-
-				AccountDao a = new AccountDaoImpl();
-
-				String accountType = a
-						.selectAccountTypeFromCategory(categoryId);
+				String accountType = a.selectAccountTypeFromCategory(categoryId);
 
 				AccountModel am = a.getAccountTypes(accountType);
-				out.println("<option value='" + am.getAccountType() + "'>"
-						+ am.getAccountTypeHead() + "</option>");
+				out.println("<option value='" + am.getAccountType() + "'>" + am.getAccountTypeHead() + "</option>");
 			} else {
 				out.println("<option value=''>Select Account Type</option>");
 			}
+			break;
 
-		}
 		// Transaction
-		else if (uri.endsWith("inserttransaction.click")) {
+		case "inserttransaction.click":
 			String branchid = "001";
-			Generator gen = new Generator();
 			String tid = gen.transactionidgenerator(branchid);
 			request.setAttribute("tid", tid);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Transaction/insertTransaction.jsp");
+			rd = request.getRequestDispatcher("view/Transaction/insertTransaction.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("viewtransaction.click")) {
-			TransactionDao td = new TransactionDaoImpl();
-			List<TransactionModel> list = td.gettransactions();
-			request.setAttribute("transactionlist", list);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Transaction/viewTransaction.jsp");
+			break;
+
+		case "viewtransaction.click":
+
+			List<TransactionModel> transactionModelList = transactionDao.gettransactions();
+			request.setAttribute("transactionlist", transactionModelList);
+			rd = request.getRequestDispatcher("view/Transaction/viewTransaction.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("edittransaction.click")) {
-			String id = request.getParameter("id");
+			break;
+
+		case "edittransaction.click":
+			id = request.getParameter("id");
 			request.setAttribute("id", id);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Transaction/editTransaction.jsp");
+			rd = request.getRequestDispatcher("view/Transaction/editTransaction.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("transactioneditdisplayform.click")) {
-			String id = request.getParameter("id");
-			TransactionDao td = new TransactionDaoImpl();
-			TransactionModel list = td.getTransactionDetail(id);
-			request.setAttribute("tdetail", list);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Transaction/editTransactionDisplayForm.jsp");
+			break;
+
+		case "transactioneditdisplayform.click":
+			id = request.getParameter("id");
+			TransactionModel transactionModel = transactionDao.getTransactionDetail(id);
+			request.setAttribute("tdetail", transactionModel);
+			rd = request.getRequestDispatcher("view/Transaction/editTransactionDisplayForm.jsp");
 			rd.forward(request, response);
-		}
+			break;
+
 		// Teller Transaction
-		else if (uri.endsWith("insertTeller.click")) {
-			HttpSession session = request.getSession(true);
+		case "insertTeller.click":
 
 			OtherAction o = new OtherAction();
 			String todayDate = o.getTodayDate();
 
-			String branchid = (String) session
-					.getAttribute("currentBranchcode");
+			branchid = (String) session.getAttribute("currentBranchcode");
 			String type = request.getParameter("type");
 			request.setAttribute("type", type);
 
-			Generator gen = new Generator();
 			String tellerid = gen.tellertransactionidgenerator(branchid);
 			request.setAttribute("tellerid", tellerid);
 			request.setAttribute("todayDate", todayDate);
 
-			String todayNepaliDate = dateConverter.DateConverter
-					.englishToNepali(todayDate);
+			String todayNepaliDate = dateConverter.DateConverter.englishToNepali(todayDate);
 			request.setAttribute("todayNepaliDate", todayNepaliDate);
 
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Transaction/Teller/insertTeller.jsp");
+			rd = request.getRequestDispatcher("view/Transaction/Teller/insertTeller.jsp");
 			rd.forward(request, response);
-		} 
-		else if (uri.endsWith("viewteller.click")) {
-			TransactionDao td = new TransactionDaoImpl();
-			List<TellerTransactionModel> list = td.gettellertransactions();
-			request.setAttribute("transactionlist", list);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Transaction/Teller/viewTeller.jsp");
+			break;
+
+		case "viewteller.click":
+
+			List<TellerTransactionModel> tellerTransactionList = transactionDao.gettellertransactions();
+			request.setAttribute("transactionlist", tellerTransactionList);
+			rd = request.getRequestDispatcher("view/Transaction/Teller/viewTeller.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("editteller.click")) {
-			String id = request.getParameter("id");
+			break;
+
+		case "editteller.click":
+			id = request.getParameter("id");
 			request.setAttribute("id", id);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Transaction/Teller/editTellerTransaction.jsp");
+			rd = request.getRequestDispatcher("view/Transaction/Teller/editTellerTransaction.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("tellereditdisplayform.click")) {
-			String id = request.getParameter("id");
+			break;
+
+		case "tellereditdisplayform.click":
+			id = request.getParameter("id");
 			TransactionDao td = new TransactionDaoImpl();
-			TellerTransactionModel list = td.getspecifictellertransaction(id);
-			request.setAttribute("tellertxn", list);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Transaction/Teller/editTellerDisplayForm.jsp");
+			TellerTransactionModel ttModelList = td.getspecifictellertransaction(id);
+			request.setAttribute("tellertxn", ttModelList);
+			rd = request.getRequestDispatcher("view/Transaction/Teller/editTellerDisplayForm.jsp");
 			rd.forward(request, response);
-		}
+
+			break;
+
 		// multi transactions
-		if (uri.endsWith("insertMultiTxn.click")) {
-			String branchid = "001";
-			Generator gen = new Generator();
+		case "insertMultiTxn.click":
+			branchid = "001";
 			String mid = gen.multitransactionidgenerator(branchid);
 			request.setAttribute("mid", mid);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Transaction/MultiTransactions/insertMultiTransaction.jsp");
+			rd = request.getRequestDispatcher("view/Transaction/MultiTransactions/insertMultiTransaction.jsp");
 			rd.forward(request, response);
+			break;
 
-		}
-		if (uri.endsWith("viewMultiTxn.click")) {
-			TransactionDao dao = new TransactionDaoImpl();
-			List<TellerTransactionModel> list = dao.getMultiTransaction();
+		case "viewMultiTxn.click":
+			tellerTransactionList = transactionDao.getMultiTransaction();
 
-			request.setAttribute("multitransactionlist", list);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Transaction/MultiTransactions/viewMultiTransaction.jsp");
+			request.setAttribute("multitransactionlist", tellerTransactionList);
+			rd = request.getRequestDispatcher("view/Transaction/MultiTransactions/viewMultiTransaction.jsp");
 			rd.forward(request, response);
-		}
+			break;
 
-		else if (uri.endsWith("multitxneditdisplayform.click")) {
-			String id = request.getParameter("id");
+		case "multitxneditdisplayform.click":
+			id = request.getParameter("id");
 
-			TransactionDao td = new TransactionDaoImpl();
-			TellerTransactionModel list = td.getMultiTransactionDetail(id);
-			request.setAttribute("multitxn", list);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Transaction/MultiTransactions/editMultiTransactionDisplayForm.jsp");
+			ttModelList = transactionDao.getMultiTransactionDetail(id);
+			request.setAttribute("multitxn", ttModelList);
+			rd = request.getRequestDispatcher("view/Transaction/MultiTransactions/editMultiTransactionDisplayForm.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("editmultitxn.click")) {
-			String id = request.getParameter("id");
+			break;
+		case "editmultitxn.click":
+			id = request.getParameter("id");
 			request.setAttribute("id", id);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Transaction/MultiTransactions/editMultiTransaction.jsp");
+			rd = request.getRequestDispatcher("view/Transaction/MultiTransactions/editMultiTransaction.jsp");
 			rd.forward(request, response);
+			break;
 
-		}
-
-		else if (uri.endsWith("emi.click")) {
-			RequestDispatcher rd = request.getRequestDispatcher("emi.jsp");
+		case "emi.click":
+			rd = request.getRequestDispatcher("emi.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("branch.click")) {
-			ListDao list = new ListDaoImpl();
-			List<BranchModel> branchlist = list.branch();
+			break;
+		case "branch.click":
+
+			List<BranchModel> branchlist = listDao.branch();
 
 			request.setAttribute("branchlist", branchlist);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/adminSettings/branch/addBranch.jsp");
+			rd = request.getRequestDispatcher("view/adminSettings/branch/addBranch.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("generateaccountno.click")) {
-			PrintWriter out = response.getWriter();
+			break;
+		case "generateaccountno.click":
 			String generatedAccountNo = "";
 			CustomerDao cust = new CustomerDaoImpl();
 			String memberid = request.getParameter("memberid");
 			boolean memberidCheck = cust.checkMemberId(memberid);
 			if (memberidCheck) {
-				HttpSession session = request.getSession(true);
 				// setting companyid
 				String companyid = "01";
 				// setting branchid
-				String branchid = (String) session
-						.getAttribute("currentBranchcode");
+				branchid = (String) session.getAttribute("currentBranchcode");
 				// setting memberid into 7 digits
 				String strI = String.format("%07d", Integer.parseInt(memberid));
 				// setting last account number
@@ -530,28 +520,28 @@ public class NavigationController extends HttpServlet {
 																			// account
 																			// number+1
 					// generated account number
-					generatedAccountNo = companyid + branchid + strI
-							+ accountNo;
+					generatedAccountNo = companyid + branchid + strI + accountNo;
 
 				}
 				out.println(generatedAccountNo);
 			} else {
 				out.println("Member ID not Found.");
 			}
-		} else if (uri.endsWith("memberdocument.click")) {
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Customer/document/upload.jsp");
+			break;
+		case "memberdocument.click":
+			rd = request.getRequestDispatcher("view/Customer/document/upload.jsp");
 			rd.forward(request, response);
+			break;
 
-		} else if (uri.endsWith("viewmemberdocuments.click")) {
-			OtherActionDAO action = new OtherActionDaoImpl();
-			List<Document> documentlist = action.getDocumentDetails();
+		case "viewmemberdocuments.click":
+
+			List<Document> documentlist = otherActionDao.getDocumentDetails();
 			request.setAttribute("documentlist", documentlist);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/Customer/document/view.jsp");
+			rd = request.getRequestDispatcher("view/Customer/document/view.jsp");
 			rd.forward(request, response);
+			break;
 
-		} else if (uri.endsWith("viewDocument.click")) {
+		case "viewDocument.click":
 			String documentname = request.getParameter("documentname");
 			OtherActionDAO action = new OtherActionDaoImpl();
 			String location = action.getDocumentLocation(documentname);
@@ -562,8 +552,7 @@ public class NavigationController extends HttpServlet {
 			response.setContentType(contentType);
 			ServletOutputStream os;
 			os = response.getOutputStream();
-			FileInputStream fin = new FileInputStream(location + "\\"
-					+ documentname);
+			FileInputStream fin = new FileInputStream(location + "\\" + documentname);
 
 			BufferedInputStream bin = new BufferedInputStream(fin);
 			BufferedOutputStream bout = new BufferedOutputStream(os);
@@ -577,91 +566,82 @@ public class NavigationController extends HttpServlet {
 			fin.close();
 			bout.close();
 			os.close();
-		}
+			break;
 
-		else if (uri.endsWith("branchselect.click")) {
-			HttpSession session = request.getSession(true);
-			UserModel u = (UserModel) session.getAttribute("userDetail");
-			String branchAllowed = u.getBranchAllowed();
+		case "branchselect.click":
+
+			String branchAllowed = userDetail.getBranchAllowed();
 			String[] branches = branchAllowed.split(",");
 
 			request.setAttribute("branchesAllowed", branches);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/UserSetting/branchselect.jsp");
+			rd = request.getRequestDispatcher("view/UserSetting/branchselect.jsp");
 			rd.forward(request, response);
 
-		} else if (uri.endsWith("switchbranc.click")) {
-			String branch = request.getParameter("branch"), branchcode[] = branch
-					.split("-");
-			HttpSession session = request.getSession(true);
+			break;
+		case "switchbranc.click":
+			String branch = request.getParameter("branch"), branchcode[] = branch.split("-");
 			System.out.println(branch);
 			session.removeAttribute("currentBranchcode");
 			session.setAttribute("currentBranchcode", branchcode[0]);
 
 			session.removeAttribute("currentBranchFunctions");
 
-			UserModel u = (UserModel) session.getAttribute("userDetail");
-			System.out.println(u.getBranchAllowedFunctions());
-			session.setAttribute("currentBranchFunctions",
-					u.getBranchAllowedFunctions());
+			session.setAttribute("currentBranchFunctions", userDetail.getBranchAllowedFunctions());
 
 			System.out.println(session.getAttribute("currentBranchFunctions"));
 
 			request.setAttribute("msg", "Current Branch =" + branchcode[0]);
-			RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
+			rd = request.getRequestDispatcher("profile.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("getmembername.click")) {
-			PrintWriter out = response.getWriter();
+			break;
+		case "getmembername.click":
 			String pid = request.getParameter("id");
-			ViewDao v = new ViewDaoImpl();
-			CustomerModel c = v.viewSpecificCustomerDetail(pid);
-			out.println(c.getName());
+			v = new ViewDaoImpl();
+			cus = v.viewSpecificCustomerDetail(pid);
+			out.println(cus.getName());
 
-		} else if (uri.endsWith("showaccountname.click")) {
-			System.out.println("hello");
-			PrintWriter out = response.getWriter();
+			break;
+
+		case "showaccountname.click":
 			String craccount = request.getParameter("craccount");
 			String draccount = request.getParameter("draccount");
 			JSONArray array = new JSONArray();
-			ViewDao v = new ViewDaoImpl();
+			v = new ViewDaoImpl();
 			if (draccount.equals("")) {
 				array = v.viewAccountName(craccount);
 			} else {
 				array = v.viewAccountName(draccount);
 			}
 			out.println(array);
-		}
+			break;
 
-		else if (uri.endsWith("createLoan.click")) {
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/LoanModule/Loan/createLoan.jsp");
+		case "createLoan.click":
+			rd = request.getRequestDispatcher("view/LoanModule/Loan/createLoan.jsp");
 			rd.forward(request, response);
-		}
+			break;
 
-		else if (uri.endsWith("nepaliToEnglish.click")) {
-			PrintWriter out = response.getWriter();
+		case "nepaliToEnglish.click":
 			String nepalidate = request.getParameter("nepalidate");
-			String convertedEnglishDate = dateConverter.DateConverter
-					.nepaliToEnglish(nepalidate);
+			String convertedEnglishDate = dateConverter.DateConverter.nepaliToEnglish(nepalidate);
 			out.println(convertedEnglishDate);
-		} else if (uri.endsWith("englishToNepali.click")) {
-			PrintWriter out = response.getWriter();
+			break;
+		case "englishToNepali.click":
 			String englishdate = request.getParameter("englishdate");
-			String convertedNepaliDate = dateConverter.DateConverter
-					.englishToNepali(englishdate);
+			String convertedNepaliDate = dateConverter.DateConverter.englishToNepali(englishdate);
 			out.println(convertedNepaliDate);
-		} else if (uri.endsWith("datatable.click")) {
+			break;
+		case "datatable.click":
 
-			JSONObject o = new JSONObject();
-			CategoryDao c = new CategoryDaoImpl();
-			JSONObject list = c.selectCategories();
+			JSONObject json1 = new JSONObject();
+			CategoryDao categoryDao = new CategoryDaoImpl();
+			JSONObject json2 = c.selectCategories();
 			try {
-				o.put("categorylist", list);
+				json1.put("categorylist", json2);
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
 			response.setContentType("application/json");
-			response.getWriter().println(list);
+			response.getWriter().println(json2);
 
 			/*
 			 * File file=new File(
@@ -688,226 +668,186 @@ public class NavigationController extends HttpServlet {
 			 * e.printStackTrace(); }
 			 */
 
-		} else if (uri.endsWith("insertCollateral.click")) {
+			break;
+		case "insertCollateral.click":
 
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/LoanModule/collateral/insert.jsp");
+			rd = request.getRequestDispatcher("view/LoanModule/collateral/insert.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("editLoan.click")) {
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/LoanModule/Loan/editLoan.jsp");
+			break;
+		case "editLoan.click":
+			rd = request.getRequestDispatcher("view/LoanModule/Loan/editLoan.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("insertLimit.click")) {
+			break;
+		case "insertLimit.click":
 
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/LoanModule/limit/insert.jsp");
+			rd = request.getRequestDispatcher("view/LoanModule/limit/insert.jsp");
 			rd.forward(request, response);
-		} else if (uri.endsWith("insertTermDeposits.click")) {
+			break;
+		case "insertTermDeposits.click":
 
-			RequestDispatcher rd = request
-					.getRequestDispatcher("view/LoanModule/termDeposits/insert.jsp");
+			rd = request.getRequestDispatcher("view/LoanModule/termDeposits/insert.jsp");
 			rd.forward(request, response);
-		}
+			break;
 		// JSON Datas
-		else if (uri.endsWith("customerdetailjson.click")) {
-			PrintWriter out = response.getWriter();
+		case "customerdetailjson.click":
 			ViewDao view = new ViewDaoImpl();
 			JSONObject list = view.viewCustomerDetail();
-			String jsonString=list.toString();
+			String jsonString = list.toString();
 			out.println(jsonString);
-		}
-		else if (uri.endsWith("customerSearchResult.click")) {
-			PrintWriter out = response.getWriter();
-			String memberid = request.getParameter("memberid"), membername = request
-					.getParameter("membername");
+			break;
+		case "customerSearchResult.click":
+			memberid = request.getParameter("memberid");
+			String membername = request.getParameter("membername");
 
 			if (memberid.equals("") && membername.equals("")) {
 				out.println("No Inputs Found! ");
 			} else {
 				request.setAttribute("memberid", memberid);
 				request.setAttribute("membername", membername);
-				RequestDispatcher rd = request
-						.getRequestDispatcher("view/Customer/searchedCustomerList.jsp");
+				rd = request.getRequestDispatcher("view/Customer/searchedCustomerList.jsp");
 				rd.forward(request, response);
 
 			}
 
-		}
-		else if(uri.endsWith("customerSearchResultList.click")){
-			System.out.println("reached cust");
-			PrintWriter out = response.getWriter();
-			String memberid = request.getParameter("memberid"), membername = request
-					.getParameter("membername");
-			/*String searchingby = memberid + membername;*/
-			ViewDao view = new ViewDaoImpl();
-			JSONObject list = view
-					.viewSearchedCustomerDetail(memberid, membername);
-			out.println(list.toString());
-		}
-		
-		else if(uri.endsWith("initialdetails.click"))
-		{
-			
-			GetFormOptions g = new GetFormOptions();
-			List<AgentModel> agentdetail = g.getagent();
-			List<CustomerModel> statuslist = g.getStatus();
-			List<CustomerModel> typelist = g.getType();
-			List<CustomerModel> docType=g.getDocumentType();
-			
+			break;
+		case "customerSearchResultList.click":
+			memberid = request.getParameter("memberid");
+			membername = request.getParameter("membername");
+			/* String searchingby = memberid + membername; */
+			JSONObject json3 = v.viewSearchedCustomerDetail(memberid, membername);
+			out.println(json3.toString());
+			break;
+
+		case "initialdetails.click":
 			request.setAttribute("agentlist", agentdetail);
 			request.setAttribute("statuslist", statuslist);
 			request.setAttribute("typelist", typelist);
 			request.setAttribute("doctype", docType);
-			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
+			rd = request.getRequestDispatcher("view/adminSettings/initialsetups.jsp");
 			rd.forward(request, response);
-		}
-		else if(uri.endsWith("newtel.click"))
-		{
-			HttpSession session=request.getSession(true);
-			UserModel usermodel=(UserModel)session.getAttribute("userDetail");
-			String categoryid="21104";
-			Generator g=new Generator();
-			String tellerid=g.newTelleridgenerator(usermodel.getBranchCode(),usermodel.getCompanyId(),categoryid);
-			
-			request.setAttribute("tellerid", tellerid);
-			RequestDispatcher rd=request.getRequestDispatcher("view/teller.jsp");
-			rd.forward(request, response);
-		}
-		else if(uri.endsWith("viewTel.click"))
-		{
-			OtherActionDAO dao=new OtherActionDaoImpl();
-			List<TellerModel>list=dao.viewTeller();
-			request.setAttribute("list", list);
-			RequestDispatcher rd=request.getRequestDispatcher("view/viewTel.jsp");
-			rd.forward(request, response);
-		}
-		//admin settings
-		//staff settings
-		else if(uri.endsWith("staffinsert.click"))
-		{
-			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/insertStaff.jsp");
-			rd.forward(request, response);
-		}
-		//basic interest rate
-		else if(uri.endsWith("basicInterestInsert.click"))
-		{
-			CategoryDao cat=new CategoryDaoImpl();
-		List<CategoryModel> list=cat.getCategories();
-		
-			request.setAttribute("categories", list);
-			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/basicintrate_deposit/insert.jsp");
-			rd.forward(request, response);
-		}
-		else if(uri.endsWith("viewStaff.click"))
-		{
-			StaffDao dao=new StaffDaoImpl();
-			List<StaffModel> staff=dao.getStaff();
-			System.out.println(staff);
-			request.setAttribute("staff", staff);
-			RequestDispatcher rd=request.getRequestDispatcher("view/adminSettings/viewStaff.jsp");
-			rd.forward(request, response);
-		}
-		
-		else if(uri.endsWith("generateShareCertificateId.click"))
-		{
-			PrintWriter out=response.getWriter();
-			
-			System.out.println("reached");
-			String memberid=request.getParameter("memberid");
-			System.out.println(memberid);
-			
-			CustomerDao  dao=new CustomerDaoImpl();
-			boolean status=
-					dao.checkMemberId(memberid);
-			if(status)
-			{
-			
-			HttpSession session=request.getSession(true);
-			UserModel user=(UserModel)session.getAttribute("userDetail");
-			String branchid=user.getBranchCode();
-			String companyId=user.getCompanyId();
-			System.out.println(branchid+" "+companyId);
-			Generator gen=new Generator();
-			String id=gen.ShareCertificateIdGenerator(branchid, companyId, memberid);
-			
-			
-			ViewDao v = new ViewDaoImpl();
-			CustomerModel c = v.viewSpecificCustomerDetail(memberid);
-			String membername=c.getName();
-			String memaddress=c.getAddress();
+			break;
+		case "newtel.click":
+			UserModel usermodel = (UserModel) session.getAttribute("userDetail");
+			String categoryid = "21104";
+			tellerid = gen.newTelleridgenerator(usermodel.getBranchCode(), usermodel.getCompanyId(), categoryid);
 
-			out.println(membername+"*"+id+"*"+memaddress);
-			
-			}
-			else 
-			{
+			request.setAttribute("tellerid", tellerid);
+			rd = request.getRequestDispatcher("view/teller.jsp");
+			rd.forward(request, response);
+			break;
+		case "viewTel.click":
+			OtherActionDAO dao = new OtherActionDaoImpl();
+			List<TellerModel> tellerModelList = dao.viewTeller();
+			request.setAttribute("list", tellerModelList);
+			rd = request.getRequestDispatcher("view/viewTel.jsp");
+			rd.forward(request, response);
+			break;
+		// admin settings
+		// staff settings
+		case "staffinsert.click":
+			rd = request.getRequestDispatcher("view/adminSettings/insertStaff.jsp");
+			rd.forward(request, response);
+			break;
+		// basic interest rate
+		case "basicInterestInsert.click":
+			CategoryDao cat = new CategoryDaoImpl();
+			List<CategoryModel> catlist = cat.getCategories();
+
+			request.setAttribute("categories", catlist);
+			rd = request.getRequestDispatcher("view/adminSettings/basicintrate_deposit/insert.jsp");
+			rd.forward(request, response);
+			break;
+		case "viewStaff.click":
+			StaffDao staffDao = new StaffDaoImpl();
+			List<StaffModel> staff = staffDao.getStaff();
+			request.setAttribute("staff", staff);
+			rd = request.getRequestDispatcher("view/adminSettings/viewStaff.jsp");
+			rd.forward(request, response);
+			break;
+
+		case "generateShareCertificateId.click":
+
+			System.out.println("reached");
+			memberid = request.getParameter("memberid");
+
+			status = customerDao.checkMemberId(memberid);
+			if (status) {
+
+				branchid = userDetail.getBranchCode();
+				String companyId = userDetail.getCompanyId();
+				System.out.println(branchid + " " + companyId);
+				id = gen.ShareCertificateIdGenerator(branchid, companyId, memberid);
+
+				cus = v.viewSpecificCustomerDetail(memberid);
+				 membername = cus.getName();
+				String memaddress = cus.getAddress();
+
+				out.println(membername + "*" + id + "*" + memaddress);
+
+			} else {
 				out.println("Member Not Found!!!");
 			}
-		}
-		else if(uri.endsWith("shareAccountLedger.click"))
-		{
-			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/shareAccountLedger/insert.jsp");
+			break;
+		case "shareAccountLedger.click":
+			rd = request.getRequestDispatcher("view/Transaction/shareAccountLedger/insert.jsp");
 			rd.forward(request, response);
-		}
-		else if(uri.endsWith("viewShareAccountLedger.click"))
-		{
-			TransactionDao dao=new TransactionDaoImpl();
-			List<ShareAccountLedger> list=dao.viewShareAccountLedger();
-			request.setAttribute("list", list);
-			
-			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/shareAccountLedger/viewShareLedger.jsp");
+			break;
+		case "viewShareAccountLedger.click":
+			transactionDao = new TransactionDaoImpl();
+			List<ShareAccountLedger> shareAcLedgerList = transactionDao.viewShareAccountLedger();
+			request.setAttribute("list", shareAcLedgerList);
+
+			rd = request.getRequestDispatcher("view/Transaction/shareAccountLedger/viewShareLedger.jsp");
 			rd.forward(request, response);
-		}
-		else if(uri.endsWith("editshareAccountLedgerDisplay.click"))
-		{
-			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/shareAccountLedger/editShareLedger.jsp");
+			break;
+		case "editshareAccountLedgerDisplay.click":
+			rd = request.getRequestDispatcher("view/Transaction/shareAccountLedger/editShareLedger.jsp");
 			rd.forward(request, response);
-		}
-		
-		else if(uri.endsWith("shareAccountLedgerDisplay.click"))
-		{
-			String pid=request.getParameter("pid");
-			TransactionDao dao=new TransactionDaoImpl();
-			ShareAccountLedger model=dao.editShareAcDisplay(pid);
-			
-			String datenep=dateConverter.DateConverter.englishToNepali(model.getDate());
+			break;
+
+		case "shareAccountLedgerDisplay.click":
+			 pid = request.getParameter("pid");
+			transactionDao = new TransactionDaoImpl();
+			ShareAccountLedger shareAccountLedgerModel = transactionDao.editShareAcDisplay(pid);
+
+			String datenep = dateConverter.DateConverter.englishToNepali(shareAccountLedgerModel.getDate());
 			request.setAttribute("datenep", datenep);
-			request.setAttribute("list", model);
-			RequestDispatcher rd=request.getRequestDispatcher("view/Transaction/shareAccountLedger/editShareLedgerDisplayForm.jsp");
+			request.setAttribute("list", shareAccountLedgerModel);
+			rd = request.getRequestDispatcher("view/Transaction/shareAccountLedger/editShareLedgerDisplayForm.jsp");
 			rd.forward(request, response);
-		}
-		else if(uri.endsWith("getreltransactionno.click"))
-		{
-			String transactionId=request.getParameter("transactionid");
-			TransactionDao t=new TransactionDaoImpl();
-			String transactionNo=t.getTransactionNo(transactionId);
-			PrintWriter out=response.getWriter();
-			if(transactionNo!=null){
-			out.println(transactionNo);
-			}
-			else{
+			break;
+		case "getreltransactionno.click":
+			String transactionId = request.getParameter("transactionid");
+			TransactionDao t = new TransactionDaoImpl();
+			String transactionNo = t.getTransactionNo(transactionId);
+			if (transactionNo != null) {
+				out.println(transactionNo);
+			} else {
 				out.println("1");
 			}
-		}
-		else if(uri.endsWith("trialbalance.click"))
-		{
-			RequestDispatcher rd=request.getRequestDispatcher("view/reports/dailyReports/trialBalance.jsp");
+			break;
+		case "trialbalance.click":
+			rd = request.getRequestDispatcher("view/reports/dailyReports/trialBalance.jsp");
 			rd.forward(request, response);
-			
-		}
-		else if(uri.endsWith("tbdatas.click")){
-			PrintWriter out=response.getWriter();
-			ReportsDao r=new ReportsDaoImpl();
-			JsonServices j=new JsonServicesImpl();
-			ResultSet rs=r.getTrialBalanceReport();
-			JSONObject jobj=new JSONObject();
+
+			break;
+		case "tbdatas.click":
+			ReportsDao r = new ReportsDaoImpl();
+			JsonServices j = new JsonServicesImpl();
+			ResultSet rs = r.getTrialBalanceReport();
+			JSONObject jobj = new JSONObject();
 			try {
 				jobj.put("data", j.getFormattedResultSet(rs));
-				out.println(jobj);
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-		}
-	}
+			out.println(jobj);
 
+			break;
+
+		default:
+			out.println("Invalid Action!");
+		}
+
+	}
 }

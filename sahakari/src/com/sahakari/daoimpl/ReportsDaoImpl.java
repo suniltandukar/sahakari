@@ -14,7 +14,7 @@ public class ReportsDaoImpl implements ReportsDao{
 	ResultSet rs=null;
 	
 	public ResultSet getTrialBalanceReport(){
-		String query="select a.categoryid,c.categoryhead,if(sum(a.clearedbal)>=0,sum(a.clearedbal),0) as drbal,if(sum(a.clearedbal)<=0,-sum(a.clearedbal),0) as crbal from accountstbl a join categories c on a.categoryid=c.categoryid group by a.categoryid,c.categoryhead;";
+		String query="select left(a.categoryid,2) as main, a.categoryid,c.categoryhead,if(sum(a.clearedbal)>=0,sum(a.clearedbal),0) as drbal,if(sum(a.clearedbal)<=0,-sum(a.clearedbal),0) as crbal from accountstbl a join categories c on a.categoryid=c.categoryid group by main, a.categoryid,c.categoryhead;";
 		try{
 			con=DBConnection.getConnection();
 			pstmt=con.prepareStatement(query);
@@ -23,17 +23,7 @@ public class ReportsDaoImpl implements ReportsDao{
 		catch(Exception e){
 			System.out.println(e);
 		}
-		finally{
-			
-			try {
-				con.close();
-				pstmt.close();
-				rs.close();
-			} catch (SQLException e) {
-				
-				e.printStackTrace();
-			}
-		}
+	
 		return rs;
 	}
 

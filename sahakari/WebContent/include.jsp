@@ -82,6 +82,8 @@
     <!-- Jtable -->
     <script src="template/js/jquery.jtable.min.js"></script>
     <script type="text/javascript" src="template/js/dateconverter.js"></script>
+    <script src="template/js/datatable.rowGroup.min.js"></script>
+     <script src="template/js/jquery.tabletoCSV.js"></script>
    
 	<script>
 	
@@ -92,6 +94,14 @@
 	 showErrorDialogs : false
 
     });
+  function printData(divname)
+	 {
+	    var divToPrint=document.getElementById(divname);
+	    newWin= window.open("");
+	    newWin.document.write(divToPrint.outerHTML);
+	    newWin.print();
+	    newWin.close();
+	 }
 </script> 
 	
 	

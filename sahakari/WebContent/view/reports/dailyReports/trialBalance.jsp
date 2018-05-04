@@ -1,13 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <jsp:include page="/includefile"></jsp:include>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body class="background">
 	<div class="col-md-12 col-sm-12 col-xs-12">
 
 		<div class="x_panel">
@@ -25,28 +23,26 @@
 					style="font-size: 95%;">
 					<thead>
 						<tr>
+						
 							<th>Category Id</th>
 							<th>Category Head</th>
-							<th>Account Type</th>
+							<th>Dr Balance</th>
+							<th>Cr Balance</th>
 						</tr>
 					</thead>
+					<tfoot>
+            <tr>
+           
+                <th></th>
+                <th>Total:</th>
+                <th></th>
+                 <th></th>
+            </tr>
+        </tfoot>
 				</table>
 			</div>
 		</div>
 	</div>
-	<script>
-	$(document).ready(function(){
-		 $('#datatbl').DataTable( {
-		        
-		        "ajax": "tbdatas.click",
-		        "columns":[
-		        	{"data":"categoryId"},
-		        	{"data":"categoryHead"},
-		        	{"data":"accountType"},
-		        ]
-		    } );
-		} );
-		
-	</script>
+	<jsp:include page="dRScript/trialBalanceScript.jsp"></jsp:include>
 </body>
 </html>
