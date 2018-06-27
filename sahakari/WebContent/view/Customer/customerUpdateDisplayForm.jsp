@@ -129,7 +129,7 @@ h5 {
 													class="form-control" name="dob" value="${cdetail.dob }">
 												</td>
 												<td>
-													<h5>VAT/PAN</h5> <input type="text" class="form-control"
+													<h5>Father's Name</h5> <input type="text" class="form-control"
 													name="fatherName" value="${cdetail.fatherName }">
 												</td>
 											</tr>

@@ -73,57 +73,47 @@ public class CustomerModel {
 
 	@Override
 	public String toString() {
-		return "CustomerModel [districtCode=" + districtCode + ", districtName=" + districtName + ", pid=" + pid
-				+ ", memberid=" + memberid + ", registrationDate=" + registrationDate + ", name=" + name + ", gender="
-				+ gender + ", pdistid=" + pdistid + ", pdistName=" + pdistName + ", pvdcmunid=" + pvdcmunid
-				+ ", pvdcName=" + pvdcName + ", pwardno=" + pwardno + ", pcity=" + pcity + ", ptole=" + ptole
-				+ ", tdistid=" + tdistid + ", tdistName=" + tdistName + ", tvdcmunid=" + tvdcmunid + ", tvdcName="
-				+ tvdcName + ", twardno=" + twardno + ", tcity=" + tcity + ", ttole=" + ttole + ", cusCitizenshipNo="
-				+ cusCitizenshipNo + ", citizenshipIssuedFrom=" + citizenshipIssuedFrom + ", citidistName="
-				+ citidistName + ", telno=" + telno + ", mobno=" + mobno + ", fatherName=" + fatherName + ", dob=" + dob
-				+ ", typeid=" + typeid + ", typeName=" + typeName + ", statusid=" + statusid + ", statusName="
-				+ statusName + ", inputter=" + inputter + ", authorizer=" + authorizer + ", insertStatus="
-				+ insertStatus + ", updateStatus=" + updateStatus + ", delStatus=" + delStatus + ", address=" + address
-				+ ", agentid=" + agentid + ", documentType=" + documentType + ", documentNumber=" + documentNumber
-				+ ", issuedDate=" + issuedDate + ", issuedDateen=" + issuedDateen + ", issuedBy=" + issuedBy
-				+ ", expiryDate=" + expiryDate + ", expiryDateen=" + expiryDateen + ", shareid=" + shareid
-				+ ", shareCertNo=" + shareCertNo + ", shareFrom=" + shareFrom + ", shareTo=" + shareTo
-				+ ", totalShareNos=" + totalShareNos + ", shareRate=" + shareRate + ", shareAmount=" + shareAmount
-				+ ", shareDate=" + shareDate + ", shareCertificateId=" + shareCertificateId + ", cusRelation="
-				+ cusRelation + ", cusRelName=" + cusRelName + ", dateOfBirth=" + dateOfBirth + ", fcitizenshipNo="
-				+ fcitizenshipNo + ", fremarks=" + fremarks + ", cusJob=" + cusJob + ", cusInstitution="
-				+ cusInstitution + ", cusPost=" + cusPost + ", incomePeryear=" + incomePeryear + ", jremarks="
-				+ jremarks + ", bankName=" + bankName + ", accountNumber=" + accountNumber + ", accountType="
-				+ accountType + ", bremarks=" + bremarks + ", getAgentid()=" + getAgentid() + ", getDocumentType()="
-				+ getDocumentType() + ", getDocumentNumber()=" + getDocumentNumber() + ", getIssuedDate()="
-				+ getIssuedDate() + ", getIssuedDateen()=" + getIssuedDateen() + ", getIssuedBy()=" + getIssuedBy()
-				+ ", getExpiryDate()=" + getExpiryDate() + ", getExpiryDateen()=" + getExpiryDateen()
-				+ ", getAddress()=" + getAddress() + ", getPvdcName()=" + getPvdcName() + ", getTdistName()="
-				+ getTdistName() + ", getTvdcName()=" + getTvdcName() + ", getCitidistName()=" + getCitidistName()
-				+ ", getShareid()=" + getShareid() + ", getShareCertificateId()=" + getShareCertificateId()
-				+ ", getShareCertNo()=" + getShareCertNo() + ", getShareFrom()=" + getShareFrom() + ", getShareTo()="
-				+ getShareTo() + ", getTotalShareNos()=" + getTotalShareNos() + ", getShareRate()=" + getShareRate()
-				+ ", getShareAmount()=" + getShareAmount() + ", getShareDate()=" + getShareDate()
-				+ ", getCusRelation()=" + getCusRelation() + ", getCusRelName()=" + getCusRelName()
-				+ ", getDateOfBirth()=" + getDateOfBirth() + ", getFcitizenshipNo()=" + getFcitizenshipNo()
-				+ ", getFremarks()=" + getFremarks() + ", getCusJob()=" + getCusJob() + ", getCusInstitution()="
-				+ getCusInstitution() + ", getCusPost()=" + getCusPost() + ", getIncomePeryear()=" + getIncomePeryear()
-				+ ", getJremarks()=" + getJremarks() + ", getBankName()=" + getBankName() + ", getAccountNumber()="
-				+ getAccountNumber() + ", getAccountType()=" + getAccountType() + ", getBremarks()=" + getBremarks()
-				+ ", getCusCitizenshipNo()=" + getCusCitizenshipNo() + ", getPdistName()=" + getPdistName()
-				+ ", getDistrictCode()=" + getDistrictCode() + ", getDistrictName()=" + getDistrictName()
-				+ ", getTypeName()=" + getTypeName() + ", getStatusName()=" + getStatusName() + ", getPid()=" + getPid()
-				+ ", getMemberid()=" + getMemberid() + ", getRegistrationDate()=" + getRegistrationDate()
-				+ ", getName()=" + getName() + ", getGender()=" + getGender() + ", getPdistid()=" + getPdistid()
-				+ ", getPvdcmunid()=" + getPvdcmunid() + ", getPwardno()=" + getPwardno() + ", getPcity()=" + getPcity()
-				+ ", getPtole()=" + getPtole() + ", getTdistid()=" + getTdistid() + ", getTvdcmunid()=" + getTvdcmunid()
-				+ ", getTwardno()=" + getTwardno() + ", getTcity()=" + getTcity() + ", getTtole()=" + getTtole()
-				+ ", getCitizenshipIssuedFrom()=" + getCitizenshipIssuedFrom() + ", getTelno()=" + getTelno()
-				+ ", getMobno()=" + getMobno() + ", getFatherName()=" + getFatherName() + ", getDob()=" + getDob()
-				+ ", getTypeid()=" + getTypeid() + ", getStatusid()=" + getStatusid() + ", getInputter()="
-				+ getInputter() + ", getAuthorizer()=" + getAuthorizer() + ", getInsertStatus()=" + getInsertStatus()
-				+ ", getUpdateStatus()=" + getUpdateStatus() + ", getDelStatus()=" + getDelStatus() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+		return "CustomerModel [id=" + id + ", districtCode=" + districtCode
+				+ ", districtName=" + districtName + ", pid=" + pid
+				+ ", memberid=" + memberid + ", registrationDate="
+				+ registrationDate + ", name=" + name + ", gender=" + gender
+				+ ", pdistid=" + pdistid + ", pdistName=" + pdistName
+				+ ", pvdcmunid=" + pvdcmunid + ", pvdcName=" + pvdcName
+				+ ", pwardno=" + pwardno + ", pcity=" + pcity + ", ptole="
+				+ ptole + ", tdistid=" + tdistid + ", tdistName=" + tdistName
+				+ ", tvdcmunid=" + tvdcmunid + ", tvdcName=" + tvdcName
+				+ ", twardno=" + twardno + ", tcity=" + tcity + ", ttole="
+				+ ttole + ", cusCitizenshipNo=" + cusCitizenshipNo
+				+ ", citizenshipIssuedFrom=" + citizenshipIssuedFrom
+				+ ", citidistName=" + citidistName + ", telno=" + telno
+				+ ", mobno=" + mobno + ", fatherName=" + fatherName + ", dob="
+				+ dob + ", typeid=" + typeid + ", typeName=" + typeName
+				+ ", statusid=" + statusid + ", statusName=" + statusName
+				+ ", inputter=" + inputter + ", authorizer=" + authorizer
+				+ ", insertStatus=" + insertStatus + ", updateStatus="
+				+ updateStatus + ", delStatus=" + delStatus + ", address="
+				+ address + ", agentid=" + agentid + ", email=" + email
+				+ ", documentType=" + documentType + ", documentNumber="
+				+ documentNumber + ", issuedDate=" + issuedDate
+				+ ", issuedDateen=" + issuedDateen + ", issuedBy=" + issuedBy
+				+ ", expiryDate=" + expiryDate + ", expiryDateen="
+				+ expiryDateen + ", agentName=" + agentName + ", doctypeId="
+				+ doctypeId + ", doctypeName=" + doctypeName
+				+ ", alternateAccountNo=" + alternateAccountNo
+				+ ", categoryId=" + categoryId + ", shareid=" + shareid
+				+ ", shareCertNo=" + shareCertNo + ", shareFrom=" + shareFrom
+				+ ", shareTo=" + shareTo + ", totalShareNos=" + totalShareNos
+				+ ", shareRate=" + shareRate + ", shareAmount=" + shareAmount
+				+ ", shareDate=" + shareDate + ", shareCertificateId="
+				+ shareCertificateId + ", cusRelation=" + cusRelation
+				+ ", cusRelName=" + cusRelName + ", dateOfBirth=" + dateOfBirth
+				+ ", fcitizenshipNo=" + fcitizenshipNo + ", fremarks="
+				+ fremarks + ", cusJob=" + cusJob + ", cusInstitution="
+				+ cusInstitution + ", cusPost=" + cusPost + ", incomePeryear="
+				+ incomePeryear + ", jremarks=" + jremarks + ", bankName="
+				+ bankName + ", accountNumber=" + accountNumber
+				+ ", accountType=" + accountType + ", bremarks=" + bremarks
+				+ "]";
 	}
 
 	public String getAgentid() {

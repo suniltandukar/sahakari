@@ -9,7 +9,7 @@ public interface AccountDao {
 	public boolean insertAccount(AccountModel am);
 
 	public String selectpid(AccountModel am);
-	public List<AccountModel> getCategories();
+	public List<AccountModel> getCategories(String param);
 	public String selectAccountTypeFromCategory(String categoryId);
 	public AccountModel getAccountTypes(String accountType);
 

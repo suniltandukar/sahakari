@@ -56,9 +56,9 @@ public class AccountDaoImpl implements AccountDao{
 		}catch(Exception e){System.out.println(e);}
 		return null;
 	}
-	public List<AccountModel> getCategories(){
+	public List<AccountModel> getCategories(String param){
 		List<AccountModel> list=new ArrayList<AccountModel>();
-		String query="select * from categories";
+		String query="select * from categories where "+param;
 		AccountModel am=null;
 		try{
 			con=DBConnection.getConnection();

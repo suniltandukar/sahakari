@@ -261,8 +261,8 @@ System.out.println("reached here");
 			break;
 
 		case "sharecertificateinsert.click":
-
-			List<AccountModel> categorylist = a.getCategories();
+			String param="left(categoryId,3) in(141) and accountType='ACC'";
+			List<AccountModel> categorylist = a.getCategories(param);
 			request.setAttribute("categorylist", categorylist);
 
 			rd = request.getRequestDispatcher("view/ShareCertificate/insertShareCertificate.jsp");
@@ -317,15 +317,16 @@ System.out.println("reached here");
 			break;
 
 		case "insertfinancialaccount.click":
-
-			categorylist = a.getCategories();
+			String param3="accountType='FIN'";
+			categorylist = a.getCategories(param3);
 			request.setAttribute("categorylist", categorylist);
 			rd = request.getRequestDispatcher("view/Account/insertFinancialAccount.jsp");
 			rd.forward(request, response);
 			break;
 
 		case "insertaccount.click":
-			categorylist = a.getCategories();
+			String param2="left(categoryId,3) in(111,112) and accountType='ACC'";
+			categorylist = a.getCategories(param2);
 			request.setAttribute("categorylist", categorylist);
 			rd = request.getRequestDispatcher("view/Account/insertAccount.jsp");
 			rd.forward(request, response);
@@ -347,7 +348,7 @@ System.out.println("reached here");
 
 		case "accounteditdisplayform.click":
 			accountNumber = request.getParameter("id");
-			categorylist = a.getCategories();
+			categorylist = a.getCategories("0");
 			request.setAttribute("categorylist", categorylist);
 
 			AccountModel accountModel = a.getAccountDetail(accountNumber);

@@ -348,7 +348,8 @@ public class CustomerDaoImpl implements CustomerDao {
 		return false;
 	}
 	public boolean updateCustomer(String pid, CustomerModel cm){
-		String query="update customertbl set memberid=?, registrationDate=?, name=?, gender=?, pdistid=?, pvdcmunid=?, pwardno=?, pcity=?, ptole=?, tdistid=?, tvdcmunid=?, twardno=?, tcity=?,ttole=?, delStatus=?, address=?, telno=?, mobno=?,fatherName=?, agentid=?,dob=?,typeid=?,statusid=?,inputter=?,authorizer=?,insertStatus=?, updateStatus=?, email=? where pid='"+pid+"'";
+		System.out.println(cm);
+		String query="update customertbl set memberid=?, registrationDate=?, name=?, gender=?, pdistid=?, pvdcmunid=?, pwardno=?, pcity=?, ptole=?, tdistid=?, tvdcmunid=?, twardno=?, tcity=?,ttole=?,  address=?, delStatus=?, telno=?, mobno=?,fatherName=?, agentid=?,dob=?,typeid=?,statusid=?,inputter=?,authorizer=?,insertStatus=?, updateStatus=?, email=? where pid='"+pid+"'";
 		try{
 			int i=0;
 			con=DBConnection.getConnection();
