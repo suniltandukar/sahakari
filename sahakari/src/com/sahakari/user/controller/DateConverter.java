@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sahakari.dao.DateConverterDao;
+import com.sahakari.daoimpl.DateConverterDaoImpl;
+
 @WebServlet("/DateConverter")
 public class DateConverter extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,15 +30,17 @@ public class DateConverter extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri=request.getRequestURI();
 		PrintWriter out=response.getWriter();
+		DateConverterDao dateConverter = new DateConverterDaoImpl();
 		if(uri.endsWith("englishToNepali.convertDate"))
 		{
+			
 			String englishDate=request.getParameter("date");
-			out.println(dateConverter.DateConverter.englishToNepali(englishDate));
+			out.println(dateConverter.englishToNepali(englishDate));
 		}
 		else if(uri.endsWith("nepaliToEnglish.convertDate"))
 		{
 			String nepaliDate=request.getParameter("date");
-			out.println(dateConverter.DateConverter.nepaliToEnglish(nepaliDate));
+			out.println(dateConverter.nepaliToEnglish(nepaliDate));
 		}
 	}
 
