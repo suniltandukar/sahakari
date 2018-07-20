@@ -99,7 +99,7 @@ h5 {
 					<div class="form-group">
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Account Name
 						</label>
-						<div class="col-md-3 col-sm-3 col-xs-12">
+						<div class="col-md-5 col-sm-5 col-xs-12">
 							<input type="text"
 									class="form-control memberid" name="accountName" id="accountname" value="">
 

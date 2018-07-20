@@ -111,7 +111,7 @@ public class UploadController extends HttpServlet {
 					// remove "/" and "-" charector if present
 					saveFileName = saveFileName.replace("/", "").replace("-",
 							"")
-							+ ".png";
+							+ ".jpg";
 
 					String filePath = uploadPath + File.separator
 							+ saveFileName;

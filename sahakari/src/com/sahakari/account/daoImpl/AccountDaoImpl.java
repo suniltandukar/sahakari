@@ -134,7 +134,7 @@ public class AccountDaoImpl implements AccountDao{
 			rs=ps.executeQuery();
 			while(rs.next()){
 				am=new AccountModel();
-				am.setOpeningBal(rs.getString("openingBal"));
+				am.setOpeningBal(rs.getString("clearedBal"));
 				am.setAccountNumber(rs.getString("accountNumber"));
 				am.setPid(rs.getString("pid"));
 				am.setAlternativeAccounId(rs.getString("alternativeAccountId"));

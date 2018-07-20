@@ -50,6 +50,9 @@
 										<option value="">Select Type</option>
 										<option value="CNS">Citizenship</option>
 										<option value="PSP">Passport</option>
+										<option value="LAL">Lalpurja</option>
+										<option value="TAX">Tiro Rasid</option>
+										
 								</select>
 								</td>
 								<td>

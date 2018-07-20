@@ -29,10 +29,10 @@
 				 cellspacing="0" width="100%">
 				<thead>
 					<tr>
-						<th>S. No.</th>
-						<th>Transaction Id</th>
-						<th>Reference Number</th>
-						<th>Transaction Type</th>
+						<th>Mem ID</th>
+						<th>Account Number</th>
+						<th>Total Amount</th>
+						<th>Share Qty</th>
 						<th>Booking Date</th>
 						<th><i class="fa fa-cog" aria-hidden="true"></i></th>
 					</tr>
@@ -45,7 +45,7 @@
 				<td>${list.accountNo }</td>
 				<td>${list.balanceAmount }</td>
 				<td>${list.balanceQuantity }</td>
-				<td>${list.narration }</td>
+				<td>${list.date }</td>
 				<td><div class="dropdown">
 								<button class="btn btn-default dropdown-toggle" type="button"
 									data-toggle="dropdown">

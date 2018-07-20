@@ -46,6 +46,7 @@ display:none;}
 							<th>Account Type</th>
 							<th>Account Name</th>
 							<th>Balance</th>
+							 <th>Alternative Account</th> 
 							<th><i class="fa fa-cog" aria-hidden="true"></i></th>
 						</tr>
 					</thead>
@@ -57,6 +58,7 @@ display:none;}
 								<td>${list.accountType }</td>
 								<td>${list.accountName }</td>
 								<td>${list.openingBal }</td>
+								<td>${list.alternativeAccounId }</td> 
 								<td><a
 									href="editaccount.click?accountNumber=${list.accountNumber }"
 									 class="btn btn-primary btn-xs">View</a> &nbsp;&nbsp;&nbsp;&nbsp;

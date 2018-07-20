@@ -30,6 +30,7 @@ import com.sahakari.action.GetFormOptions;
 import com.sahakari.action.OtherAction;
 import com.sahakari.dao.CategoryDao;
 import com.sahakari.dao.CustomerDao;
+import com.sahakari.dao.DateConverterDao;
 import com.sahakari.dao.JsonServices;
 import com.sahakari.dao.ListDao;
 import com.sahakari.dao.OtherActionDAO;
@@ -38,6 +39,7 @@ import com.sahakari.dao.StaffDao;
 import com.sahakari.dao.ViewDao;
 import com.sahakari.daoimpl.CategoryDaoImpl;
 import com.sahakari.daoimpl.CustomerDaoImpl;
+import com.sahakari.daoimpl.DateConverterDaoImpl;
 import com.sahakari.daoimpl.JsonServicesImpl;
 import com.sahakari.daoimpl.ListDaoImpl;
 import com.sahakari.daoimpl.OtherActionDaoImpl;
@@ -93,6 +95,7 @@ public class NavigationController extends HttpServlet {
 		TransactionDao transactionDao = new TransactionDaoImpl();
 		ListDao listDao = new ListDaoImpl();
 		OtherActionDAO otherActionDao = new OtherActionDaoImpl();
+		DateConverterDao dateConverter = new DateConverterDaoImpl();
 
 		RequestDispatcher rd = null;
 		String id = "";
@@ -116,6 +119,7 @@ public class NavigationController extends HttpServlet {
 
 			JSONObject jsonObject = c.selectCategories();
 			out.println(jsonObject);
+			out.close();
 			break;
 
 		case "category.click":
@@ -302,6 +306,7 @@ System.out.println("reached here");
 			} else {
 				out.println("0");
 			}
+			out.close();
 			break;
 
 		case "sharecertcheckmemberid.click":
@@ -314,6 +319,7 @@ System.out.println("reached here");
 			} else {
 				out.println("1");
 			}
+			out.close();
 			break;
 
 		case "insertfinancialaccount.click":
@@ -325,7 +331,7 @@ System.out.println("reached here");
 			break;
 
 		case "insertaccount.click":
-			String param2="left(categoryId,3) in(111,112) and accountType='ACC'";
+			String param2="left(categoryId,3) in(111,112,141) and accountType='ACC'";
 			categorylist = a.getCategories(param2);
 			request.setAttribute("categorylist", categorylist);
 			rd = request.getRequestDispatcher("view/Account/insertAccount.jsp");
@@ -333,6 +339,7 @@ System.out.println("reached here");
 			break;
 
 		case "viewaccount.click":
+			
 			categorylist = a.viewAccount();
 			request.setAttribute("accountlist", categorylist);
 			rd = request.getRequestDispatcher("view/Account/viewAccount.jsp");
@@ -367,6 +374,7 @@ System.out.println("reached here");
 			} else {
 				out.println("<option value=''>Select Account Type</option>");
 			}
+			out.close();
 			break;
 
 		// Transaction
@@ -415,7 +423,7 @@ System.out.println("reached here");
 			request.setAttribute("tellerid", tellerid);
 			request.setAttribute("todayDate", todayDate);
 
-			String todayNepaliDate = dateConverter.DateConverter.englishToNepali(todayDate);
+			String todayNepaliDate = dateConverter.englishToNepali(todayDate);
 			request.setAttribute("todayNepaliDate", todayNepaliDate);
 
 			rd = request.getRequestDispatcher("view/Transaction/Teller/insertTeller.jsp");
@@ -528,6 +536,7 @@ System.out.println("reached here");
 			} else {
 				out.println("Member ID not Found.");
 			}
+			out.close();
 			break;
 		case "memberdocument.click":
 			rd = request.getRequestDispatcher("view/Customer/document/upload.jsp");
@@ -542,32 +551,7 @@ System.out.println("reached here");
 			rd.forward(request, response);
 			break;
 
-		case "viewDocument.click":
-			String documentname = request.getParameter("documentname");
-			OtherActionDAO action = new OtherActionDaoImpl();
-			String location = action.getDocumentLocation(documentname);
-
-			String contentType = "image/png";
-
-			ServletOutputStream ot = response.getOutputStream();
-			response.setContentType(contentType);
-			ServletOutputStream os;
-			os = response.getOutputStream();
-			FileInputStream fin = new FileInputStream(location + "\\" + documentname);
-
-			BufferedInputStream bin = new BufferedInputStream(fin);
-			BufferedOutputStream bout = new BufferedOutputStream(os);
-			int ch = 0;
-			;
-			while ((ch = bin.read()) != -1) {
-				bout.write(ch);
-			}
-
-			bin.close();
-			fin.close();
-			bout.close();
-			os.close();
-			break;
+		
 
 		case "branchselect.click":
 
@@ -623,12 +607,12 @@ System.out.println("reached here");
 
 		case "nepaliToEnglish.click":
 			String nepalidate = request.getParameter("nepalidate");
-			String convertedEnglishDate = dateConverter.DateConverter.nepaliToEnglish(nepalidate);
+			String convertedEnglishDate = dateConverter.nepaliToEnglish(nepalidate);
 			out.println(convertedEnglishDate);
 			break;
 		case "englishToNepali.click":
 			String englishdate = request.getParameter("englishdate");
-			String convertedNepaliDate = dateConverter.DateConverter.englishToNepali(englishdate);
+			String convertedNepaliDate = dateConverter.englishToNepali(englishdate);
 			out.println(convertedNepaliDate);
 			break;
 		case "datatable.click":
@@ -768,7 +752,7 @@ System.out.println("reached here");
 
 		case "generateShareCertificateId.click":
 
-			System.out.println("reached");
+			/*System.out.println("reached");*/
 			memberid = request.getParameter("memberid");
 
 			status = customerDao.checkMemberId(memberid);
@@ -811,7 +795,7 @@ System.out.println("reached here");
 			transactionDao = new TransactionDaoImpl();
 			ShareAccountLedger shareAccountLedgerModel = transactionDao.editShareAcDisplay(pid);
 
-			String datenep = dateConverter.DateConverter.englishToNepali(shareAccountLedgerModel.getDate());
+			String datenep = dateConverter.englishToNepali(shareAccountLedgerModel.getDate());
 			request.setAttribute("datenep", datenep);
 			request.setAttribute("list", shareAccountLedgerModel);
 			rd = request.getRequestDispatcher("view/Transaction/shareAccountLedger/editShareLedgerDisplayForm.jsp");

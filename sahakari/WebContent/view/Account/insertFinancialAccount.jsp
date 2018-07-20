@@ -37,7 +37,9 @@ h5 {
 					<table class="table">
 						<tbody>
 							<tr>
-								<td><input type="submit" class="btn btn-success"
+							
+							<td><input type="button" id="validate" class="btn btn-success" value="validate"></button>
+								<input type="submit" class="btn btn-success"
 									value="Save"></td>
 							</tr>
 							<tr>
@@ -52,7 +54,7 @@ h5 {
 								</td>
 							</tr>
 							<tr>
-								<td>
+								 <td>
 									<h5>Category</h5> <select class="form-control categoryid"
 									name="categoryId">
 										<option value="">Select Category</option>
@@ -60,23 +62,23 @@ h5 {
 										<option value="${c.categoryId }">${c.categoryId }-${c.categoryHead }</option>
 										</c:forEach>
 								</select>
-								</td>
-								<td>
+								</td> 
+								 <td>
 									<h5>Account Type</h5> <select class="form-control accounttype"
 									name="accountType">
-										<option value="">Select Account Type</option>
+										<option value="FIN">FIN-Financial account</option>
 								</select>
-								</td>
+								</td> 
 							</tr>
 							<tr>
 								<td>
 									<h5>Account Name</h5> <input type="text"
 									class="form-control memberid" name="accountName" value="" data-validation="alphanumeric" data-validation-error-msg=" ">
 								</td>
-								<td>
+<!-- 								<td>
 									<h5>Limit Reference</h5> <input type="text"
 									class="form-control" name="limitRef" value="">
-								</td>
+								</td> -->
 							</tr>
 						</tbody>
 					</table>

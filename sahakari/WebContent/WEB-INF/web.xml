@@ -110,6 +110,16 @@
     <servlet-name>Reports</servlet-name>
     <url-pattern>*.report</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewPicture</display-name>
+    <servlet-name>ViewPicture</servlet-name>
+    <servlet-class>com.sahakari.controller.ViewPictureController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewPicture</servlet-name>
+    <url-pattern>*.pic</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>LoginFilter</filter-name>
     <filter-class>com.sahakari.filter.LoginFilter</filter-class>

@@ -59,6 +59,7 @@ public class TransactionDaoImpl implements TransactionDao{
 			ps.setString(18, tm.getRecordStatus());
 			ps.setString(19, tm.getBranchCode());
 			ps.setString(20, tm.getInputter());
+			System.out.println("Status:"+query);
 			int i=ps.executeUpdate();
 			if(i>0){
 				con.close();
@@ -284,7 +285,7 @@ public class TransactionDaoImpl implements TransactionDao{
 				tm.setTransactioncode(rs.getString("transactionCode"));
 				tm.setBranchid(rs.getString("branchId"));
 				tm.setInputter(rs.getString("inputter"));
-				tm.setInputter(rs.getString("inputter"));
+
 				tm.setAuthorizer(rs.getString("authorizer"));
 				list.add(tm);
 			}

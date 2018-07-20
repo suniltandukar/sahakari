@@ -64,7 +64,7 @@ h5 {
 									name="accountType" required>
 
 										<c:forEach items="${accounttype}" var="at">
-											<option value="${at.accountType }">${at.accountHead }</option>
+											<option value="${at.accountType }">${at.accountType }-${at.accountHead }</option>
 										</c:forEach>
 								</select>
 								</td>

@@ -52,7 +52,7 @@
 							<tr>
 								<td>${list.memberid }</td>
 								<td>${list.documenttype }</td>
-								<td><a class="btn btn-info btn-xs" href="viewDocument.click?documentname=${list.generatedfilename }" target="_blank">view file</a>
+								<td><a class="btn btn-info btn-xs" href="viewPhoto.pic?documentname=${list.generatedfilename }" target="_blank">view file</a>
 							</tr>
 						</c:forEach>
 					</tbody>
