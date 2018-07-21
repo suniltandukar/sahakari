@@ -16,7 +16,6 @@ public class CustomerDaoImpl implements CustomerDao {
 	Statement stmt=null;
 	ResultSet rs=null;
 	public boolean checkMemberId(String id){
-		int i;
 		String query="select pid from customertbl where pid=?";
 		try{
 			con=DBConnection.getConnection();

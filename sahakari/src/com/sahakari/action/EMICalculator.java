@@ -64,6 +64,7 @@ public class EMICalculator {
     				emi = dateformat.parse(emistarten);
     				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     				Calendar c = Calendar.getInstance();
+    				
     				c.setTime(emi); // Now use today date.
     				Date date=c.getTime();
     				
