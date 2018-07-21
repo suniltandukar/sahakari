@@ -52,7 +52,7 @@ h5 {
 					<div class="form-group">
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Teller Id</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
-							<input type="text" class="form-control" name="tellerId"
+							<input type="text" class="form-control" name="tellerId" id="tellerId"
 								placeholder="" value="${tellerid}" >
 						</div>
 						
@@ -66,6 +66,20 @@ h5 {
 								placeholder="" value="" >
 						</div>
 					</div>
+					<div class="form-group">
+						
+						<label class="control-label col-md-2 col-sm-2 col-xs-12">Category</label>
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<select class="form-control" name="categoryid" id="categoryid">
+								<option value="">Select category</option>
+								
+								<c:forEach items="${catlist }" var="cat">
+								<option value="${cat.categoryId }">${cat.categoryHead }</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					
 					<div class="form-group">
 						
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Account Name</label>
@@ -109,7 +123,23 @@ h5 {
 	<jsp:include page="/msgmodal"></jsp:include>
 	<script>
 		
-	</script>
+	
+	
+	 $("#validate").click(function() {
+			var categoryId = $("#categoryid").val();
+			 var dataString = 'categoryId='+ categoryId;
+			$.ajax({
+				type : "POST",
+				url : "generateTellerId.click",
+				data : dataString,
+				cache : false,
+				success : function(html) {
+					$("#tellerId").val(html);
+				}
+			});
+		});
+	 
+	 </script>
 	<script type="text/javascript" src="template/js/form.js"></script>
 	<script type="text/javascript" src="template/js/dateconverter.js"></script>
 	<script>

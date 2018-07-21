@@ -235,7 +235,7 @@ public class NavigationController extends HttpServlet {
 			break;
 
 		case "customereditdisplayform.click":
-System.out.println("reached here");
+			System.out.println("reached here");
 			request.setAttribute("agent", agentdetail);
 			request.setAttribute("statuslist", statuslist);
 			request.setAttribute("typelist", typelist);
@@ -717,14 +717,25 @@ System.out.println("reached here");
 			rd.forward(request, response);
 			break;
 		case "newtel.click":
-			UserModel usermodel = (UserModel) session.getAttribute("userDetail");
-			String categoryid = "21104";
-			tellerid = gen.newTelleridgenerator(usermodel.getBranchCode(), usermodel.getCompanyId(), categoryid);
-
-			request.setAttribute("tellerid", tellerid);
+			
+			//String categoryid = "21104";
+			
+			
+			List<CategoryModel> categoryid=c.getCategories();
+			request.setAttribute("catlist", categoryid);
 			rd = request.getRequestDispatcher("view/teller.jsp");
 			rd.forward(request, response);
 			break;
+			
+		case "generateTellerId.click":
+			UserModel usermodel = (UserModel) session.getAttribute("userDetail");
+			String cid=request.getParameter("categoryId");
+			System.out.println(cid+"cid");
+			tellerid = gen.newTelleridgenerator(usermodel.getBranchCode(), usermodel.getCompanyId(), cid);
+			System.out.println(tellerid+"rwlld");
+			out.print(tellerid);
+			break;
+			
 		case "viewTel.click":
 			OtherActionDAO dao = new OtherActionDaoImpl();
 			List<TellerModel> tellerModelList = dao.viewTeller();

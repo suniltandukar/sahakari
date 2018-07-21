@@ -66,6 +66,8 @@ public class OtherAction {
 		String openDateN=request.getParameter("openDateN");
 		String openDate=request.getParameter("openDate");
 		String accountName=request.getParameter("accountName");
+		String categoryId=request.getParameter("categoryid");
+		System.out.println(categoryId);
 				
 		
 		OtherActionDAO dao=new OtherActionDaoImpl();

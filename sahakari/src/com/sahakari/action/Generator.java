@@ -149,12 +149,9 @@ public class Generator {
 		return transactionid;
 	}
 
-	public String newTelleridgenerator(String branchid,String companyId,String categoryId) {
+	public String newTelleridgenerator(String branchid,String companyId,String categoryid) {
 		con=DBConnection.getConnection();
 		String tellerId="";
-		String categoryid="21104";
-		
-		
 		
 		try{
 			String query="select * from teller where tellerId LIKE '%FIN"+companyId+branchid+categoryid+"%' order by tellerId DESC;";
