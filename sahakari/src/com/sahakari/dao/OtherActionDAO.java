@@ -10,6 +10,9 @@ public interface OtherActionDAO {
 	public boolean uploaddocumentDao(Document document);
 	public List<Document> getDocumentDetails();
 	public String getDocumentLocation(String documentName);
-	public boolean saveNewTeller(String tellerId, String userId, String accountNumber, String openDateN,String openDate, String accountName);
+	public boolean saveNewTeller(String tellerId, String userId, String accountNumber, String openDateN,String openDate, String accountName,String categoryId);
 	public List<TellerModel> viewTeller();
+	public TellerModel getTellerDetails(String id);
+	public boolean updateTeller(String tellerId, String userId, String accountNumber, String openDateN, String openDate,
+			String accountName, String categoryId);
 }

@@ -67,11 +67,10 @@ public class OtherAction {
 		String openDate=request.getParameter("openDate");
 		String accountName=request.getParameter("accountName");
 		String categoryId=request.getParameter("categoryid");
-		System.out.println(categoryId);
 				
 		
 		OtherActionDAO dao=new OtherActionDaoImpl();
-		boolean status=dao.saveNewTeller(tellerId,userId,accountNumber,openDateN,openDate,accountName);
+		boolean status=dao.saveNewTeller(tellerId,userId,accountNumber,openDateN,openDate,accountName,categoryId);
 		System.out.println(status);
 		if(status)
 		{
@@ -87,6 +86,22 @@ public class OtherAction {
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void updateTeller(HttpServletRequest request, HttpServletResponse response) {
+		String tellerId=request.getParameter("tellerId");
+		String userId=request.getParameter("userId");
+		String accountNumber=request.getParameter("accountNumber");
+		String openDateN=request.getParameter("openDateN");
+		String openDate=request.getParameter("openDate");
+		String accountName=request.getParameter("accountName");
+		String categoryId=request.getParameter("categoryid");
+		System.out.println("reached");
+				
+		OtherActionDAO dao=new OtherActionDaoImpl();
+		boolean status=dao.updateTeller(tellerId,userId,accountNumber,openDateN,openDate,accountName,categoryId);
+		System.out.println(status);
+		
 	}
 	
 		

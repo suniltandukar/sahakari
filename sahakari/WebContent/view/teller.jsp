@@ -53,7 +53,7 @@ h5 {
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Teller Id</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<input type="text" class="form-control" name="tellerId" id="tellerId"
-								placeholder="" value="${tellerid}" >
+								placeholder="" value="${tellerid}" readonly>
 						</div>
 						
 						

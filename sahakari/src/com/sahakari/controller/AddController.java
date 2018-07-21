@@ -144,6 +144,12 @@ public class AddController extends HttpServlet {
 			action.addNewTeller(request,response);
 			
 		}
+		else if(uri.endsWith("updatetel.add"))
+		{
+			OtherAction action=new OtherAction();
+			action.updateTeller(request, response);
+			
+		}
 		//Admin settings
 		else if(uri.endsWith("newstaff.add")){
 			AdminSettingAction action=new AdminSettingAction();

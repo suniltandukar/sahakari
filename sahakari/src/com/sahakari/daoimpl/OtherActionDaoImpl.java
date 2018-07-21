@@ -111,9 +111,9 @@ public class OtherActionDaoImpl implements OtherActionDAO {
 		return null;
 		
 	}
-	public boolean saveNewTeller(String tellerId, String userId, String accountNumber, String openDateN,String openDate,String accountName)
+	public boolean saveNewTeller(String tellerId, String userId, String accountNumber, String openDateN,String openDate,String accountName,String categoryId)
 	{
-		String query="insert into teller(tellerId,userId,accountNumber,openDateN,openDate,accountName) values(?,?,?,?,?,?)";
+		String query="insert into teller(tellerId,userId,accountNumber,openDateN,openDate,accountName,categoryId) values(?,?,?,?,?,?,?)";
 		
 		con=DBConnection.getConnection();
 		try {
@@ -124,6 +124,7 @@ public class OtherActionDaoImpl implements OtherActionDAO {
 			ps.setString(4, openDateN);
 			ps.setString(5, openDate);
 			ps.setString(6, accountName);
+			ps.setString(7, categoryId);
 			int rs=0;
 			rs=ps.executeUpdate();
 			
@@ -161,6 +162,61 @@ public class OtherActionDaoImpl implements OtherActionDAO {
 			e.printStackTrace();
 		}
 		return null;
+		
+	}
+	@Override
+	public TellerModel getTellerDetails(String id) {
+		String sql="select *,categoryHead from teller join categories on teller.categoryid=categories.categoryId where tellerId=?";
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs=ps.executeQuery();
+			if(rs.next())
+			{
+				TellerModel tm=new TellerModel();
+				tm.setAccountName(rs.getString("accountName"));
+				tm.setAccountNumber(rs.getString("accountNumber"));
+				tm.setOpenDate(rs.getString("openDate"));
+				tm.setOpenDateN(rs.getString("openDateN"));
+				tm.setTellerId(rs.getString("tellerId"));
+				tm.setUserId(rs.getString("userId"));
+				tm.setCategoryId(rs.getString("categoryid"));
+				tm.setCategoryHead(rs.getString("categoryHead"));
+				return tm;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+			
+		return null;
+	}
+	@Override
+	public boolean updateTeller(String tellerId, String userId, String accountNumber, String openDateN, String openDate,
+			String accountName, String categoryId) {
+		String query="update teller set userid=?, accountNumber=?, openDateN=?, openDate=?,accountName=? where tellerId=?";
+		con=DBConnection.getConnection();
+		
+		try {
+			ps=con.prepareStatement(query);
+			ps.setString(1, userId);
+			ps.setString(2, accountNumber);
+			ps.setString(3, openDateN);
+			ps.setString(4, openDate);
+			ps.setString(5, accountName);
+			ps.setString(6, tellerId);
+			int rst=ps.executeUpdate();
+			
+			if(rst>0)
+			{
+				return true;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("update Failed");
+		}
+		return false;
 		
 	}
 }

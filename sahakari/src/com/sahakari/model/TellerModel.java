@@ -13,6 +13,26 @@ public class TellerModel {
 	private String openDate;
 	
 	private String openDateN;
+	private String categoryId;
+	private String categoryHead;
+	
+	public String getCategoryHead() {
+		return categoryHead;
+	}
+
+	public void setCategoryHead(String categoryHead) {
+		this.categoryHead = categoryHead;
+	}
+
+
+
+	public String getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
+	}
 
 	public String getUserId() {
 		return userId;

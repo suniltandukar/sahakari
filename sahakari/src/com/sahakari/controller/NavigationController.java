@@ -441,7 +441,12 @@ public class NavigationController extends HttpServlet {
 		case "editteller.click":
 			id = request.getParameter("id");
 			request.setAttribute("id", id);
-			rd = request.getRequestDispatcher("view/Transaction/Teller/editTellerTransaction.jsp");
+			
+			List<CategoryModel> categoryid=c.getCategories();
+			request.setAttribute("catlist", categoryid);
+			TellerModel telmodel=otherActionDao.getTellerDetails(id);
+			request.setAttribute("tm", telmodel);
+			rd = request.getRequestDispatcher("view/editTel.jsp");
 			rd.forward(request, response);
 			break;
 
@@ -718,11 +723,8 @@ public class NavigationController extends HttpServlet {
 			break;
 		case "newtel.click":
 			
-			//String categoryid = "21104";
-			
-			
-			List<CategoryModel> categoryid=c.getCategories();
-			request.setAttribute("catlist", categoryid);
+			List<CategoryModel> catid=c.getCategories();
+			request.setAttribute("catlist", catid);
 			rd = request.getRequestDispatcher("view/teller.jsp");
 			rd.forward(request, response);
 			break;
@@ -732,7 +734,6 @@ public class NavigationController extends HttpServlet {
 			String cid=request.getParameter("categoryId");
 			System.out.println(cid+"cid");
 			tellerid = gen.newTelleridgenerator(usermodel.getBranchCode(), usermodel.getCompanyId(), cid);
-			System.out.println(tellerid+"rwlld");
 			out.print(tellerid);
 			break;
 			
