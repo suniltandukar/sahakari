@@ -23,7 +23,7 @@ public class CustomerAction {
 		CustomerDao c=new CustomerDaoImpl();
 		CustomerModel cm=new CustomerModel();
 		String pid, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, 
-No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus, address;
+No, telno, mobno, fatherName,email, agentid, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus, address;
 		String[] cusRelation,cusRelName,dateOfBirth,fcitizenshipNo,fremarks;
 		String[] cusJob, cusInstitution, cusPost, incomePeryear, jremarks;
 		String[] bankName, accountNumber, accountType, bremarks;
@@ -71,6 +71,7 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 		twardno=request.getParameter("twardno");
 		tcity=request.getParameter("tcity");
 		ttole=request.getParameter("ttole");
+		email = request.getParameter("email");
 		
 		telno=request.getParameter("telno");
 		mobno=request.getParameter("mobno");
@@ -104,6 +105,7 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 		cm.setTwardno(twardno);
 		cm.setTcity(tcity);
 		cm.setTtole(ttole);
+		cm.setEmail(email);
 		
 		cm.setTelno(telno);
 		cm.setMobno(mobno);
@@ -202,7 +204,7 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 	public void updateCustomer(HttpServletRequest request,
 			HttpServletResponse response) {
 		CustomerModel cm=new CustomerModel();
-		String pid,address, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus;
+		String email,pid,address, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity, ttole, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusName, inputter, authorizer, insertStatus, updateStatus, delStatus;
 		String[] cusJob, cusInstitution, cusPost, incomePeryear, jremarks;
 		String[] cusRelation,cusRelName,dateOfBirth,fcitizenshipNo,fremarks;
 		String[] bankName, accountNumber, accountType, bremarks;
@@ -260,6 +262,7 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 		dob=request.getParameter("dob");
 		typeid=request.getParameter("typeid");
 		statusid=request.getParameter("statusid");
+		email=request.getParameter("email");
 		
 		HttpSession session=request.getSession();
 		UserModel userDetail=(UserModel)session.getAttribute("userDetail");
@@ -284,6 +287,7 @@ No, telno, mobno, fatherName, agentid, dob, typeid,typeName, statusid, statusNam
 		cm.setTwardno(twardno);
 		cm.setTcity(tcity);
 		cm.setTtole(ttole);
+		cm.setEmail(email);
 		
 		cm.setTelno(telno);
 		cm.setMobno(mobno);

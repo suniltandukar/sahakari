@@ -56,9 +56,9 @@ public class AccountDaoImpl implements AccountDao{
 		}catch(Exception e){System.out.println(e);}
 		return null;
 	}
-	public List<AccountModel> getCategories(){
+	public List<AccountModel> getCategories(String param){
 		List<AccountModel> list=new ArrayList<AccountModel>();
-		String query="select * from categories";
+		String query="select * from categories where "+param;
 		AccountModel am=null;
 		try{
 			con=DBConnection.getConnection();
@@ -134,7 +134,7 @@ public class AccountDaoImpl implements AccountDao{
 			rs=ps.executeQuery();
 			while(rs.next()){
 				am=new AccountModel();
-				am.setOpeningBal(rs.getString("openingBal"));
+				am.setOpeningBal(rs.getString("clearedBal"));
 				am.setAccountNumber(rs.getString("accountNumber"));
 				am.setPid(rs.getString("pid"));
 				am.setAlternativeAccounId(rs.getString("alternativeAccountId"));

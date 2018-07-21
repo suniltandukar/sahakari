@@ -48,7 +48,10 @@ public class LoginAction extends HttpServlet {
 		u.setUsername(request.getParameter("username"));
 		u.setPassword(request.getParameter("password"));
 		LoginDao l=new LoginDaoImpl();
-		
+		int curStatusValue=1;
+		//boolean curStatus=l.setCurStatus(u,curStatusValue);
+		RequestDispatcher rd=null;
+		//if(curStatus){
 			UserModel userDetail=l.getUserDetail(u);
 		
 			HttpSession session=request.getSession(true);
@@ -67,8 +70,12 @@ public class LoginAction extends HttpServlet {
 			session.setAttribute("currentBranchFunctions", userDetail.getFunctionAllowed());
 			
 			
-			
-			RequestDispatcher rd=request.getRequestDispatcher("profile.jsp");
+			rd=request.getRequestDispatcher("profile.jsp");
+		/*}
+		else{
+			request.setAttribute("msg", "Login Failed! Please Login Again!");
+			rd=request.getRequestDispatcher("index.jsp");
+		}*/
 			try {
 				rd.forward(request, response);
 			} catch (ServletException | IOException e) {
@@ -83,13 +90,27 @@ public class LoginAction extends HttpServlet {
 	public void userlogout(HttpServletRequest request,
 			HttpServletResponse response) {
 		HttpSession session=request.getSession();
+		UserModel u=(UserModel)session.getAttribute("userDetail");
+		LoginDao l=new LoginDaoImpl();
+		int curStatusValue=0;
+		//boolean curStatus=l.setCurStatus(u,curStatusValue);
+		RequestDispatcher rd=null;
+		//if(curStatus){
+			//System.out.println("curStatus set to 0");
 		session.invalidate();
-		RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
+		 rd=request.getRequestDispatcher("index.jsp");
+		/*}
+		else{
+			System.out.println("curStatus cannnot be set to 0");
+			request.setAttribute("msg", "Logout Failed! Please try Again!");
+			 rd=request.getRequestDispatcher("profile.jsp");
+		}
 		try {
 			rd.forward(request,response);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
-		}
+		}*/
+		
 		
 	}
 

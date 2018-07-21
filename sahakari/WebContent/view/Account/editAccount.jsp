@@ -5,10 +5,6 @@
 
 <html>
 <head>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 <style>
 h5 {
 	font-size: 80%;
@@ -63,14 +59,6 @@ $(document).ready(function()
 	});
 });
 </script>
-<script>
-  $.validate({
-    lang: 'en',
-    modules : 'date,toggleDisabled',
-	  disabledFormFilter : 'form.toggle-disabled',
-	 showErrorDialogs : false
 
-    });
-</script>
 </body>
 </html>

@@ -2,7 +2,15 @@ package com.sahakari.model;
 
 public class UserModel {
 	String username, password, status,userid,givenrole,fullName,post,staffCode,endDate,startDate,roleName,functionAllowed,functionRestriction,branchAllowed,branchAllowedFunctions,additionalFunctions;
-	
+	String curStatus;
+	public String getCurStatus() {
+		return curStatus;
+	}
+
+	public void setCurStatus(String curStatus) {
+		this.curStatus = curStatus;
+	}
+
 	String branchCode,branchName;
 	String companyId;
 	public String getCompanyId() {

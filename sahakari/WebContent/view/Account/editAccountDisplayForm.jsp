@@ -89,14 +89,6 @@
 
 <input type="hidden" class="memberidstatus" value="">
 
-<script>
-  $.validate({
-    lang: 'en',
-    modules : 'date,toggleDisabled',
-	  disabledFormFilter : 'form.toggle-disabled',
-	 showErrorDialogs : false
 
-    });
-</script>
 </body>
 </html>

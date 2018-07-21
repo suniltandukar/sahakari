@@ -64,7 +64,7 @@ h5 {
 									name="accountType" required>
 
 										<c:forEach items="${accounttype}" var="at">
-											<option value="${at.accountType }">${at.accountHead }</option>
+											<option value="${at.accountType }">${at.accountType }-${at.accountHead }</option>
 										</c:forEach>
 								</select>
 								</td>
@@ -87,25 +87,18 @@ h5 {
 					</li>
 				</ul>
 				<div class="clearfix"></div>
-				<button onclick="fetch();">Fetch Categories</button>
 			</div>
 			<div class="x_content">
-				<table id="datatable"
+				<table id="categorytbl"
 					class="table jambo_table table-striped table-bordered"
 					style="font-size: 95%;">
 					<thead>
 						<tr>
-
 							<th>Category Id</th>
 							<th>Category Head</th>
 							<th>Account Type</th>
-							<th>Action</th>
-
 						</tr>
 					</thead>
-					<tbody id="content">
-						
-					</tbody>
 				</table>
 			</div>
 		</div>
@@ -115,12 +108,23 @@ h5 {
 	<jsp:include page="/msgmodal"></jsp:include>
 	<script type="text/javascript" src="template/js/form.js"></script>
 	<script type="text/javascript">
-		
+
+	$(document).ready(function(){
+	 $('#categorytbl').DataTable( {
+	        
+	        "ajax": "getCategoriesDetail.click",
+	        "columns":[
+	        	{"data":"categoryId"},
+	        	{"data":"categoryHead"},
+	        	{"data":"accountType"},
+	        ]
+	    } );
+	} );
+	
 	<%if (request.getAttribute("msg") != null) {%>
 		$('#myModal').modal('show');
 	<%}%>
-	$('#sharetable').DataTable();
-	$('.categoryid').click(function(){
+	 $('.categoryid').click(function(){
 		var id=$(this).html();
 		var dataString = 'id='+ id;
 		$.ajax
@@ -136,25 +140,7 @@ h5 {
 		} 
 		});
 	});
-	function fetch(){
-		$.ajax({
-			url:"getCategoriesDetail.click",
-			dataType:"json",
-			success: function(res){
-				var data="";
-				for(i=0;i<res.length;i++){
-					var p=JSON.parse(res[i]);
-					data+="<tr><td>"+p.categoryId+"</td><td>"+p.categoryHead+"</td><td>"+p.accountType+"</td><td><a href='editcategory.update?categoryId='"+p.categoryId+">Edit</a></td></tr>";
-					
-				}
-				$("#content").html(data);
-			},
-		error:function(){
-			alert("error occured");
-		}
-		
-		})
-	}
+	/* getCategoriesDetail.click */
 	</script>
 </body>
 </html>

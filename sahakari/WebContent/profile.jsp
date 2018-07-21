@@ -93,17 +93,17 @@ display:block;}
 								<li id="member"><a><i class="fa fa-users" aria-hidden="true"></i> Member(With KYC)
 										<span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
-										<li id="i"><a><span class="fa fa-chevron-down"></span>New
+										<li id="i"><a><span class="fa fa-chevron-down"></span>
 												Member</a>
 											<ul class="nav child_menu">
 												<li><a href="customerinsert.click" target="iframe_a">
-														Member</a></li>
-												<li><a href="pageNotFound.jsp" target="iframe_a">Corporate
-														member</a></li>
-											</ul></li>
+														New Member</a></li>
+												<!-- <li><a href="pageNotFound.jsp" target="iframe_a">Corporate
+														member</a></li> -->
+											<!-- </ul></li>
 										<li id="v"><a><span class="fa fa-chevron-down"></span>Ammendment
-												of Member</a>
-											<ul class="nav child_menu">
+												of Member</a> 
+											<ul class="nav child_menu">-->
 												<li><a href="viewcustomer.click" target="iframe_a">
 														View Member</a></li>
 												<li><a href="editcustomersearch.click" target="iframe_a">
@@ -116,7 +116,7 @@ display:block;}
 										<li id="i"><a href="memberdocument.click" target="iframe_a">Member Documents</a></li>
 
 									</ul></li>
-								<li id="shareholder"><a><i class="fa fa-suitcase" aria-hidden="true"></i>Shareholder <span
+								<!-- <li id="shareholder"><a><i class="fa fa-suitcase" aria-hidden="true"></i>Shareholder <span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 
@@ -124,7 +124,7 @@ display:block;}
 											target="iframe_a"> New Shareholder</a></li>
 										<li id="v"><a href="searchSCSpecific.click"
 											target="iframe_a">Amendment of shareholder</a></li>
-									</ul></li>
+									</ul></li> -->
 								<li id="retailoperation"><a><i class="fa fa-balance-scale" aria-hidden="true"></i>Retail Operation
 										<span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
@@ -276,7 +276,7 @@ display:block;}
 												<li><a href="pageNotFound.jsp" target="iframe_a">Daily Cash income and expenses  </a></li>
 												<li><a href="pageNotFound.jsp" target="iframe_a"> Daily Voucher 
 												</a></li>
-												<li><a href="pageNotFound.jsp" target="iframe_a">  Trial Balance  </a></li>
+												<li><a href="trialbalance.click" target="iframe_a">  Trial Balance  </a></li>
 												<li><a href="pageNotFound.jsp" target="iframe_a">  Search Account and Balance  </a></li>
 											</ul></li>
 										<li><a><span class="fa fa-chevron-down"></span> Services Reports </a>
@@ -489,6 +489,7 @@ display:block;}
 	$('#myModal').modal('show');
 	</script>
 </c:if>
+  
 	 <script type="text/javascript">
     function toggleFullscreen(elem) {
     	  elem = elem || document.documentElement;

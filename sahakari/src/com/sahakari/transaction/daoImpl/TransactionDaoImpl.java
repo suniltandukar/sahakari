@@ -59,6 +59,7 @@ public class TransactionDaoImpl implements TransactionDao{
 			ps.setString(18, tm.getRecordStatus());
 			ps.setString(19, tm.getBranchCode());
 			ps.setString(20, tm.getInputter());
+			System.out.println("Status:"+query);
 			int i=ps.executeUpdate();
 			if(i>0){
 				con.close();
@@ -284,7 +285,7 @@ public class TransactionDaoImpl implements TransactionDao{
 				tm.setTransactioncode(rs.getString("transactionCode"));
 				tm.setBranchid(rs.getString("branchId"));
 				tm.setInputter(rs.getString("inputter"));
-				tm.setInputter(rs.getString("inputter"));
+
 				tm.setAuthorizer(rs.getString("authorizer"));
 				list.add(tm);
 			}
@@ -662,6 +663,29 @@ public class TransactionDaoImpl implements TransactionDao{
 		
 		
 		return false;
+	}
+	public String getTransactionNo(String transactionId){
+		String query="select max(transactionNo)+1 as transactionNo from multipletransactiontbl where transactionid=?";
+		String transactionno;
+		con=DBConnection.getConnection();
+		try {
+			ps=con.prepareStatement(query);
+			ps.setString(1, transactionId);
+			rs=ps.executeQuery();
+			if(rs.next()){
+				transactionno=rs.getString("transactionNo");
+				con.close();
+				ps.close();
+				rs.close();
+				return transactionno;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+		
 	}
 
 }

@@ -201,7 +201,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
     }
 	public boolean insertCustomer(CustomerModel cm){
-		String query="insert into customertbl(pid, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity,ttole, telno, mobno,fatherName,dob,typeid,statusid,inputter,authorizer,insertStatus, updateStatus, delStatus, address, agentid) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+		String query="insert into customertbl(pid, memberid, registrationDate, name, gender, pdistid, pvdcmunid, pwardno, pcity, ptole, tdistid, tvdcmunid, twardno, tcity,ttole, telno, mobno,fatherName,dob,typeid,statusid,inputter,authorizer,insertStatus, updateStatus, delStatus, address, agentid,email) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
 		try{
 			int i=0;
 			con=DBConnection.getConnection();
@@ -234,6 +234,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(26, cm.getDelStatus());
 			ps.setString(27, cm.getAddress());
 			ps.setString(28, cm.getAgentid());
+			ps.setString(29, cm.getEmail());
 			
 			i=ps.executeUpdate();
 			if(i>0){
@@ -346,7 +347,8 @@ public class CustomerDaoImpl implements CustomerDao {
 		return false;
 	}
 	public boolean updateCustomer(String pid, CustomerModel cm){
-		String query="update customertbl set memberid=?, registrationDate=?, name=?, gender=?, pdistid=?, pvdcmunid=?, pwardno=?, pcity=?, ptole=?, tdistid=?, tvdcmunid=?, twardno=?, tcity=?,ttole=?, delStatus=?, address=?, telno=?, mobno=?,fatherName=?, agentid=?,dob=?,typeid=?,statusid=?,inputter=?,authorizer=?,insertStatus=?, updateStatus=? where pid='"+pid+"'";
+		System.out.println(cm);
+		String query="update customertbl set memberid=?, registrationDate=?, name=?, gender=?, pdistid=?, pvdcmunid=?, pwardno=?, pcity=?, ptole=?, tdistid=?, tvdcmunid=?, twardno=?, tcity=?,ttole=?,  address=?, delStatus=?, telno=?, mobno=?,fatherName=?, agentid=?,dob=?,typeid=?,statusid=?,inputter=?,authorizer=?,insertStatus=?, updateStatus=?, email=? where pid='"+pid+"'";
 		try{
 			int i=0;
 			con=DBConnection.getConnection();
@@ -378,6 +380,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(25, cm.getAuthorizer());
 			ps.setString(26, cm.getInsertStatus());
 			ps.setString(27, cm.getUpdateStatus());
+			ps.setString(28, cm.getEmail());
 			
 			i=ps.executeUpdate();
 			if(i>0){

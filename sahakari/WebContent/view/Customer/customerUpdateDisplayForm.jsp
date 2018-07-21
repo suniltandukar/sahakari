@@ -14,7 +14,8 @@ h5 {
 }
 </style>
 </head>
-<body class="background">
+<body class="background" onload="englishToNepali('.registrationDate','.registrationDateen');englishToNepali('.dobnp','.doben')"
+>
 	<div class="col-md-12 col-sm-12 col-xs-12">
 
 		<div class="x_panel">
@@ -77,13 +78,16 @@ h5 {
 											<tr>
 											<td>
 													<h5>Registration Date (B.S.)</h5> <input type="text"
-													class="form-control"  name="registrationDateNp"
-													value="${cdetail.registrationDate}">
+													class="form-control registrationDate"  name="registrationDateNp"
+													value=""
+													onblur="nepaliToEnglish('.registrationDate','.registrationDateen')">
 												</td>
 												<td>
 													<h5>Registration Date (A.D.))</h5> <input type="text"
-													class="form-control" name="registrationDate"
-													value="${cdetail.registrationDate}">
+													class="form-control registrationDateen" name="registrationDate"
+													value="${cdetail.registrationDate}"
+													onblur="englishToNepali('.registrationDate','.registrationDateen')"
+													>
 												</td>
 												<td>
 													<h5>Gender</h5> <select class="form-control" name="gender">
@@ -122,14 +126,18 @@ h5 {
 												
 												<td>
 													<h5>Date of birth (B.S.)</h5> <input type="text"
-													class="form-control" name="dobNp" value="${cdetail.dob }">
+													class="form-control dobnp" name="dobNp" "
+													onblur="nepaliToEnglish('.dobnp','.doben')"
+													>
 												</td>
 												<td>
 													<h5>Date of birth (A.D.)</h5> <input type="text"
-													class="form-control" name="dob" value="${cdetail.dob }">
+													class="form-control doben" name="dob" value="${cdetail.dob }"
+													onblur="englishToNepali('.dobnp','.doben')"
+													>
 												</td>
 												<td>
-													<h5>VAT/PAN</h5> <input type="text" class="form-control"
+													<h5>Father's Name</h5> <input type="text" class="form-control"
 													name="fatherName" value="${cdetail.fatherName }">
 												</td>
 											</tr>
@@ -229,6 +237,11 @@ h5 {
 													name="ttole" value="${cdetail.ttole }">
 												</td>
 											</tr>
+											</tbody>
+											</table>
+											<table class="table">
+											<caption>Additional Details</caption>
+											<tbody>
 											<tr>
 												<td>
 													<h5>Type</h5> <select class="form-control" name="typeid">
@@ -264,6 +277,12 @@ h5 {
 											</select>
 											</td>
 											</tr>
+											<tr>
+												<td>
+													<h5>Email</h5> <input type="text" class="form-control"
+													name="email" value="${cdetail.email }">
+												</td>
+												</tr>
 											
 										</tbody>
 									</table>

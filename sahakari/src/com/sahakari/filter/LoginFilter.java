@@ -22,35 +22,42 @@ import com.sahakari.model.UserModel;
 @WebFilter("/LoginFilter")
 public class LoginFilter implements Filter {
 
-    public LoginFilter() {
-    }
+	public LoginFilter() {
+	}
 
 	public void destroy() {
 	}
 
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		/*HttpServletRequest req=(HttpServletRequest)request;
-		HttpSession session=req.getSession();
-		
-		UserModel userDetail=(UserModel)session.getAttribute("userDetail");
-		if(userDetail==null){*/
-		
-		UserModel u=new UserModel();
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		/*
+		 * HttpServletRequest req=(HttpServletRequest)request; HttpSession
+		 * session=req.getSession();
+		 * 
+		 * UserModel userDetail=(UserModel)session.getAttribute("userDetail");
+		 * if(userDetail==null){
+		 */
+
+		UserModel u = new UserModel();
 		u.setStaffCode(request.getParameter("staffCode"));
 		u.setUsername(request.getParameter("username"));
 		u.setPassword(request.getParameter("password"));
-		LoginDao l=new LoginDaoImpl();
-		boolean status=l.checkuser(u);
-		if(status){
-		chain.doFilter(request, response);
-		}
-		else{
-			request.setAttribute("msg", "Invalid Login Credentials!");
+		LoginDao l = new LoginDaoImpl();
+		//boolean curStatus = l.checkCurStatus(u);
+		/*if (curStatus) {
+			request.setAttribute("msg", "User Already signned in!");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
+		} else {*/
+			boolean status = l.checkuser(u);
+			if (status) {
+				chain.doFilter(request, response);
+			} else {
+				request.setAttribute("msg", "Invalid Login Credentials!");
+				request.getRequestDispatcher("index.jsp").forward(request, response);
+			}
 		}
+
 	
-	
-	}
 
 	public void init(FilterConfig fConfig) throws ServletException {
 	}
