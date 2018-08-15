@@ -1,15 +1,31 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="/includefile"></jsp:include>
 <html>
 <head>
-<style>
-h5 {
-	font-size: 80%;
+	<style>
+
+body {
+	font-size: 14px;
 	font-weight: bold;
+	color:#00030a;
 }
-</style>
+
+
+
+textarea:focus, input:focus {
+    color: #0206ef;
+}
+
+
+
+
+.black_color {
+font-weight: bold;
+  color: #00030a;
+  font-size: 14px;
+}
+
+</style>	
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 </head>
@@ -33,32 +49,33 @@ h5 {
 		<div class="x_panel">
 			<form class="form-horizontal form-label-left input_mask"
 				method="post" action="account.add">
-
+<!--  action="account.add" -->
+<!-- action="testjasper" -->
 				<div class="x_title">
 					<h2>Add New Account</h2>
-					<div class="col-md-4 col-sm-4 col-xs-12 pull-right">
-						<input type="text" id="membername"
-									class="form-control" name="membername"
-									value="" readonly >
-					</div>
+					
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content">
 					<br />
-
+<input type="text" name="appl" id="appl" value="${appl }" hidden>
 					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Member Id</label>
+						<label class="control-label col-md-4 col-sm-4 col-xs-12">Member Id</label>
 						<div class="col-md-2 col-sm-2 col-xs-12">
 							 <input type="text" id="memberid"
 									class="form-control sharecertmemberid memberid" name="pid"
 									value="" data-validation="number" data-validation-error-msg=" ">
 						</div>
-						<div class="col-md-8 col-sm-8 col-xs-12 ">
-							<span id="customername"></span>
-						</div>
+		<!-- <p><span id="membername" name="membername">
+         This is another paragraph</span></p>	 -->		
+			
+						
+						
+						
+						
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Account 
+						<label class="control-label col-md-4 col-sm-4 col-xs-12">Account 
 							No</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							 <input type="text"
@@ -67,8 +84,8 @@ h5 {
 									data-validation-error-msg=" " required readonly>
 						</div>
 					</div>
-					<div class="form-group" id="cashWithdraw">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Alternate
+					<div class="form-group" >
+						<label class="control-label col-md-4 col-sm-4 col-xs-12">Alternate
 							Account No</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<input type="text"
@@ -80,11 +97,11 @@ h5 {
 						</div>
 					</div>
 					<div class="form-group" id="cashDeposit">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">
+						<label class="control-label col-md-4 col-sm-4 col-xs-12">
 							Account Type</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
-							<select class="form-control categoryid"
-									name="categoryId" id="categories">
+							<select class="form-control categoryid black_color"
+									name="categoryId" id="categories" required>
 										<option value="">Select Category</option>
 										<c:forEach items="${categorylist }" var="c">
 											<option value="${c.categoryId }">${c.categoryId }-${c.categoryHead }</option>
@@ -97,7 +114,7 @@ h5 {
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Account Name
+						<label class="control-label col-md-4 col-sm-4 col-xs-12">Account Name
 						</label>
 						<div class="col-md-5 col-sm-5 col-xs-12">
 							<input type="text"
@@ -108,10 +125,10 @@ h5 {
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-2 col-sm-2 col-xs-12">Limit Reference </label>
+						<label class="control-label col-md-4 col-sm-4 col-xs-12">Limit Reference </label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<input type="text"
-									class="form-control" name="limitRef" value="">
+									class="form-control" name="limitRef" value="" ${readonly }>
 						</div>
 					</div>
 				
@@ -137,8 +154,7 @@ h5 {
 	</div>
 
 			<div id="1" class="tab-pane fade in active"></div>
-		</div>
-	</div>
+
 	<jsp:include page="/msgmodal"></jsp:include>
 	<div class="modal fade" id="memberidmsgmodal" role="dialog">
 		<div class="modal-dialog modal-sm">
@@ -171,8 +187,10 @@ h5 {
     });
 </script> -->
 <script>
-$("#validate").click(function()
+/* $("#validate").click(function() */
+		$("#memberid").blur(function()
 		{
+			
 		var id=$('.memberid').val();
 		var dataString = 'id='+ id;
 		$.ajax
@@ -207,8 +225,8 @@ $("#categories").change(function()
 		});
 
 		});
-$("#validate").click(function()
-		 
+/* $("#validate").click(function() */
+		$("#memberid").blur(function()	 
         {
 
  var id=$('.memberid').val();
@@ -222,6 +240,7 @@ $("#validate").click(function()
     success: function(html)
     {
     $(".accountNumber").val(html);
+
     } 
     });
  

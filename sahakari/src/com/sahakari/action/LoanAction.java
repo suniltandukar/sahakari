@@ -148,15 +148,18 @@ public class LoanAction {
 		ac.setRepaymentStartDateNp(repaymentDate);
 		ac.setRepaymentStartDateEn(repaymentDateen);
 		ac.setLoanDrawdownAc(loanDrawdownAccount);
+		ac.setPrincipalLiqAccount(principalLiqAccount);
 		ac.setPrincipalAmount(principalAmount);
 		ac.setInterestLiqAccount(interestLiqAccount);
 		ac.setRepaymentFrequency(frequency);
 	
 		ac.setChargeDebitAc(chargeDebitAccount);
 		ac.setChargeAmount(chargeAmount);
-		ac.setChargePaymentDate(chargePaymentDateen);
-	
+ac.setChargePaymentDate(chargePaymentDate);
+		
+	ac.setChargePaymentDateen(chargePaymentDateen);
 		ac.setLimitRef(limitReferenceNumber);
+		
 		
 		LoanDao ld=new LoanDaoImpl();
 		boolean status=ld.updateLoan(ac);

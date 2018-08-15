@@ -4,7 +4,7 @@ public class AccountModel {
 	String pid, memberid, accountNumber,alternativeAccounId, accountName, limitRef, inputter, openingBal;
 	String interestType,
 	interestRate,principalAmount, startDateNP, startDateEn, maturityDateNP, maturityDateEn, repaymentStartDateNp, repaymentStartDateEn,
-	repaymentFrequency, loanDrawdownAc,chargeDebitAc,chargeAmount,chargePaymentDate,interestLiqAccount,principalLiqAccount;
+	repaymentFrequency, loanDrawdownAc,chargeDebitAc,chargeAmount,chargePaymentDate,chargePaymentDateen,interestLiqAccount,principalLiqAccount;
 	public String getPrincipalLiqAccount() {
 		return principalLiqAccount;
 	}
@@ -131,6 +131,15 @@ public class AccountModel {
 
 	public void setChargePaymentDate(String chargePaymentDate) {
 		this.chargePaymentDate = chargePaymentDate;
+	}
+	
+	
+	public String getChargePaymentDateen() {
+		return chargePaymentDateen;
+	}
+
+	public void setChargePaymentDateen(String chargePaymentDateen) {
+		this.chargePaymentDateen = chargePaymentDateen;
 	}
 
 	public String getOpeningBal() {

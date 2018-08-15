@@ -25,6 +25,10 @@ public class AccountAction {
 		String inputter=userDetail.getUsername();
 		
 		String pid,accountNumber, alternativeAccounId, categoryId, accountType, accountName, limitRef;
+		
+		String strappl="";
+		strappl=request.getParameter("appl");
+		
 		pid=request.getParameter("pid");
 		accountNumber=request.getParameter("accountNumber");
 		alternativeAccounId=request.getParameter("alternativeAccounId");
@@ -34,7 +38,6 @@ public class AccountAction {
 		limitRef=request.getParameter("limitRef");
 		AccountModel am=new AccountModel();
 		am.setPid(pid);
-		//am.setMemberid(memberid);
 		am.setAccountNumber(accountNumber);
 		am.setAlternativeAccounId(alternativeAccounId);
 		am.setCategoryId(categoryId);
@@ -48,20 +51,46 @@ public class AccountAction {
 		/*pid=a.selectpid(am);
 		am.setPid(pid);
 		*/
+		
 		boolean status=a.insertAccount(am);
 		if(status){
 			request.setAttribute("msg", "Account Add Successful !");
+			
 		}
 		else{
 			request.setAttribute("msg", "Account Add Failed !");
 		}
-		RequestDispatcher rd=request.getRequestDispatcher("insertaccount.click");
+		
+		RequestDispatcher rd=null;
+		
+
+		
+		
+		if(strappl.equals("ac"))
+		{
+			rd=request.getRequestDispatcher("insertaccount.click");
+		}
+		
+		
+		if(strappl.equals("fin"))
+		{
+			rd=request.getRequestDispatcher("insertfinancialaccount.click");
+		}
+		
+		if(strappl.equals("ln"))
+		{
+			request.setAttribute("accountName",am.getAccountName());
+			request.setAttribute("pid", pid);
+			request.setAttribute("accountNumber", am.getAccountNumber());
+			rd=request.getRequestDispatcher("createLoan.click");	
+		}
 		try {
 			rd.forward(request, response);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
 	}
+		
 
 	public void deleteAccount(HttpServletRequest request,
 			HttpServletResponse response) {

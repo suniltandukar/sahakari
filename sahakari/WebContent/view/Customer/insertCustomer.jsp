@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%> --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="java.sql.*"%>
 <jsp:include page="/includefile"></jsp:include>
@@ -14,9 +14,34 @@
 </style>
 <style>
 h5 {
-	font-size: 80%;
+	font-size: 14px;
 	font-weight: bold;
+	color:#00030a;
 }
+
+input[type=text] {
+	font-size: 14px;
+	font-weight: bold;
+	color:#00030a;
+}
+
+textarea:focus, input:focus {
+    color: #0206ef;
+}
+
+caption {
+	font-size: 14px;
+	font-weight: bold;
+	color:#0206ef;
+}
+
+
+.black_color {
+font-weight: bold;
+  color: #00030a;
+  font-size: 14px;
+}
+
 </style>
 </head>
 <body class="hiddenscroll background">
@@ -82,7 +107,7 @@ h5 {
 												data-validation="number" data-validation-error-msg=" ">
 											</td>
 											<td>
-												<h5>Name</h5> <input type="text" class="form-control"
+												<h5>Name</h5> <input type="text" class="form-control black_color"
 												name="name" value="" data-validation="alphanumeric"
 												data-validation-error-msg=" ">
 											</td>
@@ -104,12 +129,12 @@ h5 {
 											</td>
 											
 											<td>
-												<h5>Gender</h5> <select class="form-control" name="gender">
+												<h5>Gender</h5> <select class="form-control black_color" name="gender">
 													<option value="Male">Male</option>
 													<option value="Female">Female</option>
 													<option value="Other">Other</option>
 											</select>
-											</td>
+											</td> 
 										</tr>
 										
 										<tr>
@@ -158,7 +183,7 @@ h5 {
 									
 										<tr>
 											<td>
-												<h5>District</h5> <select class="form-control pdistrict"
+												<h5>District</h5> <select class="form-control pdistrict black_color"
 												name="pdistid">
 													<option value="0">Select District</option>
 													<c:forEach items="${districtlist}" var="district">
@@ -168,13 +193,13 @@ h5 {
 											</td>
 											<td>
 												<h5>VDC/Muncipality</h5> <select type="text"
-												class="form-control pvdcmun" name="pvdcmunid">
+												class="form-control pvdcmun black_color" name="pvdcmunid">
 													<option value="0">Select VDC/Muncipality</option>
 											</select>
 											</td>
 											<td>
 												<h5>Ward No.</h5> <select type="text"
-												class="form-control pwardno" name="pwardno">
+												class="form-control pwardno black_color" name ="pwardno">
 													<option value="0">Select Ward No</option>
 											</select>
 											</td>
@@ -196,7 +221,7 @@ h5 {
 									<tbody>
 										<tr>
 											<td>
-												<h5>District</h5> <select class="form-control tdistrict"
+												<h5>District</h5> <select class="form-control tdistrict black_color"
 												name="tdistid">
 													<option value="0">Select District</option>
 													<c:forEach items="${districtlist}" var="district">
@@ -206,13 +231,13 @@ h5 {
 											</td>
 											<td>
 												<h5>VDC/Muncipality</h5> <select type="text"
-												class="form-control tvdcmun" name="tvdcmunid">
+												class="form-control tvdcmun black_color" name="tvdcmunid">
 													<option value="0">Select VDC/Muncipality</option>
 											</select>
 											</td>
 											<td>
 												<h5>Ward No.</h5> <select type="text"
-												class="form-control twardno" name="twardno">
+												class="form-control twardno black_color" name="twardno">
 													<option value="0">Select Ward No</option>
 											</select>
 											</td>
@@ -235,7 +260,7 @@ h5 {
 										
 										<tr>
 											<td>
-												<h5>Type</h5> <select class="form-control" name="typeid">
+												<h5>Type</h5> <select class="form-control black_color" name="typeid">
 													<option value="0">Select Type</option>
 													<c:forEach items="${typelist}" var="type">
 														<option value="${type.typeid}">${type.typeName}</option>
@@ -243,7 +268,7 @@ h5 {
 											</select>
 											</td>
 											<td>
-												<h5>Status</h5> <select class="form-control" name="statusid">
+												<h5>Status</h5> <select class="form-control black_color" name="statusid">
 													<option value="0">Select Status</option>
 													<c:forEach items="${statuslist}" var="status">
 														<option value="${status.statusid}">${status.statusName}</option>
@@ -252,7 +277,7 @@ h5 {
 											</td>
 											<td>
 												<h5>Relationship Officer</h5> <select
-												class="form-control " name="agentid">
+												class="form-control black_color" name="agentid">
 													<option value="0">Select Officer</option>
 													<c:forEach items="${agent }" var="agent">
 														<option value="${ agent.agentid}">${agent.agentname }</option>s
@@ -278,7 +303,7 @@ h5 {
 									<tbody>
 										<tr id="relationrow">
 											<td>
-												<h5>Relation</h5> <select class="form-control"
+												<h5>Relation</h5> <select class="form-control black_color"
 												name="cusRelation">
 													<option value="">Select Relation</option>
 													<c:forEach items="${familyrelationlist}" var="relation">
@@ -386,7 +411,7 @@ h5 {
 								
 										<tr >
 											<td>
-												<h5>Document Type</h5> <select class="form-control"
+												<h5>Document Type</h5> <select class="form-control black_color"
 												name="documentType">
 													<option value="">Select Document Type</option>
 													<c:forEach items="${docType}" var="doc">

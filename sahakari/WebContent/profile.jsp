@@ -1,6 +1,4 @@
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import='java.sql.*'%>
 <%@page import='com.sahakari.model.UserModel'%>
@@ -23,7 +21,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- Meta, title, CSS, favicons, etc. -->
-<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -49,6 +46,7 @@ display:block}
 <%=additionalFunctions%>{
 display:block;}
 </style>
+ 
 </head>
 
 <body class="nav-md">
@@ -70,7 +68,7 @@ display:block;}
 								class="img-circle profile_img">
 						</div>
 						<div class="profile_info">
-							<span>Welcome,</span>
+							<span>Welcome</span>
 							<h2><%=userdetail.getUsername()%></h2>
 						</div>
 					</div>
@@ -90,7 +88,7 @@ display:block;}
 										<li id="nav1"><a href="view/dashboard.jsp" target="iframe_a">Dashboard</a></li>
 										
 									</ul></li>
-								<li id="member"><a><i class="fa fa-users" aria-hidden="true"></i> Member(With KYC)
+								<li id="member"><a><i class="fa fa-users" aria-hidden="true"></i> सदस्य दर्ता  Member(With KYM)
 										<span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 										<li id="i"><a><span class="fa fa-chevron-down"></span>
@@ -236,7 +234,9 @@ display:block;}
 									<ul class="nav child_menu">
 										<li><a><span class="fa fa-chevron-down"></span>Loan</a>
 											<ul class="nav child_menu">
-												<li id="i"><a href="createLoan.click" target="iframe_a"> Create New Loan
+											<li id="i"><a href="createnewloan.click" target="iframe_a"> Create New Loan Account
+												</a></li>
+												<li id="i"><a href="createLoan.click" target="iframe_a"> Update Loan Account
 												</a></li>
 												<li id="v"><a href="editLoan.click" target="iframe_a">Amendment of Loan
 												</a></li>
@@ -277,6 +277,7 @@ display:block;}
 												<li><a href="pageNotFound.jsp" target="iframe_a"> Daily Voucher 
 												</a></li>
 												<li><a href="trialbalance.click" target="iframe_a">  Trial Balance  </a></li>
+												<li><a href="testjasper" target="_blank">  Test Jasper  </a></li>
 												<li><a href="pageNotFound.jsp" target="iframe_a">  Search Account and Balance  </a></li>
 											</ul></li>
 										<li><a><span class="fa fa-chevron-down"></span> Services Reports </a>

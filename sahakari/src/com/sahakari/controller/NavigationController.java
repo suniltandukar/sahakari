@@ -115,6 +115,10 @@ public class NavigationController extends HttpServlet {
 		UserModel userDetail = (UserModel) session.getAttribute("userDetail");
 
 		switch (uri) {
+		
+		
+				
+		
 		case "getCategoriesDetail.click":
 
 			JSONObject jsonObject = c.selectCategories();
@@ -129,6 +133,9 @@ public class NavigationController extends HttpServlet {
 			rd = request.getRequestDispatcher("view/categories/insertCategory.jsp");
 			rd.forward(request, response);
 			break;
+			
+			
+			
 
 		case "updateCategory.click":
 			id = request.getParameter("id");
@@ -323,9 +330,11 @@ public class NavigationController extends HttpServlet {
 			break;
 
 		case "insertfinancialaccount.click":
+			
 			String param3="accountType='FIN'";
 			categorylist = a.getCategories(param3);
 			request.setAttribute("categorylist", categorylist);
+			request.setAttribute("appl", "fin");
 			rd = request.getRequestDispatcher("view/Account/insertFinancialAccount.jsp");
 			rd.forward(request, response);
 			break;
@@ -334,6 +343,8 @@ public class NavigationController extends HttpServlet {
 			String param2="left(categoryId,3) in(111,112,141) and accountType='ACC'";
 			categorylist = a.getCategories(param2);
 			request.setAttribute("categorylist", categorylist);
+			request.setAttribute("readonly", "readonly");
+			request.setAttribute("appl", "ac");
 			rd = request.getRequestDispatcher("view/Account/insertAccount.jsp");
 			rd.forward(request, response);
 			break;
@@ -610,7 +621,26 @@ public class NavigationController extends HttpServlet {
 			out.println(array);
 			break;
 
+		case "createnewloan.click":
+			String paramloan1="left(categoryId,2) in(25) and accountType='LNA'";
+			categorylist = a.getCategories(paramloan1);
+			request.setAttribute("categorylist", categorylist);
+			request.setAttribute("readonly","");
+			request.setAttribute("appl", "ln");
+			rd = request.getRequestDispatcher("view/Account/insertAccount.jsp");
+			rd.forward(request, response);
+		
+		
 		case "createLoan.click":
+			
+			
+			
+			
+			String paramloan="left(categoryId,2) in(25) and accountType='LNA'";
+			List<AccountModel> categ = a.getCategories(paramloan);
+			request.setAttribute("categorylist", categ);	
+			
+			
 			rd = request.getRequestDispatcher("view/LoanModule/Loan/createLoan.jsp");
 			rd.forward(request, response);
 			break;

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%> --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="/includefile"></jsp:include>
 
@@ -7,12 +7,41 @@
 
 <html>
 <head>
-<style>
+
+	<style>
+
 h5 {
-	font-size: 80%;
+	font-size: 14px;
 	font-weight: bold;
+	color:#00030a;
 }
-</style>
+
+input[type=text] {
+	font-size: 14px;
+	font-weight: bold;
+	color:#00030a;
+}
+
+textarea:focus, input:focus {
+    color: #0206ef;
+}
+
+caption {
+	font-size: 14px;
+	font-weight: bold;
+	color:#0206ef;
+}
+
+
+.black_color {
+font-weight: bold;
+  color: #00030a;
+  font-size: 14px;
+}
+
+</style>	
+
+
 </head>
 <body class="background" onload="englishToNepali('.registrationDate','.registrationDateen');englishToNepali('.dobnp','.doben')"
 >
@@ -90,7 +119,7 @@ h5 {
 													>
 												</td>
 												<td>
-													<h5>Gender</h5> <select class="form-control" name="gender">
+													<h5>Gender</h5> <select class="form-control black_color" name="gender">
 
 														<option value="${cdetail.gender }">${cdetail.gender }</option>
 														<option value="Male">Male</option>
@@ -149,7 +178,7 @@ h5 {
 										<tbody>
 											<tr>
 												<td>
-													<h5>District</h5> <select class="form-control pdistrict"
+													<h5>District</h5> <select class="form-control pdistrict black_color"
 													name="pdistid">
 														
 															<option value="0">Select District</option>
@@ -162,7 +191,7 @@ h5 {
 												</td>
 												<td>
 													<h5>VDC/Muncipality</h5> <select type="text"
-													class="form-control pvdcmun" name="pvdcmunid">
+													class="form-control pvdcmun black_color" name="pvdcmunid">
 														
 															<option value="0">Select VDC/Muncipality</option>
 														
@@ -171,7 +200,7 @@ h5 {
 												</td>
 												<td>
 													<h5>Ward No.</h5> <select type="text"
-													class="form-control pwardno" name="pwardno">
+													class="form-control pwardno black_color" name="pwardno">
 														
 															<option value="0">Select Ward No.</option>
 														
@@ -197,7 +226,7 @@ h5 {
 										<tbody>
 											<tr>
 												<td>
-													<h5>District</h5> <select class="form-control tdistrict"
+													<h5>District</h5> <select class="form-control tdistrict black_color"
 													name="tdistid">
 														
 															<option value="0">Select District</option>
@@ -210,7 +239,7 @@ h5 {
 												</td>
 												<td>
 													<h5>VDC/Muncipality</h5> <select type="text"
-													class="form-control tvdcmun" name="tvdcmunid">
+													class="form-control tvdcmun black_color" name="tvdcmunid">
 													
 															<option value="0">Select VDC/Muncipality</option>
 														
@@ -219,7 +248,7 @@ h5 {
 												</td>
 												<td>
 													<h5>Ward No.</h5> <select type="text"
-													class="form-control twardno" name="twardno">
+													class="form-control twardno black_color" name="twardno">
 													
 															<option value="0">Select Ward No.</option>
 														
@@ -244,7 +273,7 @@ h5 {
 											<tbody>
 											<tr>
 												<td>
-													<h5>Type</h5> <select class="form-control" name="typeid">
+													<h5>Type</h5> <select class="form-control black_color" name="typeid">
 														<c:if test="${cdetail.typeid==null }">
 															<option value="0">Select Type</option>
 														</c:if>
@@ -255,7 +284,7 @@ h5 {
 												</select>
 												</td>
 												<td>
-													<h5>Status</h5> <select class="form-control"
+													<h5>Status</h5> <select class="form-control black_color"
 													name="statusid">
 														<c:if test="${cdetail.statusid==null }">
 															<option value="0">Select Status</option>
@@ -267,7 +296,7 @@ h5 {
 												</select>
 												</td>
 												<td>
-												<h5>Relationship Officer</h5>  <select class="form-control pdistrict"
+												<h5>Relationship Officer</h5>  <select class="form-control pdistrict black_color"
 												name="pdistid">
 													<option value="${cdetail.agentid }">${cdetail.agentid }</option>
 													<c:forEach items="${agent }" var="agent">
@@ -296,7 +325,7 @@ h5 {
 											<c:if test="${cusFamilyDetail==null }">
 												<tr class="tr_clone">
 													<td>
-														<h5>Relation</h5> <select class="form-control"
+														<h5>Relation</h5> <select class="form-control black_color"
 														name="cusRelation">
 															<option value="">Select Relation</option>
 															<c:forEach items="${familyrelationlist}" var="relation">
@@ -327,7 +356,7 @@ h5 {
 											<c:forEach items="${cusFamilyDetail}" var="cfd">
 												<tr class="tr_clone">
 													<td>
-														<h5>Relation</h5> <select class="form-control"
+														<h5>Relation</h5> <select class="form-control black_color"
 														name="cusRelation">
 															<option value="${cfd.cusRelation }">${cfd.cusRelation }</option>
 															<c:forEach items="${familyrelationlist}" var="relation">
@@ -491,7 +520,7 @@ h5 {
 										<c:if test="${customerDocumentDetail==null }">
 											<tr class="tr_clone">
 													<td>
-														<h5>Document Type</h5> <select class="form-control"
+														<h5>Document Type</h5> <select class="form-control black_color"
 														name="documentType">
 															<option value="${doc.documentType }">${doc.documentType }</option>
 															
@@ -546,7 +575,7 @@ h5 {
 											<c:forEach items="${customerDocumentDetail}" var="doc">
 												<tr class="tr_clone">
 													<td>
-														<h5>Document Type</h5> <select class="form-control"
+														<h5>Document Type</h5> <select class="form-control black_color"
 														name="documentType">
 															<option value="${doc.documentType }">${doc.documentType }</option>
 															

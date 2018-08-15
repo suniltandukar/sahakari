@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="template/css/admin.css" type="text/css"></head>
     <body style="background-color: lightgrey;">
     	<div class="col-md-6 col-centered" style="text-align: center;" >
-    		<img src="template/images/logo5.jpg" alt="logo" class="img-responsive" />
+    		<img src="template/images/testlogo.png" alt="logo" class="img-responsive" />
     		
     		<form class="login-form" action="login.log" method="post">
     		<p style="color:red;">${msg}</p>

@@ -1,13 +1,49 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%> --%>
 
 <jsp:include page="/includefile"></jsp:include>
 <html>
 <head>
 	<style>
 		label{
-		font-size:80%;}
-	</style>
+		font-size: 14px;
+	font-weight: bold;
+	color:#00030a;
+
+h5 {
+	font-size: 14px;
+	font-weight: bold;
+	color:#00030a;
+}
+
+input[type=text] {
+	font-size: 14px;
+	font-weight: bold;
+	color:#00030a;
+}
+
+textarea:focus, input:focus {
+    color: #0206ef;
+}
+
+caption {
+	font-size: 14px;
+	font-weight: bold;
+	color:#0206ef;
+}
+
+
+.black_color {
+font-weight: bold;
+  color: #00030a;
+  font-size: 14px;
+}
+
+</style>	
+	
+	
+	
+	
 </head>
 <body>
 	<div class="panel panel-default" style="width: 95%; margin: auto;">

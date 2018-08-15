@@ -28,7 +28,7 @@ public class LoanDaoImpl implements LoanDao{
 			ps.setString(7,am.getMaturityDateEn() );
 			ps.setString(8, am.getRepaymentStartDateNp());
 			ps.setString(9,am.getRepaymentStartDateEn());
-			ps.setString(10,am.getRepaymentFrequency() );
+			ps.setString(10,am.getRepaymentFrequency());
 			ps.setString(11,am.getLoanDrawdownAc() );
 			ps.setString(12,am.getChargeDebitAc() );
 			ps.setString(13,am.getChargeAmount() );

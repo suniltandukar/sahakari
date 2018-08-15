@@ -81,6 +81,7 @@ No, telno, mobno, fatherName,email, agentid, dob, typeid,typeName, statusid, sta
 		typeid=request.getParameter("typeid");
 		statusid=request.getParameter("statusid");
 		address=request.getParameter("address");
+		/*customergrFam=request.getParameter("customergroupFam");*/
 		HttpSession session=request.getSession();
 		UserModel userDetail=(UserModel)session.getAttribute("userDetail");
 		

@@ -4,6 +4,7 @@
 <style>
 label {
 	font-size: 80%;
+	
 }
 </style>
 </head>

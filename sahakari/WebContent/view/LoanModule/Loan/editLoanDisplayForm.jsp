@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%> --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="java.sql.*"%>
 <jsp:include page="/includefile"></jsp:include>
@@ -12,13 +12,40 @@
 	opacity: 0.6
 }
 </style>
+</style>
 
 
-<style>
-h5 {
-	font-size: 80%;
+	<style>
+
+label {
+	font-size: 14px;
 	font-weight: bold;
+	color:#00030a;
 }
+
+input[type=text] {
+	font-size: 14px;
+	font-weight: bold;
+	color:#00030a;
+}
+
+textarea:focus, input:focus {
+    color: #0206ef;
+}
+
+caption {
+	font-size: 14px;
+	font-weight: bold;
+	color:#0206ef;
+}
+
+
+.black_color {
+font-weight: bold;
+  color: #00030a;
+  font-size: 14px;
+}
+
 </style>
 </head>
 <body class="hiddenscroll background">
@@ -85,6 +112,21 @@ h5 {
 										<input type="text" class="form-control memberid"
 											placeholder="" value="${loan.interestType }" name="interestType" >
 									</div>
+									
+																<div class="form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12">Category</label>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<select class="form-control black_color" name="interestType">
+											<option value="fixed">...</option>
+											<option value="variable">...</option>
+										</select>
+									</div>
+
+								</div>
+									
+									
+									
+									
 									<!-- <label class="control-label col-md-2 col-sm-2 col-xs-12">Variable</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control memberid"

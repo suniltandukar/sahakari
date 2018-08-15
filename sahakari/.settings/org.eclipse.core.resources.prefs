@@ -1,3 +1,8 @@
 eclipse.preferences.version=1
+encoding//WebContent/index.jsp=UTF-8
 encoding//WebContent/index1.jsp=UTF-8
 encoding//WebContent/profile.jsp=UTF-8
+encoding//WebContent/view/Account/insertAccount.jsp=UTF-8
+encoding//WebContent/view/LoanModule/Loan/createLoan.jsp=UTF-8
+encoding//WebContent/view/LoanModule/Loan/editLoan.jsp=UTF-8
+encoding//reports/test.jrxml=UTF-8

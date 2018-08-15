@@ -1,15 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <jsp:include page="/includefile"></jsp:include>
 
 <html>
 <head>
-<style>
-h5 {
-	font-size: 80%;
+	<style>
+
+body {
+	font-size: 14px;
 	font-weight: bold;
+	color:#00030a;
 }
+
+
+textarea:focus, input:focus {
+    color: #0206ef;
+}
+
+
+.black_color {
+font-weight: bold;
+  color: #00030a;
+  font-size: 14px;
+}
+
 </style>
 
 </head>
@@ -45,8 +58,9 @@ h5 {
 							<tr>
 									<td>
 										<h5>Account No</h5> <input type="text"
-									class="form-control" name="accountNumber" value="" data-validation="number" data-validation-error-msg=" " 
-									required>
+									class="form-control" name="accountNumber" value="" >
+									
+										<input type="text" name="appl" id="appl" value="${appl }" hidden>
 									</td>
 								<td>
 									<h5>Alternative Account ID</h5> <input type="text"
@@ -55,7 +69,7 @@ h5 {
 							</tr>
 							<tr>
 								 <td>
-									<h5>Category</h5> <select class="form-control categoryid"
+									<h5>Category</h5> <select class="form-control categoryid black_color"
 									name="categoryId">
 										<option value="">Select Category</option>
 										<c:forEach items="${categorylist }" var="c">
@@ -64,7 +78,7 @@ h5 {
 								</select>
 								</td> 
 								 <td>
-									<h5>Account Type</h5> <select class="form-control accounttype"
+									<h5>Account Type</h5> <select class="form-control accounttype black_color"
 									name="accountType">
 										<option value="FIN">FIN-Financial account</option>
 								</select>
