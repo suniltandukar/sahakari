@@ -34,6 +34,8 @@
     <style>
     	.background{
     	background-color:#F7F7F7;}
+    	body{
+    	color:black}
     </style>
 </head>
 <body>

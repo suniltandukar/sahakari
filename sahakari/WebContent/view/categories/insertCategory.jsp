@@ -89,7 +89,7 @@ h5 {
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
-				<table id="categorytbl"
+				<table id="datatable"
 					class="table jambo_table table-striped table-bordered"
 					style="font-size: 95%;">
 					<thead>
@@ -97,8 +97,19 @@ h5 {
 							<th>Category Id</th>
 							<th>Category Head</th>
 							<th>Account Type</th>
+							<th>Action</th>
 						</tr>
 					</thead>
+					<tbody>
+					<c:forEach items="${categories }" var="c">
+						<tr>
+							<td>${c.categoryId }</td>
+							<td>${c.categoryHead }</td>
+							<td>${c.accountType }</td>
+							<td><a href="updateCategory.click?id=${c.categoryId }">Edit</a></td>
+						</tr>
+					</c:forEach>
+					</tbody>
 				</table>
 			</div>
 		</div>
@@ -110,16 +121,6 @@ h5 {
 	<script type="text/javascript">
 
 	$(document).ready(function(){
-	 $('#categorytbl').DataTable( {
-	        
-	        "ajax": "getCategoriesDetail.click",
-	        "columns":[
-	        	{"data":"categoryId"},
-	        	{"data":"categoryHead"},
-	        	{"data":"accountType"},
-	        ]
-	    } );
-	} );
 	
 	<%if (request.getAttribute("msg") != null) {%>
 		$('#myModal').modal('show');

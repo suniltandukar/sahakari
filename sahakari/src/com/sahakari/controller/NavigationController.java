@@ -116,20 +116,11 @@ public class NavigationController extends HttpServlet {
 
 		switch (uri) {
 		
-		
-				
-		
-		case "getCategoriesDetail.click":
-
-			JSONObject jsonObject = c.selectCategories();
-			out.println(jsonObject);
-			out.close();
-			break;
-
 		case "category.click":
 			 accounttype = c.accounttype();
 			request.setAttribute("accounttype", accounttype);
-
+List<CategoryModel> categories = c.getCategories();
+request.setAttribute("categories", categories);
 			rd = request.getRequestDispatcher("view/categories/insertCategory.jsp");
 			rd.forward(request, response);
 			break;
@@ -139,6 +130,7 @@ public class NavigationController extends HttpServlet {
 
 		case "updateCategory.click":
 			id = request.getParameter("id");
+			System.out.println("category id is"+id);
 			CategoryModel cm = c.getSpecificCategoryDetail(id);
 			request.setAttribute("categorydetail", cm);
 
@@ -518,7 +510,10 @@ public class NavigationController extends HttpServlet {
 		case "generateaccountno.click":
 			String generatedAccountNo = "";
 			CustomerDao cust = new CustomerDaoImpl();
-			String memberid = request.getParameter("memberid");
+			
+			int imemberid = Integer.parseInt(request.getParameter("memberid"));
+			String memberid = String.format("%07d", imemberid);
+			
 			boolean memberidCheck = cust.checkMemberId(memberid);
 		
 			if (memberidCheck) {
@@ -601,7 +596,10 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 			break;
 		case "getmembername.click":
-			String pid = request.getParameter("id");
+			int intpid = Integer.parseInt(request.getParameter("id"));
+			
+			String pid = String.format("%07d", intpid);
+			
 			v = new ViewDaoImpl();
 			cus = v.viewSpecificCustomerDetail(pid);
 			out.println(cus.getName());

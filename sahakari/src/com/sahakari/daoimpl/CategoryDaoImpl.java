@@ -41,6 +41,7 @@ public class CategoryDaoImpl implements CategoryDao {
 		}
 		return false;
 	}
+
 	public JSONObject selectCategories(){
 		try{
 			String query="select * from categories";
@@ -84,6 +85,7 @@ public class CategoryDaoImpl implements CategoryDao {
 				c=new CategoryModel();
 				c.setCategoryId(rs.getString("categoryId"));
 				c.setCategoryHead(rs.getString("categoryHead"));
+				c.setAccountType(rs.getString("accountType"));
 				list.add(c);
 			}
 			
