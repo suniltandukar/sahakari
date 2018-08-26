@@ -29,7 +29,12 @@ public class AccountAction {
 		String strappl="";
 		strappl=request.getParameter("appl");
 		
-		pid=request.getParameter("pid");
+		String strI=request.getParameter("pid");
+		System.out.println("APP :"+strappl);
+		pid = String.format("%07d", Integer.parseInt(strI));
+		
+		/*pid=request.getParameter("pid");*/
+		
 		accountNumber=request.getParameter("accountNumber");
 		alternativeAccounId=request.getParameter("alternativeAccounId");
 		categoryId=request.getParameter("categoryId");

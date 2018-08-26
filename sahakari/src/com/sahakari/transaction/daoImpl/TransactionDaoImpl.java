@@ -35,9 +35,7 @@ public class TransactionDaoImpl implements TransactionDao{
 	public boolean addTransaction(TransactionModel tm){
 		try{
 			con=DBConnection.getConnection();
-			String query="insert into transactiontbl (Id, refNo, transactionType, valueDate,bookingDate,debitAccountNumber,debitCurrency,debitNarrative,creditAccountNumber,"
-					+ "creditCurrency,creditNarative,amount,commissionCode,commissionType,commissionAmount,chequeNumber,processingDate,Override,recordStatus,branchCode,inputter)"
-					+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now(),?,?,?,?)";
+			String query="insert into transactiontbl (Id, refNo, transactionType, valueDate, bookingDate,debitAccountNumber,debitCurrency,debitNarrative,creditAccountNumber, creditCurrency,creditNarative,amount,commissionCode,commissionType,commissionAmount,chequeNumber,Override,recordStatus,branchCode,inputter,authorizer,processingDate) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
 			ps=con.prepareStatement(query);
 			ps.setString(1,tm.getId() );
 			ps.setString(2,tm.getRefNo() );
@@ -59,6 +57,7 @@ public class TransactionDaoImpl implements TransactionDao{
 			ps.setString(18, tm.getRecordStatus());
 			ps.setString(19, tm.getBranchCode());
 			ps.setString(20, tm.getInputter());
+			ps.setString(21, tm.getAuthorizer());
 			System.out.println("Status:"+query);
 			int i=ps.executeUpdate();
 			if(i>0){

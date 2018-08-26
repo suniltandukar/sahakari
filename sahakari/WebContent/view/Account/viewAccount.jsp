@@ -43,7 +43,7 @@ display:none;}
 						<tr>
 							<th>Member Id</th>
 							<th>Account Number</th>
-							<th>Account Type</th>
+							<th>Account Category</th>
 							<th>Account Name</th>
 							<th>Balance</th>
 							 <th>Alternative Account</th> 
@@ -55,7 +55,7 @@ display:none;}
 							<tr>
 								<td>${list.pid }</td>
 								<td>${list.accountNumber }</td>
-								<td>${list.accountType }</td>
+								<td>${list.categoryId }</td>
 								<td>${list.accountName }</td>
 								<td>${list.openingBal }</td>
 								<td>${list.alternativeAccounId }</td> 

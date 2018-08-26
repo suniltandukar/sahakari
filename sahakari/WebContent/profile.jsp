@@ -404,7 +404,7 @@ display:block;}
 						</a> <a data-toggle="tooltip" data-placement="top" title="Lock"> <i
 							class="fa fa-eye-slash" aria-hidden="true" style="color:white"></i>
 						</a> <a data-toggle="tooltip" data-placement="top" title="Logout"
-							href="logout.log"> <i class="fa fa-sign-out"
+							href="logout.log" id="logout"> <i class="fa fa-sign-out"
 							aria-hidden="true" style="color:white"></i>
 						</a>
 					</div>

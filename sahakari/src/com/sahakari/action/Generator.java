@@ -69,7 +69,7 @@ public class Generator {
 		String yr=yy.format(currentDate);
 		
 		try{
-			String query="select * from transactiontbl where Id LIKE '%TT"+yr+month+day+"%' order by Id DESC;";
+			String query="select * from transactiontbl where Id LIKE '%FT"+yr+month+day+"%' order by Id DESC;";
 			ps=con.prepareStatement(query);
 			 rs=ps.executeQuery();
 			
@@ -309,6 +309,41 @@ public class Generator {
 			System.out.println("get tellertransaction id error"+e);
 		}
 		return shareCertNo;
+	}
+	
+	public String accountGenerator(String branchid,String companyId,String categoryid) {
+		con=DBConnection.getConnection();
+		 String finalAccountNumber = "";
+		
+		try{
+			String query="select max(accountNumber) as maxAccountNumber from accountstbl where accountNumber LIKE 'FIN"+companyId+branchid+categoryid+"%'";
+			ps=con.prepareStatement(query);
+			 rs=ps.executeQuery();
+		
+				String maxAccountNumber = "";
+				while(rs.next()){
+					maxAccountNumber = rs.getString("maxAccountNumber");
+				}
+				if(maxAccountNumber==null || maxAccountNumber.isEmpty())
+				{
+					
+					finalAccountNumber= "FIN"+companyId+branchid+categoryid+"0001";
+				}
+			
+			else{
+				String lastDigit = maxAccountNumber.substring(13,17);
+				
+				int lastDigitInc = Integer.parseInt(lastDigit)+1;
+				String finalDigits = String.format("%04d", lastDigitInc);
+			
+				finalAccountNumber = "FIN"+companyId+branchid+categoryid+finalDigits;
+			}
+			con.close();
+		}
+		catch(Exception e){
+			System.out.println("Generator > accountGenerator error "+e);
+		}
+		return finalAccountNumber;
 	}
 	
 }

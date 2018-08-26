@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%if ((session.getAttribute("userDetail")) == null) { %>
+<%if ((session.getAttribute("userDetail")) == null) { 
+System.out.println("userdetail is"+session.getAttribute("userDetail"));%>
 <html>
 	<head><title>Sahakari Login</title>
 	<link rel="stylesheet" href="template/css/font-awesome.min.css">

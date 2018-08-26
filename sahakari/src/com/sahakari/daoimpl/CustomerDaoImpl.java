@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import com.mysql.jdbc.Connection;
 import com.sahakari.dao.CustomerDao;
 import com.sahakari.dbconnection.DBConnection;
@@ -613,7 +614,8 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 	public String acccountnogen(String memberid)
 	{
-		String query="select max(accountNumber)+1 as accountNumber from accountstbl where pid='"+memberid+"'";
+		String strI = String.format("%07d", Integer.parseInt(memberid));
+		String query="select max(accountNumber)+1 as accountNumber from accountstbl where pid='"+strI+"'";
 		con=DBConnection.getConnection();
 		try {
 			ps=con.prepareStatement(query);

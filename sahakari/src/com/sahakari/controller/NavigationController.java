@@ -169,7 +169,7 @@ request.setAttribute("categories", categories);
 
 			String custid = gen.customeridGenerator();
 			if (custid == null) {
-				request.setAttribute("pid", "00000001");
+				request.setAttribute("pid", "0000001");
 			} else {
 				String strI = String.format("%07d", Integer.parseInt(custid));
 				request.setAttribute("pid", strI);
@@ -873,6 +873,15 @@ request.setAttribute("categories", categories);
 			}
 			out.println(jobj);
 
+			break;
+			
+		case "accountgen.click":
+			String companyid = "01";
+			branchid = (String) session.getAttribute("currentBranchcode");
+			String category = request.getParameter("categoryid");
+			
+			String generated_ac_no = gen.accountGenerator(branchid, companyid, category);
+			out.println(generated_ac_no);
 			break;
 
 		default:

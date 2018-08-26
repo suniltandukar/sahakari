@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.1.0.final using JasperReports Library version 6.1.0  -->
-<!-- 2018-08-07T07:35:57 -->
+<!-- 2018-08-26T05:31:06 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="test" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d84ae2e0-146d-4a57-8094-f1af46cda0ae">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (5)"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (4)"/>
 	<queryString>
-		<![CDATA[ select * from coop_dat.customertbl ]]>
+		<![CDATA[select * from coop_dat.customertbl]]>
 	</queryString>
 	<field name="pid" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -133,7 +133,7 @@
 				<textFieldExpression><![CDATA[$F{pid}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="191" y="3" width="220" height="18" uuid="f35f5b2c-9bf3-49a8-8001-158468c9d053"/>
+				<reportElement x="200" y="3" width="211" height="18" uuid="f35f5b2c-9bf3-49a8-8001-158468c9d053"/>
 				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
 			</textField>
 		</band>

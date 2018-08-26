@@ -58,7 +58,7 @@ font-weight: bold;
 							<tr>
 									<td>
 										<h5>Account No</h5> <input type="text"
-									class="form-control" name="accountNumber" value="" >
+									class="form-control" name="accountNumber" value="" id="accountNumber" >
 									
 										<input type="text" name="appl" id="appl" value="${appl }" hidden>
 									</td>
@@ -70,7 +70,7 @@ font-weight: bold;
 							<tr>
 								 <td>
 									<h5>Category</h5> <select class="form-control categoryid black_color"
-									name="categoryId">
+									name="categoryId" id="categoryid">
 										<option value="">Select Category</option>
 										<c:forEach items="${categorylist }" var="c">
 										<option value="${c.categoryId }">${c.categoryId }-${c.categoryHead }</option>
@@ -123,13 +123,21 @@ font-weight: bold;
 	  
 </script>
 <script>
-  $.validate({
-    lang: 'en',
-    modules : 'date,toggleDisabled',
-	  disabledFormFilter : 'form.toggle-disabled',
-	 showErrorDialogs : false
-
-    });
+  $('#categoryid').change(function(){
+	  var id=$(this).val();
+	  var dataString = 'categoryid='+ id;
+	  $.ajax
+	     ({
+	     type: "POST",
+	     url: "accountgen.click",
+	     data: dataString,
+	     cache: false,
+	     success: function(html)
+	     {
+	     $("#accountNumber").val(html);
+	     } 
+	     });
+  });
 </script>
 </body>
 </html>

@@ -21,7 +21,7 @@ public class TransactionAction {
 			HttpServletResponse response) {
 		String Id, refNo, transactionType, valueDate,bookingDate,debitAccountNumber,debitCurrency,debitNarrative,creditAccountNumber,
 		creditCurrency,creditNarative,amount,commissionCode,commissionType,commissionAmount,chequeNumber,processingDate,Override,
-		recordStatus,branchCode,inputter;
+		recordStatus,branchCode,inputter,authorizer;
 
 		TransactionModel tm=new TransactionModel();
 		Id=request.getParameter("Id");
@@ -48,29 +48,28 @@ public class TransactionAction {
 		UserModel userDetail=(UserModel)session.getAttribute("userDetail");
 		
 		inputter=userDetail.getUsername();
-		
-		tm.setAmount(amount);
-		tm.setBookingDate(bookingDate);
-		tm.setBranchCode(branchCode);
-		tm.setChequeNumber(chequeNumber);
-		tm.setChequeNumber(chequeNumber);
-		tm.setCommissionAmount(commissionAmount);
-		tm.setCommissionCode(commissionCode);
-		tm.setCommissionType(commissionType);
-		tm.setCreditAccountNumber(creditAccountNumber);
-		tm.setCreditCurrency(creditCurrency);
-		tm.setCreditNarative(creditNarative);
-		tm.setDebitAccountNumber(debitAccountNumber);
-		tm.setDebitCurrency(debitCurrency);
-		tm.setDebitNarrative(debitNarrative);
+		authorizer=userDetail.getUsername();
 		tm.setId(Id);
-		tm.setInputter(inputter);
-		tm.setOverride(Override);
-		tm.setRecordStatus(recordStatus);
 		tm.setRefNo(refNo);
 		tm.setTransactionType(transactionType);
 		tm.setValueDate(valueDate);
-		
+		tm.setBookingDate(bookingDate);
+		tm.setDebitAccountNumber(debitAccountNumber);
+		tm.setDebitCurrency(debitCurrency);
+		tm.setDebitNarrative(debitNarrative);
+		tm.setCreditAccountNumber(creditAccountNumber);
+		tm.setCreditCurrency(creditCurrency);
+		tm.setCreditNarative(creditNarative);
+		tm.setAmount(amount);
+		tm.setCommissionCode(commissionCode);
+		tm.setCommissionType(commissionType);
+		tm.setCommissionAmount(commissionAmount);
+		tm.setChequeNumber(chequeNumber);
+		tm.setOverride(Override);
+		tm.setRecordStatus(recordStatus);		
+		tm.setBranchCode(branchCode);		
+		tm.setInputter(inputter);	
+		tm.setAuthorizer(authorizer);
 		TransactionDao td=new TransactionDaoImpl();
 		boolean status=td.addTransaction(tm);
 		if(status){

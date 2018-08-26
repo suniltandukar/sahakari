@@ -1,7 +1,7 @@
 package com.sahakari.model;
 
 public class TransactionModel {
-	String Id, refNo, transactionType, valueDate,bookingDate,debitAccountNumber,debitCurrency,debitNarrative,creditAccountNumber,creditCurrency,creditNarative,amount,commissionCode,commissionType,commissionAmount,chequeNumber,processingDate,Override,recordStatus,branchCode,inputter;
+	String Id, refNo, transactionType, valueDate,bookingDate,debitAccountNumber,debitCurrency,debitNarrative,creditAccountNumber,creditCurrency,creditNarative,amount,commissionCode,commissionType,commissionAmount,chequeNumber,processingDate,Override,recordStatus,branchCode,inputter,authorizer;
 
 	public String getId() {
 		return Id;
@@ -170,4 +170,13 @@ public class TransactionModel {
 	public void setInputter(String inputter) {
 		this.inputter = inputter;
 	}
+
+	public String getAuthorizer() {
+		return authorizer;
+	}
+
+	public void setAuthorizer(String authorizer) {
+		this.authorizer = authorizer;
+	}
+	
 }

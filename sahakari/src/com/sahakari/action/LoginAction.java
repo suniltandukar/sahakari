@@ -90,28 +90,14 @@ public class LoginAction extends HttpServlet {
 	public void userlogout(HttpServletRequest request,
 			HttpServletResponse response) {
 		HttpSession session=request.getSession();
-		UserModel u=(UserModel)session.getAttribute("userDetail");
-		LoginDao l=new LoginDaoImpl();
-		int curStatusValue=0;
-		//boolean curStatus=l.setCurStatus(u,curStatusValue);
-		RequestDispatcher rd=null;
-		//if(curStatus){
-			//System.out.println("curStatus set to 0");
 		session.invalidate();
-		 rd=request.getRequestDispatcher("index.jsp");
-		/*}
-		else{
-			System.out.println("curStatus cannnot be set to 0");
-			request.setAttribute("msg", "Logout Failed! Please try Again!");
-			 rd=request.getRequestDispatcher("profile.jsp");
-		}
+		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 		try {
-			rd.forward(request,response);
+			request.setAttribute("msg", "System Logged out!");
+			rd.forward(request, response);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
-		}*/
-		
-		
+		}
 	}
 
 }

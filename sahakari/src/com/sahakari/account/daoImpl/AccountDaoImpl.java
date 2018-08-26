@@ -125,6 +125,7 @@ public class AccountDaoImpl implements AccountDao{
 		}		return false;
 	}
 	public List<AccountModel> viewAccount(){
+
 		String query="select * from accountstbl";
 		List<AccountModel> list=new ArrayList<AccountModel>();
 		AccountModel am=null;
@@ -141,6 +142,9 @@ public class AccountDaoImpl implements AccountDao{
 				am.setAccountType(rs.getString("accountType"));
 				am.setAccountName(rs.getString("accountName"));
 				am.setLimitRef(rs.getString("limitRef"));
+				am.setCategoryId(rs.getString("categoryId"));
+				
+				
 				list.add(am);
 			}
 			if(list.size()>0){
