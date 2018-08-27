@@ -98,7 +98,7 @@ font-weight: bold;
 					</div>
 					<div class="form-group" id="cashDeposit">
 						<label class="control-label col-md-4 col-sm-4 col-xs-12">
-							Account Type</label>
+							Account Category</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<select class="form-control categoryid black_color"
 									name="categoryId" id="categories" required>

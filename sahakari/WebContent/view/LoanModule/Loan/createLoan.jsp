@@ -258,7 +258,7 @@ caption {
 											Amount</label>
 										<div class="col-md-3 col-sm-3 col-xs-12">
 											<input type="text" class="form-control " placeholder=""
-												value="" name="chargeAmount">
+												value="0" name="chargeAmount">
 										</div>
 									</div>
 									<div class="form-group">

@@ -132,14 +132,15 @@ display:block;}
 														New member Account</a></li>
 												<!-- 	<li><a href="pageNotFound.jsp" target="iframe_a">Open New
 														Shareholder Account</a> -->
-												<li id="v"><a href="viewaccount.click" target="iframe_a">Amendment
-														of member Account</a></li>
-												<li id="i"><a href="insertfinancialaccount.click"
+														<li id="i"><a href="insertfinancialaccount.click"
 													target="iframe_a">Open Financial Account</a>
-												<li id="v"><a href="pageNotFound.jsp" target="iframe_a">Amendment of
+												<li id="v"><a href="viewaccount.click" target="iframe_a">Amendment
+														of Account</a></li>
+												
+												<!-- <li id="v"><a href="pageNotFound.jsp" target="iframe_a">Amendment of
 														Financial Account</a></li>
 												<li id="a"><a href="pageNotFound.jsp" target="iframe_a">Authorization of
-														Account</a>
+														Account</a> -->
 												<li id="i"><a href="pageNotFound.jsp" target="iframe_a">Account
 														maintenance</a></li>
 												<li id="i"><a href="pageNotFound.jsp" target="iframe_a">Account Closure</a></li>

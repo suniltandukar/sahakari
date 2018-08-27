@@ -30,8 +30,13 @@ public class AccountAction {
 		strappl=request.getParameter("appl");
 		
 		String strI=request.getParameter("pid");
-		System.out.println("APP :"+strappl);
-		pid = String.format("%07d", Integer.parseInt(strI));
+		if(strI.equals("")){
+			pid="";
+		}
+		else{
+			pid = String.format("%07d", Integer.parseInt(strI));
+		}
+		
 		
 		/*pid=request.getParameter("pid");*/
 		
@@ -43,6 +48,7 @@ public class AccountAction {
 		limitRef=request.getParameter("limitRef");
 		AccountModel am=new AccountModel();
 		am.setPid(pid);
+		
 		am.setAccountNumber(accountNumber);
 		am.setAlternativeAccounId(alternativeAccounId);
 		am.setCategoryId(categoryId);
