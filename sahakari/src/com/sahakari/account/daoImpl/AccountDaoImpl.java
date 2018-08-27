@@ -2,6 +2,7 @@ package com.sahakari.account.daoImpl;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -221,5 +222,29 @@ public class AccountDaoImpl implements AccountDao{
 			}
 		}catch(Exception e){System.out.println(e);}
 		return false;
+	}
+	@Override
+	public boolean checkAccount(String accountNumber) {
+		String query = "select accountNumber from accountstbl where accountNumber=?";
+		con=DBConnection.getConnection();
+		
+		try {
+			ps = con.prepareStatement(query);
+			ps.setString(1, accountNumber);
+			rs=ps.executeQuery();
+			
+			ResultSet i = ps.executeQuery();
+			if(i.next()) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	
+		
 	}
 }

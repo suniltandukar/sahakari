@@ -86,6 +86,7 @@ display:block;}
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 										<li id="nav1"><a href="view/dashboard.jsp" target="iframe_a">Dashboard</a></li>
+										<li id="nav1"><a href="statement.click" target="iframe_a">Statement</a></li>
 										
 									</ul></li>
 								<li id="member"><a><i class="fa fa-users" aria-hidden="true"></i> सदस्य दर्ता  Member(With KYM)

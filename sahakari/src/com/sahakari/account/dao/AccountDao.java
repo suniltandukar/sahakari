@@ -21,6 +21,8 @@ public interface AccountDao {
 
 	public boolean updateAccount(AccountModel am);
 	
+	public boolean checkAccount(String accountNumber);
+	
 	
 	
 

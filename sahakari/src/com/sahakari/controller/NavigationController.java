@@ -1,17 +1,15 @@
 package com.sahakari.controller;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -82,10 +80,10 @@ public class NavigationController extends HttpServlet {
 
 		String uri = request.getRequestURI();
 		uri = uri.substring(uri.lastIndexOf("/") + 1, uri.length());
-		
-		//variable initialization
-		List<CategoryModel> accounttype =null;
-		List<CustomerModel> docType=null;
+
+		// variable initialization
+		List<CategoryModel> accounttype = null;
+		List<CustomerModel> docType = null;
 
 		// Dao Implementation
 		CategoryDao c = new CategoryDaoImpl();
@@ -115,22 +113,19 @@ public class NavigationController extends HttpServlet {
 		UserModel userDetail = (UserModel) session.getAttribute("userDetail");
 
 		switch (uri) {
-		
+
 		case "category.click":
-			 accounttype = c.accounttype();
+			accounttype = c.accounttype();
 			request.setAttribute("accounttype", accounttype);
-List<CategoryModel> categories = c.getCategories();
-request.setAttribute("categories", categories);
+			List<CategoryModel> categories = c.getCategories();
+			request.setAttribute("categories", categories);
 			rd = request.getRequestDispatcher("view/categories/insertCategory.jsp");
 			rd.forward(request, response);
 			break;
-			
-			
-			
 
 		case "updateCategory.click":
 			id = request.getParameter("id");
-			System.out.println("category id is"+id);
+			System.out.println("category id is" + id);
 			CategoryModel cm = c.getSpecificCategoryDetail(id);
 			request.setAttribute("categorydetail", cm);
 
@@ -176,7 +171,6 @@ request.setAttribute("categories", categories);
 			}
 
 			List<FamilyRelationModel> familyrelationlist = g.getfamilyRelationNames();
-			
 
 			request.setAttribute("docType", docType);
 
@@ -264,7 +258,7 @@ request.setAttribute("categories", categories);
 			break;
 
 		case "sharecertificateinsert.click":
-			String param="left(categoryId,3) in(141) and accountType='ACC'";
+			String param = "left(categoryId,3) in(141) and accountType='ACC'";
 			List<AccountModel> categorylist = a.getCategories(param);
 			request.setAttribute("categorylist", categorylist);
 
@@ -322,8 +316,8 @@ request.setAttribute("categories", categories);
 			break;
 
 		case "insertfinancialaccount.click":
-			
-			String param3="accountType='FIN'";
+
+			String param3 = "accountType='FIN'";
 			categorylist = a.getCategories(param3);
 			request.setAttribute("categorylist", categorylist);
 			request.setAttribute("appl", "fin");
@@ -332,7 +326,7 @@ request.setAttribute("categories", categories);
 			break;
 
 		case "insertaccount.click":
-			String param2="left(categoryId,3) in(111,112,141) and accountType='ACC'";
+			String param2 = "left(categoryId,3) in(111,112,141) and accountType='ACC'";
 			categorylist = a.getCategories(param2);
 			request.setAttribute("categorylist", categorylist);
 			request.setAttribute("readonly", "readonly");
@@ -342,7 +336,7 @@ request.setAttribute("categories", categories);
 			break;
 
 		case "viewaccount.click":
-			
+
 			categorylist = a.viewAccount();
 			request.setAttribute("accountlist", categorylist);
 			rd = request.getRequestDispatcher("view/Account/viewAccount.jsp");
@@ -444,10 +438,10 @@ request.setAttribute("categories", categories);
 		case "editteller.click":
 			id = request.getParameter("id");
 			request.setAttribute("id", id);
-			
-			List<CategoryModel> categoryid=c.getCategories();
+
+			List<CategoryModel> categoryid = c.getCategories();
 			request.setAttribute("catlist", categoryid);
-			TellerModel telmodel=otherActionDao.getTellerDetails(id);
+			TellerModel telmodel = otherActionDao.getTellerDetails(id);
 			request.setAttribute("tm", telmodel);
 			rd = request.getRequestDispatcher("view/editTel.jsp");
 			rd.forward(request, response);
@@ -510,12 +504,12 @@ request.setAttribute("categories", categories);
 		case "generateaccountno.click":
 			String generatedAccountNo = "";
 			CustomerDao cust = new CustomerDaoImpl();
-			
+
 			int imemberid = Integer.parseInt(request.getParameter("memberid"));
 			String memberid = String.format("%07d", imemberid);
-			
+
 			boolean memberidCheck = cust.checkMemberId(memberid);
-		
+
 			if (memberidCheck) {
 				// setting companyid
 				String companyid = "01";
@@ -525,9 +519,9 @@ request.setAttribute("categories", categories);
 				String strI = String.format("%07d", Integer.parseInt(memberid));
 				// setting last account number
 				System.out.println(strI);
-				
+
 				String maxaccountno = cust.acccountnogen(memberid);
-				System.out.println(maxaccountno+"maxaccountno");
+				System.out.println(maxaccountno + "maxaccountno");
 				if (maxaccountno == null) {// if member in accounts table not
 											// found
 					generatedAccountNo = companyid + branchid + strI + "001";// autogenerated
@@ -536,14 +530,14 @@ request.setAttribute("categories", categories);
 				} else {
 
 					String accountNo = StringUtils.right(maxaccountno, 3);
-					System.out.println(accountNo+"accountNo");// taking
-																			// last
-																			// three
-																			// digits
-																			// from
-																			// max
-																			// account
-																			// number+1
+					System.out.println(accountNo + "accountNo");// taking
+																// last
+																// three
+																// digits
+																// from
+																// max
+																// account
+																// number+1
 					// generated account number
 					generatedAccountNo = companyid + branchid + strI + accountNo;
 
@@ -566,8 +560,6 @@ request.setAttribute("categories", categories);
 			rd = request.getRequestDispatcher("view/Customer/document/view.jsp");
 			rd.forward(request, response);
 			break;
-
-		
 
 		case "branchselect.click":
 
@@ -597,9 +589,9 @@ request.setAttribute("categories", categories);
 			break;
 		case "getmembername.click":
 			int intpid = Integer.parseInt(request.getParameter("id"));
-			
+
 			String pid = String.format("%07d", intpid);
-			
+
 			v = new ViewDaoImpl();
 			cus = v.viewSpecificCustomerDetail(pid);
 			out.println(cus.getName());
@@ -620,21 +612,20 @@ request.setAttribute("categories", categories);
 			break;
 
 		case "createnewloan.click":
-			String paramloan1="left(categoryId,2) in(25) and accountType='LNA'";
+			String paramloan1 = "left(categoryId,2) in(25) and accountType='LNA'";
 			categorylist = a.getCategories(paramloan1);
 			request.setAttribute("categorylist", categorylist);
-			request.setAttribute("readonly","");
+			request.setAttribute("readonly", "");
 			request.setAttribute("appl", "ln");
 			rd = request.getRequestDispatcher("view/Account/insertAccount.jsp");
 			rd.forward(request, response);
-		
-		
+
 		case "createLoan.click":
 				String paramloan="left(categoryId,2) in(25) and accountType='LNA'";
+
 			List<AccountModel> categ = a.getCategories(paramloan);
-			request.setAttribute("categorylist", categ);	
-			
-			
+			request.setAttribute("categorylist", categ);
+
 			rd = request.getRequestDispatcher("view/LoanModule/Loan/createLoan.jsp");
 			rd.forward(request, response);
 			break;
@@ -665,26 +656,21 @@ request.setAttribute("categories", categories);
 			/*
 			 * File file=new File(
 			 * "C:/Users/Sunil/git/sahakari/sahakari/WebContent/view/Customer/category.json"
-			 * ); file.createNewFile(); FileWriter fileWriter = new
-			 * FileWriter(file);
+			 * ); file.createNewFile(); FileWriter fileWriter = new FileWriter(file);
 			 * System.out.println("Writing JSON object to file");
-			 * System.out.println("-----------------------");
-			 * System.out.print(o);
+			 * System.out.println("-----------------------"); System.out.print(o);
 			 * 
-			 * fileWriter.write(o.toString()); fileWriter.flush();
-			 * fileWriter.close();
+			 * fileWriter.write(o.toString()); fileWriter.flush(); fileWriter.close();
 			 */
 
 			/*
-			 * JSONObject obj = new JSONObject(); JSONArray jsonArray=new
-			 * JSONArray();
+			 * JSONObject obj = new JSONObject(); JSONArray jsonArray=new JSONArray();
 			 * 
-			 * try { obj.put("firstname", "shishir"); obj.put("lastname",
-			 * "karki"); jsonArray.put(obj); String jsonText = obj.toString();
+			 * try { obj.put("firstname", "shishir"); obj.put("lastname", "karki");
+			 * jsonArray.put(obj); String jsonText = obj.toString();
 			 * System.out.println(jsonArray);
 			 * 
-			 * out.println(jsonText); } catch (JSONException e) {
-			 * e.printStackTrace(); }
+			 * out.println(jsonText); } catch (JSONException e) { e.printStackTrace(); }
 			 */
 
 			break;
@@ -746,21 +732,21 @@ request.setAttribute("categories", categories);
 			rd.forward(request, response);
 			break;
 		case "newtel.click":
-			
-			List<CategoryModel> catid=c.getCategories();
+
+			List<CategoryModel> catid = c.getCategories();
 			request.setAttribute("catlist", catid);
 			rd = request.getRequestDispatcher("view/teller.jsp");
 			rd.forward(request, response);
 			break;
-			
+
 		case "generateTellerId.click":
 			UserModel usermodel = (UserModel) session.getAttribute("userDetail");
-			String cid=request.getParameter("categoryId");
-			System.out.println(cid+"cid");
+			String cid = request.getParameter("categoryId");
+			System.out.println(cid + "cid");
 			tellerid = gen.newTelleridgenerator(usermodel.getBranchCode(), usermodel.getCompanyId(), cid);
 			out.print(tellerid);
 			break;
-			
+
 		case "viewTel.click":
 			OtherActionDAO dao = new OtherActionDaoImpl();
 			List<TellerModel> tellerModelList = dao.viewTeller();
@@ -793,7 +779,7 @@ request.setAttribute("categories", categories);
 
 		case "generateShareCertificateId.click":
 
-			/*System.out.println("reached");*/
+			/* System.out.println("reached"); */
 			memberid = request.getParameter("memberid");
 
 			status = customerDao.checkMemberId(memberid);
@@ -805,7 +791,7 @@ request.setAttribute("categories", categories);
 				id = gen.ShareCertificateIdGenerator(branchid, companyId, memberid);
 
 				cus = v.viewSpecificCustomerDetail(memberid);
-				 membername = cus.getName();
+				membername = cus.getName();
 				String memaddress = cus.getAddress();
 
 				out.println(membername + "*" + id + "*" + memaddress);
@@ -832,7 +818,7 @@ request.setAttribute("categories", categories);
 			break;
 
 		case "shareAccountLedgerDisplay.click":
-			 pid = request.getParameter("pid");
+			pid = request.getParameter("pid");
 			transactionDao = new TransactionDaoImpl();
 			ShareAccountLedger shareAccountLedgerModel = transactionDao.editShareAcDisplay(pid);
 
@@ -870,14 +856,56 @@ request.setAttribute("categories", categories);
 			out.println(jobj);
 
 			break;
-			
+
 		case "accountgen.click":
 			String companyid = "01";
 			branchid = (String) session.getAttribute("currentBranchcode");
 			String category = request.getParameter("categoryid");
-			
+
 			String generated_ac_no = gen.accountGenerator(branchid, companyid, category);
 			out.println(generated_ac_no);
+			break;
+
+		case "statement.click":
+			rd = request.getRequestDispatcher("view/reports/statement/search.jsp");
+			rd.forward(request, response);
+			break;
+		case "generateStatement.click":
+			String acno = request.getParameter("accountNumber");
+			String datefrom = request.getParameter("datefrom");
+			String dateto = request.getParameter("dateto");
+			boolean accheck = a.checkAccount(acno);
+			if (accheck) {
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				try {
+
+					if (datefrom == null || datefrom.isEmpty() || dateto.isEmpty() || dateto == null) {
+						request.setAttribute("msg", "Please Insert Valid Date!");
+						rd = request.getRequestDispatcher("view/reports/statement/search.jsp");
+					} else {
+						Date date1 = sdf.parse(datefrom);
+						Date date2 = sdf.parse(dateto);
+						if (date1.before(date2)) {
+							String urlsend = "http://localhost:8080/api/statement/findByAccountNo?accountNumber=010010000001001&datefrom="+datefrom+"&dateto="+dateto;
+							System.out.println(urlsend);
+							request.setAttribute("url", urlsend);
+							rd = request.getRequestDispatcher("view/reports/statement/statement.jsp");
+						} else {
+							request.setAttribute("msg", "Please Insert Valid Date!");
+							rd = request.getRequestDispatcher("view/reports/statement/search.jsp");
+						}
+					}
+				} catch (Exception e) {
+					System.out.println(e);
+					request.setAttribute("msg", "Exception Found!");
+					rd = request.getRequestDispatcher("view/reports/statement/search.jsp");
+				}
+			} else {
+				request.setAttribute("msg", "Account Number not found!");
+				rd = request.getRequestDispatcher("view/reports/statement/search.jsp");
+			}
+			rd.forward(request, response);
+
 			break;
 
 		default:

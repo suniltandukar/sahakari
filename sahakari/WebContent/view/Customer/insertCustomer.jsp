@@ -159,13 +159,13 @@ font-weight: bold;
 										<tr>
 
 											<td>
-												<h5>Date of birth (B.S.)</h5> <input type="text"
+												<h5>Date of birth (B.S.)</h5> <input type="text" id="dob"
 												class="form-control dob" name="dobNp" value=""
 												data-validation="birthdate" data-validation-error-msg=" "
 												data-validation-optional="true" onblur="nepaliToEnglish('.dob','.doben')">
 											</td>
 											<td>
-												<h5>Date of birth (A.D.)</h5> <input type="text"
+												<h5>Date of birth (A.D.)</h5> <input type="text" id="doben"
 												class="form-control doben" name="dob" value=""
 												data-validation="birthdate" data-validation-error-msg=" "
 												data-validation-optional="true" onblur="englishToNepali('.dob','.doben')">
@@ -535,7 +535,6 @@ $(".addbankbtn").on("click",function() {
 					$(".bankdetailtable").find("#bankrow").clone().removeAttr("id").find("input").val("").end());
 		});
 	</script>
-
-
+	
 </body>
 </html>

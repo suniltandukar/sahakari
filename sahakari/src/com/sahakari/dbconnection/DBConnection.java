@@ -17,7 +17,7 @@ public class DBConnection {
     public static Connection getConnection(){
         try{
             con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/coop_dat","root","");//javproject name of database
-        
+           // yeSUnDM7jdrkmfpH
            /* con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/coop_dat","coop_user","user@coop");*/        
 
         }
