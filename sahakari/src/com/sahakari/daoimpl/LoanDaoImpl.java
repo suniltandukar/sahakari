@@ -3,11 +3,14 @@ package com.sahakari.daoimpl;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.mysql.jdbc.Connection;
 import com.sahakari.dao.LoanDao;
 import com.sahakari.dbconnection.DBConnection;
 import com.sahakari.model.AccountModel;
+import com.sahakari.model.EmiSchedule;
 
 public class LoanDaoImpl implements LoanDao{
 	Connection con=null;
@@ -16,7 +19,7 @@ public class LoanDaoImpl implements LoanDao{
 	
 	public boolean insertLoan(AccountModel am){
 		try{
-			String query="update accountstbl set interestType=?,interestRate=?,principalAmount=?,startDateNP=?,startDateEn=?,maturityDateNP=?,maturityDateEn=?,repaymentStartDateNp=?,repaymentStartDateEn=?,repaymentFrequency=?,loanDrawdownAc=?,chargeDebitAc=?,chargeAmount=?,chargePaymentDate=?,interestLiqAccount=? where accountNumber=?";
+			String query="update accountstbl set interestType=?,interestRate=?,principalAmount=?,startDateNP=?,startDateEn=?,maturityDateNP=?,maturityDateEn=?,repaymentStartDateNp=?,repaymentStartDateEn=?,repaymentFrequency=?,loanDrawdownAc=?,chargeDebitAc=?,chargeAmount=?,chargePaymentDate=?,interestLiqAccount=?,principalLiqAccount=? where accountNumber=?";
 			con=DBConnection.getConnection();
 			ps=con.prepareStatement(query);
 			ps.setString(1,am.getInterestType() );
@@ -34,7 +37,9 @@ public class LoanDaoImpl implements LoanDao{
 			ps.setString(13,am.getChargeAmount() );
 			ps.setString(14,am.getChargePaymentDate() );
 			ps.setString(15,am.getInterestLiqAccount() );
-			ps.setString(16, am.getAccountNumber());
+			ps.setString(16, am.getPrincipalLiqAccount());
+			ps.setString(17, am.getAccountNumber());
+			System.out.println(query);
 			int i=ps.executeUpdate();
 			if(i>0){
 				return true;
@@ -128,6 +133,32 @@ public class LoanDaoImpl implements LoanDao{
 		System.out.println(e);
 	}
 	return false;
+	}
+	@Override
+	public List<EmiSchedule> getEmiSchedule() {
+		List<EmiSchedule> list = new ArrayList<EmiSchedule>();
+		EmiSchedule e = null;
+		
+		String query = "select * from emischedule";
+		con=DBConnection.getConnection();
+		try {
+			ps= con.prepareStatement(query);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				e = new EmiSchedule();
+				e.setAccountNumber(rs.getString("accountNumber"));
+				e.setEmi(rs.getString("emi"));
+				e.setInterestinstallment(rs.getString("interestinstallment"));
+				e.setPrincipalbal(rs.getString("principalbal"));
+				e.setPrincipalinstallment(rs.getString("principalinstallment"));
+				e.setSno(rs.getString("sno"));
+				list.add(e);
+			}
+		} catch (SQLException se) {
+			System.out.println(se);
+			se.printStackTrace();
+		}
+		return list;
 	}
 
 }

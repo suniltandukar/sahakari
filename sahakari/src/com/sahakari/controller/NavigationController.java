@@ -886,7 +886,7 @@ public class NavigationController extends HttpServlet {
 						Date date1 = sdf.parse(datefrom);
 						Date date2 = sdf.parse(dateto);
 						if (date1.before(date2)) {
-							String urlsend = "http://localhost:8080/api/statement/findByAccountNo?accountNumber=010010000001001&datefrom="+datefrom+"&dateto="+dateto;
+							String urlsend = "http://localhost:8080/api/statement/findByAccountNo?accountNumber="+acno+"&datefrom="+datefrom+"&dateto="+dateto;
 							System.out.println(urlsend);
 							request.setAttribute("url", urlsend);
 							rd = request.getRequestDispatcher("view/reports/statement/statement.jsp");

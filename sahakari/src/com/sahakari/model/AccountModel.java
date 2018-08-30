@@ -1,10 +1,20 @@
 package com.sahakari.model;
 
 public class AccountModel {
-	String pid, memberid, accountNumber,alternativeAccounId, accountName, limitRef, inputter, openingBal;
-	String interestType,
+	private String pid, memberid, accountNumber,alternativeAccounId, accountName, limitRef, inputter, openingBal;
+	private String interestType,
 	interestRate,principalAmount, startDateNP, startDateEn, maturityDateNP, maturityDateEn, repaymentStartDateNp, repaymentStartDateEn,
 	repaymentFrequency, loanDrawdownAc,chargeDebitAc,chargeAmount,chargePaymentDate,chargePaymentDateen,interestLiqAccount,principalLiqAccount;
+	private String memberName;
+	
+	public String getMemberName() {
+		return memberName;
+	}
+
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
+
 	public String getPrincipalLiqAccount() {
 		return principalLiqAccount;
 	}
@@ -248,6 +258,23 @@ public class AccountModel {
 
 	public void setLimitRef(String limitRef) {
 		this.limitRef = limitRef;
+	}
+
+	@Override
+	public String toString() {
+		return "AccountModel [pid=" + pid + ", memberid=" + memberid + ", accountNumber=" + accountNumber
+				+ ", alternativeAccounId=" + alternativeAccounId + ", accountName=" + accountName + ", limitRef="
+				+ limitRef + ", inputter=" + inputter + ", openingBal=" + openingBal + ", interestType=" + interestType
+				+ ", interestRate=" + interestRate + ", principalAmount=" + principalAmount + ", startDateNP="
+				+ startDateNP + ", startDateEn=" + startDateEn + ", maturityDateNP=" + maturityDateNP
+				+ ", maturityDateEn=" + maturityDateEn + ", repaymentStartDateNp=" + repaymentStartDateNp
+				+ ", repaymentStartDateEn=" + repaymentStartDateEn + ", repaymentFrequency=" + repaymentFrequency
+				+ ", loanDrawdownAc=" + loanDrawdownAc + ", chargeDebitAc=" + chargeDebitAc + ", chargeAmount="
+				+ chargeAmount + ", chargePaymentDate=" + chargePaymentDate + ", chargePaymentDateen="
+				+ chargePaymentDateen + ", interestLiqAccount=" + interestLiqAccount + ", principalLiqAccount="
+				+ principalLiqAccount + ", categoryId=" + categoryId + ", categoryHead=" + categoryHead
+				+ ", accountType=" + accountType + ", accountTypeHead=" + accountTypeHead + ", previousAccountNumber="
+				+ previousAccountNumber + "]";
 	}
 
 

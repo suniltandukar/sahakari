@@ -1,6 +1,7 @@
 package com.sahakari.action;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,14 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 import com.sahakari.dao.LoanDao;
 import com.sahakari.daoimpl.LoanDaoImpl;
 import com.sahakari.model.AccountModel;
+import com.sahakari.model.EmiSchedule;
 
 public class LoanAction {
 
 	public void addLoan(HttpServletRequest request, HttpServletResponse response) {
-
-		String customerId=request.getParameter("customerId");
+		//get form values
+		String pid=request.getParameter("memberid");
+		String memberName= request.getParameter("membername");
+		
 		String accountNumber=request.getParameter("accountNumber");
 		String interestType=request.getParameter("interestTupe");
+		System.out.println("interest type ="+interestType);
 		String interestRate=request.getParameter("interestRate");
 		String principalAmount=request.getParameter("principalAmount");
 		String startDate=request.getParameter("startDate");
@@ -44,7 +49,9 @@ public class LoanAction {
 		String balanceAmount=request.getParameter("balanceAmount");
 		
 		AccountModel ac=new AccountModel();
-		ac.setPid(customerId);
+		//setting form values
+		ac.setPid(pid);
+		ac.setMemberName(memberName);
 		ac.setAccountNumber(accountNumber);
 		ac.setInterestType(interestType);
 		ac.setInterestRate(interestRate);
@@ -56,25 +63,34 @@ public class LoanAction {
 		ac.setRepaymentStartDateNp(repaymentDate);
 		ac.setRepaymentStartDateEn(repaymentDateen);
 		ac.setLoanDrawdownAc(loanDrawdownAccount);
-		ac.setPrincipalAmount(principalAmount);
+		ac.setPrincipalLiqAccount(principalLiqAccount);
 		ac.setInterestLiqAccount(interestLiqAccount);
 		ac.setRepaymentFrequency(frequency);
 	
 		ac.setChargeDebitAc(chargeDebitAccount);
 		ac.setChargeAmount(chargeAmount);
+		//charge payment date nep is left
 		ac.setChargePaymentDate(chargePaymentDateen);
 	
 		ac.setLimitRef(limitReferenceNumber);
-		
+		System.out.println("interest type ="+ac.getInterestType());
+		//limit ref amount, max withdrawl amount, utilized amount,balance amount
+		System.out.println(ac);
+		//updating loan
 		LoanDao l=new LoanDaoImpl();
 		boolean status=l.insertLoan(ac);
+		request.setAttribute("ac", ac);
+		
+		//emi schedule
+		List<EmiSchedule> emiSchedule = l.getEmiSchedule();
+		request.setAttribute("emischedule", emiSchedule);
 		if(status){
 			request.setAttribute("msg", "Successful!");
 		}
 		else{
 			request.setAttribute("msg", "Unsuccessful!");
 		}
-		RequestDispatcher rd=request.getRequestDispatcher("createLoan.click");
+		RequestDispatcher rd=request.getRequestDispatcher("view/LoanModule/Loan/loanwithschedule.jsp");
 		try {
 			rd.forward(request, response);
 		} catch (ServletException | IOException e) {

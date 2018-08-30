@@ -101,8 +101,8 @@ caption {
 										ID</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control memberid"
-											placeholder="" value="${pid }" name="memberid" id="memberid"
-											required>
+											placeholder="" value="${ac.pid }" name="memberid"
+											id="memberid" required>
 									</div>
 
 
@@ -110,7 +110,7 @@ caption {
 										Name</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" id="membername" class="form-control"
-											name="membername" value="${accountName }" readonly>
+											name="membername" value="${ac.memberName }" readonly>
 									</div>
 								</div>
 
@@ -121,7 +121,7 @@ caption {
 										ID Number</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control accountNumber"
-											name="accountNumber" value="${accountNumber }"
+											name="accountNumber" value="${ac.accountNumber }"
 											data-validation="number" data-validation-error-msg=" "
 											required>
 									</div>
@@ -130,8 +130,8 @@ caption {
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Principal
 										Amount</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
-										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="principalAmount" required>
+										<input type="text" class="form-control"
+											placeholder="" value="${ac.principalAmount }" name="principalAmount" required>
 									</div>
 								</div>
 
@@ -143,8 +143,9 @@ caption {
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<select class="form-control black_color" id="interestType"
 											name="interestType">
-											<option value="1">Fixed</option>
-											<option value="2">Variable</option>
+											
+											<option value="1" <c:if test="${ac.interestType eq '1' }">selected</c:if>>Fixed</option>
+											<option value="2" <c:if test="${ac.interestType eq '2' }">selected</c:if>>Variable</option>
 										</select>
 									</div>
 
@@ -154,7 +155,7 @@ caption {
 											Rate</label>
 										<div class="col-md-3 col-sm-3 col-xs-12">
 											<input type="text" class="form-control" id="interestRate"
-												placeholder="" value="" name="interestRate" required>
+												placeholder="" value="${ac.interestRate }" name="interestRate" required>
 										</div>
 									</div>
 
@@ -163,14 +164,14 @@ caption {
 											Date(B.S.)</label>
 										<div class="col-md-3 col-sm-3 col-xs-12">
 											<input type="text" class="form-control startdatenep"
-												placeholder="" value="" name="startDate"
+												placeholder="" value="${ac.startDateNP }" name="startDate"
 												onblur="nepaliToEnglish('.startdatenep','.startdateen')">
 										</div>
 										<label class="control-label col-md-2 col-sm-2 col-xs-12">Start
 											Date(A.D.)</label>
 										<div class="col-md-3 col-sm-3 col-xs-12">
 											<input type="text" class="form-control startdateen"
-												placeholder="" value="" name="startdateen"
+												placeholder="" value="${ac.startDateEn }" name="startdateen"
 												onblur="englishToNepali('.startdatenep','.startdateen')">
 										</div>
 									</div>
@@ -179,14 +180,14 @@ caption {
 											Date(B.S.)</label>
 										<div class="col-md-3 col-sm-3 col-xs-12">
 											<input type="text" class="form-control maturityDatenep"
-												placeholder="" value="" name="maturityDate"
+												placeholder="" value="${ac.maturityDateNP }" name="maturityDate"
 												onblur="nepaliToEnglish('.maturityDatenep','.maturityDateen')">
 										</div>
 										<label class="control-label col-md-2 col-sm-2 col-xs-12">Maturity
 											Date(A.D.)</label>
 										<div class="col-md-3 col-sm-3 col-xs-12">
 											<input type="text" class="form-control maturityDateen"
-												placeholder="" value="" name="maturityDateen"
+												placeholder="" value="${ac.maturityDateEn }" name="maturityDateen"
 												onblur="englishToNepali('.maturityDatenep','.maturityDateen')">
 										</div>
 									</div>
@@ -195,14 +196,14 @@ caption {
 											Date(B.S)</label>
 										<div class="col-md-3 col-sm-3 col-xs-12">
 											<input type="text" class="form-control repaymentdatenep"
-												placeholder="" value="" name="repaymentDate"
+												placeholder="" value="${ac.repaymentStartDateNp }" name="repaymentDate"
 												onblur="nepaliToEnglish('.repaymentdatenep','.repaymentdateen')">
 										</div>
 										<label class="control-label col-md-2 col-sm-2 col-xs-12">Repayment
 											Date(A.D.)</label>
 										<div class="col-md-3 col-sm-3 col-xs-12">
 											<input type="text" class="form-control repaymentdateen"
-												placeholder="" value="" name="repaymentDateen"
+												placeholder="" value="${ac.repaymentStartDateEn }" name="repaymentDateen"
 												onblur="englishToNepali('.repaymentdatenep','.repaymentdateen')">
 										</div>
 									</div>
@@ -211,13 +212,13 @@ caption {
 											Drawdown Account</label>
 										<div class="col-md-3 col-sm-3 col-xs-12">
 											<input type="text" class="form-control memberid"
-												placeholder="" value="" name="loanDrawdownAccount">
+												placeholder="" value="${ac.loanDrawdownAc }" name="loanDrawdownAccount">
 										</div>
 										<label class="control-label col-md-2 col-sm-2 col-xs-12">Principal
 											Liq Account</label>
 										<div class="col-md-3 col-sm-3 col-xs-12">
 											<input type="text" class="form-control memberid"
-												placeholder="" value="" name="principalLiqAccount">
+												placeholder="" value="${ac.principalLiqAccount }" name="principalLiqAccount">
 										</div>
 									</div>
 									<div class="form-group">
@@ -225,12 +226,12 @@ caption {
 											Liq Account</label>
 										<div class="col-md-3 col-sm-3 col-xs-12">
 											<input type="text" class="form-control memberid"
-												placeholder="" value="" name="interestLiqAccount">
+												placeholder="" value="${ac.interestLiqAccount }" name="interestLiqAccount">
 										</div>
 										<label class="control-label col-md-2 col-sm-2 col-xs-12">Frequency</label>
 										<div class="col-md-3 col-sm-3 col-xs-12">
 											<input type="text" class="form-control memberid"
-												placeholder="" value="" name="frequency">
+												placeholder="" value="${ac.repaymentFrequency }" name="frequency">
 										</div>
 									</div>
 
@@ -249,16 +250,16 @@ caption {
 									<div class="chargesdiv">
 										<div class="form-group">
 											<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge
-												Debit Amount</label>
+												Debit Account</label>
 											<div class="col-md-3 col-sm-3 col-xs-12">
 												<input type="text" class="form-control " placeholder=""
-													value="" name="chargeDebitAccount">
+													value="${ac.chargeDebitAc }" name="chargeDebitAccount">
 											</div>
 											<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge
 												Amount</label>
 											<div class="col-md-3 col-sm-3 col-xs-12">
 												<input type="text" class="form-control " placeholder=""
-													value="" name="chargeAmount">
+													value="${ac.chargeAmount }" name="chargeAmount">
 											</div>
 										</div>
 										<div class="form-group">
@@ -272,7 +273,7 @@ caption {
 												Payment Date(A.D.)</label>
 											<div class="col-md-3 col-sm-3 col-xs-12">
 												<input type="text" class="form-control" placeholder=""
-													value="" name="chargeDebitAmount">
+													value="${ac.chargePaymentDate }" name="chargeDebitAmount">
 											</div>
 										</div>
 									</div>
@@ -288,7 +289,7 @@ caption {
 										Reference Number</label>
 									<div class="col-md-3 col-sm-3 col-xs-12">
 										<input type="text" class="form-control memberid"
-											placeholder="" value="" name="limitReferenceNumber">
+											placeholder="${ac.limitRef}" value="" name="limitReferenceNumber">
 									</div>
 									<label class="control-label col-md-2 col-sm-2 col-xs-12">Limit
 										Amount</label>
@@ -329,6 +330,47 @@ caption {
 			</div>
 		</div>
 
+	</div>
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="x_panel">
+			<div class="x_title">
+				<h2>LOAN SCHEDULE</h2>
+				<button id="printtable" class="btn btn-info">PRINT</button>
+				<ul class="nav navbar-right panel_toolbox">
+					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+				<table id="emitable" class="display table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>accountNumber</th>
+							<th>sno</th>
+							<th>emi</th>
+							<th>interestinstallment</th>
+							<th>principalinstallment</th>
+							<th>principalbal</th>
+						</tr>
+					</thead>
+					<tbody>
+					<c:forEach items="${emischedule }" var="e">
+						<tr>
+							<td>${e.accountNumber }</td>
+							<td>${e.sno }</td>
+							<td>${e.emi }</td>
+							<td>${e.interestinstallment }</td>
+							<td>${e.principalinstallment }</td>
+							<td>${e.principalbal }</td>
+						</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+
+
+			</div>
+		</div>
 	</div>
 
 	<script type="text/javascript" src="assets/js/autoSelection.js"></script>
@@ -402,6 +444,21 @@ caption {
 				$("#interestRate").prop('required', true);
 			}
 		})
+	</script>
+	<script>
+	function printData()
+	{
+	   var divToPrint=document.getElementById("emitable");
+	   newWin= window.open("");
+	   newWin.document.write(divToPrint.outerHTML);
+	   newWin.print();
+	   newWin.close();
+	}
+
+	$('#printtable').on('click',function(){
+	printData();
+	})
+	
 	</script>
 
 
