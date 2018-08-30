@@ -324,6 +324,96 @@ caption {
 							</div>
 
 						</div>
+<<<<<<< HEAD
+=======
+
+
+
+						<div role="tabpanel" class="tab-pane fade" id="tab_content2"
+							aria-labelledby="profile-tab">
+
+							<div class="clonediv">
+								<input type="button" name="button" value="+ Add Charge"
+									class="btn btn-primary copy">
+								<div class="chargesdiv">
+									<div class="form-group">
+										<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge
+											Debit Amount</label>
+										<div class="col-md-3 col-sm-3 col-xs-12">
+											<input type="text" class="form-control " placeholder=""
+												value="" name="chargeDebitAccount">
+										</div>
+										<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge
+											Amount</label>
+										<div class="col-md-3 col-sm-3 col-xs-12">
+											<input type="text" class="form-control " placeholder=""
+												value="0" name="chargeAmount">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge
+											Payment Date(B.S.)</label>
+										<div class="col-md-3 col-sm-3 col-xs-12">
+											<input type="text" class="form-control" placeholder=""
+												value="" name="chargePaymentDate">
+										</div>
+										<label class="control-label col-md-2 col-sm-2 col-xs-12">Charge
+											Payment Date(A.D.)</label>
+										<div class="col-md-3 col-sm-3 col-xs-12">
+											<input type="text" class="form-control" placeholder=""
+												value="" name="chargeDebitAmount">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<div role="tabpanel" class="tab-pane fade" id="tab_content3"
+							aria-labelledby="profile-tab">
+
+							<div class="form-group">
+								<label class="control-label col-md-2 col-sm-2 col-xs-12">Limit
+									Reference Number</label>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<input type="text" class="form-control memberid" placeholder=""
+										value="" name="limitReferenceNumber">
+								</div>
+								<label class="control-label col-md-2 col-sm-2 col-xs-12">Limit
+									Amount</label>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<input type="text" class="form-control memberid" placeholder=""
+										value="" name="LimitAmount">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2 col-sm-2 col-xs-12">Maximum
+									Withdrawal Amount</label>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<input type="text" class="form-control memberid" placeholder=""
+										value="" name="maximumWithdrawalAmount">
+								</div>
+								<label class="control-label col-md-2 col-sm-2 col-xs-12">Utilized
+									Amount</label>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<input type="text" class="form-control memberid" placeholder=""
+										value="" name="utilizedAmount">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-2 col-sm-2 col-xs-12">Balance
+									Amount</label>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+									<input type="text" class="form-control memberid" placeholder=""
+										value="" name="balanceAmount">
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+>>>>>>> branch 'master' of https://github.com/hackersdelima/sahakari.git
 					</div>
 				</form>
 			</div>

@@ -621,8 +621,8 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 
 		case "createLoan.click":
+				String paramloan="left(categoryId,2) in(25) and accountType='LNA'";
 
-			String paramloan = "left(categoryId,2) in(25) and accountType='LNA'";
 			List<AccountModel> categ = a.getCategories(paramloan);
 			request.setAttribute("categorylist", categ);
 

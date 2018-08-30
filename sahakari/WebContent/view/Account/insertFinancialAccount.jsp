@@ -61,6 +61,7 @@ font-weight: bold;
 									class="form-control" name="accountNumber" value="" id="accountNumber" >
 									
 										<input type="text" name="appl" id="appl" value="${appl }" hidden>
+										<input type="text" name="pid" id="pid" value="" hidden>
 									</td>
 								<td>
 									<h5>Alternative Account ID</h5> <input type="text"
