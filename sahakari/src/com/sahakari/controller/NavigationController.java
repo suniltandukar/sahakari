@@ -462,7 +462,7 @@ public class NavigationController extends HttpServlet {
 			branchid = "001";
 			String mid = gen.multitransactionidgenerator(branchid);
 			request.setAttribute("mid", mid);
-			rd = request.getRequestDispatcher("view/Transaction/MultiTransactions/insertMultiTransaction.jsp");
+			rd = request.getRequestDispatcher("view/Transaction/MultiTransactions/invoice_pre.jsp");
 			rd.forward(request, response);
 			break;
 
@@ -886,7 +886,7 @@ public class NavigationController extends HttpServlet {
 						Date date1 = sdf.parse(datefrom);
 						Date date2 = sdf.parse(dateto);
 						if (date1.before(date2)) {
-							String urlsend = "http://localhost:8080/api/statement/findByAccountNo?accountNumber="+acno+"&datefrom="+datefrom+"&dateto="+dateto;
+							String urlsend = "http://124.41.193.91/sahakariapi/statement/findByAccountNo?accountNumber="+acno+"&datefrom="+datefrom+"&dateto="+dateto;
 							System.out.println(urlsend);
 							request.setAttribute("url", urlsend);
 							rd = request.getRequestDispatcher("view/reports/statement/statement.jsp");

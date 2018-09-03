@@ -1,6 +1,6 @@
 function nepaliToEnglish(nepalidate,englishdate){
 	var date = $(nepalidate).val();
-	var url = "http://localhost:8080/api/nepalitoenglish/"+date;
+	var url = "http://124.41.193.91/dateconvapi/nepalitoenglish/"+date;
 	$.ajax({
 		url : url
 	}).then(function(data) {
@@ -10,7 +10,7 @@ function nepaliToEnglish(nepalidate,englishdate){
 
 function englishToNepali(nepalidate,englishdate){
 	var date = $(englishdate).val();
-	var url = "http://localhost:8080/api/englishtonepali/"+date;
+	var url = "http://124.41.193.91/dateconvapi/englishtonepali/"+date;
 	$.ajax({
 		url : url
 	}).then(function(data) {
