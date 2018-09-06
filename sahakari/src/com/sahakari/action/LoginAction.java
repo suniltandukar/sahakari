@@ -53,6 +53,7 @@ public class LoginAction extends HttpServlet {
 		RequestDispatcher rd=null;
 		//if(curStatus){
 			UserModel userDetail=l.getUserDetail(u);
+			System.out.println(userDetail);
 		
 			HttpSession session=request.getSession(true);
 			session.setAttribute("userDetail", userDetail);

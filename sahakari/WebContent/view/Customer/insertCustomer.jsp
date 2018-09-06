@@ -19,28 +19,7 @@ h5 {
 	color:#00030a;
 }
 
-input[type=text] {
-	font-size: 14px;
-	font-weight: bold;
-	color:#00030a;
-}
 
-textarea:focus, input:focus {
-    color: #0206ef;
-}
-
-caption {
-	font-size: 14px;
-	font-weight: bold;
-	color:#0206ef;
-}
-
-
-.black_color {
-font-weight: bold;
-  color: #00030a;
-  font-size: 14px;
-}
 
 </style>
 </head>

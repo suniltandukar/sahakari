@@ -26,7 +26,8 @@
 </head>
 <body class="background">
 	<div class="col-md-12">
-		<form action="${formUrl }" method="post">
+		<form action="http://localhost:8080/api/multransaction/save"
+			method="post">
 			<input type="hidden" name="receivedby"
 				value="${sessionScope.userDetail.username }">
 
@@ -76,63 +77,96 @@
 
 					</header>
 					<main> <br>
-					<table border="0" cellspacing="0" cellpadding="0"
+					<table id="table"
 						class="display table table-striped table-bordered">
 						<thead>
 							<tr>
-								<th class="desc"><a onclick="addRow()" id="newrow">Add
-										Row+</a></th>
-								<th colspan="1">Trans. S.No</th>
-								<th class="desc" colspan="1">Account No</th>
-								<th class="desc" colspan="1">Value Date</th>
-								<th class="total itemdetailinput " colspan="1">Narration</th>
-								<th class="total itemdetailinput " colspan="1">Trans. Code</th>
-								<th class="total itemdetailinput " colspan="1">Trans. Type</th>
-								<th class="total itemdetailinput " colspan="1">Amount</th>
-								<th class="total itemdetailinput " colspan="1">Cheque
-									Number</th>
-
+								<th><a onclick="addRow()" id="newrow">Add Row+</a></th>
+								<th>Account No</th>
+								<th>Value Date</th>
+								<th>Narration</th>
+								<th>Trans. Code</th>
+								<th>Amount</th>
+								<th>Cheque Number</th>
+								<th>Trans. Type</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr id="tablerow">
+						<tbody id="tbody">
+							<tr>
+								<td class="col-md-1"><a class="btn btn-link removebtn">DEL</a></td>
 
-								<td><a onclick="deleteRow(this)" class="removebutton">X</a></td>
-								<td colspan="1"></td>
+								<td class="col-md-2"><input type="text"
+									class="form-control" name="accountNumber" value=""></td>
 
-								<td class="desc" colspan="1"><input type="text"
-									class="form-control one" name="accountNumber" value=""></td>
-								<td class="desc" colspan="1"><input type="text"
-									class="form-control two" name="valueDate" value=""></td>
-								<td class="total" colspan="1"><input class="form-control"
-									type="text" value="" name="narration"></td>
-								<td class="total" colspan="1"><input class="form-control"
+								<td class="col-md-2"><input type="text"
+									class="form-control" name="valueDate" value=""></td>
+
+								<td class="col-md-2"><input class="form-control"
+									type="text" value="" name="narrative"></td>
+
+								<td class="col-md-1"><input class="form-control"
 									type="text" value="" name="transactionCode"></td>
-								<td colspan="1"><select class="form-control"
-									name="transactionType">
+
+								<td class="col-md-2"><input class="form-control"
+									type="text" value="" name="amount"></td>
+
+								<td class="col-md-2"><input class="form-control"
+									type="text" value="" name="cheqNumber"></td>
+								<td class="col-md-1"><select class="form-control"
+									name="drcr">
 										<option value="dr">Dr</option>
 										<option value="cr">Cr</option>
 								</select></td>
-								<td class="total" colspan="1"><input class="form-control"
-									type="text" value="" name="amount"></td>
-								<td class="total" colspan="1"><input class="form-control"
-									type="text" value="" name="chequeNumber"></td>
-
-
 							</tr>
 						</tbody>
-
 					</table>
-
-
-
 					</main>
 				</div>
-
-				<div class="col-md-1"></div>
 			</div>
 		</form>
 	</div>
+	<div style="display: none">
+		<table>
+			<tr id="tablerow">
+				<td class="col-md-1"><a class="btn btn-link removebtn">DEL</a></td>
+
+								<td class="col-md-2"><input type="text"
+									class="form-control" name="accountNumber" value=""></td>
+
+								<td class="col-md-2"><input type="text"
+									class="form-control" name="valueDate" value=""></td>
+
+								<td class="col-md-2"><input class="form-control"
+									type="text" value="" name="narrative"></td>
+
+								<td class="col-md-1"><input class="form-control"
+									type="text" value="" name="transactionCode"></td>
+
+								<td class="col-md-2"><input class="form-control"
+									type="text" value="" name="amount"></td>
+
+								<td class="col-md-2"><input class="form-control"
+									type="text" value="" name="cheqNumber"></td>
+								<td class="col-md-1"><select class="form-control"
+									name="drcr">
+										<option value="dr">Dr</option>
+										<option value="cr">Cr</option>
+								</select></td>
+			</tr>
+		</table>
+	</div>
 </body>
+<script type="text/javascript">
+function addRow(){
+	var tr = $("#tablerow").html();
+	$('#table tbody').append('<tr>'+tr+'</tr>');
+}
+
+$('.removebtn').click(function(){
+	$(this).closest("tr").remove();
+    return false;
+});
+
+</script>
 
 </html>

@@ -165,4 +165,17 @@ public class UserModel {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	@Override
+	public String toString() {
+		return "UserModel [username=" + username + ", password=" + password + ", status=" + status + ", userid="
+				+ userid + ", givenrole=" + givenrole + ", fullName=" + fullName + ", post=" + post + ", staffCode="
+				+ staffCode + ", endDate=" + endDate + ", startDate=" + startDate + ", roleName=" + roleName
+				+ ", functionAllowed=" + functionAllowed + ", functionRestriction=" + functionRestriction
+				+ ", branchAllowed=" + branchAllowed + ", branchAllowedFunctions=" + branchAllowedFunctions
+				+ ", additionalFunctions=" + additionalFunctions + ", curStatus=" + curStatus + ", branchCode="
+				+ branchCode + ", branchName=" + branchName + ", companyId=" + companyId + "]";
+	}
+	
+	
 }

@@ -4,8 +4,7 @@
 <%@page import='com.sahakari.model.UserModel'%>
 <%
 	if ((session.getAttribute("userDetail")) != null) {
-		UserModel userdetail = (UserModel) session
-				.getAttribute("userDetail");
+		UserModel userdetail = (UserModel) session.getAttribute("userDetail");
 		String currentBranchCode=(String)session.getAttribute("currentBranchcode");
 		
 		String mainRole=(String)session.getAttribute("mainRole");

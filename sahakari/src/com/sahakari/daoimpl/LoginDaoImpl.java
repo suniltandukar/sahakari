@@ -104,11 +104,10 @@ public class LoginDaoImpl implements LoginDao {
 				um.setBranchAllowed(rs.getString("branchAllowed"));
 				um.setBranchAllowedFunctions(rs.getString("branchAllowedFunctions"));
 				um.setCompanyId(rs.getString("companyId"));
-				return um;
 			}
 		}catch(Exception e){
 			System.out.println(e);
 		}
-		return null;
+		return um;
 	}
 }
