@@ -106,7 +106,7 @@ h5 {
 							<td>${c.categoryId }</td>
 							<td>${c.categoryHead }</td>
 							<td>${c.accountType }</td>
-							<td><a href="updateCategory.click?id=${c.categoryId }">Edit</a></td>
+							<td><form action="updateCategory.click" method="get"><input type="hidden" name="id" value="${c.categoryId }"><button type="submit" class="btn btn-info" >Edit</button></form></td>
 						</tr>
 					</c:forEach>
 					</tbody>
@@ -140,7 +140,7 @@ h5 {
 		$('#categoryModal').modal('show');
 		} 
 		});
-	});
+	
 	/* getCategoriesDetail.click */
 	</script>
 </body>

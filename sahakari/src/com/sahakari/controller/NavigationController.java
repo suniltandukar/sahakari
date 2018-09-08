@@ -462,7 +462,7 @@ public class NavigationController extends HttpServlet {
 			branchid = "001";
 			String mid = gen.multitransactionidgenerator(branchid);
 			request.setAttribute("mid", mid);
-			rd = request.getRequestDispatcher("view/Transaction/MultiTransactions/invoice_pre.jsp");
+			rd = request.getRequestDispatcher("view/Transaction/MultiTransactions/insert.jsp");
 			rd.forward(request, response);
 			break;
 

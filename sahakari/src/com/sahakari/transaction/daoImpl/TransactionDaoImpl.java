@@ -263,7 +263,7 @@ public class TransactionDaoImpl implements TransactionDao{
 		TellerTransactionModel tm=null;
 		try{
 			con=DBConnection.getConnection();
-			String query="select * from multipletransactiontbl";
+			String query="SELECT transactionId, bookingDate, sum(amount) as amount from multipletransactiontbl group by transactionId, bookingDate, drcr HAVING drcr='cr'";
 			ps=con.prepareStatement(query);
 			rs=ps.executeQuery();
 			
@@ -272,20 +272,8 @@ public class TransactionDaoImpl implements TransactionDao{
 				
 				tm=new TellerTransactionModel();
 				tm.setTransactionid(rs.getString("transactionId"));
-				tm.setTransactionno(rs.getString("transactionno"));
 				tm.setBookingdate(rs.getString("bookingDate"));
-				tm.setValuedate(rs.getString("valueDate"));
-				tm.setProcessdate(rs.getString("processingDate"));
-				tm.setAccountnumber(rs.getString("accountNumber"));	
-				tm.setDrcr(rs.getString("drcr"));
-				tm.setNarrative(rs.getString("narrative"));
-				tm.setChequenumber(rs.getString("cheqNumber"));
 				tm.setAmount(rs.getString("amount"));
-				tm.setTransactioncode(rs.getString("transactionCode"));
-				tm.setBranchid(rs.getString("branchId"));
-				tm.setInputter(rs.getString("inputter"));
-
-				tm.setAuthorizer(rs.getString("authorizer"));
 				list.add(tm);
 			}
 			if(list.size()>0){

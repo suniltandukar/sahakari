@@ -25,11 +25,14 @@
 </style>
 </head>
 <body class="background">
+<div id="server-results"></div>
 	<div class="col-md-12">
-		<form action="http://localhost:8080/api/multransaction/save"
+		<form action="http://localhost:8080/api/multransaction/save" id="my_form"
 			method="post">
-			<input type="hidden" name="receivedby"
+			<input type="hidden" name="inputter"
 				value="${sessionScope.userDetail.username }">
+				<input type="hidden" name="branchId"
+				value="${sessionScope.currentBranchCode }">
 
 			<div class="row">
 
@@ -58,7 +61,7 @@
 							<div>
 								<span class="label label-default">Transaction Id*</span> <br>
 								<input type="text" id="transactionId" class="form-control date"
-									name="transactionId" value="">
+									name="transactionId" value="${mid }" readonly>
 							</div>
 							<br>
 							<div>
@@ -71,7 +74,7 @@
 							<div>
 								<span class="label label-default ">Booking Date*</span> <br>
 								<input type="text" id="bookingDate" class="form-control date"
-									name="bookingDate">
+									name="bookingDate" required>
 							</div>
 						</div>
 
@@ -92,11 +95,11 @@
 							</tr>
 						</thead>
 						<tbody id="tbody">
-							<tr>
-								<td class="col-md-1"><a class="btn btn-link removebtn">DEL</a></td>
+							<tr id="tablerow">
+								<td class=""><a class="removebtn">DEL</a></td>
 
 								<td class="col-md-2"><input type="text"
-									class="form-control" name="accountNumber" value=""></td>
+									class="form-control" name="accountNumber" value="" required></td>
 
 								<td class="col-md-2"><input type="text"
 									class="form-control" name="valueDate" value=""></td>
@@ -107,12 +110,12 @@
 								<td class="col-md-1"><input class="form-control"
 									type="text" value="" name="transactionCode"></td>
 
-								<td class="col-md-2"><input class="form-control"
+								<td class="col-md-2"><input class="form-control amount"
 									type="text" value="" name="amount"></td>
 
 								<td class="col-md-2"><input class="form-control"
 									type="text" value="" name="cheqNumber"></td>
-								<td class="col-md-1"><select class="form-control"
+								<td class="col-md-2"><select class="form-control drcr"
 									name="drcr">
 										<option value="dr">Dr</option>
 										<option value="cr">Cr</option>
@@ -125,46 +128,43 @@
 			</div>
 		</form>
 	</div>
-	<div style="display: none">
-		<table>
-			<tr id="tablerow">
-				<td class="col-md-1"><a class="btn btn-link removebtn">DEL</a></td>
-
-								<td class="col-md-2"><input type="text"
-									class="form-control" name="accountNumber" value=""></td>
-
-								<td class="col-md-2"><input type="text"
-									class="form-control" name="valueDate" value=""></td>
-
-								<td class="col-md-2"><input class="form-control"
-									type="text" value="" name="narrative"></td>
-
-								<td class="col-md-1"><input class="form-control"
-									type="text" value="" name="transactionCode"></td>
-
-								<td class="col-md-2"><input class="form-control"
-									type="text" value="" name="amount"></td>
-
-								<td class="col-md-2"><input class="form-control"
-									type="text" value="" name="cheqNumber"></td>
-								<td class="col-md-1"><select class="form-control"
-									name="drcr">
-										<option value="dr">Dr</option>
-										<option value="cr">Cr</option>
-								</select></td>
-			</tr>
-		</table>
-	</div>
 </body>
-<script type="text/javascript">
+<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/template/js/ajaxformsubmit.js"></script>
+ --%><script type="text/javascript">
 function addRow(){
 	var tr = $("#tablerow").html();
 	$('#table tbody').append('<tr>'+tr+'</tr>');
 }
 
-$('.removebtn').click(function(){
-	$(this).closest("tr").remove();
-    return false;
+$("#my_form").submit(function(event){
+
+    event.preventDefault(); //prevent default action 
+    var post_url = $(this).attr("action"); //get form action url
+    var request_method = $(this).attr("method"); //get form GET/POST method
+    var form_data = $(this).serialize(); //Encode form elements for submission
+    
+    $.ajax({
+        url : post_url,
+        type: request_method,
+        data : form_data
+    }).done(function(response){ //
+    	if(response.status == 'OK'){
+    	alert("Status: "+response.status);
+        location.reload(true);
+    	}
+    	else{
+    		alert("Status: "+response.status);
+    	}
+    });
+
+});
+
+$(".removebtn").click(function(){
+	var closest = $(this).closest("tr");
+	alert(closest.length);
+	if(closest.length>1){
+	closest.remove();
+	}
 });
 
 </script>
