@@ -27,7 +27,7 @@
 <body class="background">
 <div id="server-results"></div>
 	<div class="col-md-12">
-		<form action="http://localhost:8080/api/multransaction/save" id="my_form"
+		<form action="http://124.41.193.91/sahakariapi/multransaction/save" id="my_form"
 			method="post">
 			<input type="hidden" name="inputter"
 				value="${sessionScope.userDetail.username }">

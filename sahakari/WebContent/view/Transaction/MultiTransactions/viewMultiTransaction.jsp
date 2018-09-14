@@ -116,7 +116,7 @@
 	<script type="text/javascript">
 	$(".view").click(function(event){
 		var transactionId = $(this).closest("tr").find('.transactionid').html(); 
-	var url = "http://localhost:8080/api/multransaction/findById/"+transactionId;
+	var url = "http://124.41.193.91/sahakariapi/multransaction/findById/"+transactionId;
 		$.ajax({
 			url : url
 		}).then(function(data) {

@@ -870,6 +870,21 @@ public class NavigationController extends HttpServlet {
 			rd = request.getRequestDispatcher("view/reports/statement/search.jsp");
 			rd.forward(request, response);
 			break;
+			
+		case "intrate.click":
+			rd = request.getRequestDispatcher("view/intrate/insert.jsp");
+			rd.forward(request, response);
+			break;
+		case "viewintrate.click":
+			rd = request.getRequestDispatcher("view/intrate/view.jsp");
+			rd.forward(request, response);
+			break;
+		case "updateintrate.click":
+			 id = request.getParameter("id");
+			 request.setAttribute("id", id);
+			rd = request.getRequestDispatcher("view/intrate/update.jsp");
+			rd.forward(request, response);
+			break;
 		case "generateStatement.click":
 			String acno = request.getParameter("accountNumber");
 			String datefrom = request.getParameter("datefrom");
