@@ -84,7 +84,7 @@
 						class="display table table-striped table-bordered">
 						<thead>
 							<tr>
-								<th><a onclick="addRow()" id="newrow">Add Row+</a></th>
+								<th><a id="add">Add Row+</a></th>
 								<th>Account No</th>
 								<th>Value Date</th>
 								<th>Narration</th>
@@ -95,8 +95,8 @@
 							</tr>
 						</thead>
 						<tbody id="tbody">
-							<tr id="tablerow">
-								<td class=""><a class="removebtn">DEL</a></td>
+							<tr id="row1">
+								<td class=""></td>
 
 								<td class="col-md-2"><input type="text"
 									class="form-control" name="accountNumber" value="" required></td>
@@ -122,6 +122,7 @@
 								</select></td>
 							</tr>
 						</tbody>
+						<tfoot></tfoot>
 					</table>
 					</main>
 				</div>
@@ -129,13 +130,18 @@
 		</form>
 	</div>
 </body>
-<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/template/js/ajaxformsubmit.js"></script>
- --%><script type="text/javascript">
-function addRow(){
-	var tr = $("#tablerow").html();
-	$('#table tbody').append('<tr>'+tr+'</tr>');
-}
-
+ <script type="text/javascript">
+ $(document).ready(function(){
+		var i = 1;
+		$("#add").click(function(){
+			i++;
+			var tr = $("#row1").html();
+			$('#table tbody').append('<tr id="row'+i+'"><td class=""><a class="btn btn-danger btn_remove" id="'+i+'">X</a></td><td class="col-md-2"><input type="text" class="form-control" name="accountNumber" value="" required></td><td class="col-md-2"><input type="text" class="form-control" name="valueDate" value=""></td><td class="col-md-2"><input class="form-control" type="text" value="" name="narrative"></td><td class="col-md-1"><input class="form-control" type="text" value="" name="transactionCode"></td><td class="col-md-2"><input class="form-control amount" type="text" value="" name="amount"></td><td class="col-md-2"><input class="form-control" type="text" value="" name="cheqNumber"></td><td class="col-md-2"><select class="form-control drcr" name="drcr"><option value="dr">Dr</option><option value="cr">Cr</option></select></td></tr>');
+		});
+		$(document).on('click','.btn_remove', function(){
+			var button_id = $(this).attr("id");
+			$("#row"+button_id+"").remove();
+		})
 $("#my_form").submit(function(event){
 
     event.preventDefault(); //prevent default action 
@@ -158,15 +164,7 @@ $("#my_form").submit(function(event){
     });
 
 });
-
-$(".removebtn").click(function(){
-	var closest = $(this).closest("tr");
-	alert(closest.length);
-	if(closest.length>1){
-	closest.remove();
-	}
-});
-
+ });
 </script>
 
 </html>

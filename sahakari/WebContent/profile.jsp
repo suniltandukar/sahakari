@@ -86,8 +86,8 @@ display:block;}
 									<ul class="nav child_menu">
 										<li id="nav1"><a href="view/dashboard.jsp" target="iframe_a">Dashboard</a></li>
 										<li id="nav1"><a href="statement.click" target="iframe_a">Statement</a></li>
-										<li id="nav1"><a href="view/signature/upload.jsp" target="iframe_a">Signature Upload</a></li>
-										<li id="nav1"><a href="view/signature/view.jsp" target="iframe_a">Signatures View</a></li>
+										<li id="nav1"><a href="signatureupload.click" target="iframe_a">Signature Upload</a></li>
+										<li id="nav1"><a href="signatureview.click" target="iframe_a">Signatures View</a></li>
 										
 									</ul></li>
 								<li id="member"><a><i class="fa fa-users" aria-hidden="true"></i> सदस्य दर्ता  Member(With KYM)
@@ -318,6 +318,15 @@ display:block;}
 										<li id="i"><a href="intrate.click" target="iframe_a"> Create New Intrate
 												</a></li>
 												<li id="i"><a href="viewintrate.click" target="iframe_a"> View Intrate
+												</a></li>
+												</ul>
+												</li>
+							<li id="intrate"><a><i class="fa fa-university" aria-hidden="true"></i>Member Documents <span
+										class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li id="i"><a href="intrate.click" target="iframe_a"> Upload Documents
+												</a></li>
+												<li id="i"><a href="viewintrate.click" target="iframe_a"> View Documents
 												</a></li>
 												</ul>
 												</li>

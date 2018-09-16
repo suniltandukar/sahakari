@@ -1,6 +1,6 @@
+<jsp:include page="/includefile"></jsp:include>
 <html>
 <head>
- <link href="../../template/css/bootstrap.min.css" rel="stylesheet">
 <style>
 h5 {
 	font-size: 80%;
@@ -28,7 +28,7 @@ h5 {
 
 		<div class="x_panel">
 			<div class="x_title">
-				<h3>ADD SIGNATURE</h3>
+				<h4>ADD SIGNATURE</h4>
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
@@ -46,11 +46,11 @@ h5 {
 							</tr>
 							<tr>
 								<td>
-									<h5>Account Number</h5> <input type="text" class="form-control"
+									<h4>Account Number</h4> <input type="text" class="form-control"
 									name="accountNumber" value="" required>
 								</td>
 								<td>
-									<h5>Image</h5> <input type="file" class="form-control "
+									<h4>Image</h4> <input type="file" class="form-control "
 									name="file"  accept="image/gif, image/jpeg, image/png" required>
 								</td>
 							</tr>
@@ -60,5 +60,8 @@ h5 {
 			</div>
 		</div>
 	</div>
+	<script>
+
+	</script>
 </body>
 </html>

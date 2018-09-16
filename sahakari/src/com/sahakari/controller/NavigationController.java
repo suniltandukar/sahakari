@@ -885,6 +885,15 @@ public class NavigationController extends HttpServlet {
 			rd = request.getRequestDispatcher("view/intrate/update.jsp");
 			rd.forward(request, response);
 			break;
+			
+		case "signatureupload.click":
+			rd = request.getRequestDispatcher("view/signature/upload.jsp");
+			rd.forward(request, response);
+			break;
+		case "signatureview.click":
+			rd = request.getRequestDispatcher("view/signature/view.jsp");
+			rd.forward(request, response);
+			break;
 		case "generateStatement.click":
 			String acno = request.getParameter("accountNumber");
 			String datefrom = request.getParameter("datefrom");

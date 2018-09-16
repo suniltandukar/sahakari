@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="/includefile"></jsp:include>
 <html>
@@ -12,17 +11,15 @@ h5 {
 }
 #${
 type
-
-
 }
 {
 display
 
 
 :none
-
-
 ;
+
+
 }
 </style>
 </head>
@@ -39,7 +36,7 @@ display
 			</ol>
 		</nav>
 	</div>
-	
+
 	<div class="col-md-8 col-xs-12">
 		<div class="x_panel">
 			<form class="form-horizontal form-label-left input_mask"
@@ -70,14 +67,14 @@ display
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Booking
 							Date(B.S/A.D)</label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
-							<input type="text" class="form-control" name=""
-								placeholder="" value="${todayNepaliDate }" readonly>
+							<input type="text" class="form-control" name="" placeholder=""
+								value="${todayNepaliDate }" readonly>
 						</div>
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<input type="text" class="form-control" name="bookingdate"
 								placeholder="" value="${todayDate }" readonly>
 						</div>
-						
+
 					</div>
 					<div class="form-group" id="cashWithdraw">
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Credit
@@ -114,12 +111,16 @@ display
 						<label class="control-label col-md-2 col-sm-2 col-xs-12">Value
 							Date(B.S/A.D) </label>
 						<div class="col-md-4 col-sm-4 col-xs-12">
-							<input type="text" name="nepvaluedate" class="form-control valuedatenep" onblur="nepaliToEnglish('.valuedatenep','.valuedateen')"
-								placeholder="" value="${todayNepaliDate }" >
+							<input type="text" name="nepvaluedate"
+								class="form-control valuedatenep"
+								onblur="nepaliToEnglish('.valuedatenep','.valuedateen')"
+								placeholder="" value="${todayNepaliDate }">
 						</div>
 						<div class="col-md-4 col-sm-4 col-xs-12">
-							<input type="text" name="valuedate" class="form-control valuedateen"
-								placeholder="" value="${todayDate }" onblur="englishToNepali('.valuedatenep','.valuedateen')">
+							<input type="text" name="valuedate"
+								class="form-control valuedateen" placeholder=""
+								value="${todayDate }"
+								onblur="englishToNepali('.valuedatenep','.valuedateen')">
 						</div>
 					</div>
 					<div class="form-group">
@@ -158,7 +159,15 @@ display
 				</div>
 			</form>
 		</div>
-</div>
+	</div>
+	<div class="col-md-4 col-xs-12">
+		<div class="x_panel">
+			<div class="x_content">
+			<img src="" id="signature_image" class="img-thumbnail" />
+			</div>
+		</div>
+	</div>
+
 	<div class="scriptdiv"></div>
 	<jsp:include page="/msgmodal"></jsp:include>
 	<script>
@@ -178,34 +187,34 @@ display
 
 		$("#validate").click(function() {
 
-			var craccount = $('#creditaccountnumber').val();
-			var draccount = $('#debitaccountnumber').val();
-			var dataString = {
-				'craccount' : craccount,
-				'draccount' : draccount
-			};
-			$.ajax({
-				type : "POST",
-				url : "showaccountname.click",
-				data : dataString,
-				dataType : "json",
-				cache : false,
-				success : function(res) {
+							var craccount = $('#creditaccountnumber').val();
+							var draccount = $('#debitaccountnumber').val();
+							var dataString = {
+								'craccount' : craccount,
+								'draccount' : draccount
+							};
+							$.ajax({
+								type : "POST",
+								url : "showaccountname.click",
+								data : dataString,
+								dataType : "json",
+								cache : false,
+								success : function(res) {
 
-					var data = "";
-					var p = JSON.parse(res[0]);
-					$('.memberid').val(p.memberid);
-					$('.accountName').html(p.accountname);
-					$('#customername').html(p.membername);
-
-				},
-				error : function() {
-					$alert("error occured");
-				}
-			});
-		});
-		
-		
+									var data = "";
+									var p = JSON.parse(res[0]);
+									$('.memberid').val(p.memberid);
+									$('.accountName').html(p.accountname);
+									$('#customername').html(p.membername);
+									$("#signature_image").attr("src","http://localhost:8080/api/media/findByAccountNo/"+ draccount+"");
+								},
+								error : function() {
+									$alert("error occured");
+								}
+							});
+							
+							
+						});
 		
 	</script>
 </body>

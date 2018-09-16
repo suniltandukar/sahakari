@@ -36,7 +36,7 @@ textarea:focus, input:focus {
 		<div class="col-md-8 col-xs-12">
 			<div class="x_panel">
 				<form class="form-horizontal form-label-left input_mask"
-					method="post" action="http://localhost:8080/api/intrate/update/">
+					method="post" action="http://localhost:8080/api/intrate/update/${id}">
 					<!--  action="account.add" -->
 					<!-- action="testjasper" -->
 					<div class="x_title">
@@ -47,7 +47,7 @@ textarea:focus, input:focus {
 							<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
 								<button class="btn btn-info" type="button" id="validate">Validate</button>
 								<button class="btn btn-primary" type="reset">Reset</button>
-								<a class="btn btn-danger" >Delete</a>
+								<a class="btn btn-danger" href="http://localhost:8080/api/intrate/delete/${id}">Delete</a>
 								<input type="submit" class="btn btn-success" value="Update">
 							</div>
 						</div>

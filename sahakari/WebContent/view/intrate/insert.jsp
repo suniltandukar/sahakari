@@ -19,8 +19,6 @@ textarea:focus, input:focus {
 	font-size: 14px;
 }
 </style>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 </head>
 <body class="background">
 	<div class="breadcrumb-line">
@@ -42,7 +40,7 @@ textarea:focus, input:focus {
 					<!--  action="account.add" -->
 					<!-- action="testjasper" -->
 					<div class="x_title">
-						<h2>Add Intrate</h2>
+						<h2>ADD INTRATE</h2>
 						<div class="clearfix"></div>
 						<div class="ln_solid"></div>
 						<div class="form-group">
