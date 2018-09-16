@@ -9,13 +9,13 @@
 	<jsp:include page="/includefile"></jsp:include>
 	<div class="breadcrumb-line">
 		<nav aria-label="breadcrumb" role="navigation">
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><i class="fa fa-home"
-				aria-hidden="true"></i>&nbsp;<a href="#">Home</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Member
-				Documents</li>
-			<li class="breadcrumb-item active" aria-current="page">Upload</li>
-		</ol>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><i class="fa fa-home"
+					aria-hidden="true"></i>&nbsp;<a href="#">Home</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Member
+					Documents</li>
+				<li class="breadcrumb-item active" aria-current="page">Upload</li>
+			</ol>
 		</nav>
 	</div>
 	<div class="col-md-12 col-sm-12 col-xs-12">
@@ -26,17 +26,32 @@
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
 				</ul>
-				<a href="viewmemberdocuments.click"class="btn btn-primary btn-xs pull-right">View documents</a>
+				<a href="viewmemberdocuments.click"
+					class="btn btn-primary btn-xs pull-right">View documents</a>
 				<div class="clearfix"></div>
 			</div>
+			<div id="notices">
+				<div class="form-group">
+					<div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3">
+
+						<button class="btn btn-info" type="button" id="validate">Validate</button>
+						<a class="btn btn-danger" id="cancel"
+							href="<spring:url value="/paymentVoucher/cancel" />">Cancel</a> 
+							<input form="form" type="submit" class="btn btn-success" value="Submit">
+
+					</div>
+				</div>
+
+
+			</div>
 			<div class="x_content">
-				<form method="POST" action="document.upload" class="confirm" role="form"
-					enctype="multipart/form-data">
+				<form method="POST" action="document.upload" class="confirm"
+					role="form" enctype="multipart/form-data" >
 					<table class="table">
 						<tbody>
 							<tr>
-								<td><button type="submit"
-									class="btn btn-primary">Upload</button></td>
+								<td><button type="submit" class="btn btn-primary">Upload</button></td>
+
 							</tr>
 
 							<tr>
@@ -44,7 +59,15 @@
 									<h5>Member ID</h5> <input type="text" name="memberid"
 									class="form-control" required>
 								</td>
+
+							</tr>
+							<tr>
+								<td class=""><a onclick="addRow()" id="newrow"
+									class="btn btn-primary">Add Row</a></td>
+							</tr>
+							<tr>
 								<td>
+
 									<h5>Document Type</h5> <select name="documenttype"
 									class="form-control" required>
 										<option value="">Select Type</option>
@@ -52,18 +75,21 @@
 										<option value="PSP">Passport</option>
 										<option value="LAL">Lalpurja</option>
 										<option value="TAX">Tiro Rasid</option>
-										
+
 								</select>
 								</td>
 								<td>
 									<h5>Attach Image</h5> <input type="file" name="filename"
-									class="form-control" value="" >
+									class="form-control" value="">
 								</td>
+								<td><h5>Action</h5><button onclick="deleteRow(this)"
+										class="removebutton btn btn-danger">Delete</button></td>
 							</tr>
 						</tbody>
 					</table>
 				</form>
 			</div>
+
 		</div>
 	</div>
 	<div class="modal fade" id="myModal" role="dialog">
@@ -96,6 +122,17 @@ $(document).ready(function()
 		  return confirm('sure?'); 
 	   });
         });
+        
+function deleteRow(btn) {
+	var row = btn.parentNode.parentNode;
+	row.parentNode.removeChild(row);
+};
+function addRow() {
+	var tbody = $("table tbody");
+	tbody.find("tr:eq(3)").clone().appendTo(tbody)
+			.find("input, select").val("");
+};
+
 </script>
 
 
