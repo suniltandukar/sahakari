@@ -32,7 +32,7 @@
 				
 			</div>
 			
-			<form method="POST" action="document.upload" class="confirm"
+			<form method="POST" action="http://localhost:8080/api/memberdocument/upload" class="confirm"
 					role="form" enctype="multipart/form-data" >
 			
 				<div class="form-group">
@@ -50,13 +50,13 @@
 						<tbody>
 							<tr>
 								<td>
-									<h5>Member ID</h5> <input type="text" name="memberid"
+									<h5>Member ID</h5> <input type="text" name="pid"
 									class="form-control" required>
 								</td>
 							</tr>
 							<tr>
 								<td>
-								<h5>Document Type</h5> <select name="documenttype"
+								<h5>Document Type</h5> <select name="document_type"
 									class="form-control" required>
 										<option value="">Select Type</option>
 										<option value="CNS">Citizenship</option>
@@ -67,7 +67,7 @@
 								</select>
 								</td>
 								<td>
-									<h5>Attach Image</h5> <input type="file" name="filename"
+									<h5>Attach Image</h5> <input type="file" name="file"
 									class="form-control" value="">
 								</td>
 								<td><h5>Remove</h5><button onclick="deleteRow(this)"
