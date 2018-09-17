@@ -18,57 +18,45 @@
 			</ol>
 		</nav>
 	</div>
-	<div class="col-md-12 col-sm-12 col-xs-12">
+	<div class="col-md-8 col-sm-8 col-xs-12">
 		<div class="x_panel">
 			<div class="x_title">
-				<h2>FILL DOCUMENT DETAILS</h2>
+				<h2>UPLOAD DOCUMENTS</h2>
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
 				</ul>
 				<a href="viewmemberdocuments.click"
 					class="btn btn-primary btn-xs pull-right">View documents</a>
-				<div class="clearfix"></div>
+					<div class="clearfix"></div>
+				
 			</div>
-			<div id="notices">
+			
+			<form method="POST" action="document.upload" class="confirm"
+					role="form" enctype="multipart/form-data" >
+			
 				<div class="form-group">
 					<div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3">
-
+						<a onclick="addRow()" id="newrow" class="btn btn-primary">Add Row</a>
 						<button class="btn btn-info" type="button" id="validate">Validate</button>
-						<a class="btn btn-danger" id="cancel"
-							href="<spring:url value="/paymentVoucher/cancel" />">Cancel</a> 
-							<input form="form" type="submit" class="btn btn-success" value="Submit">
+							<input type="submit" class="btn btn-success" value="Upload">
 
 					</div>
 				</div>
 
-
-			</div>
 			<div class="x_content">
-				<form method="POST" action="document.upload" class="confirm"
-					role="form" enctype="multipart/form-data" >
+				
 					<table class="table">
 						<tbody>
-							<tr>
-								<td><button type="submit" class="btn btn-primary">Upload</button></td>
-
-							</tr>
-
 							<tr>
 								<td>
 									<h5>Member ID</h5> <input type="text" name="memberid"
 									class="form-control" required>
 								</td>
-
-							</tr>
-							<tr>
-								<td class=""><a onclick="addRow()" id="newrow"
-									class="btn btn-primary">Add Row</a></td>
 							</tr>
 							<tr>
 								<td>
-
-									<h5>Document Type</h5> <select name="documenttype"
+								<h5>Document Type</h5> <select name="documenttype"
 									class="form-control" required>
 										<option value="">Select Type</option>
 										<option value="CNS">Citizenship</option>
@@ -82,13 +70,13 @@
 									<h5>Attach Image</h5> <input type="file" name="filename"
 									class="form-control" value="">
 								</td>
-								<td><h5>Action</h5><button onclick="deleteRow(this)"
-										class="removebutton btn btn-danger">Delete</button></td>
+								<td><h5>Remove</h5><button onclick="deleteRow(this)"
+										class="removebutton btn btn-danger">X</button></td>
 							</tr>
 						</tbody>
 					</table>
-				</form>
 			</div>
+			</form>
 
 		</div>
 	</div>
@@ -129,7 +117,7 @@ function deleteRow(btn) {
 };
 function addRow() {
 	var tbody = $("table tbody");
-	tbody.find("tr:eq(3)").clone().appendTo(tbody)
+	tbody.find("tr:eq(1)").clone().appendTo(tbody)
 			.find("input, select").val("");
 };
 
