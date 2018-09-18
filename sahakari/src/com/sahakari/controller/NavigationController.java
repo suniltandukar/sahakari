@@ -589,6 +589,7 @@ public class NavigationController extends HttpServlet {
 			break;
 		case "getmembername.click":
 			int intpid = Integer.parseInt(request.getParameter("id"));
+			System.out.println(intpid+"int pid");
 
 			String pid = String.format("%07d", intpid);
 

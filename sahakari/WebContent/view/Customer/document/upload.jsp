@@ -1,5 +1,6 @@
 <%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%> --%>
+	
 <html>
 <head>
 <title>Customer Bill Upload</title>
@@ -51,7 +52,11 @@
 							<tr>
 								<td>
 									<h5>Member ID</h5> <input type="text" name="pid"
-									class="form-control" required>
+									class="form-control pid" required>
+								</td>
+								<td>
+									<h5>Member Name</h5> <input type="text" name="name"
+									class="form-control membername" required readonly>
 								</td>
 							</tr>
 							<tr>
@@ -101,6 +106,23 @@
 </body>
 <script src="assets/js/dateConverter.js"></script>
 <script>
+$("#validate").click(function() {
+	 var id=$('.pid').val();
+	 alert(id);
+		var dataString = 'id='+ id;
+	 $.ajax
+		({
+		type: "POST",
+		url: "getmembername.click",
+		data: dataString,
+		cache: false,
+		success: function(html)
+		{
+		$("#membername").val(html);
+		} 
+		});
+});
+
 $(document).ready(function()
         {
 	<%if(request.getAttribute("msg")!=null){%>
