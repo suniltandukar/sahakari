@@ -149,7 +149,7 @@ display:block;}
 											</ul></li>
 										<li id="cheque"><a><span class="fa fa-chevron-down"></span>Cheque</a>
 											<ul class="nav child_menu">
-												<li id="i"><a href="pageNotFound.jsp" target="iframe_a">Issue Cheque</a></li>
+												<li id="i"><a href="issueCheque.click" target="iframe_a">Issue Cheque</a></li>
 												<li id="r"><a href="pageNotFound.jsp" target="iframe_a">Reversal of
 														issued cheque</a></li>
 												<li id="v"><a href="pageNotFound.jsp" target="iframe_a">List issued
