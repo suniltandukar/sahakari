@@ -12,7 +12,6 @@
 	opacity: 0.6
 }
 </style>
-</style>
 
 
 	<style>

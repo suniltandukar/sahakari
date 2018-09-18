@@ -932,6 +932,11 @@ public class NavigationController extends HttpServlet {
 			rd.forward(request, response);
 
 			break;
+			
+		case "issueCheque.click":
+			rd = request.getRequestDispatcher("view/cheque/insert.jsp");
+			rd.forward(request, response);
+			break;
 
 		default:
 			out.println("Invalid Action!");
